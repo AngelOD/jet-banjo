@@ -13,7 +13,7 @@ namespace JetBanjo
 		{
 			InitializeComponent();
 
-			MainPage = new JetBanjo.MainPage();
+			MainPage = new Views.MasterDetail.Master();
 		}
 
 		protected override void OnStart ()
