@@ -8,7 +8,9 @@ using Foundation;
 using UIKit;
 using System.Globalization;
 using System.Threading;
+using JetBanjo.iOS.Utils;
 
+[assembly: Xamarin.Forms.Dependency(typeof(Localize))]
 namespace JetBanjo.iOS.Utils
 {
 
@@ -17,6 +19,9 @@ namespace JetBanjo.iOS.Utils
     /// </summary>
     public class Localize : ILocalize
     {
+
+        public Localize() { }
+
         public void SetLocale(CultureInfo ci)
         {
             Thread.CurrentThread.CurrentCulture = ci;

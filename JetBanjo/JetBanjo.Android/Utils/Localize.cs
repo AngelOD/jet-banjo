@@ -10,8 +10,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using JetBanjo.Droid.Utils;
 using JetBanjo.Utils;
 
+[assembly: Xamarin.Forms.Dependency(typeof(Localize))]
 namespace JetBanjo.Droid.Utils
 {
     /// <summary>
@@ -19,6 +21,9 @@ namespace JetBanjo.Droid.Utils
     /// </summary>
     public class Localize : ILocalize
     {
+
+        public Localize() { }
+
         public void SetLocale(CultureInfo ci)
         {
             Thread.CurrentThread.CurrentCulture = ci;
