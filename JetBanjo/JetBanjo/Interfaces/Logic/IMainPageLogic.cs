@@ -1,9 +1,9 @@
-﻿using JetBanjo.Logic.Interfaces.Views;
+﻿using JetBanjo.Interfaces.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace JetBanjo.Logic.Interfaces.Logic
+namespace JetBanjo.Interfaces.Logic
 {
     public interface IMainPageLogic
     {

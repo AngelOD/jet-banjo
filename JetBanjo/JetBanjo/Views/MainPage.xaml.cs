@@ -1,5 +1,6 @@
-﻿using JetBanjo.Logic.Interfaces.Logic;
-using JetBanjo.Logic.Interfaces.Views;
+﻿using JetBanjo.Logic.Implementation;
+using JetBanjo.Interfaces.Logic;
+using JetBanjo.Interfaces.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,16 @@ namespace JetBanjo.Views
 	public partial class MainPage : ContentPage, IMainPageView
 	{
 
-        IMainPageLogic logic;
+        private IMainPageLogic logic;
 
-		public MainPage(IMainPageLogic logic)
+        public MainPage()
+        {
+            InitializeComponent();
+            this.logic = new MainPageLogic();
+            logic.SetView(this);
+        }
+
+        public MainPage(IMainPageLogic logic)
 		{
 			InitializeComponent();
             this.logic = logic;

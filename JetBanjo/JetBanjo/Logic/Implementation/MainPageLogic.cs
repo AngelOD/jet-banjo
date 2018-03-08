@@ -1,5 +1,5 @@
-﻿using JetBanjo.Logic.Interfaces.Logic;
-using JetBanjo.Logic.Interfaces.Views;
+﻿using JetBanjo.Interfaces.Logic;
+using JetBanjo.Interfaces.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
