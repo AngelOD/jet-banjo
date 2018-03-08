@@ -39,7 +39,7 @@ namespace JetBanjo
         /// </summary>
         private void RegisterMenuItems()
         {
-            Master.Register(new MainPage(new MainPageLogic()), AppResources.main);
+            Master.Register(new MainPage(new MainPageLogic()), AppResources.home);
         }
 
 		protected override void OnStart ()

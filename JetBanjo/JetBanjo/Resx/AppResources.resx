@@ -120,7 +120,4 @@
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="main" xml:space="preserve">
-    <value>Main</value>
-  </data>
 </root>
