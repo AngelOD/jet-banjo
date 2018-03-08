@@ -3,9 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static JetBanjo.Views.MasterDetail.MasterMaster;
+using static JetBanjo.Pages.MasterDetail.MasterMaster;
 
-namespace JetBanjo.Views.MasterDetail
+namespace JetBanjo.Pages.MasterDetail
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Master : MasterDetailPage

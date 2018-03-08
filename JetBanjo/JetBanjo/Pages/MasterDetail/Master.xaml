@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JetBanjo.Views.MasterDetail.Master"
-             xmlns:masterPages="clr-namespace:JetBanjo.Views.MasterDetail"
-             xmlns:views="clr-namespace:JetBanjo.Views">
+             x:Class="JetBanjo.Pages.MasterDetail.Master"
+             xmlns:masterPages="clr-namespace:JetBanjo.Pages.MasterDetail"
+             xmlns:views="clr-namespace:JetBanjo.Pages">
   <MasterDetailPage.Master>
     <masterPages:MasterMaster x:Name="MasterPage" />
   </MasterDetailPage.Master>

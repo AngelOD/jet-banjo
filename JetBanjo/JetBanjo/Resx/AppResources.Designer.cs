@@ -68,14 +68,5 @@ namespace JetBanjo.Resx {
                 return ResourceManager.GetString("home", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Main.
-        /// </summary>
-        internal static string main {
-            get {
-                return ResourceManager.GetString("main", resourceCulture);
-            }
-        }
     }
 }
