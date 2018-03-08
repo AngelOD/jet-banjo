@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
-             x:Class="JetBanjo.Views.MainPage"
+             x:Class="JetBanjo.Pages.MainPage"
              Title="{i18n:Translate home}">
 
     <Label Text="Welcome to Xamarin.Forms!" 

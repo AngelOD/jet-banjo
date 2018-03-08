@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace JetBanjo.Views.MasterDetail
+namespace JetBanjo.Pages.MasterDetail
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterMaster : ContentPage

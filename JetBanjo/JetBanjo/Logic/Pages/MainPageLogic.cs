@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace JetBanjo.Logic.Implementation
+namespace JetBanjo.Logic.Pages
 {
     public class MainPageLogic : IMainPageLogic
     {
