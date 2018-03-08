@@ -1,8 +1,8 @@
-﻿using JetBanjo.Logic.Implementation;
+﻿using JetBanjo.Logic.Pages;
 using JetBanjo.Resx;
 using JetBanjo.Utils;
-using JetBanjo.Views;
-using JetBanjo.Views.MasterDetail;
+using JetBanjo.Pages;
+using JetBanjo.Pages.MasterDetail;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,4 @@
-﻿using JetBanjo.Logic.Implementation;
+﻿using JetBanjo.Logic.Pages;
 using JetBanjo.Interfaces.Logic;
 using JetBanjo.Interfaces.Views;
 using System;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace JetBanjo.Views
+namespace JetBanjo.Pages
 {
 	public partial class MainPage : ContentPage, IMainPageView
 	{
