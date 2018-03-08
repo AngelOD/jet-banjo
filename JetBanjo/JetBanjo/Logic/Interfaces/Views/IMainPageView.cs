@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace JetBanjo.Logic.Interfaces
+namespace JetBanjo.Logic.Interfaces.Views
 {
-    interface IMainPage
+    public interface IMainPageView 
     {
     }
 }

@@ -1,4 +1,8 @@
-﻿using JetBanjo.Utils;
+﻿using JetBanjo.Logic.Implementation;
+using JetBanjo.Resx;
+using JetBanjo.Utils;
+using JetBanjo.Views;
+using JetBanjo.Views.MasterDetail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +14,9 @@ namespace JetBanjo
 {
 	public partial class App : Application
 	{
+
+        private Master Master { get; set; }
+
 		public App ()
 		{
 			InitializeComponent();
@@ -22,9 +29,18 @@ namespace JetBanjo
                 Resx.AppResources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
-
-            MainPage = new Views.MasterDetail.Master();
+            Master = new Master();
+            RegisterMenuItems();
+            MainPage = Master;
 		}
+
+        /// <summary>
+        /// Registers the pages to the MasterDetail menu
+        /// </summary>
+        private void RegisterMenuItems()
+        {
+            Master.Register(new MainPage(new MainPageLogic()), AppResources.main);
+        }
 
 		protected override void OnStart ()
 		{

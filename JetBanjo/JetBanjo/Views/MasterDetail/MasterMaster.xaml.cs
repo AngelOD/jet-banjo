@@ -1,4 +1,4 @@
-﻿using JetBanjo.Resources;
+﻿using JetBanjo.Resx;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -21,16 +21,13 @@ namespace JetBanjo.Views.MasterDetail
             ListView = MenuItemsListView;
         }
 
-        class MasterMasterViewModel : INotifyPropertyChanged
+        public class MasterMasterViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<MasterMenuItem> MenuItems { get; set; }
 
             public MasterMasterViewModel()
             {
-                MenuItems = new ObservableCollection<MasterMenuItem>(new[]
-                {
-                    new MasterMenuItem { Id = 0, Title = AppResources.main },
-                });
+                MenuItems = new ObservableCollection<MasterMenuItem>();
             }
 
             #region INotifyPropertyChanged Implementation
