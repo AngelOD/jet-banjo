@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace JetBanjo.Logic.Interfaces.Implementation
+namespace JetBanjo.Logic.Interfaces.Logic
 {
-    interface IMenuItem
+    public interface IMenuItem
     {
         int ID { get; }
         string Name { get; }

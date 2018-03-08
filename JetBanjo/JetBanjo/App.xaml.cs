@@ -1,4 +1,5 @@
-﻿using JetBanjo.Resx;
+﻿using JetBanjo.Logic.Implementation;
+using JetBanjo.Resx;
 using JetBanjo.Utils;
 using JetBanjo.Views;
 using JetBanjo.Views.MasterDetail;
@@ -38,7 +39,7 @@ namespace JetBanjo
         /// </summary>
         private void RegisterMenuItems()
         {
-            Master.Register(new MainPage(), AppResources.main);
+            Master.Register(new MainPage(new MainPageLogic()), AppResources.main);
         }
 
 		protected override void OnStart ()

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JetBanjo.Logic.Interfaces.Views
 {
-    interface IMainPageView 
+    public interface IMainPageView 
     {
     }
 }
