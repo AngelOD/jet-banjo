@@ -7,7 +7,6 @@ namespace JetBanjo.Interfaces.Logic
 {
     public interface IMainPageLogic
     {
-
         void SetView(IMainPageView view);
     }
 }
