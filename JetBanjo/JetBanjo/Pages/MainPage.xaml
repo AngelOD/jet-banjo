@@ -6,8 +6,12 @@
              x:Class="JetBanjo.Pages.MainPage"
              Title="{i18n:Translate home}">
 
-    <Label Text="Welcome to Xamarin.Forms!" 
+    <StackLayout>
+        <Label Text="Welcome to Xamarin.Forms!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
+        <Button Text="lol"
+            Clicked="Test"/>
+    </StackLayout>
 
 </ContentPage>

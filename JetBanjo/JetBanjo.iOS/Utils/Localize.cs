@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
 
 using Foundation;
 using UIKit;

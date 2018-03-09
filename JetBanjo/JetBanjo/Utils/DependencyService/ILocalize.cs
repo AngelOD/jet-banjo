@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace JetBanjo.Utils
+namespace JetBanjo.Utils.DependencyService
 {
     /// <summary>
     /// Taken from https://github.com/xamarin/xamarin-forms-samples/blob/master/UsingResxLocalization/UsingResxLocalization/ILocalize.cs

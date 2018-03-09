@@ -1,6 +1,6 @@
 ﻿using JetBanjo.Logic.Pages;
 using JetBanjo.Resx;
-using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
 using JetBanjo.Pages;
 using JetBanjo.Pages.MasterDetail;
 using System;
@@ -40,6 +40,7 @@ namespace JetBanjo
         private void RegisterMenuItems()
         {
             Master.Register(new MainPage(new MainPageLogic()), AppResources.home);
+            Master.Register(new MainPage(new MainPageLogic()), AppResources.app_name);
         }
 
 		protected override void OnStart ()

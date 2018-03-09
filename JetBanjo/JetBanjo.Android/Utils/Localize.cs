@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using JetBanjo.Droid.Utils;
 using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Localize))]
 namespace JetBanjo.Droid.Utils

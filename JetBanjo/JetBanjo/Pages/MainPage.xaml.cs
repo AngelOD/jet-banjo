@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using JetBanjo.Utils.DependencyService;
 
 namespace JetBanjo.Pages
 {
@@ -27,6 +28,18 @@ namespace JetBanjo.Pages
 			InitializeComponent();
             this.logic = logic;
             logic.SetView(this);
-		}
-	}
+        }
+
+
+        public void Test(object sender, EventArgs args)
+        {
+            DependencyService.Get<IDisplayService>().ShowDialog("lol", "test");
+        }
+
+        protected override void OnAppearing()
+        {
+            
+        }
+
+    }
 }
