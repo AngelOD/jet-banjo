@@ -120,6 +120,9 @@
   <data name="app_name" xml:space="preserve">
     <value>JetBanjo</value>
   </data>
+  <data name="avatar" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>

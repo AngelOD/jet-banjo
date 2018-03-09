@@ -40,6 +40,7 @@ namespace JetBanjo
         private void RegisterMenuItems()
         {
             Master.Register(new MainPage(new MainPageLogic()), AppResources.home);
+            Master.Register(new AvatarPage(new AvatarPageLogic(), "LolRoom"), AppResources.avatar);
             Master.Register(new MainPage(new MainPageLogic()), AppResources.app_name);
         }
 

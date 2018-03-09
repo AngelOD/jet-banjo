@@ -5,8 +5,8 @@ using System.Text;
 
 namespace JetBanjo.Interfaces.Logic
 {
-    public interface IMainPageLogic
+    public interface IAvatarLogic
     {
-        void SetView(IMainPageView view);
+        void SetView(IAvatarView view);
     }
 }
