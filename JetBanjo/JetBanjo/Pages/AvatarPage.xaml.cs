@@ -15,6 +15,7 @@ namespace JetBanjo.Pages
 	public partial class AvatarPage : ContentPage, IAvatarView
 	{
         private IAvatarLogic logic;
+        private string roomName;
 
         public AvatarPage()
         {
@@ -23,16 +24,15 @@ namespace JetBanjo.Pages
             logic.SetView(this);
         }
 
-		public AvatarPage (IAvatarLogic logic)
+		public AvatarPage (IAvatarLogic logic, string roomName)
 		{
 			InitializeComponent ();
             this.logic = logic;
             logic.SetView(this);
 
-            StackLayout layout = new StackLayout();
-            var avatarImage = new Image { Source = ImageSource.FromResource("TooHot.png") };
+            this.roomName = roomName;
 
-            layout.Children.Add(avatarImage);
+            var avatarImage = new Image { Source = ImageSource.FromResource("TooHot.png") };
         }
 
 

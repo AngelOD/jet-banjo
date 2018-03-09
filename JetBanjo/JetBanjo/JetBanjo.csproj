@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\TooHot.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Resources\TooHot.png" />
   </ItemGroup>
 
