@@ -17,6 +17,7 @@ using Android.Graphics;
 using Xamarin.Forms.Platform.Android;
 using JetBanjo.Utils;
 using JetBanjo.Droid.Utils;
+using System.Threading.Tasks;
 
 [assembly: Xamarin.Forms.Dependency(typeof(DisplayService))]
 namespace JetBanjo.Droid.Utils
@@ -27,8 +28,8 @@ namespace JetBanjo.Droid.Utils
 
         public void ShowDialog(string title, string text, ImageSource source)
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(Android.App.Application.Context);
-            Drawable icon = new BitmapDrawable(GetImageFromImageSource(source, Android.App.Application.Context));
+            AlertDialog.Builder builder = new AlertDialog.Builder(Forms.Context);
+            Drawable icon = new BitmapDrawable(GetImageFromImageSourceAsync(source, Android.App.Application.Context));
             builder.SetIcon(icon);
             builder.SetTitle(title);
             builder.SetMessage(text);
@@ -60,7 +61,7 @@ namespace JetBanjo.Droid.Utils
 
 
 
-        private Bitmap GetImageFromImageSource(ImageSource imageSource, Context context)
+        private Bitmap GetImageFromImageSourceAsync(ImageSource imageSource, Context context)
         {
             IImageSourceHandler handler;
 
@@ -81,9 +82,9 @@ namespace JetBanjo.Droid.Utils
                 throw new NotImplementedException();
             }
 
-            var bitmap = handler.LoadImageAsync(imageSource, context);
+            var bitmap = Task.Run<Bitmap>(()=> handler.LoadImageAsync(imageSource, context)).Result;
 
-            return bitmap.Result;
+            return bitmap;
         }
     }
 }

@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\error.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\error.png" />
     <EmbeddedResource Include="Resources\TooHot.png" />
   </ItemGroup>
 

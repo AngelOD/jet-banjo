@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using JetBanjo.Utils.DependencyService;
+using JetBanjo.Web;
+using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Pages
 {
 	public partial class MainPage : ContentPage, IMainPageView
 	{
-
+        public string Teststring { get; set; } = "Lllllll";
         private IMainPageLogic logic;
 
         public MainPage()
@@ -21,6 +23,7 @@ namespace JetBanjo.Pages
             InitializeComponent();
             this.logic = new MainPageLogic();
             logic.SetView(this);
+            this.BindingContext = this;
         }
 
         public MainPage(IMainPageLogic logic)
@@ -28,17 +31,18 @@ namespace JetBanjo.Pages
 			InitializeComponent();
             this.logic = logic;
             logic.SetView(this);
+            this.BindingContext = this;
         }
 
 
-        public void Test(object sender, EventArgs args)
+        public async void Test(object sender, EventArgs args)
         {
-            DependencyService.Get<IDisplayService>().ShowDialog("lol", "test");
+           WebResult<int> result = await WebHandler.ReadData<int>("https://google.dk");
+            DependencyService.Get<IDisplayService>().ShowDialog("lol", result.ResponseCode.ToString(), ImageSource.FromResource("JetBanjo.Resources.error.png"));
         }
 
         protected override void OnAppearing()
         {
-            
         }
 
     }
