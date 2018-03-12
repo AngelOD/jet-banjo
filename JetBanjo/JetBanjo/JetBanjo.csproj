@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\TooHot.png" />
+    <None Remove="Resources\donfBred.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\donfBred.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,5 +50,9 @@
     <EmbeddedResource Update="Pages\MasterDetail\MasterMaster.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Objects\" />
   </ItemGroup>
 </Project>

@@ -15,24 +15,31 @@ namespace JetBanjo.Pages
 	public partial class AvatarPage : ContentPage, IAvatarView
 	{
         private IAvatarLogic logic;
-        private string roomName;
-
+        private Image avatarImage;
+        public Image AvatarImage { get { return avatarImage; } }
         public AvatarPage()
         {
             InitializeComponent();
             logic = new AvatarPageLogic();
             logic.SetView(this);
+            this.BindingContext = this;
         }
 
 		public AvatarPage (IAvatarLogic logic, string roomName)
 		{
-			InitializeComponent ();
+			InitializeComponent();
             this.logic = logic;
             logic.SetView(this);
+            
 
-            this.roomName = roomName;
+            Image avatarImage = new Image()
+            {
+                Source = ImageSource.FromResource("JetBanjo.Resources.donfBred.png"),
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                Aspect = Aspect.AspectFit
+            };
 
-            var avatarImage = new Image { Source = ImageSource.FromResource("TooHot.png") };
+            Title = roomName;
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using JetBanjo.Interfaces.Logic;
 using JetBanjo.Interfaces.Views;
+using JetBanjo.Logic.Sensor;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,14 @@ namespace JetBanjo.Logic.Pages
         public void SetView(IAvatarView view)
         {
             this.view = view;
+
+            
+
+        }
+
+        public void updateAvatar()
+        {
+
         }
     }
 }

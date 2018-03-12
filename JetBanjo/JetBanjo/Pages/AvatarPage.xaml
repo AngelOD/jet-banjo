@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:JetBanjo;assembly=JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
-             x:Class="JetBanjo.Pages.AvatarPage"
-             Title="LoL">
+             x:Class="JetBanjo.Pages.AvatarPage">
 
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="{local:ImageResource JetBanjo.Resources.TooHot.png}" />
+            <RelativeLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="One"/>
+                    <Label Text="Two"/>
+                </StackLayout>
+                
+                
+            </RelativeLayout>
+            
+            <Image Source="{Binding AvatarImage}" />
         </StackLayout>
     </ContentPage.Content>
     
