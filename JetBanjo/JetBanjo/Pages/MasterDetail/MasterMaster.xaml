@@ -2,14 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JetBanjo.Pages.MasterDetail.MasterMaster"
+             xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
              Title="Master"
-             BackgroundColor="#3d81a8">
+             BackgroundColor="{StaticResource PrimaryBG}">
   <StackLayout WidthRequest="100">
     <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
             <ListView.Header>
+                <StackLayout Padding="0,25,0,15" HorizontalOptions="FillAndExpand" Spacing="25" BackgroundColor="{StaticResource PrimaryBG}" >
+                    <Label Text="{i18n:Translate app_name}" Font="26" HorizontalOptions="Center" TextColor="{StaticResource PrimaryText}"/>
+                </StackLayout>
             </ListView.Header>
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -19,7 +23,7 @@
                     VerticalTextAlignment="Center" 
                     Text="{Binding Title}" 
                     FontSize="Large"
-                    TextColor="White"/>
+                    TextColor="{StaticResource PrimaryText}"/>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

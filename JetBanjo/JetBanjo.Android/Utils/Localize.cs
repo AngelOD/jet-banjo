@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using JetBanjo.Droid.Utils;
 using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Localize))]
 namespace JetBanjo.Droid.Utils
@@ -39,10 +40,10 @@ namespace JetBanjo.Droid.Utils
             netLanguage = AndroidToDotnetLanguage(androidLocale.ToString().Replace("_", "-"));
 
             // this gets called a lot - try/catch can be expensive so consider caching or something
-            System.Globalization.CultureInfo ci = null;
+            CultureInfo ci = null;
             try
             {
-                ci = new System.Globalization.CultureInfo(netLanguage);
+                ci = new CultureInfo(netLanguage);
             }
             catch (CultureNotFoundException e1)
             {
@@ -52,13 +53,13 @@ namespace JetBanjo.Droid.Utils
                 {
                     var fallback = ToDotnetFallbackLanguage(new PlatformCulture(netLanguage));
                     Console.WriteLine(netLanguage + " failed, trying " + fallback + " (" + e1.Message + ")");
-                    ci = new System.Globalization.CultureInfo(fallback);
+                    ci = new CultureInfo(fallback);
                 }
                 catch (CultureNotFoundException e2)
                 {
                     // iOS language not valid .NET culture, falling back to English
                     Console.WriteLine(netLanguage + " couldn't be set, using 'en' (" + e2.Message + ")");
-                    ci = new System.Globalization.CultureInfo("en");
+                    ci = new CultureInfo("en");
                 }
             }
 
