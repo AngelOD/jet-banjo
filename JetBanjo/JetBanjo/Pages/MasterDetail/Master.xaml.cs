@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -19,14 +20,14 @@ namespace JetBanjo.Pages.MasterDetail
             InitializeComponent();
             MasterPage.ListView.ItemSelected += OnItemSelected;
 
-    }
+        }
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterMenuItem;
             if (item == null)
                 return;
-            Push(item.Page);
+            Push((Page)Activator.CreateInstance(item.PageType));
 
             IsPresented = false;
 
@@ -48,7 +49,7 @@ namespace JetBanjo.Pages.MasterDetail
         /// </summary>
         /// <param name="page">The page to be shown</param>
         /// <param name="name">The name / title of the page</param>
-        public void Register(Page page, string name)
+        public void Register(Type page, string name)
         {
             MasterMenuItem item = new MasterMenuItem(page)
             {

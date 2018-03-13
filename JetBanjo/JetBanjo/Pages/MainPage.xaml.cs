@@ -13,7 +13,7 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Pages
 {
-	public partial class MainPage : ContentPage, IMainPageView
+	public partial class MainPage : CContentPage, IMainPageView
 	{
         public string Teststring { get; set; } = "Lllllll";
         private IMainPageLogic logic;
@@ -22,14 +22,6 @@ namespace JetBanjo.Pages
         {
             InitializeComponent();
             this.logic = new MainPageLogic();
-            logic.SetView(this);
-            this.BindingContext = this;
-        }
-
-        public MainPage(IMainPageLogic logic)
-		{
-			InitializeComponent();
-            this.logic = logic;
             logic.SetView(this);
             this.BindingContext = this;
         }

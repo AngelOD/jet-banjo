@@ -15,7 +15,7 @@ namespace JetBanjo
 	public partial class App : Application
 	{
 
-        private Master Master { get; set; }
+        public Master Master { get; private set; }
 
 		public App ()
 		{
@@ -39,9 +39,8 @@ namespace JetBanjo
         /// </summary>
         private void RegisterMenuItems()
         {
-            Master.Register(new MainPage(new MainPageLogic()), AppResources.home);
-            Master.Register(new AvatarPage(new AvatarPageLogic(), "LolRoom"), AppResources.avatar);
-            Master.Register(new MainPage(new MainPageLogic()), AppResources.app_name);
+            Master.Register(typeof(MainPage), AppResources.home);
+            Master.Register(typeof(AvatarPage), AppResources.avatar);
         }
 
 		protected override void OnStart ()

@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\error.png" />
-    <EmbeddedResource Include="Resources\TooHot.png" />
+    <EmbeddedResource Include="Resources\toohot.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<c:CContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:JetBanjo"
+             xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
              x:Class="JetBanjo.Pages.MainPage"
              Title="{i18n:Translate home}"
@@ -16,4 +17,4 @@
             Clicked="Test"/>
     </StackLayout>
 
-</ContentPage>
+</c:CContentPage>
