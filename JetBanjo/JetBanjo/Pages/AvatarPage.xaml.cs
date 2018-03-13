@@ -15,8 +15,7 @@ namespace JetBanjo.Pages
 	public partial class AvatarPage : ContentPage, IAvatarView
 	{
         private IAvatarLogic logic;
-        private Image avatarImage;
-        public Image AvatarImage { get { return avatarImage; } }
+        public Image AvatarImage { get; set; }
         public AvatarPage()
         {
             InitializeComponent();
@@ -28,16 +27,14 @@ namespace JetBanjo.Pages
 		public AvatarPage (IAvatarLogic logic, string roomName)
 		{
 			InitializeComponent();
+            Console.WriteLine("Halp");
             this.logic = logic;
             logic.SetView(this);
-            
+            this.BindingContext = this;
+            Image embeddedImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donathan.JPG") };
+            Avatar = embeddedImage;
 
-            Image avatarImage = new Image()
-            {
-                Source = ImageSource.FromResource("JetBanjo.Resources.donfBred.png"),
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                Aspect = Aspect.AspectFit
-            };
+            
 
             Title = roomName;
         }

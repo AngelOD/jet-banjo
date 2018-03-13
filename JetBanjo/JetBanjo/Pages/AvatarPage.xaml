@@ -11,12 +11,13 @@
                 <StackLayout Orientation="Horizontal">
                     <Label Text="One"/>
                     <Label Text="Two"/>
+                    <Image x:Name="Avatar" HorizontalOptions="FillAndExpand"  VerticalOptions="Fill" HeightRequest="120" />
                 </StackLayout>
                 
                 
             </RelativeLayout>
+
             
-            <Image Source="{Binding AvatarImage}" />
         </StackLayout>
     </ContentPage.Content>
     
