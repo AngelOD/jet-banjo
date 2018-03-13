@@ -61,6 +61,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to JetBanjo.
+        /// </summary>
+        internal static string app_name {
+            get {
+                return ResourceManager.GetString("app_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Avatar.
         /// </summary>
         internal static string avatar {
@@ -75,6 +84,15 @@ namespace JetBanjo.Resx {
         internal static string home {
             get {
                 return ResourceManager.GetString("home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
             }
         }
     }

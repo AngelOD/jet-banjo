@@ -10,9 +10,9 @@ namespace JetBanjo.Pages.MasterDetail
 
     public class MasterMenuItem
     {
-        public MasterMenuItem(Page page)
+        public MasterMenuItem(Type page)
         {
-            Page = page;
+            PageType = page;
             TargetType = typeof(MasterDetail);
         }
         public int Id { get; set; }
@@ -20,7 +20,6 @@ namespace JetBanjo.Pages.MasterDetail
 
         public Type TargetType { get; set; }
 
-        //The page to be shown when the item is clicked
-        public Page Page { get; set; }
+        public Type PageType { get; set; }
     }
 }

@@ -5,17 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\donathan.jpg" />
-    <None Remove="Resources\donfBred.png" />
-    <None Remove="Resources\Jude.png" />
-    <None Remove="Resources\roed.png" />
+    <None Remove="Resources\error.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\donathan.jpg" />
-    <EmbeddedResource Include="Resources\donfbred.png" />
-    <EmbeddedResource Include="Resources\Jude.png" />
-    <EmbeddedResource Include="Resources\roed.png" />
+    <EmbeddedResource Include="Resources\error.png" />
+    <EmbeddedResource Include="Resources\toohot.png" />
   </ItemGroup>
 
   <ItemGroup>
