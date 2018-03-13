@@ -15,7 +15,8 @@ namespace JetBanjo.Pages
 	public partial class AvatarPage : ContentPage, IAvatarView
 	{
         private IAvatarLogic logic;
-        public Image AvatarImage { get; set; }
+        public string RoomName { get; set; } = "Default";
+        private bool swap = true;
         public AvatarPage()
         {
             InitializeComponent();
@@ -27,21 +28,25 @@ namespace JetBanjo.Pages
 		public AvatarPage (IAvatarLogic logic, string roomName)
 		{
 			InitializeComponent();
-            Console.WriteLine("Halp");
             this.logic = logic;
             logic.SetView(this);
             this.BindingContext = this;
-            Image embeddedImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donathan.JPG") };
-            Avatar = embeddedImage;
+            Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png");
+            Console.WriteLine("Halp");
+        }
 
-            
+        public void Test(object sender, EventArgs args)
+        {
+            if(swap)
+                Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
+            else
+                Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png");
+            swap = !swap;
 
-            Title = roomName;
         }
 
 
 
-        
 
-	}
+    }
 }
