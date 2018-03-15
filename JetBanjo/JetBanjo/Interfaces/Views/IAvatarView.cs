@@ -7,6 +7,6 @@ namespace JetBanjo.Interfaces.Views
 {
     public interface IAvatarView
     {
-        void updateAvatar(AvatarType newAvatar);
+        void UpdateAvatar(AvatarType newAvatar);
     }
 }

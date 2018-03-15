@@ -17,11 +17,19 @@ namespace JetBanjo.Pages
         private IAvatarLogic logic;
         public string RoomName { get; set; } = "Default";
         private bool swap = true;
+        private int currentWarningElements = 0;
+        private Dictionary<int, Image> currentWarningImages = new Dictionary<int, Image>();
 
         public enum AvatarType
         {
             Good, BadTemp, BadAir, BadSound
         };
+
+        public enum WarningType
+        {
+            GenericWarning, DonF
+        };
+
 
         public AvatarPage()
         {
@@ -29,6 +37,7 @@ namespace JetBanjo.Pages
             logic = new AvatarPageLogic();
             logic.SetView(this);
             this.BindingContext = this;
+            
         }
 
 		public AvatarPage (IAvatarLogic logic, string roomName)
@@ -41,7 +50,7 @@ namespace JetBanjo.Pages
             Console.WriteLine("Halp");
         }
 
-        public void updateAvatar(AvatarType newAvatar)
+        public void UpdateAvatar(AvatarType newAvatar)
         {
             switch (newAvatar)
             {
@@ -64,12 +73,49 @@ namespace JetBanjo.Pages
 
         public void Test(object sender, EventArgs args)
         {
-            if(swap)
+            if (swap)
+            {
                 Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
+                AddWarning(WarningType.GenericWarning);
+            }
             else
+            {
                 Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png");
+                AddWarning(WarningType.DonF);
+            }
+                
             swap = !swap;
+        }
 
+        public void AddWarning(WarningType warning)
+        {
+            Image warningImage;
+
+            switch (warning)
+            {
+                case WarningType.GenericWarning:
+                    warningImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.error.png") };
+                    break;
+                case WarningType.DonF:
+                    warningImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png") };
+                    break;
+                default:
+                    warningImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
+                    break;
+            }
+
+            Grid.SetColumn(warningImage, ++currentWarningElements);
+            Grid.SetRow(warningImage, 0);
+
+            currentWarningImages.Add(currentWarningElements, warningImage);
+            WarningsGrid.Children.Add(warningImage);
+        }
+
+        public void RemoveWarning(object sender, EventArgs args)
+        {
+            WarningsGrid.Children.Remove(currentWarningImages[currentWarningElements]);
+            currentWarningImages.Remove(currentWarningElements);
+            currentWarningElements--;
         }
     }
 }

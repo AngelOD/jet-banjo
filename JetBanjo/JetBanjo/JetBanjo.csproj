@@ -5,12 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\badair.png" />
+    <None Remove="Resources\badsound.png" />
+    <None Remove="Resources\badtemp.png" />
+    <None Remove="Resources\donfbred.png" />
     <None Remove="Resources\error.png" />
+    <None Remove="Resources\good.png" />
+    <None Remove="Resources\roed.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\badair.png" />
+    <EmbeddedResource Include="Resources\badsound.png" />
+    <EmbeddedResource Include="Resources\badtemp.png" />
+    <EmbeddedResource Include="Resources\donfbred.png" />
     <EmbeddedResource Include="Resources\error.png" />
-    <EmbeddedResource Include="Resources\toohot.png" />
+    <EmbeddedResource Include="Resources\good.png" />
+    <EmbeddedResource Include="Resources\roed.png" />
   </ItemGroup>
 
   <ItemGroup>
