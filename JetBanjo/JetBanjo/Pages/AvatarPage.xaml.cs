@@ -12,11 +12,17 @@ using Xamarin.Forms.Xaml;
 namespace JetBanjo.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AvatarPage : ContentPage, IAvatarView
+	public partial class AvatarPage : CContentPage, IAvatarView
 	{
         private IAvatarLogic logic;
         public string RoomName { get; set; } = "Default";
         private bool swap = true;
+
+        public enum AvatarType
+        {
+            Good, BadTemp, BadAir, BadSound
+        };
+
         public AvatarPage()
         {
             InitializeComponent();
@@ -35,6 +41,27 @@ namespace JetBanjo.Pages
             Console.WriteLine("Halp");
         }
 
+        public void updateAvatar(AvatarType newAvatar)
+        {
+            switch (newAvatar)
+            {
+                case AvatarType.Good:
+                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.good.png");
+                    break;
+                case AvatarType.BadTemp:
+                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.badtemp.png");
+                    break;
+                case AvatarType.BadAir:
+                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.badair.png");
+                    break;
+                case AvatarType.BadSound:
+                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.badsound.png");
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public void Test(object sender, EventArgs args)
         {
             if(swap)
@@ -44,9 +71,5 @@ namespace JetBanjo.Pages
             swap = !swap;
 
         }
-
-
-
-
     }
 }

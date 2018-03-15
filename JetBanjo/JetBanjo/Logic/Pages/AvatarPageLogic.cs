@@ -14,14 +14,8 @@ namespace JetBanjo.Logic.Pages
         public void SetView(IAvatarView view)
         {
             this.view = view;
-
-            
-
         }
 
-        public void updateAvatar()
-        {
-
-        }
+        
     }
 }

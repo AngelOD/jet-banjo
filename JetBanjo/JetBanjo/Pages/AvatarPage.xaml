@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<c:ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:JetBanjo;assembly=JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
+             xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
              x:Class="JetBanjo.Pages.AvatarPage"
              Title="{Binding RoomName}">
 
@@ -13,4 +14,4 @@
         </StackLayout>
     </ContentPage.Content>
     
-</ContentPage>
+</c:ContentPage>
