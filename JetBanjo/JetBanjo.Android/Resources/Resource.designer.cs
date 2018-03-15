@@ -1263,44 +1263,44 @@ namespace JetBanjo.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c004b
-			public const int abc_background_cache_hint_selector_material_dark = 2131492939;
+			// aapt resource value: 0x7f0c0059
+			public const int abc_background_cache_hint_selector_material_dark = 2131492953;
 			
-			// aapt resource value: 0x7f0c004c
-			public const int abc_background_cache_hint_selector_material_light = 2131492940;
+			// aapt resource value: 0x7f0c005a
+			public const int abc_background_cache_hint_selector_material_light = 2131492954;
 			
-			// aapt resource value: 0x7f0c004d
-			public const int abc_btn_colored_borderless_text_material = 2131492941;
+			// aapt resource value: 0x7f0c005b
+			public const int abc_btn_colored_borderless_text_material = 2131492955;
 			
-			// aapt resource value: 0x7f0c004e
-			public const int abc_btn_colored_text_material = 2131492942;
+			// aapt resource value: 0x7f0c005c
+			public const int abc_btn_colored_text_material = 2131492956;
 			
-			// aapt resource value: 0x7f0c004f
-			public const int abc_color_highlight_material = 2131492943;
+			// aapt resource value: 0x7f0c005d
+			public const int abc_color_highlight_material = 2131492957;
 			
-			// aapt resource value: 0x7f0c0050
-			public const int abc_hint_foreground_material_dark = 2131492944;
+			// aapt resource value: 0x7f0c005e
+			public const int abc_hint_foreground_material_dark = 2131492958;
 			
-			// aapt resource value: 0x7f0c0051
-			public const int abc_hint_foreground_material_light = 2131492945;
+			// aapt resource value: 0x7f0c005f
+			public const int abc_hint_foreground_material_light = 2131492959;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int abc_input_method_navigation_guard = 2131492868;
 			
-			// aapt resource value: 0x7f0c0052
-			public const int abc_primary_text_disable_only_material_dark = 2131492946;
+			// aapt resource value: 0x7f0c0060
+			public const int abc_primary_text_disable_only_material_dark = 2131492960;
 			
-			// aapt resource value: 0x7f0c0053
-			public const int abc_primary_text_disable_only_material_light = 2131492947;
+			// aapt resource value: 0x7f0c0061
+			public const int abc_primary_text_disable_only_material_light = 2131492961;
 			
-			// aapt resource value: 0x7f0c0054
-			public const int abc_primary_text_material_dark = 2131492948;
+			// aapt resource value: 0x7f0c0062
+			public const int abc_primary_text_material_dark = 2131492962;
 			
-			// aapt resource value: 0x7f0c0055
-			public const int abc_primary_text_material_light = 2131492949;
+			// aapt resource value: 0x7f0c0063
+			public const int abc_primary_text_material_light = 2131492963;
 			
-			// aapt resource value: 0x7f0c0056
-			public const int abc_search_url_text = 2131492950;
+			// aapt resource value: 0x7f0c0064
+			public const int abc_search_url_text = 2131492964;
 			
 			// aapt resource value: 0x7f0c0005
 			public const int abc_search_url_text_normal = 2131492869;
@@ -1311,35 +1311,41 @@ namespace JetBanjo.Droid
 			// aapt resource value: 0x7f0c0007
 			public const int abc_search_url_text_selected = 2131492871;
 			
-			// aapt resource value: 0x7f0c0057
-			public const int abc_secondary_text_material_dark = 2131492951;
+			// aapt resource value: 0x7f0c0065
+			public const int abc_secondary_text_material_dark = 2131492965;
 			
-			// aapt resource value: 0x7f0c0058
-			public const int abc_secondary_text_material_light = 2131492952;
+			// aapt resource value: 0x7f0c0066
+			public const int abc_secondary_text_material_light = 2131492966;
 			
-			// aapt resource value: 0x7f0c0059
-			public const int abc_tint_btn_checkable = 2131492953;
+			// aapt resource value: 0x7f0c0067
+			public const int abc_tint_btn_checkable = 2131492967;
 			
-			// aapt resource value: 0x7f0c005a
-			public const int abc_tint_default = 2131492954;
+			// aapt resource value: 0x7f0c0068
+			public const int abc_tint_default = 2131492968;
 			
-			// aapt resource value: 0x7f0c005b
-			public const int abc_tint_edittext = 2131492955;
+			// aapt resource value: 0x7f0c0069
+			public const int abc_tint_edittext = 2131492969;
 			
-			// aapt resource value: 0x7f0c005c
-			public const int abc_tint_seek_thumb = 2131492956;
+			// aapt resource value: 0x7f0c006a
+			public const int abc_tint_seek_thumb = 2131492970;
 			
-			// aapt resource value: 0x7f0c005d
-			public const int abc_tint_spinner = 2131492957;
+			// aapt resource value: 0x7f0c006b
+			public const int abc_tint_spinner = 2131492971;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int abc_tint_switch_track = 2131492958;
+			// aapt resource value: 0x7f0c006c
+			public const int abc_tint_switch_track = 2131492972;
+			
+			// aapt resource value: 0x7f0c004d
+			public const int accent = 2131492941;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int accent_material_dark = 2131492872;
 			
 			// aapt resource value: 0x7f0c0009
 			public const int accent_material_light = 2131492873;
+			
+			// aapt resource value: 0x7f0c0054
+			public const int aluminum = 2131492948;
 			
 			// aapt resource value: 0x7f0c000a
 			public const int background_floating_material_dark = 2131492874;
@@ -1352,6 +1358,12 @@ namespace JetBanjo.Droid
 			
 			// aapt resource value: 0x7f0c000d
 			public const int background_material_light = 2131492877;
+			
+			// aapt resource value: 0x7f0c0055
+			public const int @base = 2131492949;
+			
+			// aapt resource value: 0x7f0c004f
+			public const int black = 2131492943;
 			
 			// aapt resource value: 0x7f0c000e
 			public const int bright_foreground_disabled_material_dark = 2131492878;
@@ -1392,8 +1404,8 @@ namespace JetBanjo.Droid
 			// aapt resource value: 0x7f0c0040
 			public const int design_bottom_navigation_shadow_color = 2131492928;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int design_error = 2131492959;
+			// aapt resource value: 0x7f0c006d
+			public const int design_error = 2131492973;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int design_fab_shadow_end_color = 2131492929;
@@ -1419,8 +1431,8 @@ namespace JetBanjo.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int design_snackbar_background_color = 2131492936;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int design_tint_password_toggle = 2131492960;
+			// aapt resource value: 0x7f0c006e
+			public const int design_tint_password_toggle = 2131492974;
 			
 			// aapt resource value: 0x7f0c0016
 			public const int dim_foreground_disabled_material_dark = 2131492886;
@@ -1448,6 +1460,15 @@ namespace JetBanjo.Droid
 			
 			// aapt resource value: 0x7f0c001e
 			public const int highlighted_text_material_light = 2131492894;
+			
+			// aapt resource value: 0x7f0c0056
+			public const int iron = 2131492950;
+			
+			// aapt resource value: 0x7f0c0050
+			public const int jet = 2131492944;
+			
+			// aapt resource value: 0x7f0c0053
+			public const int jumbo = 2131492947;
 			
 			// aapt resource value: 0x7f0c001f
 			public const int material_blue_grey_800 = 2131492895;
@@ -1485,6 +1506,9 @@ namespace JetBanjo.Droid
 			// aapt resource value: 0x7f0c002a
 			public const int material_grey_900 = 2131492906;
 			
+			// aapt resource value: 0x7f0c0052
+			public const int monsoon = 2131492946;
+			
 			// aapt resource value: 0x7f0c0049
 			public const int notification_action_color_filter = 2131492937;
 			
@@ -1493,6 +1517,15 @@ namespace JetBanjo.Droid
 			
 			// aapt resource value: 0x7f0c003f
 			public const int notification_material_background_media_default_color = 2131492927;
+			
+			// aapt resource value: 0x7f0c0051
+			public const int oil = 2131492945;
+			
+			// aapt resource value: 0x7f0c004b
+			public const int primary = 2131492939;
+			
+			// aapt resource value: 0x7f0c004c
+			public const int primary_dark = 2131492940;
 			
 			// aapt resource value: 0x7f0c002b
 			public const int primary_dark_material_dark = 2131492907;
@@ -1542,11 +1575,11 @@ namespace JetBanjo.Droid
 			// aapt resource value: 0x7f0c003a
 			public const int switch_thumb_disabled_material_light = 2131492922;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int switch_thumb_material_dark = 2131492961;
+			// aapt resource value: 0x7f0c006f
+			public const int switch_thumb_material_dark = 2131492975;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int switch_thumb_material_light = 2131492962;
+			// aapt resource value: 0x7f0c0070
+			public const int switch_thumb_material_light = 2131492976;
 			
 			// aapt resource value: 0x7f0c003b
 			public const int switch_thumb_normal_material_dark = 2131492923;
@@ -1554,11 +1587,20 @@ namespace JetBanjo.Droid
 			// aapt resource value: 0x7f0c003c
 			public const int switch_thumb_normal_material_light = 2131492924;
 			
+			// aapt resource value: 0x7f0c004e
+			public const int text = 2131492942;
+			
 			// aapt resource value: 0x7f0c003d
 			public const int tooltip_background_dark = 2131492925;
 			
 			// aapt resource value: 0x7f0c003e
 			public const int tooltip_background_light = 2131492926;
+			
+			// aapt resource value: 0x7f0c0058
+			public const int transparent = 2131492952;
+			
+			// aapt resource value: 0x7f0c0057
+			public const int white = 2131492951;
 			
 			static Color()
 			{
