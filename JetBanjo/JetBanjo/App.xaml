@@ -29,6 +29,10 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBG}" />
             </Style>
 
+            <Style TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBG}" />
+            </Style>
+
             <Style x:Key="DefaultPageStyle" TargetType="ContentPage" ApplyToDerivedTypes="true">
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBG}" />
             </Style>
