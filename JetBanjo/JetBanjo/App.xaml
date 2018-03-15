@@ -7,9 +7,36 @@
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
             <Color x:Key="PrimaryBG">#3399ff</Color>
+            <Color x:Key="PrimaryDarkBG">#3284ff</Color>
             <Color x:Key="PrimaryText">#ffffff</Color>
             <Color x:Key="SecondaryBG">#ffffff</Color>
             <Color x:Key="SecondaryText">#000000</Color>
+
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBG}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
+            </Style>
+
+            <Style TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBG}" />
+            </Style>
+
+            <Style TargetType="GridLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBG}" />
+            </Style>
+
+            <Style x:Key="DefaultPageStyle" TargetType="ContentPage" ApplyToDerivedTypes="true">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBG}" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

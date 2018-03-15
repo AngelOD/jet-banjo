@@ -10,6 +10,10 @@ namespace JetBanjo.Pages
 {
 	public abstract class CContentPage : ContentPage
     {
+        public CContentPage()
+        {
+            Style = (Style) Application.Current.Resources["DefaultPageStyle"];
+        }
 
         protected override bool OnBackButtonPressed()
         {

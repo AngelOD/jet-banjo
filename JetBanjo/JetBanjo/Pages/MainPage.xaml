@@ -5,14 +5,11 @@
              xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
              x:Class="JetBanjo.Pages.MainPage"
-             Title="{i18n:Translate home}"
-             BackgroundColor="{StaticResource PrimaryBG}">
+             BackgroundColor="Beige"
+             Title="{i18n:Translate home}">
 
-    <StackLayout BackgroundColor="{StaticResource SecondaryBG}">
-        <Label Text="Welcome to Xamarin.Forms!" 
-               TextColor="{StaticResource SecondaryText}"
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" />
+    <StackLayout>
+        <Label Text="Welcome to Xamarin.Forms!" />
         <Button Text="{Binding Teststring}"
             Clicked="Test"/>
     </StackLayout>
