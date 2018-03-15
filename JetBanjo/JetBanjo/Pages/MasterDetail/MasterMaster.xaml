@@ -3,31 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JetBanjo.Pages.MasterDetail.MasterMaster"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
-             Title="Master"
-             BackgroundColor="{StaticResource PrimaryBG}">
-  <StackLayout WidthRequest="100">
-    <ListView x:Name="MenuItemsListView"
+             Title="Master">
+    <StackLayout WidthRequest="100" BackgroundColor="{StaticResource PrimaryBG}">
+        <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
             <ListView.Header>
-                <StackLayout Padding="0,25,0,15" HorizontalOptions="FillAndExpand" Spacing="25" BackgroundColor="{StaticResource PrimaryBG}" >
-                    <Label Text="{i18n:Translate app_name}" Font="26" HorizontalOptions="Center" TextColor="{StaticResource PrimaryText}"/>
+                <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryBG}" >
+                    <StackLayout Padding="0,25,0,15" HorizontalOptions="FillAndExpand" Spacing="25" BackgroundColor="{StaticResource PrimaryBG}" >
+                        <Label Text="{i18n:Translate app_name}" Font="26" HorizontalOptions="Center" TextColor="{StaticResource PrimaryText}"/>
+                    </StackLayout>
+                    <BoxView  
+                               VerticalOptions="Center"
+                               HorizontalOptions="Fill"
+                               HeightRequest="2"
+                               Color="{StaticResource PrimaryText}"/>
                 </StackLayout>
             </ListView.Header>
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-              <Label VerticalOptions="FillAndExpand" 
-                    VerticalTextAlignment="Center" 
-                    Text="{Binding Title}" 
-                    FontSize="Large"
-                    TextColor="{StaticResource PrimaryText}"/>
-            </StackLayout>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </StackLayout>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryBG}">
+                            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryBG}">
+                                <Label VerticalOptions="FillAndExpand" 
+                                    VerticalTextAlignment="Center" 
+                                    Text="{Binding Title}" 
+                                    FontSize="Large"
+                                    TextColor="{StaticResource PrimaryText}"/>
+                            </StackLayout>
+                            <BoxView  
+                               VerticalOptions="Center"
+                               HorizontalOptions="Fill"
+                               HeightRequest="1"
+                               Color="{StaticResource PrimaryText}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
