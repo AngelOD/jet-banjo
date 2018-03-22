@@ -104,8 +104,12 @@ namespace JetBanjo.Pages
                     break;
             }
 
+            /*ImageButton newButton = new Button();
+            newButton. = warningImage;
+            */
             Grid.SetColumn(warningImage, ++currentWarningElements);
             Grid.SetRow(warningImage, 0);
+            
 
             currentWarningImages.Add(currentWarningElements, warningImage);
             WarningsGrid.Children.Add(warningImage);
