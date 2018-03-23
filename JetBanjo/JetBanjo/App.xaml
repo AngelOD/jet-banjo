@@ -25,6 +25,14 @@
                 <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
             </Style>
 
+            <Style TargetType="Entry">  
+                <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
+                <Setter Property="PlaceholderColor" Value="Gray" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBG}" />
+            </Style>
+
             <Style TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBG}" />
             </Style>

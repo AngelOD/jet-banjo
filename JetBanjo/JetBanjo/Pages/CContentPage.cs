@@ -10,15 +10,17 @@ namespace JetBanjo.Pages
 {
 	public abstract class CContentPage : ContentPage
     {
-        public CContentPage()
-        {
-            Style = (Style) Application.Current.Resources["DefaultPageStyle"];
-        }
 
+        /// <summary>
+        /// Such that all our pages implements our history behaviour.
+        /// </summary>
+        /// <returns></returns>
         protected override bool OnBackButtonPressed()
         {
-            ((App)App.Current).Master.GoBack();
+            //Acces apps master page and go back to the previous page 
+            ((App)App.Current).MasterPage.PreviousPage();
             return true;
         }
+
     }
 }

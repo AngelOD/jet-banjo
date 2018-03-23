@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +24,17 @@ namespace JetBanjo.Web
                 ResponseMessage = message;
             }
 
-            public T Result { get; set; }
+            public T Result { get; private set; }
             public int ResponseCode { get; private set; }
             public object ResponseMessage { get; private set; }
         }
 
+        /// <summary>
+        /// Reads data from the specified url
+        /// </summary>
+        /// <typeparam name="T">The type of the return object</typeparam>
+        /// <param name="url">The url of the resource</param>
+        /// <returns>A WebResult object that contains the result and response code </returns>
         public static async Task<WebResult<T>> ReadData<T>(string url)
         {
             T Result = default(T);
@@ -42,13 +50,27 @@ namespace JetBanjo.Web
                 {
                     ResponseCode = (int)response.StatusCode;
                     ResponseMessage = response.StatusDescription;
+                    Stream responseStream = response.GetResponseStream(); 
+                    StreamReader streamReader = new StreamReader(responseStream);
+                    Result = JsonConvert.DeserializeObject<T>(streamReader.ReadToEnd());
+                    streamReader.Dispose();
+                    responseStream.Dispose();
                     response.Dispose();
                 }
             }
             catch (WebException we)
             {
-                if(we != null && we.Message != null)
-                    Console.WriteLine(we.Message +" in method ReadData with par " + url );
+                if(we != null)
+                {
+                    if (we.Message != null)
+                        Console.WriteLine(we.Message + " reading from " + url);
+                    if(we.Response != null)
+                    {
+                        ResponseCode = (int)((HttpWebResponse)we.Response).StatusCode;
+                        ResponseMessage = ((HttpWebResponse)we.Response).StatusDescription;
+                    }
+                    
+                }
             }
             return new WebResult<T>(Result, ResponseCode, ResponseMessage);
         }

@@ -14,8 +14,10 @@ namespace JetBanjo
 {
 	public partial class App : Application
 	{
-
-        public Master Master { get; private set; }
+        /// <summary>
+        /// The Master page from the MasterDetail menu
+        /// </summary>
+        public Master MasterPage { get; private set; }
 
 		public App ()
 		{
@@ -29,18 +31,28 @@ namespace JetBanjo
                 Resx.AppResources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
-            Master = new Master();
-            RegisterMenuItems();
-            MainPage = Master;
+
+            MainPage = new NavigationPage(new RoomSelectorPage());
 		}
+
+        /// <summary>
+        /// Changes the apps current MainPage (the one being shown) to the MasterDetailMenu
+        /// </summary>
+        public void ChangeToMasterMenu()
+        {
+            MasterPage = new Master();
+            RegisterMenuItems();
+            MainPage = MasterPage;
+        }
+
 
         /// <summary>
         /// Registers the pages to the MasterDetail menu
         /// </summary>
         private void RegisterMenuItems()
         {
-            Master.Register(typeof(MainPage), AppResources.home);
-            Master.Register(typeof(AvatarPage), AppResources.avatar);
+            MasterPage.Register(typeof(AvatarPage), AppResources.avatar);
+            MasterPage.Register(new Settings(), AppResources.settings);
         }
 
 		protected override void OnStart ()

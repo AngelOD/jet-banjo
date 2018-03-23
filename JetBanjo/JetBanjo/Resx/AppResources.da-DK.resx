@@ -120,10 +120,22 @@
   <data name="app_name" xml:space="preserve">
     <value>JetBanjo</value>
   </data>
+  <data name="avatar" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
   <data name="home" xml:space="preserve">
     <value>Hjem</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
+  </data>
+  <data name="room" xml:space="preserve">
+    <value>Rum</value>
+  </data>
+  <data name="room_selector" xml:space="preserve">
+    <value>Rum Vælger</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Indstilling</value>
   </data>
 </root>

@@ -24,10 +24,19 @@ namespace JetBanjo.Pages.MasterDetail
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            Page page = null;
             var item = e.SelectedItem as MasterMenuItem;
             if (item == null)
                 return;
-            Push((Page)Activator.CreateInstance(item.PageType));
+            if(item.PageType != null)
+                page = (Page)Activator.CreateInstance(item.PageType);
+            if (item.Page != null)
+                page = item.Page;
+
+            //If it is not the same page, push it
+            if (page != null && !Detail.Equals(page))
+                Push(page);
+                
 
             IsPresented = false;
 
@@ -61,11 +70,28 @@ namespace JetBanjo.Pages.MasterDetail
             ((MasterMasterViewModel)MasterPage.BindingContext).MenuItems.Add(item);
         }
 
+        /// <summary>
+        /// Registers the page to the underlaying collection
+        /// </summary>
+        /// <param name="page">The page to be shown</param>
+        /// <param name="name">The name / title of the page</param>
+        public void Register(Page page, string name)
+        {
+            MasterMenuItem item = new MasterMenuItem(page)
+            {
+                Id = pageCounter,
+                Title = name
+            };
+            pageCounter++;
+
+            ((MasterMasterViewModel)MasterPage.BindingContext).MenuItems.Add(item);
+        }
+
 
         /// <summary>
         /// Goes back to the previous page, if there is none mimizes the app
         /// </summary>
-        public void GoBack()
+        public void PreviousPage()
         {
             if(history.Count > 0)
             {
