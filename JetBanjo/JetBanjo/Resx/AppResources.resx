@@ -129,4 +129,13 @@
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
   </data>
+  <data name="room" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="room_selector" xml:space="preserve">
+    <value>Room Selector</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
 </root>
