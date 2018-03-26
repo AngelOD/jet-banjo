@@ -15,11 +15,20 @@ namespace JetBanjo.Pages.MasterDetail
             PageType = page;
             TargetType = typeof(MasterDetail);
         }
+
+        public MasterMenuItem(Page page)
+        {
+            Page = page;
+            TargetType = typeof(MasterDetail);
+        }
+
         public int Id { get; set; }
         public string Title { get; set; }
 
         public Type TargetType { get; set; }
 
         public Type PageType { get; set; }
+
+        public Page Page { get; set; }
     }
 }

@@ -95,5 +95,32 @@ namespace JetBanjo.Resx {
                 return ResourceManager.GetString("ok", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room.
+        /// </summary>
+        internal static string room {
+            get {
+                return ResourceManager.GetString("room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room Selector.
+        /// </summary>
+        internal static string room_selector {
+            get {
+                return ResourceManager.GetString("room_selector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string settings {
+            get {
+                return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
     }
 }
