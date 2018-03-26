@@ -34,7 +34,7 @@ namespace JetBanjo.Pages.MasterDetail
                 page = item.Page;
 
             //If it is not the same page, push it
-            if (page != null && !Detail.Equals(page))
+            if (page != null && !((NavigationPage) Detail).RootPage.Equals(page))
                 Push(page);
                 
 

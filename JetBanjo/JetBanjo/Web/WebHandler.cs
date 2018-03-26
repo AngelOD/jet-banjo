@@ -24,8 +24,19 @@ namespace JetBanjo.Web
                 ResponseMessage = message;
             }
 
+            /// <summary>
+            /// The result from the web call, can be null
+            /// </summary>
             public T Result { get; private set; }
+            
+            /// <summary>
+            /// The reponse code from the web call
+            /// </summary>
             public int ResponseCode { get; private set; }
+            
+            /// <summary>
+            /// The response message from the web call, can be null
+            /// </summary>
             public object ResponseMessage { get; private set; }
         }
 

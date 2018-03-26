@@ -11,6 +11,7 @@ using JetBanjo.Utils.DependencyService;
 using JetBanjo.Web;
 using static JetBanjo.Web.WebHandler;
 using JetBanjo.Web.Objects;
+using JetBanjo.Utils;
 
 namespace JetBanjo.Pages
 {
@@ -23,7 +24,6 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new RoomSelectorPageLogic();
             logic.SetView(this);
-            logic.DownloadRoomList();
         }
 
 
@@ -34,12 +34,26 @@ namespace JetBanjo.Pages
 
         public void OnItemSelected(object sender, EventArgs args)
         {
+            Room room = (Room)roomList.SelectedItem;
+            if(room!= null)
+            {
+                DataStore.SaveValue("roomTest", room.Id);
+                ((App)App.Current).ChangeToMasterMenu();
+            }
             
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
-            UpdateRoomList(logic.GetList());
+            //If the room option have been set already.
+            if (DataStore.GetValue("roomTest") != null)
+            {
+                ((App)App.Current).ChangeToMasterMenu();
+                return;
+            }
+            DependencyService.Get<IDisplayService>().ShowActivityIndicator();
+            UpdateRoomList(await logic.GetList());
+            DependencyService.Get<IDisplayService>().DismissActivityIndicator();
         }
 
         public void UpdateRoomList(List<Room> updatedRoomList)

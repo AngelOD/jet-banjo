@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JetBanjo.Web.Objects
 {
@@ -29,20 +30,36 @@ namespace JetBanjo.Web.Objects
             set { roomNumber = value; }
         }
 
-
-        public static Room Get(string id)
+        //ToDo Finish implmentation when the web handler and backend is more finished
+        /// <summary>
+        /// Returns the latest room data for a given room identified by its id
+        /// </summary>
+        /// <returns>Room data object</returns>
+        public static async Task<Room> Get(string id)
         {
-            return new Room();
+            return new Room() { Id = id } ;
         }
 
-        public static List<Room> Get()
+        //ToDo Finish implmentation when the web handler and backend is more finished
+        /// <summary>
+        /// Returns the latest list of room
+        /// </summary>
+        /// <returns>Room list</returns>
+        public static async Task<List<Room>> GetList()
         {
-            return new List<Room>();
+            List<Room> roomList = new  List<Room>();
+            roomList.Add(new Room() { RoomNumber = "1.1", Id = "fst" });
+            roomList.Add(new Room() { RoomNumber = "2.1", Id = "sec" });
+            roomList.Add(new Room() { RoomNumber = "3.1", Id = "thd" });
+            return roomList;
         }
 
-        public void Update()
+        /// <summary>
+        /// Updates the current object with the latest data
+        /// </summary>
+        public async void Update()
         {
-            Room temp = Get(Id);
+            Room temp = await Get(Id);
             RoomNumber = temp.RoomNumber;
             Score = temp.Score;
             temp = null;
@@ -51,9 +68,14 @@ namespace JetBanjo.Web.Objects
         #region Overrides
         public override bool Equals(object obj)
         {
-            if (obj is Room)
+            if (obj != null && obj is Room)
             {
-                return Id.Equals(((Room)obj).Id);
+                Room temp = obj as Room;
+                if(temp.Id != null)
+                {
+                    return Id.Equals(temp.Id);
+                }
+                
             }
 
             return false;

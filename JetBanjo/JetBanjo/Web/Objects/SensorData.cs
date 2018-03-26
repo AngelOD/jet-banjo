@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JetBanjo.Web.Objects
 {
@@ -31,15 +32,22 @@ namespace JetBanjo.Web.Objects
         [JsonProperty(PropertyName = "voc")]
         public int VOC { get; set; }
 
-
-        public static SensorData Get()
+        //ToDo Finish implmentation when the web handler and backend is more finished
+        /// <summary>
+        /// Returns the latest combined sensor data
+        /// </summary>
+        /// <returns>Sensor data object</returns>
+        public static async Task<SensorData> Get()
         {
             return new SensorData();
         }
 
-        public void Update()
+        /// <summary>
+        /// Updates the current object with the latest data
+        /// </summary>
+        public async void Update()
         {
-            SensorData temp = Get();
+            SensorData temp = await Get();
             CO2 = temp.CO2;
             Humidity = temp.Humidity;
             Lux = temp.Lux;

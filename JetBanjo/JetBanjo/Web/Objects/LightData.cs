@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JetBanjo.Web.Objects
 {
@@ -10,15 +11,22 @@ namespace JetBanjo.Web.Objects
         [JsonProperty(PropertyName = "value")]
         public int Lux { get; set; }
 
-
-        public static LightData Get()
+        //ToDo Finish implmentation when the web handler and backend is more finished
+        /// <summary>
+        /// Returns the latest light data
+        /// </summary>
+        /// <returns>Light data object</returns>
+        public static async Task<LightData> Get()
         {
             return new LightData();
         }
 
-        public void Update()
+        /// <summary>
+        /// Updates the current object with the latest data
+        /// </summary>
+        public async void Update()
         {
-            LightData temp = Get();
+            LightData temp = await Get();
             Lux = temp.Lux;
             temp = null;
         }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using JetBanjo.Utils;
 
 namespace JetBanjo
 {
@@ -32,7 +33,7 @@ namespace JetBanjo
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
-            MainPage = new NavigationPage(new RoomSelectorPage());
+            MainPage = new NavigationPage(new RoomSelectorPage()); 
 		}
 
         /// <summary>

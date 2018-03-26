@@ -3,6 +3,7 @@ using JetBanjo.Web.Objects;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JetBanjo.Interfaces.Logic
 {
@@ -10,11 +11,9 @@ namespace JetBanjo.Interfaces.Logic
     {
         void SetView(IRoomSelectorPageView view);
 
-        void DownloadRoomList();
-
         List<Room> FilterList(string filterKey);
 
-        List<Room> GetList();
+        Task<List<Room>> GetList();
 
     }
 }

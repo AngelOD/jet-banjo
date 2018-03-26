@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +18,12 @@ namespace JetBanjo.Pages
 		{
 			InitializeComponent ();
 		}
-	}
+
+
+        public void test(object sender, EventArgs args)
+        {
+            DataStore.RemoveValue("roomTest"); 
+
+        }
+    }
 }

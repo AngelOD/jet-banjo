@@ -6,19 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JetBanjo.Logic.Pages
 {
     public class RoomSelectorPageLogic : IRoomSelectorPageLogic
     {
         private IRoomSelectorPageView view;
-        private List<Room> roomList = new List<Room>();
+        private List<Room> roomList;
 
-        public void DownloadRoomList()
+        private async Task DownloadRoomList()
         {
-            roomList.Add(new Room("1.1"));
-            roomList.Add(new Room("2.1"));
-            roomList.Add(new Room("3.1"));
+            roomList = await Room.GetList();
         }
 
         public List<Room> FilterList(string filterKey)
@@ -33,8 +32,13 @@ namespace JetBanjo.Logic.Pages
             }
         }
 
-        public List<Room> GetList()
+        public async Task<List<Room>> GetList()
         {
+            if(roomList == null)
+            {
+                await DownloadRoomList();
+            }
+
             return roomList;
         }
 

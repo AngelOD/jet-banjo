@@ -18,6 +18,7 @@ using Xamarin.Forms.Platform.Android;
 using JetBanjo.Utils;
 using JetBanjo.Droid.Utils;
 using System.Threading.Tasks;
+using Android.Support.V4.Content;
 
 [assembly: Xamarin.Forms.Dependency(typeof(DisplayService))]
 namespace JetBanjo.Droid.Utils
@@ -25,10 +26,11 @@ namespace JetBanjo.Droid.Utils
     public class DisplayService : IDisplayService
     {
         private static AlertDialog iconDialog;
+        private static Dialog indicator;
 
         public void ShowDialog(string title, string text, ImageSource source)
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(Forms.Context);
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.Context);
             Drawable icon = new BitmapDrawable(GetImageFromImageSourceAsync(source, Android.App.Application.Context));
             builder.SetIcon(icon);
             builder.SetTitle(title);
@@ -41,7 +43,7 @@ namespace JetBanjo.Droid.Utils
 
         public void ShowDialog(string title, string text)
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(Forms.Context);
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.Context);
             builder.SetTitle(title);
             builder.SetMessage(text);
             builder.SetCancelable(false);
@@ -55,6 +57,34 @@ namespace JetBanjo.Droid.Utils
             if (iconDialog != null)
             {
                 iconDialog.Dismiss();
+            }
+        }
+
+
+        /// <summary>
+        /// Show the progress indicator
+        /// </summary>
+        public void ShowActivityIndicator()
+        {
+            Android.Widget.ProgressBar pbar = new Android.Widget.ProgressBar(MainActivity.Context);
+            pbar.IndeterminateDrawable.SetColorFilter(new Android.Graphics.Color(ContextCompat.GetColor(MainActivity.Context, Resource.Color.primary)), PorterDuff.Mode.SrcAtop); //Sets the color
+            indicator = new Dialog(MainActivity.Context, Resource.Style.MyTheme_TransparentDialog); //Transperent theme
+            indicator.RequestWindowFeature((int)WindowFeatures.NoTitle); //Removes the title
+            indicator.SetContentView(pbar);
+            indicator.Window.SetBackgroundDrawable(new ColorDrawable(Android.Graphics.Color.Transparent)); //Removes the background
+            indicator.Window.ClearFlags(WindowManagerFlags.DimBehind); //Removes the dim behind the dialog
+            indicator.SetCancelable(false);
+            indicator.Show();
+        }
+
+        /// <summary>
+        /// Removes the progress indicator from the screen
+        /// </summary>
+        public void DismissActivityIndicator()
+        {
+            if (indicator != null)
+            {
+                indicator.Dismiss();
             }
         }
 
