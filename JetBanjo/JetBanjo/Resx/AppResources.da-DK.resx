@@ -138,6 +138,12 @@
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
   </data>
+  <data name="remove_ip" xml:space="preserve">
+    <value>Fjern IP</value>
+  </data>
+  <data name="remove_room" xml:space="preserve">
+    <value>Fjern rum</value>
+  </data>
   <data name="room" xml:space="preserve">
     <value>Rum</value>
   </data>

@@ -21,11 +21,15 @@ namespace JetBanjo.Pages
 		}
 
 
-        public void test(object sender, EventArgs args)
+        public void OnRemoveRoomClick(object sender, EventArgs args)
         {
             DataStore.RemoveValue(Keys.Room);
-            DataStore.RemoveValue(Keys.Ip);
-
         }
+
+        public void OnRemoveIpClick(object sender, EventArgs args)
+        {
+            DataStore.RemoveValue(Keys.Ip);
+        }
+
     }
 }

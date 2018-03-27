@@ -124,6 +124,24 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove IP.
+        /// </summary>
+        internal static string remove_ip {
+            get {
+                return ResourceManager.GetString("remove_ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove room.
+        /// </summary>
+        internal static string remove_room {
+            get {
+                return ResourceManager.GetString("remove_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Room.
         /// </summary>
         internal static string room {

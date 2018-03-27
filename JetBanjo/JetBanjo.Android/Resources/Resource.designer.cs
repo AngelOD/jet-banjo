@@ -4703,6 +4703,12 @@ namespace JetBanjo.Droid
 			// aapt resource value: 0x7f0b019a
 			public const int MainTheme_Base = 2131427738;
 			
+			// aapt resource value: 0x7f0b019e
+			public const int MyButton = 2131427742;
+			
+			// aapt resource value: 0x7f0b019f
+			public const int MyButton_text = 2131427743;
+			
 			// aapt resource value: 0x7f0b019b
 			public const int MyTheme_Splash = 2131427739;
 			
