@@ -123,8 +123,17 @@
   <data name="avatar" xml:space="preserve">
     <value>Avatar</value>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="ip" xml:space="preserve">
+    <value>IP address</value>
+  </data>
+  <data name="ip_text" xml:space="preserve">
+    <value>Input the IP address of the server</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>

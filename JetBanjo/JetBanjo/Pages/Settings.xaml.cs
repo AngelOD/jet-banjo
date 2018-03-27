@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static JetBanjo.Utils.DataStore;
 
 namespace JetBanjo.Pages
 {
@@ -22,7 +23,8 @@ namespace JetBanjo.Pages
 
         public void test(object sender, EventArgs args)
         {
-            DataStore.RemoveValue("roomTest"); 
+            DataStore.RemoveValue(Keys.Room);
+            DataStore.RemoveValue(Keys.Ip);
 
         }
     }

@@ -79,11 +79,38 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         internal static string home {
             get {
                 return ResourceManager.GetString("home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP address.
+        /// </summary>
+        internal static string ip {
+            get {
+                return ResourceManager.GetString("ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input the IP address of the server.
+        /// </summary>
+        internal static string ip_text {
+            get {
+                return ResourceManager.GetString("ip_text", resourceCulture);
             }
         }
         

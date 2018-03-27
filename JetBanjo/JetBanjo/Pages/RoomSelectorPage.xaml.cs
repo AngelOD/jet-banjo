@@ -12,6 +12,8 @@ using JetBanjo.Web;
 using static JetBanjo.Web.WebHandler;
 using JetBanjo.Web.Objects;
 using JetBanjo.Utils;
+using static JetBanjo.Utils.DataStore;
+using JetBanjo.Resx;
 
 namespace JetBanjo.Pages
 {
@@ -37,23 +39,48 @@ namespace JetBanjo.Pages
             Room room = (Room)roomList.SelectedItem;
             if(room!= null)
             {
-                DataStore.SaveValue("roomTest", room.Id);
+                DataStore.SaveValue(Keys.Room, room.Id);
                 ((App)App.Current).ChangeToMasterMenu();
             }
             
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
-            //If the room option have been set already.
-            if (DataStore.GetValue("roomTest") != null)
+            //If the ip option have not been set already.
+            if (DataStore.GetValue(Keys.Ip) == null)
             {
-                ((App)App.Current).ChangeToMasterMenu();
-                return;
+                DependencyService.Get<IDisplayService>().ShowInputDialog(AppResources.ip, AppResources.ip_text, AppResources.ok , "1.2.2", OnInputFromDialog);
             }
-            DependencyService.Get<IDisplayService>().ShowActivityIndicator();
-            UpdateRoomList(await logic.GetList());
-            DependencyService.Get<IDisplayService>().DismissActivityIndicator();
+            else
+            {
+                ContinueStartup();
+            }
+        }
+
+        private void OnInputFromDialog(string input)
+        {
+            DependencyService.Get<IDisplayService>().DismissInputDialog();
+            DataStore.SaveValue(Keys.Ip, input);
+            ContinueStartup();
+        }
+
+        private async void ContinueStartup()
+        {
+            //If the ip option have been set already.
+            if (DataStore.GetValue(Keys.Ip) != null)
+            {
+                //If the room option have been set already.
+                if (DataStore.GetValue(Keys.Room) != null)
+                {
+                    ((App)App.Current).ChangeToMasterMenu();
+                    return;
+                }
+                //Else get them to choose a room
+                DependencyService.Get<IDisplayService>().ShowActivityIndicator();
+                UpdateRoomList(await logic.GetList());
+                DependencyService.Get<IDisplayService>().DismissActivityIndicator();
+            }
         }
 
         public void UpdateRoomList(List<Room> updatedRoomList)

@@ -26,6 +26,7 @@ namespace JetBanjo.Droid.Utils
     public class DisplayService : IDisplayService
     {
         private static AlertDialog iconDialog;
+        private static AlertDialog inputDialog;
         private static Dialog indicator;
 
         public void ShowDialog(string title, string text, ImageSource source)
@@ -57,6 +58,7 @@ namespace JetBanjo.Droid.Utils
             if (iconDialog != null)
             {
                 iconDialog.Dismiss();
+                iconDialog = null;
             }
         }
 
@@ -85,10 +87,56 @@ namespace JetBanjo.Droid.Utils
             if (indicator != null)
             {
                 indicator.Dismiss();
+                indicator = null;
             }
         }
 
 
+        public void ShowInputDialog(string title, string text, string ok, string placeholder, Action<string> callback)
+        {
+            var task = new TaskCompletionSource<string>();
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.Context);
+            EditText userInput = new EditText(MainActivity.Context);
+
+            string selectedInput = string.Empty;
+            userInput.Text = placeholder;
+            userInput.InputType = Android.Text.InputTypes.NumberFlagDecimal | Android.Text.InputTypes.ClassNumber;
+            userInput.FocusChange += (sender, args) => { userInput.Text = ""; };
+            builder.SetTitle(title);
+            builder.SetMessage(text);
+            builder.SetView(userInput);
+            builder.SetPositiveButton(ok, ((sender, args) => { inputDialog.Dismiss();  callback(userInput.Text); }));
+            inputDialog = builder.Create();
+            inputDialog.Show();
+        }
+
+
+        public void ShowInputDialog(string title, string text, string ok, string cancel, string placeholder, Action<bool,string> callback)
+        {
+            var task = new TaskCompletionSource<string>();
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.Context);
+            EditText userInput = new EditText(MainActivity.Context);
+
+            string selectedInput = string.Empty;
+            userInput.Hint = placeholder;
+            userInput.InputType = Android.Text.InputTypes.NumberFlagDecimal | Android.Text.InputTypes.ClassNumber;
+            builder.SetTitle(title);
+            builder.SetMessage(text);
+            builder.SetView(userInput);
+            builder.SetPositiveButton(ok, ((sender, args) => { inputDialog.Dismiss(); callback(true, userInput.Text); }));
+            builder.SetNegativeButton(cancel, ((sender, args) => { inputDialog.Dismiss(); callback(false, null); }));
+            inputDialog = builder.Create();
+            inputDialog.Show();
+        }
+
+        public void DismissInputDialog()
+        {
+            if (inputDialog != null)
+            {
+                inputDialog.Dismiss();
+                inputDialog = null;
+            }
+        }
 
 
         private Bitmap GetImageFromImageSourceAsync(ImageSource imageSource, Context context)
@@ -116,5 +164,6 @@ namespace JetBanjo.Droid.Utils
 
             return bitmap;
         }
+
     }
 }
