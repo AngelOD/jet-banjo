@@ -25,10 +25,18 @@ namespace JetBanjo.Droid.Utils
 {
     public class DisplayService : IDisplayService
     {
+        //Private instances of dialogs 
         private static AlertDialog iconDialog;
         private static AlertDialog inputDialog;
         private static Dialog indicator;
 
+
+        /// <summary>
+        /// Displays a dialog with a title, text and icon
+        /// </summary>
+        /// <param name="title">The title of the dialog</param>
+        /// <param name="text">The text of the dialog</param>
+        /// <param name="source">The image source for the icon</param>
         public void ShowDialog(string title, string text, ImageSource source)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.Context);
@@ -42,6 +50,11 @@ namespace JetBanjo.Droid.Utils
             iconDialog.Show();
         }
 
+        /// <summary>
+        /// Displays a dialog with a title and text
+        /// </summary>
+        /// <param name="title">The title of the dialog</param>
+        /// <param name="text">The text of the dialog</param>
         public void ShowDialog(string title, string text)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.Context);
@@ -53,6 +66,9 @@ namespace JetBanjo.Droid.Utils
             iconDialog.Show();
         }
 
+        /// <summary>
+        /// Dismisses the text / icon dialog
+        /// </summary>
         public void DismissDialog()
         {
             if (iconDialog != null)
@@ -64,7 +80,7 @@ namespace JetBanjo.Droid.Utils
 
 
         /// <summary>
-        /// Show the progress indicator
+        /// Displays an activity indicator that cannot be dismissed by the user
         /// </summary>
         public void ShowActivityIndicator()
         {
@@ -80,7 +96,7 @@ namespace JetBanjo.Droid.Utils
         }
 
         /// <summary>
-        /// Removes the progress indicator from the screen
+        /// Dismisses the activity indicator
         /// </summary>
         public void DismissActivityIndicator()
         {
@@ -92,6 +108,14 @@ namespace JetBanjo.Droid.Utils
         }
 
 
+        /// <summary>
+        /// Displays a dialog with a title, text and a text input
+        /// </summary>
+        /// <param name="title">The title of the dialog</param>
+        /// <param name="text">The text of the dialog</param>
+        /// <param name="ok">The text for the positive button</param>
+        /// <param name="placeholder">The placeholder of the input text field</param>
+        /// <param name="callback">Callback method to be called when the positive button is pressed</param>
         public void ShowInputDialog(string title, string text, string ok, string placeholder, Action<string> callback)
         {
             var task = new TaskCompletionSource<string>();
@@ -99,9 +123,8 @@ namespace JetBanjo.Droid.Utils
             EditText userInput = new EditText(MainActivity.Context);
 
             string selectedInput = string.Empty;
-            userInput.Text = placeholder;
+            userInput.Hint = placeholder;
             userInput.InputType = Android.Text.InputTypes.NumberFlagDecimal | Android.Text.InputTypes.ClassNumber;
-            userInput.FocusChange += (sender, args) => { userInput.Text = ""; };
             builder.SetTitle(title);
             builder.SetMessage(text);
             builder.SetView(userInput);
@@ -110,7 +133,15 @@ namespace JetBanjo.Droid.Utils
             inputDialog.Show();
         }
 
-
+        /// <summary>
+        /// Displays a dialog with a title, text and a text input
+        /// </summary>
+        /// <param name="title">The title of the dialog</param>
+        /// <param name="text">The text of the dialog</param>
+        /// <param name="ok">The text for the positive button</param>
+        /// <param name="cancel">The text for the negative button</param>
+        /// <param name="placeholder">The placeholder of the input text field</param>
+        /// <param name="callback">Callback method to be called when either the positive or negative button is pressed</param>
         public void ShowInputDialog(string title, string text, string ok, string cancel, string placeholder, Action<bool,string> callback)
         {
             var task = new TaskCompletionSource<string>();
@@ -129,6 +160,9 @@ namespace JetBanjo.Droid.Utils
             inputDialog.Show();
         }
 
+        /// <summary>
+        /// Dismisses the text input dialog
+        /// </summary>
         public void DismissInputDialog()
         {
             if (inputDialog != null)
@@ -138,7 +172,12 @@ namespace JetBanjo.Droid.Utils
             }
         }
 
-
+        /// <summary>
+        /// Returns a bitmap from the image source
+        /// </summary>
+        /// <param name="imageSource">The ImageSource for the image</param>
+        /// <param name="context">The context</param>
+        /// <returns>A bitmap</returns>
         private Bitmap GetImageFromImageSourceAsync(ImageSource imageSource, Context context)
         {
             IImageSourceHandler handler;
@@ -157,6 +196,7 @@ namespace JetBanjo.Droid.Utils
             }
             else
             {
+                //Any other kind of source handler which has been added to android or are not supported will throw this exception 
                 throw new NotImplementedException();
             }
 
