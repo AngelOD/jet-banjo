@@ -56,12 +56,73 @@ namespace JetBanjo.Logic.Pages
             return classification;
         }
 
-        public DataTypes.Classification AirQualClassification(double humidity, double voc, DataTypes.Season season)
+        public DataTypes.Classification HumidityClassification(double humidity, DataTypes.Season season)
         {
-            //Todo
+            DataTypes.Classification classification;
 
+            if (humidity < Constants.MIN_HUMIDITY)
+            {
+                classification = DataTypes.Classification.E;
+            }
+            else if (humidity < Constants.MIN_OPTIMAL_HUMIDITY)
+            {
+                classification = DataTypes.Classification.D;
+            }
+            else if (season == DataTypes.Season.Winter && humidity < Constants.MAX_OPTIMAL_HUMIDITY_WINTER)
+            {
+                classification = DataTypes.Classification.A;
+            }
+            else if (season == DataTypes.Season.Summer && humidity < Constants.MAX_OPTIMAL_HUMIDITY_SUMMER)
+            {
+                classification = DataTypes.Classification.A;
+            }
+            else if (season == DataTypes.Season.Summer && humidity < Constants.MAX_HUMIDITY_SUMMER)
+            {
+                classification = DataTypes.Classification.B;
+            }
+            else if (season == DataTypes.Season.Winter && humidity < Constants.MAX_HUMIDITY_WINTER)
+            {
+                classification = DataTypes.Classification.B;
+            }
+            else
+            {
+                classification = DataTypes.Classification.E;
+            }
 
-            return DataTypes.Classification.A;
+            return classification;
+        }
+
+        public DataTypes.Classification CarbonDioxideClassification(double carbonDioxide)
+        {
+            DataTypes.Classification classification;
+
+            if (carbonDioxide < Constants.MAX_OPTIMAL_CO2)
+            {
+                classification = DataTypes.Classification.A;
+            }
+            else if (carbonDioxide < Constants.MAX_SEMI_OPTIMAL_CO2)
+            {
+                classification = DataTypes.Classification.B;
+            }
+            else if (carbonDioxide < Constants.MAX_SUBOPTIMAL_CO2)
+            {
+                classification = DataTypes.Classification.C;
+            }
+            else if (carbonDioxide < Constants.MAX_CO2)
+            {
+                classification = DataTypes.Classification.D;
+            }
+            else
+            {
+                classification = DataTypes.Classification.E;
+            }
+
+            return classification;
+        }
+
+        public DataTypes.Classification VOCClassification(double voc)
+        {
+            return DataTypes.Classification.E;
         }
     }
 }
