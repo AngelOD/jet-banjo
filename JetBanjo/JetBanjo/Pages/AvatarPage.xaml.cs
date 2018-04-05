@@ -18,6 +18,7 @@ namespace JetBanjo.Pages
         public string RoomName { get; set; } = "Default";
         private bool swap = true;
         private int currentWarningElements = 0;
+
         private Dictionary<int, Image> currentWarningImages = new Dictionary<int, Image>();
 
         public enum AvatarType
@@ -37,17 +38,6 @@ namespace JetBanjo.Pages
             logic = new AvatarPageLogic();
             logic.SetView(this);
             this.BindingContext = this;
-            
-        }
-
-		public AvatarPage (IAvatarLogic logic, string roomName)
-		{
-			InitializeComponent();
-            this.logic = logic;
-            logic.SetView(this);
-            this.BindingContext = this;
-            Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png");
-            Console.WriteLine("Halp");
         }
 
         public void UpdateAvatar(AvatarType newAvatar)
@@ -110,7 +100,6 @@ namespace JetBanjo.Pages
             Grid.SetColumn(warningImage, ++currentWarningElements);
             Grid.SetRow(warningImage, 0);
             
-
             currentWarningImages.Add(currentWarningElements, warningImage);
             WarningsGrid.Children.Add(warningImage);
         }
@@ -120,6 +109,25 @@ namespace JetBanjo.Pages
             WarningsGrid.Children.Remove(currentWarningImages[currentWarningElements]);
             currentWarningImages.Remove(currentWarningElements);
             currentWarningElements--;
+        }
+
+        public void AddOverlay(object sender, EventArgs args)
+        {
+            //WIP
+            var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png") };
+            var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
+
+            CoreGrid.Children.Add(i1, 1, 2);
+            CoreGrid.Children.Add(i2, 1, 2);
+
+
+
+            /*var overlay = AbsLayoutAvatar.Children[noPress];
+            
+            AbsLayoutAvatar.RaiseChild(overlay);
+            
+
+            noPress = (noPress + 1) % (AbsLayoutAvatar.Children.Count);*/
         }
     }
 }
