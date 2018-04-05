@@ -8,38 +8,39 @@
              Title="{Binding RoomName}">
 
     <ContentPage.Content>
-        <Grid x:Name="CoreGrid">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="8*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="8*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <Button x:Name="ImgButton" Clicked="Test" Grid.Column="2" Grid.Row="2"/>
-            <Button x:Name="ImgButton2" Clicked="RemoveWarning" Grid.Column="0" Grid.Row="2"/>
-            <Button x:Name="OlayButton" Clicked="AddOverlay" Grid.Column="0" Grid.Row="1" />
-            <AbsoluteLayout x:Name="AbsLayoutAvatar" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">
-                <Image x:Name="Avatar" HorizontalOptions="FillAndExpand"  VerticalOptions="Fill"/>
-            </AbsoluteLayout>
-            <Grid x:Name="WarningsGrid" Grid.Row="2" Grid.Column="1">
+        <AbsoluteLayout x:Name="BackgroundLayout">
+            <Image x:Name="BackgroundImage2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Aspect="Fill" AnchorX="0.5" AnchorY="0.5"/>
+            <Grid x:Name="CoreGrid" AnchorX="0.5" AnchorY="0.5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-                <!--
+                <Button x:Name="ImgButton" Clicked="Test" Grid.Column="2" Grid.Row="2"/>
+                <Button x:Name="ImgButton2" Clicked="RemoveWarning" Grid.Column="0" Grid.Row="2"/>
+                <Button x:Name="OlayButton" Clicked="AddOverlay" Grid.Column="0" Grid.Row="1" />
+                <Image x:Name="Avatar" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="1" Grid.Row="1" />
+                <Grid x:Name="WarningsGrid" Grid.Row="2" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!--
                 <Image Source="{local:ImageResource JetBanjo.Resources.error.png}" HorizontalOptions="FillAndExpand"  VerticalOptions="Fill" Grid.Column="0" Grid.Row="0" />
                 <Image Source="{local:ImageResource JetBanjo.Resources.error.png}" HorizontalOptions="FillAndExpand"  VerticalOptions="Fill" Grid.Column="1" Grid.Row="0" />
                 <Image Source="{local:ImageResource JetBanjo.Resources.error.png}" HorizontalOptions="FillAndExpand"  VerticalOptions="Fill" Grid.Column="2" Grid.Row="0" />
                 -->
+                </Grid>
             </Grid>
-        </Grid>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </c:CContentPage>

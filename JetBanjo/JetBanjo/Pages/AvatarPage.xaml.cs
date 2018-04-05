@@ -36,6 +36,11 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
             this.BindingContext = this;
+
+            //var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
+
+            BackgroundImage2.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
+
         }
 
         public void UpdateAvatar(AvatarType newAvatar)
@@ -115,9 +120,10 @@ namespace JetBanjo.Pages
             var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png") };
             var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
 
+
             CoreGrid.Children.Add(i1, 1, 2);
             CoreGrid.Children.Add(i2, 1, 2);
-
+            
 
 
             /*var overlay = AbsLayoutAvatar.Children[noPress];
