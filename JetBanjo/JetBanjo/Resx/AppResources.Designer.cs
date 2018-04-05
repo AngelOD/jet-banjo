@@ -61,7 +61,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to JetBanjo.
+        ///   Looks up a localized string similar to Room Battle.
         /// </summary>
         internal static string app_name {
             get {

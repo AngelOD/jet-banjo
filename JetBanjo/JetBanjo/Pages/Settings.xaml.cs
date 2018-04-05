@@ -18,7 +18,9 @@ namespace JetBanjo.Pages
 		public Settings ()
 		{
 			InitializeComponent ();
-		}
+            RemoveIp.WidthRequest = App.ScreenSize.Width * Constants.BUTTON_SCALE;
+            RemoveRoom.WidthRequest = App.ScreenSize.Width * Constants.BUTTON_SCALE;
+        }
 
 
         public void OnRemoveRoomClick(object sender, EventArgs args)

@@ -53,6 +53,10 @@ namespace JetBanjo.Web
             object ResponseMessage = null;
             try
             {
+                if (!url.ToLower().StartsWith("http://") || !url.ToLower().StartsWith("https://"))
+                {
+                    url = "https://" + url;
+                }
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url); //URL
                 request.Timeout = 30000; //30 sec timeout
 

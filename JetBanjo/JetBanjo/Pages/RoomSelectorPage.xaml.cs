@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using JetBanjo.Utils.DependencyService;
 using JetBanjo.Web;
-using static JetBanjo.Web.WebHandler;
 using JetBanjo.Web.Objects;
 using JetBanjo.Utils;
 using static JetBanjo.Utils.DataStore;
@@ -26,6 +25,9 @@ namespace JetBanjo.Pages
         {
             InitializeComponent();
             logic = new RoomSelectorPageLogic();
+
+            searchBox.WidthRequest = App.ScreenSize.Width * Constants.ENTRY_SCALE;
+            roomList.WidthRequest = App.ScreenSize.Width * 0.7;
             displayService = DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance); //Fetches the global instance of the dependency service. Even though it should not create more dialog objects. But it saves memory
         }
 
@@ -98,7 +100,7 @@ namespace JetBanjo.Pages
 
             if (string.IsNullOrWhiteSpace(input))
             {
-                displayService.ShowDialog(AppResources.error, AppResources.ip_null_or_empty_err_msg, ImageSource.FromResource("JetBanjo.Resources.error.png"));
+                displayService.ShowDialog(AppResources.error, AppResources.ip_null_or_empty_err_msg, ImageSource.FromResource("JetBanjo.Resources.error.png"),OnFailToFindNetworkDevice); //Show the same input dialog again
             }
             else
             {
@@ -117,15 +119,18 @@ namespace JetBanjo.Pages
             if (!string.IsNullOrWhiteSpace(DataStore.GetValue(Keys.Ip)))
             {
                 //If the room option have been set already.
-                if (!string.IsNullOrWhiteSpace(DataStore.GetValue(Keys.Ip)))
+                if (!string.IsNullOrWhiteSpace(DataStore.GetValue(Keys.Room)))
                 {
                     ((App)App.Current).ChangeToMasterMenu();
                     return;
                 }
-                //Else get them to choose a room
-                displayService.ShowActivityIndicator();
-                UpdateRoomList(await logic.GetList());
-                displayService.DismissActivityIndicator();
+                else
+                {
+                    //Else get them to choose a room
+                    displayService.ShowActivityIndicator();
+                    UpdateRoomList(await logic.GetList());
+                    displayService.DismissActivityIndicator();
+                }
             }
         }
 

@@ -9,7 +9,7 @@
 
     <StackLayout Padding="20,15" Spacing="15">
         <Entry x:Name="searchBox" Placeholder="{i18n:Translate room}" TextChanged="OnTextChanged"/>
-        <ListView x:Name="roomList" HorizontalOptions="Center" WidthRequest="200" ItemSelected="OnItemSelected"/>
+        <ListView x:Name="roomList" HorizontalOptions="Center" ItemSelected="OnItemSelected"/>
     </StackLayout>
 
 </c:CContentPage>
