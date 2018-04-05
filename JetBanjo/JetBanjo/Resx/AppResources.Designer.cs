@@ -88,6 +88,42 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot detect the server on the local network, you need to manually input it.
+        /// </summary>
+        internal static string cannot_detect_backend {
+            get {
+                return ResourceManager.GetString("cannot_detect_backend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to download, check internet connection.
+        /// </summary>
+        internal static string download_err {
+            get {
+                return ResourceManager.GetString("download_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 127.0.0.1.
+        /// </summary>
+        internal static string example_ip {
+            get {
+                return ResourceManager.GetString("example_ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         internal static string home {
@@ -102,6 +138,15 @@ namespace JetBanjo.Resx {
         internal static string ip {
             get {
                 return ResourceManager.GetString("ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The ip field must be specified for this app to work.
+        /// </summary>
+        internal static string ip_null_or_empty_err_msg {
+            get {
+                return ResourceManager.GetString("ip_null_or_empty_err_msg", resourceCulture);
             }
         }
         

@@ -1,6 +1,5 @@
 ﻿using JetBanjo.Logic.Pages;
 using JetBanjo.Interfaces.Logic;
-using JetBanjo.Interfaces.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,26 +13,37 @@ using JetBanjo.Web.Objects;
 using JetBanjo.Utils;
 using static JetBanjo.Utils.DataStore;
 using JetBanjo.Resx;
+using System.Threading;
 
 namespace JetBanjo.Pages
 {
-	public partial class RoomSelectorPage : CContentPage, IRoomSelectorPageView
+	public partial class RoomSelectorPage : CContentPage
     {
         private IRoomSelectorPageLogic logic;
+        private IDisplayService displayService;
 
         public RoomSelectorPage()
         {
             InitializeComponent();
             logic = new RoomSelectorPageLogic();
-            logic.SetView(this);
+            displayService = DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance); //Fetches the global instance of the dependency service. Even though it should not create more dialog objects. But it saves memory
         }
 
-
+        /// <summary>
+        /// Event for when the text in the room filter entry is changed
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="args">The event arguments</param>
         public void OnTextChanged(object sender, EventArgs args)
         {
             UpdateRoomList(logic.FilterList(searchBox.Text));
         }
 
+        /// <summary>
+        /// Event for when a room is selected on the room list
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="args">The event arguments</param>
         public void OnItemSelected(object sender, EventArgs args)
         {
             Room room = (Room)roomList.SelectedItem;
@@ -45,12 +55,16 @@ namespace JetBanjo.Pages
             
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
+            base.OnAppearing();
             //If the ip option have not been set already.
-            if (DataStore.GetValue(Keys.Ip) == null)
+            if (string.IsNullOrWhiteSpace(DataStore.GetValue(Keys.Ip)))
             {
-                DependencyService.Get<IDisplayService>().ShowInputDialog(AppResources.ip, AppResources.ip_text, AppResources.ok , "1.2.2", OnInputFromDialog);
+                displayService.ShowActivityIndicator();
+                await Task.Run(() => { Thread.Sleep(5000); });
+                displayService.DismissActivityIndicator();
+                displayService.ShowDialog(AppResources.error, AppResources.cannot_detect_backend, ImageSource.FromResource("JetBanjo.Resources.error.png"), ()=> { OnFailToFindNetworkDevice(); });
             }
             else
             {
@@ -58,31 +72,67 @@ namespace JetBanjo.Pages
             }
         }
 
-        private void OnInputFromDialog(string input)
+        protected override void OnDisappearing()
         {
-            DependencyService.Get<IDisplayService>().DismissInputDialog();
-            DataStore.SaveValue(Keys.Ip, input);
-            ContinueStartup();
+            base.OnDisappearing();
+            displayService.DismissInputDialog(); //Such that the dialog is not there twice, because of the way OnAppearing gets called.
+
         }
 
+
+        private void OnFailToFindNetworkDevice()
+        {
+#if DEBUG
+            displayService.ShowInputDialog(AppResources.ip, AppResources.ip_text, AppResources.ok, AppResources.example_ip, Constants.DEBUG_IP_ADDRESS, OnInputFromDialog);
+#else
+            displayService.ShowInputDialog(AppResources.ip, AppResources.ip_text, AppResources.ok , AppResources.example_ip, OnInputFromDialog);
+#endif
+        }
+
+        /// <summary>
+        /// Method to be used as callback for the IP dialog
+        /// </summary>
+        /// <param name="input">The string output of the dialog which is the input to this method</param>
+        private void OnInputFromDialog(string input)
+        {
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                displayService.ShowDialog(AppResources.error, AppResources.ip_null_or_empty_err_msg, ImageSource.FromResource("JetBanjo.Resources.error.png"));
+            }
+            else
+            {
+                displayService.DismissInputDialog();
+                DataStore.SaveValue(Keys.Ip, input);
+                ContinueStartup();
+            }
+        }
+
+        /// <summary>
+        /// Continues with the setup part of the app,can only be used after the IP have been set.
+        /// </summary>
         private async void ContinueStartup()
         {
             //If the ip option have been set already.
-            if (DataStore.GetValue(Keys.Ip) != null)
+            if (!string.IsNullOrWhiteSpace(DataStore.GetValue(Keys.Ip)))
             {
                 //If the room option have been set already.
-                if (DataStore.GetValue(Keys.Room) != null)
+                if (!string.IsNullOrWhiteSpace(DataStore.GetValue(Keys.Ip)))
                 {
                     ((App)App.Current).ChangeToMasterMenu();
                     return;
                 }
                 //Else get them to choose a room
-                DependencyService.Get<IDisplayService>().ShowActivityIndicator();
+                displayService.ShowActivityIndicator();
                 UpdateRoomList(await logic.GetList());
-                DependencyService.Get<IDisplayService>().DismissActivityIndicator();
+                displayService.DismissActivityIndicator();
             }
         }
 
+        /// <summary>
+        /// Assaings the updatedRoomList to the roomlist
+        /// </summary>
+        /// <param name="updatedRoomList">The list of rooms</param>
         public void UpdateRoomList(List<Room> updatedRoomList)
         {
             roomList.ItemsSource = updatedRoomList;

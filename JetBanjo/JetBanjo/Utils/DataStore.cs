@@ -48,7 +48,10 @@ namespace JetBanjo.Utils
         {
             if (Application.Current.Properties.ContainsKey(key.ToString()))
             {
-                return Application.Current.Properties[key.ToString()].ToString();
+                if (Application.Current.Properties[key.ToString()] != null)
+                    return Application.Current.Properties[key.ToString()].ToString();
+                else
+                    return null;
             }
             else
             {

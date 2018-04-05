@@ -126,11 +126,26 @@
   <data name="cancel" xml:space="preserve">
     <value>Annuller</value>
   </data>
+  <data name="cannot_detect_backend" xml:space="preserve">
+    <value>Kan ikke finde serveren på det lokale netværk, du skal manualt indtaste serverens IP</value>
+  </data>
+  <data name="download_err" xml:space="preserve">
+    <value>Download fejlede, tjek internet forbindelsen</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Fejl</value>
+  </data>
+  <data name="example_ip" xml:space="preserve">
+    <value>127.0.0.1</value>
+  </data>
   <data name="home" xml:space="preserve">
     <value>Hjem</value>
   </data>
   <data name="ip" xml:space="preserve">
     <value>IP adresse</value>
+  </data>
+  <data name="ip_null_or_empty_err_msg" xml:space="preserve">
+    <value>IP feltet skal udfyldes for at denne app virker </value>
   </data>
   <data name="ip_text" xml:space="preserve">
     <value>Indtast IP adressen til serverne</value>
