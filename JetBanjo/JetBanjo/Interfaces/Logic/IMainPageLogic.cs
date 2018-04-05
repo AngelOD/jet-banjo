@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JetBanjo.Interfaces.Logic
 {
-    public interface IAvatarLogic
+    public interface IMainPageLogic
     {
     }
 }

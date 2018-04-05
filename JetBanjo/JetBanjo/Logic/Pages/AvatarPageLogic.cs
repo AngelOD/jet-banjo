@@ -11,13 +11,6 @@ namespace JetBanjo.Logic.Pages
     public class AvatarPageLogic : IAvatarLogic
     {
         //Classification A is best, and E is worst
-       
-        private IAvatarView view;
-
-        public void SetView(IAvatarView view)
-        {
-            this.view = view;
-        }
 
         //Studies seem to show that too cold is more negative on productivity than too hot. So too cold has the worst classifications.
         public DataTypes.Classification TempClassification(double temp)
