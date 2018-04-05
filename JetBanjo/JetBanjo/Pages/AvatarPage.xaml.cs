@@ -15,8 +15,11 @@ namespace JetBanjo.Pages
 	{
         private IAvatarLogic logic;
         public string RoomName { get; set; } = "Default";
+
+        /*
         private bool swap = true;
         private int currentWarningElements = 0;
+        */
 
         private Dictionary<int, Image> currentWarningImages = new Dictionary<int, Image>();
 
@@ -35,14 +38,28 @@ namespace JetBanjo.Pages
         {
             InitializeComponent();
             logic = new AvatarPageLogic();
+            
             this.BindingContext = this;
 
-            //var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
+            var image = new Image {
+                Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png"),
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
 
-            BackgroundImage2.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
+            //BackgroundGrid.Children.Add(image, 0, 0);
 
+            BackgroundImage1.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
+            BackgroundGrid.Children.Add(image, 0, 0);
+            BackgroundGrid.LowerChild(image);
+            
         }
 
+        public void Tap()
+        {
+            BackgroundGrid.Children.Add(new Label { Text = "Hello there"} , 0, 0);
+        }
+        /*
         public void UpdateAvatar(AvatarType newAvatar)
         {
             switch (newAvatar)
@@ -97,9 +114,7 @@ namespace JetBanjo.Pages
                     break;
             }
 
-            /*ImageButton newButton = new Button();
-            newButton. = warningImage;
-            */
+
             Grid.SetColumn(warningImage, ++currentWarningElements);
             Grid.SetRow(warningImage, 0);
             
@@ -112,26 +127,8 @@ namespace JetBanjo.Pages
             WarningsGrid.Children.Remove(currentWarningImages[currentWarningElements]);
             currentWarningImages.Remove(currentWarningElements);
             currentWarningElements--;
-        }
-
-        public void AddOverlay(object sender, EventArgs args)
-        {
-            //WIP
-            var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png") };
-            var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
+        }*/
 
 
-            CoreGrid.Children.Add(i1, 1, 2);
-            CoreGrid.Children.Add(i2, 1, 2);
-            
-
-
-            /*var overlay = AbsLayoutAvatar.Children[noPress];
-            
-            AbsLayoutAvatar.RaiseChild(overlay);
-            
-
-            noPress = (noPress + 1) % (AbsLayoutAvatar.Children.Count);*/
-        }
     }
 }
