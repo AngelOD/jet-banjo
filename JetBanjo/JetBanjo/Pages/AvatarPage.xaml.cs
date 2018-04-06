@@ -1,5 +1,6 @@
 ﻿using JetBanjo.Interfaces.Logic;
 using JetBanjo.Logic.Pages;
+using JetBanjo.Utils.DependencyService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,18 +48,35 @@ namespace JetBanjo.Pages
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
 
-            //BackgroundGrid.Children.Add(image, 0, 0);
 
             BackgroundImage1.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
             BackgroundGrid.Children.Add(image, 0, 0);
-            BackgroundGrid.LowerChild(image);
+            AddTGRView();
             
         }
 
+        private void AddTGRView()
+        {
+            int upperImageNo = BackgroundGrid.Children.Count - 1;
+
+            var upperImage = BackgroundGrid.Children[upperImageNo];
+
+            var tgr = new TapGestureRecognizer();
+            tgr.Tapped += (s, e) =>
+            {
+                Tap();
+            };
+
+            upperImage.GestureRecognizers.Add(tgr);
+        }
+        
         public void Tap()
         {
-            BackgroundGrid.Children.Add(new Label { Text = "Hello there"} , 0, 0);
+            //Replace with custom popup
+            DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowDialog("Hej Christoffer", "How is going?");
         }
+
+
         /*
         public void UpdateAvatar(AvatarType newAvatar)
         {
