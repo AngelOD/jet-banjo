@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using JetBanjo.Utils;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,7 +60,8 @@ namespace JetBanjo.Web
                     url = "https://" + url;
                 }
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url); //URL
-                request.Timeout = 30000; //30 sec timeout
+                request.CachePolicy = new HttpRequestCachePolicy(HttpCacheAgeControl.MaxAge, Constants.cacheMaxAge);
+                request.Timeout = (int) Constants.timeoutTime.TotalMilliseconds; //Timeout defined in constants
 
                 request.Method = "GET";
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())

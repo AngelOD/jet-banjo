@@ -64,7 +64,8 @@ namespace JetBanjo.Pages
             if (string.IsNullOrWhiteSpace(DataStore.GetValue(Keys.Ip)))
             {
                 displayService.ShowActivityIndicator();
-                await Task.Run(() => { Thread.Sleep(5000); });
+                //await Task.Run(() => { Thread.Sleep(5000); });
+                await DependencyService.Get<INetworkDiscovery>(DependencyFetchTarget.GlobalInstance).FindBackEnd();
                 displayService.DismissActivityIndicator();
                 displayService.ShowDialog(AppResources.error, AppResources.cannot_detect_backend, ImageSource.FromResource("JetBanjo.Resources.error.png"), ()=> { OnFailToFindNetworkDevice(); });
             }

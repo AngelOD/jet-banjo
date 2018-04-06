@@ -60,17 +60,23 @@ namespace JetBanjo
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            // Handle when your app starts
+            DependencyService.Get<INetworkDiscovery>(DependencyFetchTarget.GlobalInstance).OnAppStart();
+
+        }
 
 		protected override void OnSleep ()
 		{
-			// Handle when your app sleeps
-		}
+            // Handle when your app sleeps
+            DependencyService.Get<INetworkDiscovery>(DependencyFetchTarget.GlobalInstance).OnAppStop();
+
+        }
 
 		protected override void OnResume ()
 		{
-			// Handle when your app resumes
-		}
+            // Handle when your app resumes
+            DependencyService.Get<INetworkDiscovery>(DependencyFetchTarget.GlobalInstance).OnAppStart();
+
+        }
 	}
 }
