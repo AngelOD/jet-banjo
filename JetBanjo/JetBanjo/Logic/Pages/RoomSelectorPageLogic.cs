@@ -1,5 +1,4 @@
 ﻿using JetBanjo.Interfaces.Logic;
-using JetBanjo.Interfaces.Views;
 using JetBanjo.Resx;
 using JetBanjo.Web.Objects;
 using System;
@@ -12,7 +11,6 @@ namespace JetBanjo.Logic.Pages
 {
     public class RoomSelectorPageLogic : IRoomSelectorPageLogic
     {
-        private IRoomSelectorPageView view;
         private List<Room> roomList;
 
         private async Task DownloadRoomList()
@@ -40,11 +38,6 @@ namespace JetBanjo.Logic.Pages
             }
 
             return roomList;
-        }
-
-        public void SetView(IRoomSelectorPageView view)
-        {
-            this.view = view;
         }
     }
 }

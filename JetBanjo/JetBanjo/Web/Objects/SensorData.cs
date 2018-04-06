@@ -1,8 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using JetBanjo.Resx;
+using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
@@ -39,7 +45,16 @@ namespace JetBanjo.Web.Objects
         /// <returns>Sensor data object</returns>
         public static async Task<SensorData> Get()
         {
-            return new SensorData();
+            SensorData temp = new SensorData();
+            string ip = DataStore.GetValue(DataStore.Keys.Ip);
+            string room = DataStore.GetValue(DataStore.Keys.Room);
+            WebResult<SensorData> result = await WebHandler.ReadData<SensorData>(ip + "/api/room/all");
+            if (HttpStatusCode.OK.Equals(result.ResponseCode))
+                temp = result.Result;
+            else
+                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+
+            return temp;
         }
 
         /// <summary>

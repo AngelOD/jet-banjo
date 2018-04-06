@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static JetBanjo.Utils.DataStore;
 
 namespace JetBanjo.Pages
 {
@@ -17,13 +18,20 @@ namespace JetBanjo.Pages
 		public Settings ()
 		{
 			InitializeComponent ();
-		}
-
-
-        public void test(object sender, EventArgs args)
-        {
-            DataStore.RemoveValue("roomTest"); 
-
+            RemoveIp.WidthRequest = App.ScreenSize.Width * Constants.BUTTON_SCALE;
+            RemoveRoom.WidthRequest = App.ScreenSize.Width * Constants.BUTTON_SCALE;
         }
+
+
+        public void OnRemoveRoomClick(object sender, EventArgs args)
+        {
+            DataStore.RemoveValue(Keys.Room);
+        }
+
+        public void OnRemoveIpClick(object sender, EventArgs args)
+        {
+            DataStore.RemoveValue(Keys.Ip);
+        }
+
     }
 }

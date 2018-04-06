@@ -20,8 +20,10 @@ namespace JetBanjo
         /// </summary>
         public Master MasterPage { get; private set; }
 
+        public static Size ScreenSize { get; set; }
+
 		public App ()
-		{
+		{   
 			InitializeComponent();
 
             // This lookup NOT required for Windows platforms - the Culture will be automatically set
@@ -32,7 +34,7 @@ namespace JetBanjo
                 Resx.AppResources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
-
+ 
             MainPage = new NavigationPage(new RoomSelectorPage()); 
 		}
 
@@ -58,17 +60,23 @@ namespace JetBanjo
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            // Handle when your app starts
+            DependencyService.Get<INetworkDiscovery>(DependencyFetchTarget.GlobalInstance).OnAppStart();
+
+        }
 
 		protected override void OnSleep ()
 		{
-			// Handle when your app sleeps
-		}
+            // Handle when your app sleeps
+            DependencyService.Get<INetworkDiscovery>(DependencyFetchTarget.GlobalInstance).OnAppStop();
+
+        }
 
 		protected override void OnResume ()
 		{
-			// Handle when your app resumes
-		}
+            // Handle when your app resumes
+            DependencyService.Get<INetworkDiscovery>(DependencyFetchTarget.GlobalInstance).OnAppStart();
+
+        }
 	}
 }

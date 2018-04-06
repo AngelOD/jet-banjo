@@ -30,5 +30,12 @@ namespace JetBanjo.Utils
         public const double MAX_CO2 = 2000;
         public const double MAX_SUBOPTIMAL_CO2 = MAX_CO2 - SEMI_OPTIMAL_CO2_RANGE;
         public const double MAX_SEMI_OPTIMAL_CO2 = MAX_OPTIMAL_CO2 + SEMI_OPTIMAL_CO2_RANGE;
+
+        public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";
+        public const double BUTTON_SCALE = 0.5;
+        public const double ENTRY_SCALE = 0.5;
+
+        public static TimeSpan cacheMaxAge = new TimeSpan(0, 5, 0); //0 hours, 5 minutes, 0 seconds
+        public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds
     }
 }
