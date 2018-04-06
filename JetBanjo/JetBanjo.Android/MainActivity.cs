@@ -7,10 +7,11 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Content;
+using Xamarin.Forms;
 
 namespace JetBanjo.Droid
 {
-    [Activity(Label = "JetBanjo", Icon = "@drawable/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Room Battle", Icon = "@drawable/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         /// <summary>
@@ -28,6 +29,8 @@ namespace JetBanjo.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Context = this; //Sets the context
+            App.ScreenSize = new Size(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density,
+                Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
             LoadApplication(new App());
         }
     }

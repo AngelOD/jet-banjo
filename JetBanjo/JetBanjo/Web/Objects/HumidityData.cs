@@ -1,8 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using JetBanjo.Resx;
+using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
@@ -18,7 +24,16 @@ namespace JetBanjo.Web.Objects
         /// <returns>Humidity data object</returns>
         public static async Task<HumidityData> Get()
         {
-            return new HumidityData();
+            HumidityData temp = new HumidityData();
+            string ip = DataStore.GetValue(DataStore.Keys.Ip);
+            string room = DataStore.GetValue(DataStore.Keys.Room);
+            WebResult<HumidityData> result = await WebHandler.ReadData<HumidityData>(ip + "/api/room/" + room + "/" + SensorType.Humidity);
+            if (HttpStatusCode.OK.Equals(result.ResponseCode))
+                temp = result.Result;
+            else
+                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+
+            return temp;
         }
 
         /// <summary>

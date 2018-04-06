@@ -7,10 +7,8 @@
              x:Class="JetBanjo.Pages.Settings">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="button" Text="Remove room test" Clicked="test" />
+            <Button x:Name="RemoveRoom" Text="{i18n:Translate remove_room}" Clicked="OnRemoveRoomClick" />
+            <Button x:Name="RemoveIp" Text="{i18n:Translate remove_ip}" Clicked="OnRemoveIpClick" />
         </StackLayout>
     </ContentPage.Content>
 </c:CContentPage>

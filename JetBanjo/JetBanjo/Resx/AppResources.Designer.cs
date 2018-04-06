@@ -61,7 +61,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to JetBanjo.
+        ///   Looks up a localized string similar to Room Battle.
         /// </summary>
         internal static string app_name {
             get {
@@ -79,6 +79,51 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot detect the server on the local network, you need to manually input it.
+        /// </summary>
+        internal static string cannot_detect_backend {
+            get {
+                return ResourceManager.GetString("cannot_detect_backend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to download, check internet connection.
+        /// </summary>
+        internal static string download_err {
+            get {
+                return ResourceManager.GetString("download_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 127.0.0.1.
+        /// </summary>
+        internal static string example_ip {
+            get {
+                return ResourceManager.GetString("example_ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         internal static string home {
@@ -88,11 +133,56 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IP address.
+        /// </summary>
+        internal static string ip {
+            get {
+                return ResourceManager.GetString("ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The ip field must be specified for this app to work.
+        /// </summary>
+        internal static string ip_null_or_empty_err_msg {
+            get {
+                return ResourceManager.GetString("ip_null_or_empty_err_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input the IP address of the server.
+        /// </summary>
+        internal static string ip_text {
+            get {
+                return ResourceManager.GetString("ip_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string ok {
             get {
                 return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove IP.
+        /// </summary>
+        internal static string remove_ip {
+            get {
+                return ResourceManager.GetString("remove_ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove room.
+        /// </summary>
+        internal static string remove_room {
+            get {
+                return ResourceManager.GetString("remove_room", resourceCulture);
             }
         }
         

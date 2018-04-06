@@ -1,5 +1,4 @@
 ﻿using JetBanjo.Interfaces.Logic;
-using JetBanjo.Interfaces.Views;
 using JetBanjo.Logic.Pages;
 using JetBanjo.Utils.DependencyService;
 using System;
@@ -13,7 +12,7 @@ using Xamarin.Forms.Xaml;
 namespace JetBanjo.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AvatarPage : CContentPage, IAvatarView
+	public partial class AvatarPage : CContentPage
 	{
         private IAvatarLogic logic;
         private string roomName;
@@ -22,14 +21,12 @@ namespace JetBanjo.Pages
         {
             InitializeComponent();
             logic = new AvatarPageLogic();
-            logic.SetView(this);
         }
 
 		public AvatarPage (IAvatarLogic logic, string roomName)
 		{
 			InitializeComponent ();
             this.logic = logic;
-            logic.SetView(this);
 
             this.roomName = roomName;
 
