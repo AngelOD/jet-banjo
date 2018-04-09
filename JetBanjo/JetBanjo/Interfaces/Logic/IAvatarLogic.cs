@@ -6,5 +6,6 @@ namespace JetBanjo.Interfaces.Logic
 {
     public interface IAvatarLogic
     {
+
     }
 }

@@ -16,8 +16,26 @@ namespace JetBanjo.Utils
         public const double MAX_OPTIMAL_ALLOWED = MAX_COMFORTABLE_TEMP + SEMI_OPTIMAL_TEMP_RANGE;
 
         //Humidity Thresholds. In percent.
+        private const double SEMI_OPTIMAL_HUMIDITY_RANGE = 10;
         public const double MIN_HUMIDITY = 25;
         public const double MAX_HUMIDITY_SUMMER = 60;
         public const double MAX_HUMIDITY_WINTER = 45;
+        public const double MIN_OPTIMAL_HUMIDITY = MIN_HUMIDITY + SEMI_OPTIMAL_HUMIDITY_RANGE;
+        public const double MAX_OPTIMAL_HUMIDITY_WINTER = MAX_HUMIDITY_WINTER - SEMI_OPTIMAL_HUMIDITY_RANGE;
+        public const double MAX_OPTIMAL_HUMIDITY_SUMMER = MAX_HUMIDITY_SUMMER - SEMI_OPTIMAL_HUMIDITY_RANGE;
+
+        //CO2 Thresholds. In Parts per Million
+        private const double SEMI_OPTIMAL_CO2_RANGE = 250;
+        public const double MAX_OPTIMAL_CO2 = 1000;
+        public const double MAX_CO2 = 2000;
+        public const double MAX_SUBOPTIMAL_CO2 = MAX_CO2 - SEMI_OPTIMAL_CO2_RANGE;
+        public const double MAX_SEMI_OPTIMAL_CO2 = MAX_OPTIMAL_CO2 + SEMI_OPTIMAL_CO2_RANGE;
+
+        public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";
+        public const double BUTTON_SCALE = 0.5;
+        public const double ENTRY_SCALE = 0.5;
+
+        public static TimeSpan cacheMaxAge = new TimeSpan(0, 5, 0); //0 hours, 5 minutes, 0 seconds
+        public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds
     }
 }

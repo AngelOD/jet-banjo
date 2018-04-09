@@ -15,6 +15,7 @@
             <Style TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="WidthRequest" Value="200" />
+                
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBG}" />
                 <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
             </Style>

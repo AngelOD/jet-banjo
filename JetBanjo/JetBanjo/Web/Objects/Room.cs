@@ -1,9 +1,14 @@
 ﻿using JetBanjo.Resx;
+using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
@@ -37,7 +42,16 @@ namespace JetBanjo.Web.Objects
         /// <returns>Room data object</returns>
         public static async Task<Room> Get(string id)
         {
-            return new Room() { Id = id } ;
+            Room temp = new Room();
+            string ip = DataStore.GetValue(DataStore.Keys.Ip);
+            string room = DataStore.GetValue(DataStore.Keys.Room);
+            WebResult<Room> result = await WebHandler.ReadData<Room>(ip + "/api/room/" + room);
+            if (HttpStatusCode.OK.Equals(result.ResponseCode))
+                temp = result.Result;
+            else
+                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+
+            return temp;
         }
 
         //ToDo Finish implmentation when the web handler and backend is more finished
@@ -51,6 +65,13 @@ namespace JetBanjo.Web.Objects
             roomList.Add(new Room() { RoomNumber = "1.1", Id = "fst" });
             roomList.Add(new Room() { RoomNumber = "2.1", Id = "sec" });
             roomList.Add(new Room() { RoomNumber = "3.1", Id = "thd" });
+            string ip = DataStore.GetValue(DataStore.Keys.Ip);
+            WebResult<List<Room>> result = await WebHandler.ReadData<List<Room>>(ip + "/api/rooms");
+            if (HttpStatusCode.OK.Equals(result.ResponseCode))
+                roomList = result.Result;
+            else
+                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+
             return roomList;
         }
 

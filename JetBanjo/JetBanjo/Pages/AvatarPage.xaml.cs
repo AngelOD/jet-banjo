@@ -1,5 +1,6 @@
 ﻿using JetBanjo.Interfaces.Logic;
 using JetBanjo.Logic.Pages;
+using JetBanjo.Utils.DependencyService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,11 @@ namespace JetBanjo.Pages
 	{
         private IAvatarLogic logic;
         public string RoomName { get; set; } = "Default";
+
+        /*
         private bool swap = true;
         private int currentWarningElements = 0;
+        */
 
         private Dictionary<int, Image> currentWarningImages = new Dictionary<int, Image>();
 
@@ -35,14 +39,45 @@ namespace JetBanjo.Pages
         {
             InitializeComponent();
             logic = new AvatarPageLogic();
+            
             this.BindingContext = this;
 
-            //var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
+            var image = new Image {
+                Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png"),
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
 
-            BackgroundImage2.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
 
+            BackgroundImage1.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
+            BackgroundGrid.Children.Add(image, 0, 0);
+            AddTGRView();
+            
         }
 
+        private void AddTGRView()
+        {
+            int upperImageNo = BackgroundGrid.Children.Count - 1;
+
+            var upperImage = BackgroundGrid.Children[upperImageNo];
+
+            var tgr = new TapGestureRecognizer();
+            tgr.Tapped += (s, e) =>
+            {
+                Tap();
+            };
+
+            upperImage.GestureRecognizers.Add(tgr);
+        }
+        
+        public void Tap()
+        {
+            //Replace with custom popup
+            DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowDialog("Hej Christoffer", "How is going?");
+        }
+
+
+        /*
         public void UpdateAvatar(AvatarType newAvatar)
         {
             switch (newAvatar)
@@ -97,9 +132,7 @@ namespace JetBanjo.Pages
                     break;
             }
 
-            /*ImageButton newButton = new Button();
-            newButton. = warningImage;
-            */
+
             Grid.SetColumn(warningImage, ++currentWarningElements);
             Grid.SetRow(warningImage, 0);
             
@@ -112,26 +145,8 @@ namespace JetBanjo.Pages
             WarningsGrid.Children.Remove(currentWarningImages[currentWarningElements]);
             currentWarningImages.Remove(currentWarningElements);
             currentWarningElements--;
-        }
-
-        public void AddOverlay(object sender, EventArgs args)
-        {
-            //WIP
-            var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png") };
-            var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
+        }*/
 
 
-            CoreGrid.Children.Add(i1, 1, 2);
-            CoreGrid.Children.Add(i2, 1, 2);
-            
-
-
-            /*var overlay = AbsLayoutAvatar.Children[noPress];
-            
-            AbsLayoutAvatar.RaiseChild(overlay);
-            
-
-            noPress = (noPress + 1) % (AbsLayoutAvatar.Children.Count);*/
-        }
     }
 }
