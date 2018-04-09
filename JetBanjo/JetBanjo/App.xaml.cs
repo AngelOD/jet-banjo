@@ -52,7 +52,7 @@ namespace JetBanjo
         /// </summary>
         private void RegisterMenuItems()
         {
-            MasterPage.Register(typeof(AvatarPage), AppResources.avatar);
+            MasterPage.Register(typeof(DonAvatarPage), AppResources.avatar);
             MasterPage.Register(new Settings(), AppResources.settings);
         }
 
