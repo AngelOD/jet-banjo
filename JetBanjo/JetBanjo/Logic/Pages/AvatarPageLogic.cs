@@ -1,5 +1,4 @@
 ﻿using JetBanjo.Interfaces.Logic;
-using JetBanjo.Interfaces.Views;
 using JetBanjo.Logic.Sensor;
 using System;
 using System.Collections.Generic;

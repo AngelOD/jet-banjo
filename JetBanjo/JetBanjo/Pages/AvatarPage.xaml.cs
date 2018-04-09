@@ -39,7 +39,8 @@ namespace JetBanjo.Pages
         {
             InitializeComponent();
             logic = new AvatarPageLogic();
-            
+            AddTGR();
+
             this.BindingContext = this;
 
             var image = new Image {
@@ -48,105 +49,32 @@ namespace JetBanjo.Pages
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
 
-
             BackgroundImage1.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
             BackgroundGrid.Children.Add(image, 0, 0);
-            AddTGRView();
-            
         }
 
-        private void AddTGRView()
+        /// <summary>
+        /// Adds a tap gesture recognizer
+        /// </summary>
+        private void AddTGR()
         {
-            int upperImageNo = BackgroundGrid.Children.Count - 1;
-
-            var upperImage = BackgroundGrid.Children[upperImageNo];
-
             var tgr = new TapGestureRecognizer();
             tgr.Tapped += (s, e) =>
             {
                 Tap();
             };
-
-            upperImage.GestureRecognizers.Add(tgr);
+            BackgroundGrid.GestureRecognizers.Add(tgr);
         }
         
+        public void ChangeBackgroundImage(int thermalScore, int iaqScore,  int visualScore, int noiseScore)
+        {
+
+        }
+
         public void Tap()
         {
             //Replace with custom popup
             DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowDialog("Hej Christoffer", "How is going?");
         }
-
-
-        /*
-        public void UpdateAvatar(AvatarType newAvatar)
-        {
-            switch (newAvatar)
-            {
-                case AvatarType.Good:
-                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.good.png");
-                    break;
-                case AvatarType.BadTemp:
-                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.badtemp.png");
-                    break;
-                case AvatarType.BadAir:
-                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.badair.png");
-                    break;
-                case AvatarType.BadSound:
-                    Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.badsound.png");
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        public void Test(object sender, EventArgs args)
-        {
-            if (swap)
-            {
-                Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
-                AddWarning(WarningType.GenericWarning);
-            }
-            else
-            {
-                Avatar.Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png");
-                AddWarning(WarningType.DonF);
-            }
-                
-            swap = !swap;
-        }
-
-        public void AddWarning(WarningType warning)
-        {
-            Image warningImage;
-
-            switch (warning)
-            {
-                case WarningType.GenericWarning:
-                    warningImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.error.png") };
-                    break;
-                case WarningType.DonF:
-                    warningImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png") };
-                    break;
-                default:
-                    warningImage = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png") };
-                    break;
-            }
-
-
-            Grid.SetColumn(warningImage, ++currentWarningElements);
-            Grid.SetRow(warningImage, 0);
-            
-            currentWarningImages.Add(currentWarningElements, warningImage);
-            WarningsGrid.Children.Add(warningImage);
-        }
-
-        public void RemoveWarning(object sender, EventArgs args)
-        {
-            WarningsGrid.Children.Remove(currentWarningImages[currentWarningElements]);
-            currentWarningImages.Remove(currentWarningElements);
-            currentWarningElements--;
-        }*/
-
-
     }
 }

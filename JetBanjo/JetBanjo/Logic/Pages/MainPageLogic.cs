@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JetBanjo.Logic.Pages
 {
-    public class MainPageLogic : IMainPageLogic
+    public class MainPageLogic
     {
 
     }
