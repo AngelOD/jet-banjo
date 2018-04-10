@@ -13,5 +13,9 @@ namespace JetBanjo.Utils
 
         public static TimeSpan cacheMaxAge = new TimeSpan(0, 5, 0); //0 hours, 5 minutes, 0 seconds
         public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds
+
+
+        public const string NETWORK_SEARCH = "_ipp._tcp";
+        public const string API_ROOMS_URL = "/api/rooms";
     }
 }

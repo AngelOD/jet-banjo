@@ -12,28 +12,26 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
-    public class HumidityData
+    public class HumidityData : SensorObject
     {
-        [JsonProperty(PropertyName = "value")]
-        public double Humidity { get; set; }
-
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest humidityData data
+        /// Returns the latest humidity data for the subscribed room.
         /// </summary>
         /// <returns>Humidity data object</returns>
         public static async Task<HumidityData> Get()
         {
-            HumidityData temp = new HumidityData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<HumidityData> result = await WebHandler.ReadData<HumidityData>(ip + "/api/room/" + room + "/" + SensorType.Humidity);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<HumidityData>(room, SensorType.Humidity);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest humidity data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>Humidity data object</returns>
+        public static async Task<HumidityData> Get(string roomId)
+        {
+            return await Get<HumidityData>(roomId, SensorType.Humidity);
         }
 
         /// <summary>
@@ -41,9 +39,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            HumidityData temp = await Get();
-            Humidity = temp.Humidity;
-            temp = null;
+            await Update<HumidityData>(SensorType.Humidity);
         }
     }
 }

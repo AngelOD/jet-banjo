@@ -35,17 +35,26 @@ namespace JetBanjo.Web.Objects
             set { roomNumber = value; }
         }
 
-        //ToDo Finish implmentation when the web handler and backend is more finished
+        /// <summary>
+        /// Returns the latest room data for the subscribed room
+        /// </summary>
+        /// <returns>Room data object</returns>
+        public static async Task<Room> Get()
+        {
+            string room = DataStore.GetValue(DataStore.Keys.Room);
+            return await Get(room);
+        }
+
         /// <summary>
         /// Returns the latest room data for a given room identified by its id
         /// </summary>
+        /// <param name="roomId">The room id</param>
         /// <returns>Room data object</returns>
-        public static async Task<Room> Get(string id)
+        public static async Task<Room> Get(string roomId)
         {
             Room temp = new Room();
             string ip = DataStore.GetValue(DataStore.Keys.Ip);
-            string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<Room> result = await WebHandler.ReadData<Room>(ip + "/api/room/" + room);
+            WebResult<Room> result = await WebHandler.ReadData<Room>(ip + Constants.API_ROOMS_URL + "/" + roomId);
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
             else
@@ -54,7 +63,6 @@ namespace JetBanjo.Web.Objects
             return temp;
         }
 
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
         /// Returns the latest list of room
         /// </summary>
@@ -66,7 +74,7 @@ namespace JetBanjo.Web.Objects
             roomList.Add(new Room() { RoomNumber = "2.1", Id = "sec" });
             roomList.Add(new Room() { RoomNumber = "3.1", Id = "thd" });
             string ip = DataStore.GetValue(DataStore.Keys.Ip);
-            WebResult<List<Room>> result = await WebHandler.ReadData<List<Room>>(ip + "/api/rooms");
+            WebResult<List<Room>> result = await WebHandler.ReadData<List<Room>>(ip + Constants.API_ROOMS_URL);
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 roomList = result.Result;
             else

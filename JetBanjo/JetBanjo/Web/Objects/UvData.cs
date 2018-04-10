@@ -12,28 +12,26 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
-    public class UVData
+    public class UVData : SensorObject
     {
-        [JsonProperty(PropertyName = "value")]
-        public int UV { get; set; }
-
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest UV data
+        /// Returns the latest UV data for the subscribed room.
         /// </summary>
         /// <returns>UV data object</returns>
         public static async Task<UVData> Get()
         {
-            UVData temp = new UVData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<UVData> result = await WebHandler.ReadData<UVData>(ip + "/api/room/" + room + "/" + SensorType.UV);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<UVData>(room, SensorType.UV);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest UV data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>UV data object</returns>
+        public static async Task<UVData> Get(string roomId)
+        {
+            return await Get<UVData>(roomId, SensorType.UV);
         }
 
         /// <summary>
@@ -41,9 +39,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            UVData temp = await Get();
-            UV = temp.UV;
-            temp = null;
+            await Update<UVData>(SensorType.UV);
         }
 
     }

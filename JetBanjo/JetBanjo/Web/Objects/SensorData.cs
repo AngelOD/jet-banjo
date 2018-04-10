@@ -38,17 +38,25 @@ namespace JetBanjo.Web.Objects
         [JsonProperty(PropertyName = "voc")]
         public int VOC { get; set; }
 
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
         /// Returns the latest combined sensor data
         /// </summary>
         /// <returns>Sensor data object</returns>
         public static async Task<SensorData> Get()
         {
+            string room = DataStore.GetValue(DataStore.Keys.Room);
+            return await Get(room);
+        }
+
+        /// <summary>
+        /// Returns the latest combined sensor data
+        /// </summary>
+        /// <returns>Sensor data object</returns>
+        public static async Task<SensorData> Get(string roomId)
+        {
             SensorData temp = new SensorData();
             string ip = DataStore.GetValue(DataStore.Keys.Ip);
-            string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<SensorData> result = await WebHandler.ReadData<SensorData>(ip + "/api/room/all");
+            WebResult<SensorData> result = await WebHandler.ReadData<SensorData>(ip + Constants.API_ROOMS_URL + "/" + roomId + "/all");
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
             else
