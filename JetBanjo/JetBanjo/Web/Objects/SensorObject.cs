@@ -14,7 +14,7 @@ namespace JetBanjo.Web.Objects
     public class SensorObject
     {
         [JsonProperty(PropertyName = "value")]
-        public int Value { get; set; }
+        public double Value { get; set; }
 
         [JsonProperty(PropertyName = "id")]
         public string RoomID { get; set; }
