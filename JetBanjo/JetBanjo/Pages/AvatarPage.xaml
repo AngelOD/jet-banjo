@@ -6,53 +6,8 @@
              xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
              x:Class="JetBanjo.Pages.AvatarPage"
              Title="{Binding RoomName}">
-
     <ContentPage.Content>
-        <Grid x:Name="BackgroundGrid" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <Image x:Name="BackgroundImage1" Aspect="AspectFill" VerticalOptions="FillAndExpand" 
-                   HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0">
-            </Image>
-        </Grid>
-        
-        
-        <!--
-        <Image x:Name="BackgroundImage2" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-        -->
-        <!--<Grid x:Name="CoreGrid" AnchorX="0.5" AnchorY="0.5">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="8*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="8*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-                <Button x:Name="ImgButton" Clicked="Test" Grid.Column="2" Grid.Row="2"/>
-                <Button x:Name="ImgButton2" Clicked="RemoveWarning" Grid.Column="0" Grid.Row="2"/>
-                <Button x:Name="OlayButton" Clicked="AddOverlay" Grid.Column="0" Grid.Row="1" />
-                <Image x:Name="Avatar" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="1" Grid.Row="1" />
-                <Grid x:Name="WarningsGrid" Grid.Row="2" Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                </Grid>
-            </Grid>
-            -->
-
+        <AbsoluteLayout x:Name="layout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        </AbsoluteLayout>
     </ContentPage.Content>
 </c:CContentPage>

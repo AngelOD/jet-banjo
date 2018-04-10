@@ -8,73 +8,77 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JetBanjo.Utils;
 
 namespace JetBanjo.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AvatarPage : CContentPage
 	{
-        private IAvatarLogic logic;
-        public string RoomName { get; set; } = "Default";
-
-        /*
-        private bool swap = true;
-        private int currentWarningElements = 0;
-        */
-
-        private Dictionary<int, Image> currentWarningImages = new Dictionary<int, Image>();
-
         public enum AvatarType
         {
             Good, BadTemp, BadAir, BadSound
         };
 
-        public enum WarningType
-        {
-            GenericWarning, DonF
-        };
+        AvatarPageLogic logic;
 
-
+        private Image background;
+        private Image avatar;
+        private Image overlayEffect;
+        
+        private Image currentTopLayer;
+        private TapGestureRecognizer tapGestureRecognizer;
+ 
         public AvatarPage()
         {
             InitializeComponent();
             logic = new AvatarPageLogic();
-            AddTGR();
 
-            this.BindingContext = this;
-
-            var image = new Image {
-                Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png"),
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-            };
-
-            BackgroundImage1.Source = ImageSource.FromResource("JetBanjo.Resources.roed.png");
-            BackgroundGrid.Children.Add(image, 0, 0);
+            tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += OnTouch;
+            InitializeAvatar();
         }
 
-        /// <summary>
-        /// Adds a tap gesture recognizer
-        /// </summary>
-        private void AddTGR()
+        //Should ask for given pictures
+        private void InitializeAvatar()
         {
-            var tgr = new TapGestureRecognizer();
-            tgr.Tapped += (s, e) =>
-            {
-                Tap();
-            };
-            BackgroundGrid.GestureRecognizers.Add(tgr);
+            background = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
+            avatar = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand };
+            overlayEffect = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png"), HorizontalOptions = LayoutOptions.FillAndExpand, IsVisible = false };
+
+            background.GestureRecognizers.Add(tapGestureRecognizer);
+
+            AddLayer(background);
+            AddLayer(avatar);
+            AddLayer(overlayEffect);
+        }
+
+        private void AddOverlay(Image _background, Image _avatar, Image _overlay)
+        {
+            //WIP needs to replace pictures
+            replaceLayer(background, _background);
+            replaceLayer(avatar, _avatar);
+            replaceLayer(overlayEffect, _overlay);
+
+            background.GestureRecognizers.Add(tapGestureRecognizer);
         }
         
-        public void ChangeBackgroundImage(int thermalScore, int iaqScore,  int visualScore, int noiseScore)
+        private void AddLayer(Image image)
         {
-
+            layout.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
         }
 
-        public void Tap()
+        private void replaceLayer(Image removedImage, Image addedImage)
         {
-            //Replace with custom popup
-            DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowDialog("Hej Christoffer", "How is going?");
+            layout.Children.Remove(removedImage);
+            layout.Children.Add(addedImage, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+        }
+
+
+        private void OnTouch(object sender, EventArgs args)
+        {
+            //WIP
+            DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
         }
     }
 }
