@@ -12,28 +12,27 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
-    public class VOCData
+    public class VOCData : SensorObject
     {
-        [JsonProperty(PropertyName = "value")]
-        public int VOC { get; set; }
 
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest VOC data
+        /// Returns the latest VOC data for the subscribed room.
         /// </summary>
-        /// <returns>Voc data object</returns>
+        /// <returns>VOC data object</returns>
         public static async Task<VOCData> Get()
         {
-            VOCData temp = new VOCData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<VOCData> result = await WebHandler.ReadData<VOCData>(ip + "/api/room/" + room + "/" + SensorType.VOC);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<VOCData>(room, SensorType.VOC);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest VOC data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>VOC data object</returns>
+        public static async Task<VOCData> Get(string roomId)
+        {
+            return await Get<VOCData>(roomId, SensorType.VOC);
         }
 
         /// <summary>
@@ -41,9 +40,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            VOCData temp = await Get();
-            VOC = temp.VOC;
-            temp = null;
+            await Update<VOCData>(SensorType.VOC);
         }
     }
 }

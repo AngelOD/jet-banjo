@@ -12,28 +12,26 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
-    public class LightData
+    public class LightData : SensorObject
     {
-        [JsonProperty(PropertyName = "value")]
-        public int Lux { get; set; }
-
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest light data
+        /// Returns the latest light data for the subscribed room.
         /// </summary>
         /// <returns>Light data object</returns>
         public static async Task<LightData> Get()
         {
-            LightData temp = new LightData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<LightData> result = await WebHandler.ReadData<LightData>(ip + "/api/room/" + room + "/" + SensorType.Light);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<LightData>(room, SensorType.Light);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest light data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>Light data object</returns>
+        public static async Task<LightData> Get(string roomId)
+        {
+            return await Get<LightData>(roomId, SensorType.Light);
         }
 
         /// <summary>
@@ -41,10 +39,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            LightData temp = await Get();
-            Lux = temp.Lux;
-            temp = null;
+            await Update<LightData>(SensorType.Light);
         }
-
     }
 }
