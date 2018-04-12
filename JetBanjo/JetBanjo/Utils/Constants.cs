@@ -6,7 +6,7 @@ namespace JetBanjo.Utils
 {
     public static class Constants
     {
-        //Temperature thresholds.
+        //Temperature thresholds
         private const double SEMI_OPTIMAL_TEMP_RANGE = 0.5; //Non-Zero, positive, max 1. Allowed variance from optimal temp.
         public const double MAX_TEMP = 25;
         public const double MAX_COMFORTABLE_TEMP = 23;
@@ -30,6 +30,12 @@ namespace JetBanjo.Utils
         public const double MAX_CO2 = 2000;
         public const double MAX_SUBOPTIMAL_CO2 = MAX_CO2 - SEMI_OPTIMAL_CO2_RANGE;
         public const double MAX_SEMI_OPTIMAL_CO2 = MAX_OPTIMAL_CO2 + SEMI_OPTIMAL_CO2_RANGE;
+
+        //Season
+        public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
+        {
+            10, 11, 12, 1, 2, 3, 4
+        };
 
         public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";
         public const double BUTTON_SCALE = 0.5;

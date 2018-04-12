@@ -4,6 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using JetBanjo.Utils;
+using Xamarin.Forms;
+using JetBanjo.Web.Objects;
+using System.Threading.Tasks;
+using System.Globalization;
 
 namespace JetBanjo.Logic.Pages
 {
@@ -12,7 +16,7 @@ namespace JetBanjo.Logic.Pages
         //Classification A is best, and E is worst
 
         //Studies seem to show that too cold is more negative on productivity than too hot. So too cold has the worst classifications.
-        public DataTypes.Classification TempClassification(double temp)
+        private DataTypes.Classification TempClassification(double temp)
         {
             DataTypes.Classification classification;
 
@@ -91,7 +95,7 @@ namespace JetBanjo.Logic.Pages
             return classification;
         }
 
-        public DataTypes.Classification CarbonDioxideClassification(double carbonDioxide)
+        private DataTypes.Classification CarbonDioxideClassification(double carbonDioxide)
         {
             DataTypes.Classification classification;
 
@@ -119,9 +123,38 @@ namespace JetBanjo.Logic.Pages
             return classification;
         }
 
-        public DataTypes.Classification VOCClassification(double voc)
+        private DataTypes.Classification VOCClassification(double voc)
         {
             return DataTypes.Classification.E;
         }
+
+        private DataTypes.Classification NoiseClassification(double noise)
+        {
+            return DataTypes.Classification.A;
+            
+        }
+
+        public async Task<List<Image>> GetAvatar()
+        {
+            SensorData sensorData = await SensorData.Get();
+
+            DataTypes.Season season;
+            if (Constants.WINTER_MONTHS.Contains(DateTime.Now.Month))
+                season = DataTypes.Season.Winter;
+            else
+                season = DataTypes.Season.Summer;
+
+            DataTypes.Classification tempClass = TempClassification(sensorData.Temperature);
+            DataTypes.Classification humidClass = HumidityClassification(sensorData.Humidity, season);
+            DataTypes.Classification carbonClass = CarbonDioxideClassification(sensorData.CO2);
+            DataTypes.Classification vocClass = VOCClassification(sensorData.VOC);
+
+
+
+
+
+            return new List<Image>();
+        }
+
     }
 }
