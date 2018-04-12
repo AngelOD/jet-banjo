@@ -16,6 +16,7 @@ namespace JetBanjo.iOS.Utils
 
     /// <summary>
     /// Taken from https://github.com/xamarin/xamarin-forms-samples/blob/master/UsingResxLocalization/iOS/Localize.cs
+    /// Used for localizing the application to use the correct AppResources file if it is present
     /// </summary>
     public class Localize : ILocalize
     {

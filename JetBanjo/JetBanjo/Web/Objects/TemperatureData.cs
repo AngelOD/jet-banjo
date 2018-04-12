@@ -12,29 +12,26 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
-    public class TemperatureData
+    public class TemperatureData : SensorObject
     {
-
-        [JsonProperty(PropertyName = "value")]
-        public double Temperature { get; set; }
-
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest temperature data
+        /// Returns the latest temperature data for the subscribed room.
         /// </summary>
         /// <returns>Temperature data object</returns>
         public static async Task<TemperatureData> Get()
         {
-            TemperatureData temp = new TemperatureData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<TemperatureData> result = await WebHandler.ReadData<TemperatureData>(ip + "/api/room/" + room + "/" + SensorType.Temperature);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<TemperatureData>(room, SensorType.Temperature);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest temperature data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>Temperature data object</returns>
+        public static async Task<TemperatureData> Get(string roomId)
+        {
+            return await Get<TemperatureData>(roomId, SensorType.Temperature);
         }
 
         /// <summary>
@@ -42,9 +39,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            TemperatureData temp = await Get();
-            Temperature = temp.Temperature;
-            temp = null;
+            await Update<TemperatureData>(SensorType.Temperature);
         }
     }
 }

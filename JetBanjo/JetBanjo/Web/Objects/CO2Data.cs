@@ -12,30 +12,26 @@ using JetBanjo.Resx;
 
 namespace JetBanjo.Web.Objects
 {
-    public class CO2Data
+    public class CO2Data : SensorObject
     {
-
-        [JsonProperty(PropertyName = "value")]
-        public int CO2 { get; set; }
-
-
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest CO2 data
+        /// Returns the latest CO2 data for the subscribed room.
         /// </summary>
         /// <returns>CO2 data object</returns>
         public static async Task<CO2Data> Get()
         {
-            CO2Data temp = new CO2Data();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<CO2Data> result = await WebHandler.ReadData<CO2Data>(ip + "/api/room/" + room + "/" + SensorType.CO2);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<CO2Data>(room, SensorType.CO2);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest CO2 data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>CO2 data object</returns>
+        public static async Task<CO2Data> Get(string roomId)
+        {
+            return await Get<CO2Data>(roomId, SensorType.CO2);
         }
 
         /// <summary>
@@ -43,9 +39,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            CO2Data temp = await Get();
-            CO2 = temp.CO2;
-            temp = null;
+            await Update<CO2Data>(SensorType.CO2);
         }
     }
 }
