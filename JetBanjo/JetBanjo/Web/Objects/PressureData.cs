@@ -12,28 +12,26 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
-    public class PressureData
+    public class PressureData : SensorObject
     {
-        [JsonProperty(PropertyName = "value")]
-        public int Pressure { get; set; }
-
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest pressure data
+        /// Returns the latest pressure data for the subscribed room.
         /// </summary>
         /// <returns>Pressure data object</returns>
         public static async Task<PressureData> Get()
         {
-            PressureData temp = new PressureData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<PressureData> result = await WebHandler.ReadData<PressureData>(ip + "/api/room/" + room + "/" + SensorType.Pressure);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<PressureData>(room, SensorType.Pressure);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest pressure data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>Pressure data object</returns>
+        public static async Task<PressureData> Get(string roomId)
+        {
+            return await Get<PressureData>(roomId, SensorType.Pressure);
         }
 
         /// <summary>
@@ -41,9 +39,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            PressureData temp = await Get();
-            Pressure = temp.Pressure;
-            temp = null;
+            await Update<PressureData>(SensorType.Pressure);
         }
     }
 }

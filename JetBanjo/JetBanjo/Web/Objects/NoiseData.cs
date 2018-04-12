@@ -12,28 +12,26 @@ using static JetBanjo.Web.WebHandler;
 
 namespace JetBanjo.Web.Objects
 {
-    public class NoiseData
+    public class NoiseData : SensorObject
     {
-        [JsonProperty(PropertyName = "value")]
-        public int dB { get; set; }
-
-        //ToDo Finish implmentation when the web handler and backend is more finished
         /// <summary>
-        /// Returns the latest noise data
+        /// Returns the latest noise data for the subscribed room.
         /// </summary>
         /// <returns>Noise data object</returns>
         public static async Task<NoiseData> Get()
         {
-            NoiseData temp = new NoiseData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
             string room = DataStore.GetValue(DataStore.Keys.Room);
-            WebResult<NoiseData> result = await WebHandler.ReadData<NoiseData>(ip + "/api/room/" + room + "/" + SensorType.Noise);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
-                temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+            return await Get<NoiseData>(room, SensorType.Noise);
+        }
 
-            return temp;
+        /// <summary>
+        /// Returns the latest noise data fora given room.
+        /// </summary>
+        /// <param name="roomId">The roomId of the room</param>
+        /// <returns>Noise data object</returns>
+        public static async Task<NoiseData> Get(string roomId)
+        {
+            return await Get<NoiseData>(roomId, SensorType.Noise);
         }
 
         /// <summary>
@@ -41,10 +39,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public async void Update()
         {
-            NoiseData temp = await Get();
-            dB = temp.dB;
-            temp = null;
+            await Update<NoiseData>(SensorType.Noise);
         }
-
     }
 }

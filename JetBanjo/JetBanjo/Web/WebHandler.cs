@@ -1,4 +1,6 @@
-﻿using JetBanjo.Utils;
+﻿using JetBanjo.Resx;
+using JetBanjo.Utils;
+using JetBanjo.Utils.DependencyService;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Net;
 using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace JetBanjo.Web
 {
@@ -19,7 +22,7 @@ namespace JetBanjo.Web
         public class WebResult<T>
         {
 
-            public WebResult(T result, int code, object message)
+            public WebResult(T result, HttpStatusCode code, object message)
             {
                 Result = result;
                 ResponseCode = code;
@@ -34,7 +37,7 @@ namespace JetBanjo.Web
             /// <summary>
             /// The reponse code from the web call
             /// </summary>
-            public int ResponseCode { get; private set; }
+            public HttpStatusCode ResponseCode { get; private set; }
             
             /// <summary>
             /// The response message from the web call, can be null
@@ -51,7 +54,7 @@ namespace JetBanjo.Web
         public static async Task<WebResult<T>> ReadData<T>(string url)
         {
             T Result = default(T);
-            int ResponseCode = 0;
+            HttpStatusCode ResponseCode = 0;
             object ResponseMessage = null;
             try
             {
@@ -66,13 +69,18 @@ namespace JetBanjo.Web
                 request.Method = "GET";
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
                 {
-                    ResponseCode = (int)response.StatusCode;
+                    ResponseCode = response.StatusCode;
                     ResponseMessage = response.StatusDescription;
-                    Stream responseStream = response.GetResponseStream(); 
-                    StreamReader streamReader = new StreamReader(responseStream);
-                    Result = JsonConvert.DeserializeObject<T>(streamReader.ReadToEnd());
-                    streamReader.Dispose();
-                    responseStream.Dispose();
+                    if (response.StatusCode == HttpStatusCode.OK) { 
+                        Stream responseStream = response.GetResponseStream();
+                        StreamReader streamReader = new StreamReader(responseStream);
+                        Result = JsonConvert.DeserializeObject<T>(streamReader.ReadToEnd());
+                        streamReader.Dispose();
+                        responseStream.Dispose();
+                    } else if(response.StatusCode == HttpStatusCode.BadRequest)
+                    {
+                        DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
+                    }
                     response.Dispose();
                 }
             }
@@ -80,11 +88,14 @@ namespace JetBanjo.Web
             {
                 if(we != null)
                 {
+                    if(we.Status == WebExceptionStatus.Timeout)
+                        Console.WriteLine("Timeout reading from " + url);
+
                     if (we.Message != null)
                         Console.WriteLine(we.Message + " reading from " + url);
                     if(we.Response != null)
                     {
-                        ResponseCode = (int)((HttpWebResponse)we.Response).StatusCode;
+                        ResponseCode = ((HttpWebResponse)we.Response).StatusCode;
                         ResponseMessage = ((HttpWebResponse)we.Response).StatusDescription;
                     }
                     
