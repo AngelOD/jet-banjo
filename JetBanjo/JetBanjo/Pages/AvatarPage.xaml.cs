@@ -8,25 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using JetBanjo.Utils;
+using System.Timers;
 
 namespace JetBanjo.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AvatarPage : CContentPage
 	{
-        public enum AvatarType
-        {
-            Good, BadTemp, BadAir, BadSound
-        };
+        private IAvatarLogic logic;
 
-        AvatarPageLogic logic;
-
-        private Image background;
-        private Image avatar;
-        private Image overlayEffect;
-        
-        private Image currentTopLayer;
         private TapGestureRecognizer tapGestureRecognizer;
  
         public AvatarPage()
@@ -34,51 +24,74 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
 
+            Timer timer = new Timer(5000)
+            {
+                AutoReset = true
+            };
+
             tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += OnTouch;
             InitializeAvatar();
+
+            timer.Start();
+
+            timer.Elapsed += RequestImages;
         }
 
-        //Should ask for given pictures
         private void InitializeAvatar()
         {
-            background = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
-            avatar = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand };
-            overlayEffect = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png"), HorizontalOptions = LayoutOptions.FillAndExpand, IsVisible = false };
+            //WIP
+            //Should start with a request for images
+            var background = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
+            var avatar = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand };
 
             background.GestureRecognizers.Add(tapGestureRecognizer);
 
             AddLayer(background);
             AddLayer(avatar);
-            AddLayer(overlayEffect);
         }
 
-        private void AddOverlay(Image _background, Image _avatar, Image _overlay)
+        private void AddOverlay(Image background, List<Image> images)
         {
-            //WIP needs to replace pictures
-            replaceLayer(background, _background);
-            replaceLayer(avatar, _avatar);
-            replaceLayer(overlayEffect, _overlay);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                layout.Children.Clear();
 
-            background.GestureRecognizers.Add(tapGestureRecognizer);
+                background.GestureRecognizers.Add(tapGestureRecognizer);
+                AddLayer(background);
+
+                foreach (var image in images)
+                {
+                    AddLayer(image);
+                }
+            });
         }
         
         private void AddLayer(Image image)
         {
-            layout.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                layout.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+            });
         }
-
-        private void replaceLayer(Image removedImage, Image addedImage)
-        {
-            layout.Children.Remove(removedImage);
-            layout.Children.Add(addedImage, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
-        }
-
 
         private void OnTouch(object sender, EventArgs args)
         {
-            //WIP
+            //WIP should show small popup with the current issues
             DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
+        }
+
+        private async void RequestImages(object s, EventArgs a)
+        {
+            //WIP
+            //SHOULD Request images from AvatarLogic logic
+            var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.badair.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
+            var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.error.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand };
+            List<Image> ilist = new List<Image>();
+
+            ilist.Add(i2);
+
+            AddOverlay(i1, ilist);
         }
     }
 }
