@@ -11,7 +11,7 @@ namespace JetBanjo.Utils
         public const double BUTTON_SCALE = 0.5;
         public const double ENTRY_SCALE = 0.5;
 
-        public static TimeSpan cacheMaxAge = new TimeSpan(0, 5, 0); //0 hours, 5 minutes, 0 seconds
+        public static TimeSpan cacheMaxAge = new TimeSpan(0, 2, 0); //0 hours, 2 minutes, 0 seconds
         public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds
 
 

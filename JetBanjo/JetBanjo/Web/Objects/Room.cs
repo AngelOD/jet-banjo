@@ -57,8 +57,6 @@ namespace JetBanjo.Web.Objects
             WebResult<Room> result = await WebHandler.ReadData<Room>(ip + Constants.API_ROOMS_URL + "/" + roomId);
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
 
             return temp;
         }
@@ -70,15 +68,10 @@ namespace JetBanjo.Web.Objects
         public static async Task<List<Room>> GetList()
         {
             List<Room> roomList = new  List<Room>();
-            roomList.Add(new Room() { RoomNumber = "1.1", Id = "fst" });
-            roomList.Add(new Room() { RoomNumber = "2.1", Id = "sec" });
-            roomList.Add(new Room() { RoomNumber = "3.1", Id = "thd" });
             string ip = DataStore.GetValue(DataStore.Keys.Ip);
             WebResult<List<Room>> result = await WebHandler.ReadData<List<Room>>(ip + Constants.API_ROOMS_URL);
-            if (HttpStatusCode.OK.Equals(result.ResponseCode))
+            if (HttpStatusCode.OK == result.ResponseCode)
                 roomList = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
 
             return roomList;
         }
