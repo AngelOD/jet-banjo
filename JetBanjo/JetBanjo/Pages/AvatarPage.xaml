@@ -1,17 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c:CContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
              xmlns:local="clr-namespace:JetBanjo;assembly=JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
+             xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
              x:Class="JetBanjo.Pages.AvatarPage"
-             Title="LoL">
-
+             Title="{Binding RoomName}">
     <ContentPage.Content>
-        <StackLayout>
-            <Image Source="{local:ImageResource JetBanjo.Resources.TooHot.png}" />
-            <Button Clicked="test"/>
-        </StackLayout>
+        <AbsoluteLayout x:Name="layout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        </AbsoluteLayout>
     </ContentPage.Content>
-    
 </c:CContentPage>
