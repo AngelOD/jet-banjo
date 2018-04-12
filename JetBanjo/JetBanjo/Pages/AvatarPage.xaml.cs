@@ -15,7 +15,7 @@ namespace JetBanjo.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AvatarPage : CContentPage
 	{
-        private AvatarPageLogic logic;
+        private IAvatarLogic logic;
 
         private TapGestureRecognizer tapGestureRecognizer;
  
