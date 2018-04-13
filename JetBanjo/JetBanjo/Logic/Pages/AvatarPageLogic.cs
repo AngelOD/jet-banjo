@@ -128,15 +128,97 @@ namespace JetBanjo.Logic.Pages
             return DataTypes.Classification.E;
         }
 
-        private DataTypes.Classification NoiseClassification(double noise)
+        private DataTypes.Classification LightClassification(double lux)
         {
-            return DataTypes.Classification.A;
-            
+            DataTypes.Classification classification;
+
+            if (lux < Constants.MIN_LUX)
+            {
+                //Temperature is lower than the lowest allowed.
+                classification = DataTypes.Classification.E;
+            }
+            else if (lux < Constants.MIN_SUBOPTIMAL_LUX)
+            {
+                //Temperature is greater than the lowest, but still less than the optimal range.
+                classification = DataTypes.Classification.D;
+            }
+            else if (lux < Constants.MIN_OPTIMAL_LUX)
+            {
+                //Temperature is less than the optimal, but within an allowed range.
+                classification = DataTypes.Classification.B;
+            }
+            else if (lux <= Constants.MAX_OPTIMAL_LUX)
+            {
+                //Temperature is within the optimal range.
+                classification = DataTypes.Classification.A;
+            }
+            else if (lux <= Constants.MAX_SUBOPTIMAL_LUX)
+            {
+                //Temperature is greater than the optimal range, but within the allowed range.
+                classification = DataTypes.Classification.B;
+            }
+            else if (lux <= Constants.MAX_LUX)
+            {
+                //Temperature is greater than the optimal range, but below the maximum allowed.
+                classification = DataTypes.Classification.C;
+            }
+            else
+            {
+                //Temperature is too hot for normal still sitting work.
+                classification = DataTypes.Classification.E;
+            }
+
+            return classification;
+
         }
 
-        public async Task<List<Image>> GetAvatar()
+
+        private DataTypes.Classification NoiseClassification(double decibel)
         {
-            SensorData sensorData = await SensorData.Get();
+            DataTypes.Classification classification;
+
+            if (decibel < Constants.OPTIMAL_DB)
+            {
+                //Temperature is lower than the lowest allowed.
+                classification = DataTypes.Classification.A;
+            }
+            if (decibel < Constants.SUBOPTIMAL_DB)
+            {
+                //Temperature is lower than the lowest allowed.
+                classification = DataTypes.Classification.B;
+            }
+            if (decibel < Constants.MAX_DB)
+            {
+                //Temperature is lower than the lowest allowed.
+                classification = DataTypes.Classification.C;
+            }
+            else
+            {
+                classification = DataTypes.Classification.E;
+            }
+
+            return classification;
+
+        }
+
+        public async Task<List<Image>> GetAvatar(SensorData sensorData)
+        {
+            List<Image> imageList = new List<Image>();
+            DataTypes.Classification overallClass;
+
+            imageList.Add(new Image
+            {
+                Source = ImageSource.FromResource("JetBanjo.Resources.classroom-pixlart.png"),
+                InputTransparent = true,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            });
+
+            imageList.Add(new Image
+            {
+                Source = ImageSource.FromResource("JetBanjo.Resources.basic-child-pixlart.png"),
+                InputTransparent = true,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            });
 
             DataTypes.Season season;
             if (Constants.WINTER_MONTHS.Contains(DateTime.Now.Month))
@@ -144,16 +226,36 @@ namespace JetBanjo.Logic.Pages
             else
                 season = DataTypes.Season.Summer;
 
-            DataTypes.Classification tempClass = TempClassification(sensorData.Temperature);
-            DataTypes.Classification humidClass = HumidityClassification(sensorData.Humidity, season);
-            DataTypes.Classification carbonClass = CarbonDioxideClassification(sensorData.CO2);
-            DataTypes.Classification vocClass = VOCClassification(sensorData.VOC);
+            int tempClass = (int) TempClassification(sensorData.Temperature);
+            int humidClass = (int) HumidityClassification(sensorData.Humidity, season);
+            int carbonClass = (int) CarbonDioxideClassification(sensorData.CO2);
+            int vocClass = (int) VOCClassification(sensorData.VOC);
+            int lightClass = (int) LightClassification(sensorData.Lux);
+            int noiseClass = (int) NoiseClassification(sensorData.dB);
+
+            double avgClass = (tempClass + humidClass + carbonClass + vocClass + lightClass + noiseClass) / 6;
+            overallClass = (DataTypes.Classification)(int)Math.Floor(avgClass);
 
 
+            if (tempClass <= (int)DataTypes.Classification.C)
+                imageList.Add(new Image
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.fire-overlay-pixlart.png"),
+                    InputTransparent = true,
+                    HorizontalOptions = LayoutOptions.FillAndExpand
+                });
+            if (humidClass <= (int)DataTypes.Classification.C)
+                imageList.Add(null); //Add actual picture later
+            if (carbonClass <= (int)DataTypes.Classification.C)
+                imageList.Add(null); //Add actual picture later
+            if (tempClass <= (int)DataTypes.Classification.C)
+                imageList.Add(null); //Add actual picture later
+            if (tempClass <= (int)DataTypes.Classification.C)
+                imageList.Add(null); //Add actual picture later
+            if (tempClass <= (int)DataTypes.Classification.C)
+                imageList.Add(null); //Add actual picture later
 
-
-
-            return new List<Image>();
+            return imageList;
         }
 
     }

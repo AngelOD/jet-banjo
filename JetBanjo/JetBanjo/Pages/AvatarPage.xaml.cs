@@ -42,8 +42,19 @@ namespace JetBanjo.Pages
         {
             //WIP
             //Should start with a request for images
-            var background = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.roed.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
-            var avatar = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.donfbred.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand };
+            var background = new Image
+            {
+                Source = ImageSource.FromResource("JetBanjo.Resources.classroom-pixilart.png"),
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Aspect = Aspect.Fill
+            };
+
+            var avatar = new Image
+            {
+                Source = ImageSource.FromResource("JetBanjo.Resources.basic-child-pixilart.png"),
+                InputTransparent = true,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
 
             background.GestureRecognizers.Add(tapGestureRecognizer);
 
@@ -85,11 +96,14 @@ namespace JetBanjo.Pages
         {
             //WIP
             //SHOULD Request images from AvatarLogic logic
-            var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.badair.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
-            var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.error.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand };
+            var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.classroom-pixilart.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
+            var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.basic-child-pixilart.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand, AnchorX = 0.7 };
+            var i3 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.fire-overlay-pixilart.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand, AnchorX = 0.7 };
+
             List<Image> ilist = new List<Image>();
 
             ilist.Add(i2);
+            ilist.Add(i3);
 
             AddOverlay(i1, ilist);
         }
