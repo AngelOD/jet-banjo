@@ -201,7 +201,7 @@ namespace JetBanjo.Logic.Pages
 
         }
 
-        public async Task<List<Image>> GetAvatar(SensorData sensorData)
+        public async Task<List<Image>> GetAvatar(SensorData sensorData, DateTime dateTime)
         {
             List<Image> imageList = new List<Image>();
             DataTypes.Classification overallClass;
