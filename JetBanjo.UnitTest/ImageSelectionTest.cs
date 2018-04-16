@@ -62,7 +62,7 @@ namespace JetBanjo.UnitTest
             {
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("dizzy.png", ImageType.CO2) //Change to correct image later
+                new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -81,7 +81,7 @@ namespace JetBanjo.UnitTest
             {
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("dizzy.png", ImageType.CO2) //Change to correct image later
+                new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -98,9 +98,9 @@ namespace JetBanjo.UnitTest
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
-                new CImage("child-no-arms.png", ImageType.Character), //Change to correct image later
-                new CImage("child-arms-down.png",ImageType.Arms), //Change to correct image later
-                new CImage("dizzy.png", ImageType.CO2)
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
