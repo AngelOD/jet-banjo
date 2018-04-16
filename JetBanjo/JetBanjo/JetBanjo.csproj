@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Objects\**" />
+    <EmbeddedResource Remove="Objects\**" />
+    <None Remove="Objects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\badair.png" />
     <None Remove="Resources\badsound.png" />
     <None Remove="Resources\badtemp.png" />
@@ -72,9 +78,5 @@
     <EmbeddedResource Update="Pages\MasterDetail\MasterMaster.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Objects\" />
   </ItemGroup>
 </Project>
