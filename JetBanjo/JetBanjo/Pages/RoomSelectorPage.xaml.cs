@@ -26,8 +26,6 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new RoomSelectorPageLogic();
 
-            searchBox.WidthRequest = App.ScreenSize.Width * Constants.ENTRY_SCALE;
-            roomList.WidthRequest = App.ScreenSize.Width * 0.7;
             displayService = DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance); //Fetches the global instance of the dependency service. Even though it should not create more dialog objects. But it saves memory
         }
 
