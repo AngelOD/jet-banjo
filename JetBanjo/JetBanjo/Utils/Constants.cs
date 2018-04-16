@@ -53,6 +53,8 @@ namespace JetBanjo.Utils
         public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";
         public const double BUTTON_SCALE = 0.5;
         public const double ENTRY_SCALE = 0.5;
+        public const double LABEL_SCALE = 0.5;
+        public const double LIST_SCALE = 0.7;
 
         public static TimeSpan cacheMaxAge = new TimeSpan(0, 2, 0); //0 hours, 2 minutes, 0 seconds
         public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds

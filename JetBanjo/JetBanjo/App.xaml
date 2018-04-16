@@ -12,26 +12,27 @@
             <Color x:Key="SecondaryBG">#ffffff</Color>
             <Color x:Key="SecondaryText">#000000</Color>
 
-            <Style TargetType="Button">
+            <Style TargetType="Button" x:Name="buttonStyle">
                 <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="WidthRequest" Value="200" />
-                
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBG}" />
                 <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
             </Style>
 
-            <Style TargetType="Label">
+            <Style TargetType="Label" x:Name="labelStyle">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
             </Style>
 
-            <Style TargetType="Entry">  
+            <Style TargetType="Entry" x:Name="entryStyle">  
                 <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
                 <Setter Property="PlaceholderColor" Value="Gray" />
                 <Setter Property="WidthRequest" Value="200" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBG}" />
+            </Style>
+
+            <Style TargetType="ListView" x:Name="listStyle">
             </Style>
 
             <Style TargetType="StackLayout">

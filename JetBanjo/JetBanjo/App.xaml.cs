@@ -23,8 +23,8 @@ namespace JetBanjo
         public static Size ScreenSize { get; set; }
 
 		public App ()
-		{   
-			InitializeComponent();
+        {
+            InitializeComponent();
 
             // This lookup NOT required for Windows platforms - the Culture will be automatically set
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
@@ -34,9 +34,17 @@ namespace JetBanjo
                 Resx.AppResources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
- 
-            MainPage = new NavigationPage(new RoomSelectorPage()); 
-		}
+            SetWidthRequestBasedOnScreenSize();
+            MainPage = new NavigationPage(new RoomSelectorPage());
+        }
+
+        private void SetWidthRequestBasedOnScreenSize()
+        {
+            buttonStyle.Setters.Add(new Setter() { Property = VisualElement.WidthRequestProperty, Value = ScreenSize.Width * Constants.BUTTON_SCALE });
+            entryStyle.Setters.Add(new Setter() { Property = VisualElement.WidthRequestProperty, Value = ScreenSize.Width * Constants.ENTRY_SCALE });
+            labelStyle.Setters.Add(new Setter() { Property = VisualElement.WidthRequestProperty, Value = ScreenSize.Width * Constants.LABEL_SCALE });
+            listStyle.Setters.Add(new Setter() { Property = VisualElement.WidthRequestProperty, Value = ScreenSize.Width * Constants.LIST_SCALE });
+        }
 
         /// <summary>
         /// Changes the apps current MainPage (the one being shown) to the MasterDetailMenu

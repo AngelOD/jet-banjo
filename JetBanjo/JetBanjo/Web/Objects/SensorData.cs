@@ -39,7 +39,7 @@ namespace JetBanjo.Web.Objects
         public int VOC { get; set; }
 
         /// <summary>
-        /// Returns the latest combined sensor data
+        /// Returns the latest combined sensor data for the subscribed room
         /// </summary>
         /// <returns>Sensor data object</returns>
         public static async Task<SensorData> Get()
@@ -49,8 +49,9 @@ namespace JetBanjo.Web.Objects
         }
 
         /// <summary>
-        /// Returns the latest combined sensor data
+        /// Returns the latest combined sensor data for a given room
         /// </summary>
+        /// <param name="roomId">The rooms id</param>
         /// <returns>Sensor data object</returns>
         public static async Task<SensorData> Get(string roomId)
         {
