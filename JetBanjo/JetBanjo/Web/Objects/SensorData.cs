@@ -15,28 +15,28 @@ namespace JetBanjo.Web.Objects
     public class SensorData
     {
         [JsonProperty(PropertyName = "co2")]
-        public int CO2 { get; set; }
+        public double CO2 { get; set; }
 
         [JsonProperty(PropertyName = "humidity")]
         public double Humidity { get; set; }
 
         [JsonProperty(PropertyName = "light")]
-        public int Lux { get; set; }
+        public double Lux { get; set; }
 
         [JsonProperty(PropertyName = "noise")]
-        public int dB { get; set; }
+        public double dB { get; set; }
 
         [JsonProperty(PropertyName = "pressure")]
-        public int Pressure { get; set; }
+        public double Pressure { get; set; }
 
         [JsonProperty(PropertyName = "temperature")]
         public double Temperature { get; set; }
 
         [JsonProperty(PropertyName = "uv")]
-        public int UV { get; set; }
+        public double UV { get; set; }
 
         [JsonProperty(PropertyName = "voc")]
-        public int VOC { get; set; }
+        public double VOC { get; set; }
 
         /// <summary>
         /// Returns the latest combined sensor data for the subscribed room
