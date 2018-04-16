@@ -201,21 +201,19 @@ namespace JetBanjo.Logic.Pages
 
         }
 
-        public async Task<List<Image>> GetAvatar(SensorData sensorData, DateTime dateTime)
+        public async Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime)
         {
-            List<Image> imageList = new List<Image>();
+            List<CImage> imageList = new List<CImage>();
             DataTypes.Classification overallClass;
 
-            imageList.Add(new Image
+            imageList.Add(new CImage("JetBanjo.Resources.classroom-pixlart.png")
             {
-                Source = ImageSource.FromResource("JetBanjo.Resources.classroom-pixlart.png"),
                 InputTransparent = true,
                 HorizontalOptions = LayoutOptions.FillAndExpand
             });
 
-            imageList.Add(new Image
+            imageList.Add(new CImage("JetBanjo.Resources.basic-child-pixlart.png")
             {
-                Source = ImageSource.FromResource("JetBanjo.Resources.basic-child-pixlart.png"),
                 InputTransparent = true,
                 HorizontalOptions = LayoutOptions.FillAndExpand
             });
@@ -238,9 +236,8 @@ namespace JetBanjo.Logic.Pages
 
 
             if (tempClass <= (int)DataTypes.Classification.C)
-                imageList.Add(new Image
+                imageList.Add(new CImage("JetBanjo.Resources.fire-overlay-pixlart.png")
                 {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.fire-overlay-pixlart.png"),
                     InputTransparent = true,
                     HorizontalOptions = LayoutOptions.FillAndExpand
                 });
