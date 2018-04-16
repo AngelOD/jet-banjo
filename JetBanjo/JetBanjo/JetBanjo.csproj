@@ -14,8 +14,11 @@
     <None Remove="Resources\badair.png" />
     <None Remove="Resources\badsound.png" />
     <None Remove="Resources\badtemp.png" />
+    <None Remove="Resources\basic-child-pixilart.png" />
+    <None Remove="Resources\classroom-pixilart.png" />
     <None Remove="Resources\donfbred.png" />
     <None Remove="Resources\error.png" />
+    <None Remove="Resources\fire-overlay-pixilart.png" />
     <None Remove="Resources\good.png" />
     <None Remove="Resources\roed.png" />
   </ItemGroup>
@@ -24,8 +27,11 @@
     <EmbeddedResource Include="Resources\badair.png" />
     <EmbeddedResource Include="Resources\badsound.png" />
     <EmbeddedResource Include="Resources\badtemp.png" />
+    <EmbeddedResource Include="Resources\basic-child-pixilart.png" />
+    <EmbeddedResource Include="Resources\classroom-pixilart.png" />
     <EmbeddedResource Include="Resources\donfbred.png" />
     <EmbeddedResource Include="Resources\error.png" />
+    <EmbeddedResource Include="Resources\fire-overlay-pixilart.png" />
     <EmbeddedResource Include="Resources\good.png" />
     <EmbeddedResource Include="Resources\roed.png" />
   </ItemGroup>

@@ -31,6 +31,19 @@ namespace JetBanjo.Utils
         public const double MAX_SUBOPTIMAL_CO2 = MAX_CO2 - SEMI_OPTIMAL_CO2_RANGE;
         public const double MAX_SEMI_OPTIMAL_CO2 = MAX_OPTIMAL_CO2 + SEMI_OPTIMAL_CO2_RANGE;
 
+        //Light Thresholds. In lux
+        public const double MIN_LUX = 200;
+        public const double MIN_SUBOPTIMAL_LUX = 300;
+        public const double MIN_OPTIMAL_LUX = 400;
+        public const double MAX_OPTIMAL_LUX = 500;
+        public const double MAX_SUBOPTIMAL_LUX = 1000;
+        public const double MAX_LUX = 5000;
+
+        //Noise Thresholds. In Decibel(A)
+        public const double OPTIMAL_DB = 60;
+        public const double SUBOPTIMAL_DB = 75;
+        public const double MAX_DB = 85;
+
         //Season
         public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
         {
