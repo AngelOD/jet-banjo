@@ -1,48 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using JetBanjo.Utils;
 
 namespace JetBanjo.Utils
 {
     public static class Constants
     {
-        //Temperature thresholds
-        private const double SEMI_OPTIMAL_TEMP_RANGE = 0.5; //Non-Zero, positive, max 1. Allowed variance from optimal temp.
-        public const double MAX_TEMP = 25;
-        public const double MAX_COMFORTABLE_TEMP = 23;
-        public const double MIN_COMFORTABLE_TEMP = 20;
-        public const double MIN_TEMP = 18;
-        public const double MIN_OPTIMAL_ALLOWED = MIN_COMFORTABLE_TEMP - SEMI_OPTIMAL_TEMP_RANGE;
-        public const double MAX_OPTIMAL_ALLOWED = MAX_COMFORTABLE_TEMP + SEMI_OPTIMAL_TEMP_RANGE;
-
-        //Humidity Thresholds. In percent.
-        private const double SEMI_OPTIMAL_HUMIDITY_RANGE = 10;
-        public const double MIN_HUMIDITY = 25;
-        public const double MAX_HUMIDITY_SUMMER = 60;
-        public const double MAX_HUMIDITY_WINTER = 45;
-        public const double MIN_OPTIMAL_HUMIDITY = MIN_HUMIDITY + SEMI_OPTIMAL_HUMIDITY_RANGE;
-        public const double MAX_OPTIMAL_HUMIDITY_WINTER = MAX_HUMIDITY_WINTER - SEMI_OPTIMAL_HUMIDITY_RANGE;
-        public const double MAX_OPTIMAL_HUMIDITY_SUMMER = MAX_HUMIDITY_SUMMER - SEMI_OPTIMAL_HUMIDITY_RANGE;
-
-        //CO2 Thresholds. In Parts per Million
-        private const double SEMI_OPTIMAL_CO2_RANGE = 250;
-        public const double MAX_OPTIMAL_CO2 = 1000;
-        public const double MAX_CO2 = 2000;
-        public const double MAX_SUBOPTIMAL_CO2 = MAX_CO2 - SEMI_OPTIMAL_CO2_RANGE;
-        public const double MAX_SEMI_OPTIMAL_CO2 = MAX_OPTIMAL_CO2 + SEMI_OPTIMAL_CO2_RANGE;
-
-        //Light Thresholds. In lux
-        public const double MIN_LUX = 200;
-        public const double MIN_SUBOPTIMAL_LUX = 300;
-        public const double MIN_OPTIMAL_LUX = 400;
-        public const double MAX_OPTIMAL_LUX = 500;
-        public const double MAX_SUBOPTIMAL_LUX = 1000;
-        public const double MAX_LUX = 5000;
-
-        //Noise Thresholds. In Decibel(A)
-        public const double OPTIMAL_DB = 60;
-        public const double SUBOPTIMAL_DB = 75;
-        public const double MAX_DB = 85;
+        //Ranges for classifying data (-1 indicates that no value is present)
+        public static DataRange TEMP_RANGES = new DataRange(18, 19.5, 23.5, 25);
+        public static DataRange HUMID_SUMMER_RANGES = new DataRange(25, 35, 50, 60);
+        public static DataRange HUMID_WINTER_RANGES = new DataRange(25, 35, 40, 45);
+        public static DataRange CO2_RANGES = new DataRange(-1, -1, 1000, 2000);
+        public static DataRange UV_RANGES = new DataRange(-1, -1, 3, 5);
+        public static DataRange LIGHT_RANGES = new DataRange(200, 400, 1000, 5000);
+        public static DataRange NOISE_RANGES = new DataRange(-1, -1, 60, 75);
 
         //Season
         public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
