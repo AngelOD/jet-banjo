@@ -8,13 +8,13 @@ namespace JetBanjo.Utils
     public static class Constants
     {
         //Ranges for classifying data (-1 indicates that no value is present)
-        public static DataRange TEMP_RANGES = new DataRange(18, 19.5, 23.5, 25);
-        public static DataRange HUMID_SUMMER_RANGES = new DataRange(25, 35, 50, 60);
-        public static DataRange HUMID_WINTER_RANGES = new DataRange(25, 35, 40, 45);
-        public static DataRange CO2_RANGES = new DataRange(-1, -1, 1000, 2000);
-        public static DataRange UV_RANGES = new DataRange(-1, -1, 3, 5);
-        public static DataRange LIGHT_RANGES = new DataRange(200, 400, 1000, 5000);
-        public static DataRange NOISE_RANGES = new DataRange(-1, -1, 60, 75);
+        public static DataRange TEMP_RANGES = new DataRange("temp", 18, 19.5, 23.5, 25);
+        public static DataRange HUMID_SUMMER_RANGES = new DataRange("humid", 25, 35, 50, 60);
+        public static DataRange HUMID_WINTER_RANGES = new DataRange("humid", 25, 35, 40, 45);
+        public static DataRange CO2_RANGES = new DataRange("co2", -1, -1, 1000, 2000);
+        public static DataRange UV_RANGES = new DataRange("uv", -1, -1, 3, 5);
+        public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 5000);
+        public static DataRange NOISE_RANGES = new DataRange("noise", -1, -1, 60, 75);
 
         //Season
         public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
