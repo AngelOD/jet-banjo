@@ -7,8 +7,6 @@ namespace JetBanjo.Utils
 {
     public class CImage : Image, IComparable
     {
-
-
         private string ResourcesString { get; set; }
         private ImageType Type { get; set; }
 
@@ -32,7 +30,7 @@ namespace JetBanjo.Utils
             if (obj is CImage)
             {
                 CImage temp = obj as CImage;
-                return ResourcesString.Equals(temp.ResourcesString);
+                return ResourcesString.Equals(temp.ResourcesString) && Type.Equals(temp.Type);
             }
             else
             {
@@ -55,7 +53,8 @@ namespace JetBanjo.Utils
             if(obj is CImage)
             {
                 CImage other = obj as CImage;
-                return Type.CompareTo(other.Type);
+                int res = Type.CompareTo(other.Type);
+                return res != 0 ? res : ResourcesString.CompareTo(other.ResourcesString);
             }
 
             return 0;
