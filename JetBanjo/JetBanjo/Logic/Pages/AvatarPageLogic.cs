@@ -13,6 +13,15 @@ namespace JetBanjo.Logic.Pages
 {
     public class AvatarPageLogic : IAvatarLogic
     {
+        bool highCO2 = false;
+        bool highNoise = false;
+
+        private void reset()
+        {
+            highCO2 = false;
+            highNoise = false;
+        }
+
         //Classification
         private int Classify(double inputVal, DataRange ranges)
         {
@@ -35,22 +44,27 @@ namespace JetBanjo.Logic.Pages
             List<CImage> images = new List<CImage>();
 
             //temp, humid, co2, uv, light, noise
-            if(ranges.sensorType.Equals("co2"))
+            if(ranges.sensorType.Equals("temp"))
             {
                 switch (classification)
                 {
                     case 1:
-                        images.Add(new CImage(""));
+                        images.Add(new CImage("overlay-frozen.png", ImageType.Temperature));
                         break;
                     case 2:
+                        images.Add(new CImage("overlay-cold.png", ImageType.Temperature));
                         break;
                     case 3:
+                        //Nothing
                         break;
                     case 4:
+                        images.Add(new CImage("overlay-sweat.png", ImageType.Temperature));
                         break;
                     case 5:
+                        images.Add(new CImage("overlay-fire-no-arms.png", ImageType.Temperature));
                         break;
                     default:
+                        //Nothing
                         break;
                 }
             }
@@ -60,7 +74,27 @@ namespace JetBanjo.Logic.Pages
             }
             else if (ranges.sensorType.Equals("co2"))
             {
-
+                switch (classification)
+                {
+                    case 1:
+                        images.Add(new CImage("overlay-frozen.png", ImageType.CO2));
+                        break;
+                    case 2:
+                        images.Add(new CImage("overlay-cold.png", ImageType.CO2));
+                        break;
+                    case 3:
+                        //Nothing
+                        break;
+                    case 4:
+                        images.Add(new CImage("", ImageType.CO2));
+                        break;
+                    case 5:
+                        images.Add(new CImage("overlay-fire-no-arms.png", ImageType.CO2));
+                        break;
+                    default:
+                        //Nothing
+                        break;
+                }
             }
             else if (ranges.sensorType.Equals("uv"))
             {
@@ -81,12 +115,13 @@ namespace JetBanjo.Logic.Pages
             List<CImage> images = new List<CImage>();
 
 
-            int tempClass = Classify(sensorData.Temperature, Constants.TEMP_RANGES);
-            if(sensorData.Temperature)
+            int co2Class = Classify(sensorData.CO2, Constants.CO2_RANGES);
+            int noiseClass = Classify(sensorData.dB, Constants.NOISE_RANGES);
+
 
 
             //Temp
-            
+
 
 
             //Humid
@@ -98,7 +133,7 @@ namespace JetBanjo.Logic.Pages
             //Light
 
             //Noise7
-            
+
         }
 
     }
