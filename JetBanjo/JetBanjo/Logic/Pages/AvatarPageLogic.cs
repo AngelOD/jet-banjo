@@ -16,7 +16,7 @@ namespace JetBanjo.Logic.Pages
         bool highCO2 = false;
         bool highNoise = false;
 
-        private void reset()
+        private void resetChild()
         {
             highCO2 = false;
             highNoise = false;
@@ -39,101 +39,84 @@ namespace JetBanjo.Logic.Pages
                 return -1;
         }
 
-        private List<CImage> ChooseImage(int classification, DataRange ranges)
+        private List<CImage> RetrieveImages(int classification, DataRange range)
         {
-            List<CImage> images = new List<CImage>();
+            List<CImage> imageList = new List<CImage>();
 
-            //temp, humid, co2, uv, light, noise
-            if(ranges.sensorType.Equals("temp"))
+            int temp = classification;
+
+            if (highCO2 && highNoise)
+                temp += Constants.IMAGE_OFFSET_SLEEPING_NOISE;
+            else if (highCO2)
+                temp += Constants.IMAGE_OFFSET_SLEEPING;
+            else if (highNoise)
+                temp += Constants.IMAGE_OFFSET_NOISE;
+
+            try
             {
-                switch (classification)
+                switch (range.sensorType)
                 {
-                    case 1:
-                        images.Add(new CImage("overlay-frozen.png", ImageType.Temperature));
+                    case ("temp"):
+                        imageList.AddRange(Constants.TEMP_IMAGES[temp]);
                         break;
-                    case 2:
-                        images.Add(new CImage("overlay-cold.png", ImageType.Temperature));
+                    case ("humid"):
+                        imageList.AddRange(Constants.HUMID_IMAGES[temp]);
                         break;
-                    case 3:
-                        //Nothing
+                    case ("co2"):
+                        imageList.AddRange(Constants.CO2_IMAGES[temp]);
                         break;
-                    case 4:
-                        images.Add(new CImage("overlay-sweat.png", ImageType.Temperature));
+                    case ("uv"):
+                        imageList.AddRange(Constants.UV_IMAGES[temp]);
                         break;
-                    case 5:
-                        images.Add(new CImage("overlay-fire-no-arms.png", ImageType.Temperature));
+                    case ("light"):
+                        imageList.AddRange(Constants.LIGHT_IMAGES[temp]);
+                        break;
+                    case ("noise"):
+                        imageList.AddRange(Constants.NOISE_IMAGES[temp]);
                         break;
                     default:
-                        //Nothing
                         break;
                 }
-            }
-            else if (ranges.sensorType.Equals("humid"))
-            {
 
+                return imageList;
             }
-            else if (ranges.sensorType.Equals("co2"))
+            catch(KeyNotFoundException e)
             {
-                switch (classification)
-                {
-                    case 1:
-                        images.Add(new CImage("overlay-frozen.png", ImageType.CO2));
-                        break;
-                    case 2:
-                        images.Add(new CImage("overlay-cold.png", ImageType.CO2));
-                        break;
-                    case 3:
-                        //Nothing
-                        break;
-                    case 4:
-                        images.Add(new CImage("", ImageType.CO2));
-                        break;
-                    case 5:
-                        images.Add(new CImage("overlay-fire-no-arms.png", ImageType.CO2));
-                        break;
-                    default:
-                        //Nothing
-                        break;
-                }
-            }
-            else if (ranges.sensorType.Equals("uv"))
-            {
-
-            }
-            else if (ranges.sensorType.Equals("light"))
-            {
-
-            }
-            else if (ranges.sensorType.Equals("noise"))
-            {
-
+                Console.WriteLine(e);
+                return imageList;
             }
         }
                 
-        public async Task<List<Image>> BuildAvatar(SensorData sensorData)
+        public async Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime)
         {
             List<CImage> images = new List<CImage>();
+            int humidClass;
 
+            if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
+                humidClass = Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
+            else
+                humidClass = Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
 
             int co2Class = Classify(sensorData.CO2, Constants.CO2_RANGES);
             int noiseClass = Classify(sensorData.dB, Constants.NOISE_RANGES);
+            int tempClass = Classify(sensorData.Temperature, Constants.TEMP_RANGES);
+            int uvClass = Classify(sensorData.UV, Constants.UV_RANGES);
+            int lightClass = Classify(sensorData.Lux, Constants.LIGHT_RANGES);
 
+            if (noiseClass == 4)
+                highNoise = true;
+            if (co2Class == 5)
+                highCO2 = true;
 
+            images.AddRange(RetrieveImages(co2Class, Constants.CO2_RANGES));
+            images.AddRange(RetrieveImages(noiseClass, Constants.NOISE_RANGES));
+            images.AddRange(RetrieveImages(tempClass, Constants.TEMP_RANGES));
+            images.AddRange(RetrieveImages(uvClass, Constants.UV_RANGES));
+            images.AddRange(RetrieveImages(lightClass, Constants.LIGHT_RANGES));
+            images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
+            resetChild();
 
-            //Temp
-
-
-
-            //Humid
-
-            //CO2
-
-            //UV
-
-            //Light
-
-            //Noise7
-
+            return images;
         }
 
     }
