@@ -13,246 +13,110 @@ namespace JetBanjo.Logic.Pages
 {
     public class AvatarPageLogic : IAvatarLogic
     {
-        //Classification A is best, and E is worst
+        bool highCO2 = false;
+        bool highNoise = false;
 
-        //Studies seem to show that too cold is more negative on productivity than too hot. So too cold has the worst classifications.
-        private DataTypes.Classification TempClassification(double temp)
+        private void resetChild()
         {
-            DataTypes.Classification classification;
-
-            if (temp < Constants.MIN_TEMP) 
-            {
-                //Temperature is lower than the lowest allowed.
-                classification = DataTypes.Classification.E;
-            }
-            else if (temp < Constants.MIN_COMFORTABLE_TEMP) 
-            {
-                //Temperature is greater than the lowest, but still less than the optimal range.
-                classification = DataTypes.Classification.D;
-            }
-            else if (temp < Constants.MIN_OPTIMAL_ALLOWED) 
-            {
-                //Temperature is less than the optimal, but within an allowed range.
-                classification = DataTypes.Classification.B;
-            }
-            else if (temp <= Constants.MAX_COMFORTABLE_TEMP) 
-            {
-                //Temperature is within the optimal range.
-                classification = DataTypes.Classification.A;
-            }
-            else if (temp <= Constants.MAX_OPTIMAL_ALLOWED) 
-            {
-                //Temperature is greater than the optimal range, but within the allowed range.
-                classification = DataTypes.Classification.B;
-            }
-            else if (temp <= Constants.MAX_TEMP) 
-            {
-                //Temperature is greater than the optimal range, but below the maximum allowed.
-                classification = DataTypes.Classification.C;
-            }
-            else 
-            {
-                //Temperature is too hot for normal still sitting work.
-                classification = DataTypes.Classification.E;
-            }
-
-            return classification;
+            highCO2 = false;
+            highNoise = false;
         }
 
-        public DataTypes.Classification HumidityClassification(double humidity, DataTypes.Season season)
+        //Classification
+        private int Classify(double inputVal, DataRange ranges)
         {
-            DataTypes.Classification classification;
-
-            if (humidity < Constants.MIN_HUMIDITY)
-            {
-                classification = DataTypes.Classification.E;
-            }
-            else if (humidity < Constants.MIN_OPTIMAL_HUMIDITY)
-            {
-                classification = DataTypes.Classification.D;
-            }
-            else if (season == DataTypes.Season.Winter && humidity < Constants.MAX_OPTIMAL_HUMIDITY_WINTER)
-            {
-                classification = DataTypes.Classification.A;
-            }
-            else if (season == DataTypes.Season.Summer && humidity < Constants.MAX_OPTIMAL_HUMIDITY_SUMMER)
-            {
-                classification = DataTypes.Classification.A;
-            }
-            else if (season == DataTypes.Season.Summer && humidity < Constants.MAX_HUMIDITY_SUMMER)
-            {
-                classification = DataTypes.Classification.B;
-            }
-            else if (season == DataTypes.Season.Winter && humidity < Constants.MAX_HUMIDITY_WINTER)
-            {
-                classification = DataTypes.Classification.B;
-            }
+            if (inputVal < ranges.minimum)
+                return 1;
+            else if (inputVal < ranges.lower)
+                return 2;
+            else if (inputVal < ranges.higher)
+                return 3;
+            else if (inputVal < ranges.maximum)
+                return 4;
+            else if (inputVal > ranges.maximum)
+                return 5;
             else
-            {
-                classification = DataTypes.Classification.E;
-            }
-
-            return classification;
+                return -1;
         }
 
-        private DataTypes.Classification CarbonDioxideClassification(double carbonDioxide)
-        {
-            DataTypes.Classification classification;
-
-            if (carbonDioxide < Constants.MAX_OPTIMAL_CO2)
-            {
-                classification = DataTypes.Classification.A;
-            }
-            else if (carbonDioxide < Constants.MAX_SEMI_OPTIMAL_CO2)
-            {
-                classification = DataTypes.Classification.B;
-            }
-            else if (carbonDioxide < Constants.MAX_SUBOPTIMAL_CO2)
-            {
-                classification = DataTypes.Classification.C;
-            }
-            else if (carbonDioxide < Constants.MAX_CO2)
-            {
-                classification = DataTypes.Classification.D;
-            }
-            else
-            {
-                classification = DataTypes.Classification.E;
-            }
-
-            return classification;
-        }
-
-        private DataTypes.Classification VOCClassification(double voc)
-        {
-            return DataTypes.Classification.E;
-        }
-
-        private DataTypes.Classification LightClassification(double lux)
-        {
-            DataTypes.Classification classification;
-
-            if (lux < Constants.MIN_LUX)
-            {
-                //Temperature is lower than the lowest allowed.
-                classification = DataTypes.Classification.E;
-            }
-            else if (lux < Constants.MIN_SUBOPTIMAL_LUX)
-            {
-                //Temperature is greater than the lowest, but still less than the optimal range.
-                classification = DataTypes.Classification.D;
-            }
-            else if (lux < Constants.MIN_OPTIMAL_LUX)
-            {
-                //Temperature is less than the optimal, but within an allowed range.
-                classification = DataTypes.Classification.B;
-            }
-            else if (lux <= Constants.MAX_OPTIMAL_LUX)
-            {
-                //Temperature is within the optimal range.
-                classification = DataTypes.Classification.A;
-            }
-            else if (lux <= Constants.MAX_SUBOPTIMAL_LUX)
-            {
-                //Temperature is greater than the optimal range, but within the allowed range.
-                classification = DataTypes.Classification.B;
-            }
-            else if (lux <= Constants.MAX_LUX)
-            {
-                //Temperature is greater than the optimal range, but below the maximum allowed.
-                classification = DataTypes.Classification.C;
-            }
-            else
-            {
-                //Temperature is too hot for normal still sitting work.
-                classification = DataTypes.Classification.E;
-            }
-
-            return classification;
-
-        }
-
-
-        private DataTypes.Classification NoiseClassification(double decibel)
-        {
-            DataTypes.Classification classification;
-
-            if (decibel < Constants.OPTIMAL_DB)
-            {
-                //Temperature is lower than the lowest allowed.
-                classification = DataTypes.Classification.A;
-            }
-            if (decibel < Constants.SUBOPTIMAL_DB)
-            {
-                //Temperature is lower than the lowest allowed.
-                classification = DataTypes.Classification.B;
-            }
-            if (decibel < Constants.MAX_DB)
-            {
-                //Temperature is lower than the lowest allowed.
-                classification = DataTypes.Classification.C;
-            }
-            else
-            {
-                classification = DataTypes.Classification.E;
-            }
-
-            return classification;
-
-        }
-
-        public async Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime)
+        private List<CImage> RetrieveImages(int classification, DataRange range)
         {
             List<CImage> imageList = new List<CImage>();
-            DataTypes.Classification overallClass;
 
-            imageList.Add(new CImage("classroom-pixlart.png",ImageType.Character)
+            int temp = classification;
+
+            if (highCO2 && highNoise)
+                temp += Constants.IMAGE_OFFSET_SLEEPING_NOISE;
+            else if (highCO2)
+                temp += Constants.IMAGE_OFFSET_SLEEPING;
+            else if (highNoise)
+                temp += Constants.IMAGE_OFFSET_NOISE;
+
+            try
             {
-                InputTransparent = true,
-                HorizontalOptions = LayoutOptions.FillAndExpand
-            });
-
-            imageList.Add(new CImage("basic-child-pixlart.png",ImageType.Character)
-            {
-                InputTransparent = true,
-                HorizontalOptions = LayoutOptions.FillAndExpand
-            });
-
-            DataTypes.Season season;
-            if (Constants.WINTER_MONTHS.Contains(DateTime.Now.Month))
-                season = DataTypes.Season.Winter;
-            else
-                season = DataTypes.Season.Summer;
-
-            int tempClass = (int) TempClassification(sensorData.Temperature);
-            int humidClass = (int) HumidityClassification(sensorData.Humidity, season);
-            int carbonClass = (int) CarbonDioxideClassification(sensorData.CO2);
-            int vocClass = (int) VOCClassification(sensorData.VOC);
-            int lightClass = (int) LightClassification(sensorData.Lux);
-            int noiseClass = (int) NoiseClassification(sensorData.dB);
-
-            double avgClass = (tempClass + humidClass + carbonClass + vocClass + lightClass + noiseClass) / 6;
-            overallClass = (DataTypes.Classification)(int)Math.Floor(avgClass);
-
-
-            if (tempClass <= (int)DataTypes.Classification.C)
-                imageList.Add(new CImage("fire-overlay-pixlart.png", ImageType.Temperature)
+                switch (range.sensorType)
                 {
-                    InputTransparent = true,
-                    HorizontalOptions = LayoutOptions.FillAndExpand
-                });
-            if (humidClass <= (int)DataTypes.Classification.C)
-                imageList.Add(null); //Add actual picture later
-            if (carbonClass <= (int)DataTypes.Classification.C)
-                imageList.Add(null); //Add actual picture later
-            if (tempClass <= (int)DataTypes.Classification.C)
-                imageList.Add(null); //Add actual picture later
-            if (tempClass <= (int)DataTypes.Classification.C)
-                imageList.Add(null); //Add actual picture later
-            if (tempClass <= (int)DataTypes.Classification.C)
-                imageList.Add(null); //Add actual picture later
+                    case ("temp"):
+                        imageList.AddRange(Constants.TEMP_IMAGES[temp]);
+                        break;
+                    case ("humid"):
+                        imageList.AddRange(Constants.HUMID_IMAGES[temp]);
+                        break;
+                    case ("co2"):
+                        imageList.AddRange(Constants.CO2_IMAGES[temp]);
+                        break;
+                    case ("uv"):
+                        imageList.AddRange(Constants.UV_IMAGES[temp]);
+                        break;
+                    case ("light"):
+                        imageList.AddRange(Constants.LIGHT_IMAGES[temp]);
+                        break;
+                    case ("noise"):
+                        imageList.AddRange(Constants.NOISE_IMAGES[temp]);
+                        break;
+                    default:
+                        break;
+                }
 
-            return imageList;
+                return imageList;
+            }
+            catch(KeyNotFoundException e)
+            {
+                Console.WriteLine(e);
+                return imageList;
+            }
+        }
+                
+        public async Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime)
+        {
+            List<CImage> images = new List<CImage>();
+            int humidClass;
+
+            if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
+                humidClass = Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
+            else
+                humidClass = Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
+
+            int co2Class = Classify(sensorData.CO2, Constants.CO2_RANGES);
+            int noiseClass = Classify(sensorData.dB, Constants.NOISE_RANGES);
+            int tempClass = Classify(sensorData.Temperature, Constants.TEMP_RANGES);
+            int uvClass = Classify(sensorData.UV, Constants.UV_RANGES);
+            int lightClass = Classify(sensorData.Lux, Constants.LIGHT_RANGES);
+
+            if (noiseClass == 4)
+                highNoise = true;
+            if (co2Class == 5)
+                highCO2 = true;
+
+            images.AddRange(RetrieveImages(co2Class, Constants.CO2_RANGES));
+            images.AddRange(RetrieveImages(noiseClass, Constants.NOISE_RANGES));
+            images.AddRange(RetrieveImages(tempClass, Constants.TEMP_RANGES));
+            images.AddRange(RetrieveImages(uvClass, Constants.UV_RANGES));
+            images.AddRange(RetrieveImages(lightClass, Constants.LIGHT_RANGES));
+            images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
+            resetChild();
+
+            return images;
         }
 
     }
