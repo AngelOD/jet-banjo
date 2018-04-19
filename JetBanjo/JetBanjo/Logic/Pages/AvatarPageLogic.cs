@@ -117,6 +117,9 @@ namespace JetBanjo.Logic.Pages
                 images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
                 resetChild();
 
+                images.Add(new CImage("basic-classroom.png", ImageType.Background));
+                images.Sort();
+
                 return images;
             });
             return await t;
