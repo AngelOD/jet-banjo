@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Timers;
+using JetBanjo.Web.Objects;
+using JetBanjo.Utils;
 
 namespace JetBanjo.Pages
 {
@@ -31,58 +33,30 @@ namespace JetBanjo.Pages
 
             tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += OnTouch;
-            InitializeAvatar();
 
             timer.Start();
 
             timer.Elapsed += RequestImages;
         }
 
-        private void InitializeAvatar()
-        {
-            //WIP
-            //Should start with a request for images
-            var background = new Image
-            {
-                Source = ImageSource.FromResource("JetBanjo.Resources.classroom-pixilart.png"),
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                Aspect = Aspect.Fill
-            };
-
-            var avatar = new Image
-            {
-                Source = ImageSource.FromResource("JetBanjo.Resources.basic-child-pixilart.png"),
-                InputTransparent = true,
-                HorizontalOptions = LayoutOptions.FillAndExpand
-            };
-
-            background.GestureRecognizers.Add(tapGestureRecognizer);
-
-            AddLayer(background);
-            AddLayer(avatar);
-        }
-
-        private void AddOverlay(Image background, List<Image> images)
+        private void AddOverlay(List<CImage> images)
         {
             Device.BeginInvokeOnMainThread(() =>
             {
                 layout.Children.Clear();
+                images[0].GestureRecognizers.Add(tapGestureRecognizer);
+                images[0].HorizontalOptions = LayoutOptions.FillAndExpand;
+                images[0].Aspect = Aspect.Fill;
 
-                background.GestureRecognizers.Add(tapGestureRecognizer);
-                AddLayer(background);
-
-                foreach (var image in images)
+                layout.Children.Clear();
+                layout.Children.Add(images[0], new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+                List<CImage> temp = images.Skip(1).ToList();
+                foreach (var image in temp)
                 {
-                    AddLayer(image);
+                    image.InputTransparent = true;
+                    image.HorizontalOptions = LayoutOptions.FillAndExpand;
+                    layout.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
                 }
-            });
-        }
-        
-        private void AddLayer(Image image)
-        {
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                layout.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
             });
         }
 
@@ -94,18 +68,8 @@ namespace JetBanjo.Pages
 
         private async void RequestImages(object s, EventArgs a)
         {
-            //WIP
-            //SHOULD Request images from AvatarLogic logic
-            var i1 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.classroom-pixilart.png"), HorizontalOptions = LayoutOptions.FillAndExpand, Aspect = Aspect.Fill };
-            var i2 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.basic-child-pixilart.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand, AnchorX = 0.7 };
-            var i3 = new Image { Source = ImageSource.FromResource("JetBanjo.Resources.fire-overlay-pixilart.png"), InputTransparent = true, HorizontalOptions = LayoutOptions.FillAndExpand, AnchorX = 0.7 };
 
-            List<Image> ilist = new List<Image>();
-
-            ilist.Add(i2);
-            ilist.Add(i3);
-
-            AddOverlay(i1, ilist);
+            AddOverlay(await logic.GetAvatar(await SensorData.Get(), DateTime.Now));
         }
     }
 }
