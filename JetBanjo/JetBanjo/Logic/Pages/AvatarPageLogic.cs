@@ -77,6 +77,10 @@ namespace JetBanjo.Logic.Pages
                     if (Constants.NOISE_IMAGES.ContainsKey(temp))
                         imageList.AddRange(Constants.NOISE_IMAGES[temp]);
                     break;
+                case ("voc"):
+                    if (Constants.NOISE_IMAGES.ContainsKey(temp))
+                        imageList.AddRange(Constants.VOC_IMAGES[temp]);
+                    break;
                 default:
                     break;
             }
@@ -101,6 +105,7 @@ namespace JetBanjo.Logic.Pages
                 int tempClass = Classify(sensorData.Temperature, Constants.TEMP_RANGES);
                 int uvClass = Classify(sensorData.UV, Constants.UV_RANGES);
                 int lightClass = Classify(sensorData.Lux, Constants.LIGHT_RANGES);
+                int vocClass = Classify(sensorData.VOC, Constants.VOC_RANGES);
 
                 if (noiseClass == 4)
                     highNoise = true;
@@ -113,6 +118,7 @@ namespace JetBanjo.Logic.Pages
                 images.AddRange(RetrieveImages(uvClass, Constants.UV_RANGES));
                 images.AddRange(RetrieveImages(lightClass, Constants.LIGHT_RANGES));
                 images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
+                images.AddRange(RetrieveImages(vocClass, Constants.VOC_RANGES));
                 resetChild();
 
                 images.Add(new CImage("basic-classroom.png", ImageType.Background));
