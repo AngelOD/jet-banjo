@@ -100,6 +100,10 @@ namespace JetBanjo.Web
                     }
                     
                 }
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
             return new WebResult<T>(Result, ResponseCode, ResponseMessage);
         }

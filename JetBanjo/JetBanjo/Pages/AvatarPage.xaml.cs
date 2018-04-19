@@ -20,7 +20,7 @@ namespace JetBanjo.Pages
         private IAvatarLogic logic;
 
         private TapGestureRecognizer tapGestureRecognizer;
- 
+
         public AvatarPage()
         {
             InitializeComponent();
@@ -35,7 +35,6 @@ namespace JetBanjo.Pages
             tapGestureRecognizer.Tapped += OnTouch;
 
             timer.Start();
-
             timer.Elapsed += async (s,e) => { await RequestImages(s, e); };
         }
 
@@ -43,12 +42,10 @@ namespace JetBanjo.Pages
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                layout.Children.Clear();
                 images[0].GestureRecognizers.Add(tapGestureRecognizer);
                 images[0].HorizontalOptions = LayoutOptions.FillAndExpand;
                 images[0].Aspect = Aspect.Fill;
 
-                layout.Children.Clear();
                 layout.Children.Add(images[0], new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
                 List<CImage> temp = images.Skip(1).ToList();
                 foreach (var image in temp)
@@ -68,10 +65,12 @@ namespace JetBanjo.Pages
 
         private async Task RequestImages(object s, EventArgs a)
         {
-
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 0 };
-            DateTime inputTime = new DateTime(2018, 4, 16);
-            AddOverlay(await logic.GetAvatar(inputSensorData, inputTime));
+            List<CImage> temp = await logic.GetAvatar(await SensorData.Get(), DateTime.Now);
+            foreach (var item in temp)
+            {
+                Console.WriteLine(item);
+            }
+            AddOverlay(temp);
         }
     }
 }

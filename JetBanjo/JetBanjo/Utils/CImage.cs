@@ -1,16 +1,17 @@
-﻿using System;
+﻿using FFImageLoading.Forms;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
 namespace JetBanjo.Utils
 {
-    public class CImage : Image, IComparable
+    public class CImage : CachedImage, IComparable
     {
         private string ResourcesString { get; set; }
         private ImageType Type { get; set; }
 
-        public CImage(string resourceString, ImageType type)
+        public CImage(string resourceString, ImageType type) : base()
         {
             Type = type;
             if (!resourceString.StartsWith("JetBanjo.Resources."))
@@ -22,7 +23,8 @@ namespace JetBanjo.Utils
                 ResourcesString = resourceString;
             }
 
-            Source = ImageSource.FromResource(resourceString);
+            Source = ImageSource.FromResource(ResourcesString);
+            
         }
 
         public override bool Equals(object obj)

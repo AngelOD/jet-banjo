@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Content;
 using Xamarin.Forms;
+using FFImageLoading.Forms.Droid;
 
 namespace JetBanjo.Droid
 {
@@ -28,6 +29,7 @@ namespace JetBanjo.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CachedImageRenderer.Init(true);
             Context = this; //Sets the context
             App.ScreenSize = new Size(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density,
                 Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
