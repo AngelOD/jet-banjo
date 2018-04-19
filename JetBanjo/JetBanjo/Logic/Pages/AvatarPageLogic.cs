@@ -51,41 +51,39 @@ namespace JetBanjo.Logic.Pages
             else if (highNoise)
                 temp += Constants.IMAGE_OFFSET_NOISE;
 
-            try
+            switch (range.sensorType)
             {
-                switch (range.sensorType)
-                {
-                    case ("temp"):
+                case ("temp"):
+                    if (Constants.TEMP_IMAGES.ContainsKey(temp))
                         imageList.AddRange(Constants.TEMP_IMAGES[temp]);
-                        break;
-                    case ("humid"):
+                    break;
+                case ("humid"):
+                    if (Constants.HUMID_IMAGES.ContainsKey(temp))
                         imageList.AddRange(Constants.HUMID_IMAGES[temp]);
-                        break;
-                    case ("co2"):
+                    break;
+                case ("co2"):
+                    if (Constants.CO2_IMAGES.ContainsKey(temp))
                         imageList.AddRange(Constants.CO2_IMAGES[temp]);
-                        break;
-                    case ("uv"):
+                    break;
+                case ("uv"):
+                    if (Constants.UV_IMAGES.ContainsKey(temp))
                         imageList.AddRange(Constants.UV_IMAGES[temp]);
-                        break;
-                    case ("light"):
+                    break;
+                case ("light"):
+                    if (Constants.LIGHT_IMAGES.ContainsKey(temp))
                         imageList.AddRange(Constants.LIGHT_IMAGES[temp]);
-                        break;
-                    case ("noise"):
+                    break;
+                case ("noise"):
+                    if (Constants.NOISE_IMAGES.ContainsKey(temp))
                         imageList.AddRange(Constants.NOISE_IMAGES[temp]);
-                        break;
-                    default:
-                        break;
-                }
+                    break;
+                default:
+                    break;
+            }
 
-                return imageList;
-            }
-            catch(KeyNotFoundException e)
-            {
-                Console.WriteLine(e);
-                return imageList;
-            }
+            return imageList;
         }
-                
+
         public async Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime)
         {
             Task<List<CImage>> t = Task.Run<List<CImage>>(() =>
