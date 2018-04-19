@@ -1,5 +1,4 @@
 ﻿using JetBanjo.Interfaces.Logic;
-using JetBanjo.Logic.Sensor;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -89,34 +88,38 @@ namespace JetBanjo.Logic.Pages
                 
         public async Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime)
         {
-            List<CImage> images = new List<CImage>();
-            int humidClass;
+            Task<List<CImage>> t = Task.Run<List<CImage>>(() =>
+            {
+                List<CImage> images = new List<CImage>();
+                int humidClass;
 
-            if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
-                humidClass = Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
-            else
-                humidClass = Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
+                if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
+                    humidClass = Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
+                else
+                    humidClass = Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
 
-            int co2Class = Classify(sensorData.CO2, Constants.CO2_RANGES);
-            int noiseClass = Classify(sensorData.dB, Constants.NOISE_RANGES);
-            int tempClass = Classify(sensorData.Temperature, Constants.TEMP_RANGES);
-            int uvClass = Classify(sensorData.UV, Constants.UV_RANGES);
-            int lightClass = Classify(sensorData.Lux, Constants.LIGHT_RANGES);
+                int co2Class = Classify(sensorData.CO2, Constants.CO2_RANGES);
+                int noiseClass = Classify(sensorData.dB, Constants.NOISE_RANGES);
+                int tempClass = Classify(sensorData.Temperature, Constants.TEMP_RANGES);
+                int uvClass = Classify(sensorData.UV, Constants.UV_RANGES);
+                int lightClass = Classify(sensorData.Lux, Constants.LIGHT_RANGES);
 
-            if (noiseClass == 4)
-                highNoise = true;
-            if (co2Class == 5)
-                highCO2 = true;
+                if (noiseClass == 4)
+                    highNoise = true;
+                if (co2Class == 5)
+                    highCO2 = true;
 
-            images.AddRange(RetrieveImages(co2Class, Constants.CO2_RANGES));
-            images.AddRange(RetrieveImages(noiseClass, Constants.NOISE_RANGES));
-            images.AddRange(RetrieveImages(tempClass, Constants.TEMP_RANGES));
-            images.AddRange(RetrieveImages(uvClass, Constants.UV_RANGES));
-            images.AddRange(RetrieveImages(lightClass, Constants.LIGHT_RANGES));
-            images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
-            resetChild();
+                images.AddRange(RetrieveImages(co2Class, Constants.CO2_RANGES));
+                images.AddRange(RetrieveImages(noiseClass, Constants.NOISE_RANGES));
+                images.AddRange(RetrieveImages(tempClass, Constants.TEMP_RANGES));
+                images.AddRange(RetrieveImages(uvClass, Constants.UV_RANGES));
+                images.AddRange(RetrieveImages(lightClass, Constants.LIGHT_RANGES));
+                images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
+                resetChild();
 
-            return images;
+                return images;
+            });
+            return await t;
         }
 
     }
