@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace JetBanjo.Utils
 {
-    public class CImage : CachedImage, IComparable
+    public class CImage : Image, IComparable
     {
         private string ResourcesString { get; set; }
         private ImageType Type { get; set; }
