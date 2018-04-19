@@ -20,7 +20,7 @@ namespace JetBanjo.Utils
         public static DataRange UV_RANGES = new DataRange("uv", -1, -1, 3, 5);
         public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 5000);
         public static DataRange NOISE_RANGES = new DataRange("noise", -1, -1, 60, 75);
-        public static DataRange VOC_RANGES = new DataRange("voc", -1, -1, 160, 200);
+        public static DataRange VOC_RANGES = new DataRange("voc", -1, -1, 60, 180);
         //[60, 120, 180, 240]
 
         //Image constants
