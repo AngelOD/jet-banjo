@@ -123,8 +123,27 @@ namespace JetBanjo.Utils
         public static readonly Dictionary<int, List<CImage>> CO2_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
+                1, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                2, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                3, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
                 4, new List<CImage>()
                 {
+                    new CImage("child-no-arms.png", ImageType.Character),
                     new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
