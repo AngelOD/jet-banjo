@@ -152,7 +152,7 @@ namespace JetBanjo.Utils
             {
                 5, new List<CImage>()
                 {
-                    new CImage("child-sleeping-no-arms.png", ImageType.CO2)
+                    new CImage("child-sleeping-no-arms.png", ImageType.Character)
                 }
             }
         };
