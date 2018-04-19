@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <ApplicationIcon />
+    <Win32Resource />
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,25 +17,119 @@
     <None Remove="Resources\badsound.png" />
     <None Remove="Resources\badtemp.png" />
     <None Remove="Resources\basic-child-pixilart.png" />
+    <None Remove="Resources\basic-classroom.png" />
+    <None Remove="Resources\child-arms-down-cold.png" />
+    <None Remove="Resources\child-arms-down.png" />
+    <None Remove="Resources\child-arms-up-cold.png" />
+    <None Remove="Resources\child-arms-up.png" />
+    <None Remove="Resources\child-no-arms-cold.png" />
+    <None Remove="Resources\child-no-arms-sweat.png" />
+    <None Remove="Resources\child-no-arms.png" />
+    <None Remove="Resources\child-sleeping-arms-down.png" />
+    <None Remove="Resources\child-sleeping-arms-up.png" />
+    <None Remove="Resources\child-sleeping-no-arms.png" />
     <None Remove="Resources\classroom-pixilart.png" />
     <None Remove="Resources\donfbred.png" />
     <None Remove="Resources\error.png" />
     <None Remove="Resources\fire-overlay-pixilart.png" />
     <None Remove="Resources\good.png" />
+    <None Remove="Resources\overlay-arms-down-sunburn.png" />
+    <None Remove="Resources\overlay-arms-down-tan.png" />
+    <None Remove="Resources\overlay-arms-up-sunburn.png" />
+    <None Remove="Resources\overlay-arms-up-tan.png" />
+    <None Remove="Resources\overlay-cold-arms-down.png" />
+    <None Remove="Resources\overlay-cold-arms-up.png" />
+    <None Remove="Resources\overlay-cold-no-arms.png" />
+    <None Remove="Resources\overlay-darkness.png" />
+    <None Remove="Resources\overlay-desert.png" />
+    <None Remove="Resources\overlay-dizzy.png" />
+    <None Remove="Resources\overlay-earmuffs.png" />
+    <None Remove="Resources\overlay-fire-arms-down.png" />
+    <None Remove="Resources\overlay-fire-arms-up.png" />
+    <None Remove="Resources\overlay-fire-no-arms.png" />
+    <None Remove="Resources\overlay-frozen.png" />
+    <None Remove="Resources\overlay-greater-greenfog.png" />
+    <None Remove="Resources\overlay-lesser-greenfog.png" />
+    <None Remove="Resources\overlay-no-arms-sunburn.png" />
+    <None Remove="Resources\overlay-no-arms-tan.png" />
+    <None Remove="Resources\overlay-sleeping-cold-arms-down.png" />
+    <None Remove="Resources\overlay-sleeping-cold-arms-up.png" />
+    <None Remove="Resources\overlay-sleeping-cold-no-arms.png" />
+    <None Remove="Resources\overlay-sleeping-earmuffs.png" />
+    <None Remove="Resources\overlay-sleeping-fire-arms-down.png" />
+    <None Remove="Resources\overlay-sleeping-fire-arms-up.png" />
+    <None Remove="Resources\overlay-sleeping-fire-no-arms.png" />
+    <None Remove="Resources\overlay-sleeping-frozen.png" />
+    <None Remove="Resources\overlay-sleeping-sunburn-arms-down.png" />
+    <None Remove="Resources\overlay-sleeping-sunburn-arms-up.png" />
+    <None Remove="Resources\overlay-sleeping-sunburn-no-arms.png" />
+    <None Remove="Resources\overlay-sleeping-sunglasses.png" />
+    <None Remove="Resources\overlay-sleeping-sweat.png" />
+    <None Remove="Resources\overlay-sunburn-arms-down.png" />
+    <None Remove="Resources\overlay-sunburn-arms-up.png" />
+    <None Remove="Resources\overlay-sunburn-no-arms.png" />
+    <None Remove="Resources\overlay-sunglasses.png" />
+    <None Remove="Resources\overlay-sweat.png" />
+    <None Remove="Resources\overlay-tan-arms-down.png" />
+    <None Remove="Resources\overlay-tan-arms-up.png" />
+    <None Remove="Resources\overlay-tan-no-arms.png" />
+    <None Remove="Resources\overlay-watervapour.png" />
     <None Remove="Resources\roed.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\badair.png" />
-    <EmbeddedResource Include="Resources\badsound.png" />
-    <EmbeddedResource Include="Resources\badtemp.png" />
-    <EmbeddedResource Include="Resources\basic-child-pixilart.png" />
-    <EmbeddedResource Include="Resources\classroom-pixilart.png" />
-    <EmbeddedResource Include="Resources\donfbred.png" />
+    <EmbeddedResource Include="Resources\overlay-arms-down-sunburn.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\basic-classroom.png" />
+    <EmbeddedResource Include="Resources\child-arms-down.png" />
+    <EmbeddedResource Include="Resources\child-arms-up.png" />
+    <EmbeddedResource Include="Resources\child-no-arms.png" />
+    <EmbeddedResource Include="Resources\child-sleeping-arms-down.png" />
+    <EmbeddedResource Include="Resources\child-sleeping-arms-up.png" />
+    <EmbeddedResource Include="Resources\child-sleeping-no-arms.png" />
     <EmbeddedResource Include="Resources\error.png" />
-    <EmbeddedResource Include="Resources\fire-overlay-pixilart.png" />
-    <EmbeddedResource Include="Resources\good.png" />
-    <EmbeddedResource Include="Resources\roed.png" />
+    <EmbeddedResource Include="Resources\overlay-arms-down-tan.png" />
+    <EmbeddedResource Include="Resources\overlay-arms-up-sunburn.png" />
+    <EmbeddedResource Include="Resources\overlay-arms-up-tan.png" />
+    <EmbeddedResource Include="Resources\overlay-cold-arms-down.png" />
+    <EmbeddedResource Include="Resources\overlay-cold-arms-up.png" />
+    <EmbeddedResource Include="Resources\overlay-cold-no-arms.png" />
+    <EmbeddedResource Include="Resources\overlay-darkness.png" />
+    <EmbeddedResource Include="Resources\overlay-desert.png" />
+    <EmbeddedResource Include="Resources\overlay-dizzy.png" />
+    <EmbeddedResource Include="Resources\overlay-earmuffs.png" />
+    <EmbeddedResource Include="Resources\overlay-fire-arms-down.png" />
+    <EmbeddedResource Include="Resources\overlay-fire-arms-up.png" />
+    <EmbeddedResource Include="Resources\overlay-fire-no-arms.png" />
+    <EmbeddedResource Include="Resources\overlay-frozen.png" />
+    <EmbeddedResource Include="Resources\overlay-greater-greenfog.png" />
+    <EmbeddedResource Include="Resources\overlay-lesser-greenfog.png" />
+    <EmbeddedResource Include="Resources\overlay-no-arms-sunburn.png" />
+    <EmbeddedResource Include="Resources\overlay-no-arms-tan.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-cold-arms-down.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-cold-arms-up.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-cold-no-arms.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-earmuffs.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-fire-arms-down.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-fire-arms-up.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-fire-no-arms.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-frozen.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-sunburn-arms-down.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-sunburn-arms-up.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-sunburn-no-arms.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-sunglasses.png" />
+    <EmbeddedResource Include="Resources\overlay-sleeping-sweat.png" />
+    <EmbeddedResource Include="Resources\overlay-sunburn-arms-down.png" />
+    <EmbeddedResource Include="Resources\overlay-sunburn-arms-up.png" />
+    <EmbeddedResource Include="Resources\overlay-sunburn-no-arms.png" />
+    <EmbeddedResource Include="Resources\overlay-sunglasses.png" />
+    <EmbeddedResource Include="Resources\overlay-sweat.png" />
+    <EmbeddedResource Include="Resources\overlay-tan-arms-down.png" />
+    <EmbeddedResource Include="Resources\overlay-tan-arms-up.png" />
+    <EmbeddedResource Include="Resources\overlay-tan-no-arms.png" />
+    <EmbeddedResource Include="Resources\overlay-watervapour.png" />
   </ItemGroup>
 
   <ItemGroup>

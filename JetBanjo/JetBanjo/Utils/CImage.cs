@@ -5,13 +5,23 @@ using Xamarin.Forms;
 
 namespace JetBanjo.Utils
 {
-    public class CImage : Image
+    public class CImage : Image, IComparable
     {
         private string ResourcesString { get; set; }
+        private ImageType Type { get; set; }
 
-        public CImage(string resourceString)
+        public CImage(string resourceString, ImageType type)
         {
-            ResourcesString = resourceString;
+            Type = type;
+            if (!resourceString.StartsWith("JetBanjo.Resources."))
+            {
+                ResourcesString = "JetBanjo.Resources." +resourceString;
+            }
+            else
+            {
+                ResourcesString = resourceString;
+            }
+
             Source = ImageSource.FromResource(resourceString);
         }
 
@@ -20,7 +30,7 @@ namespace JetBanjo.Utils
             if (obj is CImage)
             {
                 CImage temp = obj as CImage;
-                return ResourcesString.Equals(temp.ResourcesString);
+                return ResourcesString.Equals(temp.ResourcesString) && Type.Equals(temp.Type);
             }
             else
             {
@@ -38,5 +48,16 @@ namespace JetBanjo.Utils
             return ResourcesString;
         }
 
+        public int CompareTo(object obj)
+        {
+            if(obj is CImage)
+            {
+                CImage other = obj as CImage;
+                int res = Type.CompareTo(other.Type);
+                return res != 0 ? res : ResourcesString.CompareTo(other.ResourcesString);
+            }
+
+            return 0;
+        }
     }
 }

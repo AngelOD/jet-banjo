@@ -1,4 +1,5 @@
-﻿using JetBanjo.Web.Objects;
+﻿using JetBanjo.Utils;
+using JetBanjo.Web.Objects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,6 @@ namespace JetBanjo.Interfaces.Logic
 {
     public interface IAvatarLogic
     {
-        Task<List<Image>> GetAvatar(SensorData sensorData, DateTime dateTime);
+        Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime);
     }
 }
