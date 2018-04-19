@@ -49,8 +49,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -70,8 +69,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -91,8 +89,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -112,8 +109,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+;
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -132,8 +128,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -152,8 +147,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -161,7 +155,124 @@ namespace JetBanjo.UnitTest
         #endregion
 
         #region VOC Quality
+        //Tests VOC lower bound for "overlay-lesser-greenfog"
+        [TestMethod]
+        public async Task VQ1()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC =59.9 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
 
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests VOC lower bound for "overlay-lesser-greenfog"
+        [TestMethod]
+        public async Task VQ2()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 60 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests VOC lower bound for "overlay-lesser-greenfog"
+        [TestMethod]
+        public async Task VQ3()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 59.9 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-lesser-greenfog.png",ImageType.VOC)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests VOC lower bound for "overlay-greater-greenfog"
+        [TestMethod]
+        public async Task VQ4()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 179.9 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-lesser-greenfog.png",ImageType.VOC)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests VOC lower bound for "overlay-greater-greenfog"
+        [TestMethod]
+        public async Task VQ5()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 180 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-greater-greenfog.png",ImageType.VOC)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests VOC lower bound for "overlay-greater-greenfog"
+        [TestMethod]
+        public async Task VQ6()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 180.1 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-greater-greenfog.png",ImageType.VOC)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
         #endregion
 
         #region Temperature Quality
@@ -179,8 +290,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-frozen.png",ImageType.Frozen)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -201,8 +311,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -223,8 +332,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -245,8 +353,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -265,8 +372,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -285,8 +391,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -305,8 +410,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -326,8 +430,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sweat.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -347,8 +450,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sweat.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -368,8 +470,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sweat.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -390,8 +491,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -412,8 +512,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -437,8 +536,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-desert.png", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -457,8 +555,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -477,8 +574,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -497,8 +593,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -518,8 +613,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -539,8 +633,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -559,8 +652,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -580,8 +672,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -601,8 +692,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -623,8 +713,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -645,8 +734,7 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-tan-arms-down", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-
-            expectedOutput.Sort();
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -667,8 +755,70 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-tan-arms-down", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
 
-            expectedOutput.Sort();
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp upper bound for "overlay-tan-..."
+        [TestMethod]
+        public async Task UQ4()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 4.9, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-tan-no-arms.png", ImageType.UV),
+                new CImage("overlay-tan-arms-down", ImageType.UV)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp upper bound for "overlay-tan-..."
+        [TestMethod]
+        public async Task UQ5()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 5, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
+                new CImage("overlay-sunburn-arms-down", ImageType.UV)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp upper bound for "overlay-tan-..."
+        [TestMethod]
+        public async Task UQ6()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 5.1, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
+                new CImage("overlay-sunburn-arms-down", ImageType.UV)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
             actualOutput.Sort();
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
@@ -676,11 +826,242 @@ namespace JetBanjo.UnitTest
         #endregion
 
         #region Light Quality
+        //Tests temp upper bound for "overlay-darkness"
+        [TestMethod]
+        public async Task LQ1()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 199.9, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-darkness.png", ImageType.Dark)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
 
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp upper bound for "overlay-darkness"
+        [TestMethod]
+        public async Task LQ2()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 200, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp upper bound for "overlay-darkness"
+        [TestMethod]
+        public async Task LQ3()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 200.1, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp lower bound for "overlay-sunglasses"
+        [TestMethod]
+        public async Task LQ4()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 4999.9, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp lower bound for "overlay-sunglasses"
+        [TestMethod]
+        public async Task LQ5()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 5000, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sunglasses", ImageType.Sunglasses)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp lower bound for "overlay-sunglasses"
+        [TestMethod]
+        public async Task LQ6()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 5000.1, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sunglasses", ImageType.Sunglasses)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
         #endregion
 
         #region Noise Quality
 
+        //Tests temp lower bound for "child-arms-up"
+        [TestMethod]
+        public async Task NQ1()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 59.9, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp lower bound for "child-arms-up"
+        [TestMethod]
+        public async Task NQ2()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 60, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp lower bound for "child-arms-up"
+        [TestMethod]
+        public async Task NQ3()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 60.1, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp upper bound for "child-arms-up"
+        [TestMethod]
+        public async Task NQ4()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 179.9, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+            
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temp upper bound for "child-arms-up"
+        [TestMethod]
+        public async Task NQ5()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 180, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+
+        //Tests temp upper bound for "child-arms-up"
+        [TestMethod]
+        public async Task NQ6()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 180.1, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
         #endregion
 
         #region Hybrids for fun and profit
