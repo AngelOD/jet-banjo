@@ -32,6 +32,11 @@ namespace JetBanjo.UnitTest
             expectedOutput.Sort();
             actualOutput.Sort();
 
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
 

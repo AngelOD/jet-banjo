@@ -36,7 +36,7 @@ namespace JetBanjo.Pages
 
             timer.Start();
 
-            timer.Elapsed += RequestImages;
+            timer.Elapsed += async (s,e) => { await RequestImages(s, e); };
         }
 
         private void AddOverlay(List<CImage> images)
@@ -66,10 +66,12 @@ namespace JetBanjo.Pages
             DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
         }
 
-        private async void RequestImages(object s, EventArgs a)
+        private async Task RequestImages(object s, EventArgs a)
         {
 
-            AddOverlay(await logic.GetAvatar(await SensorData.Get(), DateTime.Now));
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            AddOverlay(await logic.GetAvatar(inputSensorData, inputTime));
         }
     }
 }
