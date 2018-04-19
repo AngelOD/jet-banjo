@@ -1065,6 +1065,35 @@ namespace JetBanjo.UnitTest
         #endregion
 
         #region Hybrids for fun and profit
+        //sleeping + X
+        //arms up + X
+
+
+        #endregion
+
+        #region Specific Test cases for fun
+        [TestMethod]
+        public async Task SpecTest1()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 23.22, Humidity = 18.93, CO2 = 414, UV = 0, Lux = 8, dB = 66, VOC = 2 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms),
+
+                new CImage("overlay-desert.png", ImageType.Humidity),
+                new CImage("overlay-darkness.png", ImageType.Dark)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            expectedOutput.Sort();
+            actualOutput.Sort();
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
 
         #endregion
     }
