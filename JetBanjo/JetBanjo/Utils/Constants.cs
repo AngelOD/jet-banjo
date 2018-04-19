@@ -24,114 +24,103 @@ namespace JetBanjo.Utils
         //Image constants
 
         //Done
-        public static Dictionary<int, List<CImage>> TEMP_IMAGES = new Dictionary<int, List<CImage>>()
+        public static readonly Dictionary<int, List<CImage>> TEMP_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
                 1, new List<CImage>()
                 {
-                    new CImage("overlay-frozen.png", ImageType.Temperature)
+                    new CImage("overlay-frozen.png", ImageType.Frozen)
                 }
             },
             {
                 2, new List<CImage>()
                 {
-                    new CImage("overlay-cold.png", ImageType.Temperature),
-                    new CImage("overlay-arms-down-cold.png", ImageType.Temperature)
+                    new CImage("overlay-cold.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 2 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-cold.png", ImageType.Temperature),
-                    new CImage("overlay-arms-up-cold.png", ImageType.Temperature)
+                    new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-cold-arms-up.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-cold.png", ImageType.Temperature),
-                    new CImage("overlay-sleeping-arms-down-cold.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-sleeping-cold-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-cold.png", ImageType.Temperature),
-                    new CImage("overlay-sleeping-arms-up-cold.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-sleeping-cold-arms-up.png", ImageType.ColdSweatFire)
                 }
             },
             {
-                3, new List<CImage>()},
-            {
                 4, new List<CImage>()
                 {
-                    new CImage("overlay-sweat.png", ImageType.Temperature)
+                    new CImage("overlay-sweat.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sweat.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-sweat.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 5, new List<CImage>()
                 {
-                    new CImage("overlay-fire-no-arms.png", ImageType.Temperature),
-                    new CImage("overlay-fire-arms-down.png", ImageType.Temperature)
+                    new CImage("overlay-fire-no-arms.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 5 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-fire-no-arms.png", ImageType.Temperature),
-                    new CImage("overlay-fire-arms-up.png", ImageType.Temperature)
+                    new CImage("overlay-fire-no-arms.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-fire-arms-up.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-fire-no-arms.png", ImageType.Temperature),
-                    new CImage("overlay-fire-sleeping-arms-down.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-fire-sleeping-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-fire-no-arms.png", ImageType.Temperature),
-                    new CImage("overlay-sleeping-fire-arms-up.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-sleeping-fire-arms-up.png", ImageType.ColdSweatFire)
                 }
             }
         };
 
         //Done
-        public static Dictionary<int, List<CImage>> HUMID_IMAGES = new Dictionary<int, List<CImage>>()
+        public static readonly Dictionary<int, List<CImage>> HUMID_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
                 1, new List<CImage>()
                 {
-                    new CImage("overlay-desert.png", ImageType.Temperature)
+                    new CImage("overlay-desert.png", ImageType.Humidity)
                 }
-            },
-            {
-                2, new List<CImage>()
-            },
-            {
-                3, new List<CImage>()
-            },
-            {
-                4, new List<CImage>()
             },
             {
                 5, new List<CImage>()
                 {
-                    new CImage("overlay-watervapour.png", ImageType.Temperature)
+                    new CImage("overlay-watervapour.png", ImageType.Humidity)
                 }
             }
         };
 
         //Done
-        public static Dictionary<int, List<CImage>> CO2_IMAGES = new Dictionary<int, List<CImage>>()
+        public static readonly Dictionary<int, List<CImage>> CO2_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
                 4, new List<CImage>()
@@ -148,175 +137,155 @@ namespace JetBanjo.Utils
         };
 
         //Done
-        public static Dictionary<int, List<CImage>> UV_IMAGES = new Dictionary<int, List<CImage>>()
+        public static readonly Dictionary<int, List<CImage>> UV_IMAGES = new Dictionary<int, List<CImage>>()
         {
-            {
-                1, new List<CImage>()
-            },
-            {
-                2, new List<CImage>()
-            },
-            {
-                3, new List<CImage>()
-            },
             {
                 4, new List<CImage>()
                 {
-                    new CImage("overlay-no-arms-tan.png", ImageType.Temperature),
-                    new CImage("overlay-arms-down-tan.png", ImageType.Temperature)
+                    new CImage("overlay-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-tan-arms-down.png", ImageType.UV)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-no-arms-tan.png", ImageType.Temperature),
-                    new CImage("overlay-sleeping-arms-down-tan.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-tan-arms-down.png", ImageType.UV)
                 }
             },
             {
                 4 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-no-arms-tan.png", ImageType.Temperature),
-                    new CImage("overlay-arms-up-tan.png", ImageType.Temperature)
+                    new CImage("overlay-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-tan-arms-up.png", ImageType.UV)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-no-arms-tan.png", ImageType.Temperature),
-                    new CImage("overlay-sleeping-arms-up-tan.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-tan-arms-up.png", ImageType.UV)
                 }
             },
             {
                 5, new List<CImage>()
                 {
-                    new CImage("overlay-no-arms-sunburn.png", ImageType.Temperature),
-                    new CImage("overlay-arms-down-sunburn.png", ImageType.Temperature)
+                    new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sunburn-arms-down.png", ImageType.UV)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-no-arms-sunburn.png", ImageType.Temperature),
-                    new CImage("overlay-sleeping-arms-down-sunburn.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-sunburn-arms-down.png", ImageType.UV)
                 }
             },
             {
                 5 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-no-arms-sunburn.png", ImageType.Temperature),
-                    new CImage("overlay-arms-up-sunburn.png", ImageType.Temperature)
+                    new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sunburn-arms-up.png", ImageType.UV)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-no-arms-sunburn.png", ImageType.Temperature),
-                    new CImage("overlay-sleeping-arms-up-sunburn.png", ImageType.Temperature)
+                    new CImage("overlay-sleeping-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-sunburn-arms-up.png", ImageType.UV)
                 }
             },
         };
 
         //Done
-        public static Dictionary<int, List<CImage>> LIGHT_IMAGES = new Dictionary<int, List<CImage>>()
+        public static readonly Dictionary<int, List<CImage>> LIGHT_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
                 1, new List<CImage>()
                 {
-                    new CImage("overlay-darkness.png", ImageType.Light)
+                    new CImage("overlay-darkness.png", ImageType.Dark)
                 }
-            },
-            {
-                2, new List<CImage>()
-            },
-            {
-                3, new List<CImage>()
-            },
-            {
-                4, new List<CImage>()
             },
             {
                 5, new List<CImage>()
                 {
-                    new CImage("overlay-sunglasses.png", ImageType.Light)
+                    new CImage("overlay-sunglasses.png", ImageType.Sunglasses)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.Light)
+                    new CImage("overlay-sleeping-sunglasses.png", ImageType.Sunglasses)
                 }
             }
         };
 
         //Done
-        public static Dictionary<int, List<CImage>> NOISE_IMAGES = new Dictionary<int, List<CImage>>()
+        public static readonly Dictionary<int, List<CImage>> NOISE_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
                 1, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Noise)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Noise)
+                    new CImage("child-sleeping-arms-down.png", ImageType.Character)
                 }
             },
             {
                 2, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Noise)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Noise)
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 3, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Noise)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 3 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Noise)
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 4, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Noise)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-up.png", ImageType.Noise)
+                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 5, new List<CImage>()
                 {
                     new CImage("overlay-earmuffs.png", ImageType.Noise),
-                    new CImage("child-sleeping-arms-down.png", ImageType.Noise)
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
                     new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
-                    new CImage("child-sleeping-arms-down.png", ImageType.Noise)
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             }
         };
-
-
 
         //Season
         public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
