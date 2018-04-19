@@ -35,6 +35,24 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                1 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-frozen.png", ImageType.Frozen)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-frozen.png", ImageType.Frozen)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-frozen.png", ImageType.Frozen)
+                }
+            },
+            {
                 2, new List<CImage>()
                 {
                     new CImage("overlay-cold.png", ImageType.ColdSweatFire),
@@ -70,6 +88,12 @@ namespace JetBanjo.Utils
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sweat.png", ImageType.ColdSweatFire)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-sweat.png", ImageType.ColdSweatFire)
                 }
@@ -114,7 +138,43 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                1 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-desert.png", ImageType.Humidity)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-desert.png", ImageType.Humidity)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-desert.png", ImageType.Humidity)
+                }
+            },
+            {
                 5, new List<CImage>()
+                {
+                    new CImage("overlay-watervapour.png", ImageType.Humidity)
+                }
+            },
+            {
+                5+IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-watervapour.png", ImageType.Humidity)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-watervapour.png", ImageType.Humidity)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-watervapour.png", ImageType.Humidity)
                 }
@@ -131,13 +191,67 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                1 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
                 2, new List<CImage>()
                 {
                     new CImage("child-no-arms.png", ImageType.Character)
                 }
             },
             {
+                2 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                2 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
                 3, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("child-no-arms.png", ImageType.Character)
                 }
@@ -150,7 +264,46 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                4 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
+                }
+            },
+            {
                 5, new List<CImage>()
+                {
+                    new CImage("child-sleeping-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-sleeping-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("child-sleeping-no-arms.png", ImageType.Character)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("child-sleeping-no-arms.png", ImageType.Character)
                 }
@@ -228,6 +381,24 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                1 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-darkness.png", ImageType.Dark)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-darkness.png", ImageType.Dark)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-darkness.png", ImageType.Dark)
+                }
+            },
+            {
                 5, new List<CImage>()
                 {
                     new CImage("overlay-sunglasses.png", ImageType.Sunglasses)
@@ -235,6 +406,18 @@ namespace JetBanjo.Utils
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sunglasses.png", ImageType.Sunglasses)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sunglasses.png", ImageType.Sunglasses)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-sunglasses.png", ImageType.Sunglasses)
                 }
@@ -251,7 +434,43 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                4 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                }
+            },
+            {
                 5, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
                 }
@@ -274,6 +493,18 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                1 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-down.png", ImageType.Character)
+                }
+            },
+            {
+                1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-down.png", ImageType.Character)
+                }
+            },
+            {
                 2, new List<CImage>()
                 {
                     new CImage("child-arms-down.png", ImageType.Arms)
@@ -281,6 +512,18 @@ namespace JetBanjo.Utils
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                }
+            },
+            {
+                2 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                }
+            },
+            {
+                2 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
@@ -298,6 +541,18 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                3 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                }
+            },
+            {
                 4, new List<CImage>()
                 {
                     new CImage("child-arms-down.png", ImageType.Arms)
@@ -305,6 +560,18 @@ namespace JetBanjo.Utils
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("child-sleeping-arms-up.png", ImageType.Arms)
                 }
@@ -318,6 +585,20 @@ namespace JetBanjo.Utils
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                }
+            },
+            {
+                5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
                     new CImage("child-sleeping-arms-down.png", ImageType.Arms)

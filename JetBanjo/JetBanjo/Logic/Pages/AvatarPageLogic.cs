@@ -24,6 +24,7 @@ namespace JetBanjo.Logic.Pages
         //Classification
         private int Classify(double inputVal, DataRange ranges)
         {
+            Console.WriteLine("Type: " + ranges.sensorType + " Var: " + inputVal);
             if (inputVal < ranges.minimum)
                 return 1;
             else if (inputVal < ranges.lower)
