@@ -30,8 +30,9 @@ namespace JetBanjo.UnitTest
 
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            expectedOutput.Sort();
-            actualOutput.Sort();
+
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -50,8 +51,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -70,8 +71,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -90,8 +91,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -110,8 +111,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-dizzy.png", ImageType.CO2)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-;
-            actualOutput.Sort();
+            ;
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -129,8 +130,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -148,8 +149,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -160,7 +161,7 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task VQ1()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC =59.9 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 59.9 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
@@ -169,8 +170,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -189,8 +190,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -209,8 +210,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-lesser-greenfog.png",ImageType.VOC)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -229,8 +230,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-lesser-greenfog.png",ImageType.VOC)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -249,8 +250,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-greater-greenfog.png",ImageType.VOC)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -269,8 +270,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-greater-greenfog.png",ImageType.VOC)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -291,12 +292,12 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-frozen.png",ImageType.Frozen)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
-        
+
         //Tests temp lower bound for "overlay-cold-..."
         [TestMethod]
         public async Task TQ2()
@@ -312,8 +313,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -333,8 +334,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -354,8 +355,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -373,8 +374,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -392,8 +393,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -411,8 +412,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -431,8 +432,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sweat.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -451,8 +452,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sweat.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -471,8 +472,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sweat.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -492,8 +493,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -513,8 +514,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -537,8 +538,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-desert.png", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -556,8 +557,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -575,8 +576,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -594,8 +595,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -614,8 +615,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -634,8 +635,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -653,8 +654,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -673,8 +674,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -693,8 +694,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-watervapour", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -714,8 +715,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -735,8 +736,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-tan-arms-down", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -756,8 +757,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-tan-arms-down", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -777,8 +778,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-tan-arms-down", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -798,8 +799,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sunburn-arms-down", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -819,8 +820,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sunburn-arms-down", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -841,8 +842,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-darkness.png", ImageType.Dark)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -860,8 +861,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -879,8 +880,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -898,8 +899,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -918,8 +919,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sunglasses", ImageType.Sunglasses)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -938,8 +939,8 @@ namespace JetBanjo.UnitTest
                 new CImage("overlay-sunglasses", ImageType.Sunglasses)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -960,8 +961,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -979,8 +980,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-up.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -998,8 +999,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-up.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1017,8 +1018,8 @@ namespace JetBanjo.UnitTest
                 new CImage("child-arms-up.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
-            
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1038,7 +1039,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            actualOutput.Sort();
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1059,7 +1060,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            actualOutput.Sort();
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1089,13 +1090,42 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            expectedOutput.Sort();
-            actualOutput.Sort();
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
 
+        //Great beast
+        [TestMethod]
+        public async Task SpecTest2()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 27, Humidity = 18.93, CO2 = 2500, UV = 20, Lux = 8, dB = 66, VOC = 200 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-up.png",ImageType.Arms),
 
+                new CImage("overlay-desert.png", ImageType.Humidity),
+
+                new CImage("overlay-sunburn-arms-up.png", ImageType.UV),
+                new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
+
+                new CImage("overlay-fire-no-arms.png", ImageType.ColdSweatFire),
+                new CImage("overlay-fire-arms-up.png", ImageType.ColdSweatFire),
+
+                new CImage("overlay-greator-greenfog.png", ImageType.VOC),
+
+                new CImage("overlay-darkness.png", ImageType.Dark)
+            };
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var image in actualOutput) { Console.WriteLine(image); };
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
         #endregion
     }
 }
