@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using System.Timers;
 using JetBanjo.Web.Objects;
 using JetBanjo.Utils;
+using FFImageLoading.Forms;
 
 namespace JetBanjo.Pages
 {
@@ -42,17 +43,19 @@ namespace JetBanjo.Pages
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                images[0].GestureRecognizers.Add(tapGestureRecognizer);
-                images[0].HorizontalOptions = LayoutOptions.FillAndExpand;
-                images[0].Aspect = Aspect.Fill;
+                CachedImage i = images[0].GetImage();
+                i.GestureRecognizers.Add(tapGestureRecognizer);
+                i.HorizontalOptions = LayoutOptions.FillAndExpand;
+                i.Aspect = Aspect.Fill;
 
-                layout.Children.Add(images[0], new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+                layout.Children.Add(i, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
                 List<CImage> temp = images.Skip(1).ToList();
                 foreach (var image in temp)
                 {
-                    image.InputTransparent = true;
-                    image.HorizontalOptions = LayoutOptions.FillAndExpand;
-                    layout.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+                    CachedImage ci = image.GetImage();
+                    ci.InputTransparent = true;
+                    ci.HorizontalOptions = LayoutOptions.FillAndExpand;
+                    layout.Children.Add(ci, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
                 }
             });
         }

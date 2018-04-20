@@ -6,10 +6,12 @@ using Xamarin.Forms;
 
 namespace JetBanjo.Utils
 {
-    public class CImage : CachedImage, IComparable
+    public class CImage : IComparable
     {
         private string ResourcesString { get; set; }
         private ImageType Type { get; set; }
+
+        private CachedImage image;
 
         public CImage(string resourceString, ImageType type) : base()
         {
@@ -22,9 +24,16 @@ namespace JetBanjo.Utils
             {
                 ResourcesString = resourceString;
             }
+        }
 
-            Source = ImageSource.FromResource(ResourcesString);
-            
+
+        public CachedImage GetImage()
+        {
+            if (image == null)
+            {
+                image = new CachedImage() { Source = ImageSource.FromResource(ResourcesString) };
+            }
+            return image;
         }
 
         public override bool Equals(object obj)

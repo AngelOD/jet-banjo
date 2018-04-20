@@ -27,6 +27,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
+
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
             expectedOutput.Sort();

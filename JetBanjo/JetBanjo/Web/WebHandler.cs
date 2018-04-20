@@ -62,6 +62,7 @@ namespace JetBanjo.Web
                 {
                     url = "https://" + url;
                 }
+                //TODO Append / to the url
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url); //URL
                 request.CachePolicy = new HttpRequestCachePolicy(HttpCacheAgeControl.MaxAge, Constants.cacheMaxAge);
                 request.Timeout = (int) Constants.timeoutTime.TotalMilliseconds; //Timeout defined in constants
