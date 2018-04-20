@@ -70,7 +70,7 @@ namespace JetBanjo.Pages
             {
                 Console.WriteLine(item);
             }
-            //AddOverlay(temp);
+            AddOverlay(temp);
         }
     }
 }
