@@ -33,7 +33,6 @@ namespace JetBanjo.Logic.Pages
         /// <returns></returns>
         private int Classify(double inputVal, DataRange ranges)
         {
-            Console.WriteLine("Type: " + ranges.sensorType + " Var: " + inputVal);
             if (inputVal < ranges.minimum)
                 return 1;
             else if (inputVal < ranges.lower)
@@ -42,7 +41,7 @@ namespace JetBanjo.Logic.Pages
                 return 3;
             else if (inputVal < ranges.maximum)
                 return 4;
-            else if (inputVal > ranges.maximum)
+            else if (inputVal >= ranges.maximum)
                 return 5;
             else
                 return -1;
@@ -97,7 +96,7 @@ namespace JetBanjo.Logic.Pages
                         imageList.AddRange(Constants.NOISE_IMAGES[cs]);
                     break;
                 case ("voc"):
-                    if (Constants.NOISE_IMAGES.ContainsKey(cs))
+                    if (Constants.VOC_IMAGES.ContainsKey(cs))
                         imageList.AddRange(Constants.VOC_IMAGES[cs]);
                     break;
                 default:

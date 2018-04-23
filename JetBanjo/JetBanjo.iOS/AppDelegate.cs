@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 using Foundation;
 using UIKit;
+using FFImageLoading.Forms.Touch;
 
 namespace JetBanjo.iOS
 {
@@ -24,6 +25,7 @@ namespace JetBanjo.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            CachedImageRenderer.Init();
             App.ScreenSize = new Size(UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height);
             LoadApplication(new App());
 

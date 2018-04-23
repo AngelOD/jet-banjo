@@ -62,6 +62,8 @@ namespace JetBanjo.Web
                 {
                     url = "https://" + url;
                 }
+                if (!url.ToLower().EndsWith("/"))
+                    url += "/";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url); //URL
                 request.CachePolicy = new HttpRequestCachePolicy(HttpCacheAgeControl.MaxAge, Constants.cacheMaxAge);
                 request.Timeout = (int) Constants.timeoutTime.TotalMilliseconds; //Timeout defined in constants
@@ -75,8 +77,12 @@ namespace JetBanjo.Web
                         Stream responseStream = response.GetResponseStream();
                         StreamReader streamReader = new StreamReader(responseStream);
                         Result = JsonConvert.DeserializeObject<T>(streamReader.ReadToEnd());
+                        response.Dispose();
                         streamReader.Dispose();
                         responseStream.Dispose();
+                        response?.Close();
+                        streamReader?.Close();
+                        responseStream?.Close();
                     } else if(response.StatusCode == HttpStatusCode.BadRequest)
                     {
                         DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
@@ -100,6 +106,10 @@ namespace JetBanjo.Web
                     }
                     
                 }
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
             return new WebResult<T>(Result, ResponseCode, ResponseMessage);
         }
