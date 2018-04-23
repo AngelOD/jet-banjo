@@ -834,8 +834,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-tan-no-arms.png", ImageType.UV),
-                new CImage("overlay-tan-arms-down", ImageType.UV)
+                new CImage("overlay-tan-arms-down", ImageType.UV),
+                new CImage("overlay-tan-no-arms.png", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -858,8 +858,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-tan-no-arms.png", ImageType.UV),
-                new CImage("overlay-tan-arms-down", ImageType.UV)
+                new CImage("overlay-tan-arms-down", ImageType.UV),
+                new CImage("overlay-tan-no-arms.png", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -882,8 +882,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-tan-no-arms.png", ImageType.UV),
-                new CImage("overlay-tan-arms-down", ImageType.UV)
+                new CImage("overlay-tan-arms-down", ImageType.UV),
+                new CImage("overlay-tan-no-arms.png", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -906,8 +906,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
-                new CImage("overlay-sunburn-arms-down", ImageType.UV)
+                new CImage("overlay-sunburn-arms-down", ImageType.UV),
+                new CImage("overlay-sunburn-no-arms.png", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -930,8 +930,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
-                new CImage("overlay-sunburn-arms-down", ImageType.UV)
+                new CImage("overlay-sunburn-arms-down", ImageType.UV),
+                new CImage("overlay-sunburn-no-arms.png", ImageType.UV)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
