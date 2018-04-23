@@ -480,7 +480,7 @@ namespace JetBanjo.Utils
             {
                 1 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Character)
+                    new CImage("child-arms-down.png", ImageType.Character)
                 }
             },
             {
@@ -504,7 +504,7 @@ namespace JetBanjo.Utils
             {
                 2 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
@@ -528,7 +528,7 @@ namespace JetBanjo.Utils
             {
                 3 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
@@ -552,7 +552,7 @@ namespace JetBanjo.Utils
             {
                 4 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
+                    new CImage("child-arms-up.png", ImageType.Arms)
                 }
             },
             {
@@ -565,7 +565,7 @@ namespace JetBanjo.Utils
                 5, new List<CImage>()
                 {
                     new CImage("overlay-earmuffs.png", ImageType.Noise),
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
@@ -579,7 +579,7 @@ namespace JetBanjo.Utils
                 5 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
