@@ -43,18 +43,21 @@ namespace JetBanjo.Pages
         {
             Device.BeginInvokeOnMainThread(() =>
             {
+                layout.Children.Clear();
                 CachedImage i = images[0].GetImage();
                 i.GestureRecognizers.Add(tapGestureRecognizer);
                 i.HorizontalOptions = LayoutOptions.FillAndExpand;
                 i.Aspect = Aspect.Fill;
 
                 layout.Children.Add(i, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+
                 List<CImage> temp = images.Skip(1).ToList();
                 foreach (var image in temp)
                 {
                     CachedImage ci = image.GetImage();
                     ci.InputTransparent = true;
                     ci.HorizontalOptions = LayoutOptions.FillAndExpand;
+                    ci.Aspect = Aspect.AspectFill;
                     layout.Children.Add(ci, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
                 }
             });
@@ -69,10 +72,6 @@ namespace JetBanjo.Pages
         private async Task RequestImages(object s, EventArgs a)
         {
             List<CImage> temp = await logic.GetAvatar(await SensorData.Get(), DateTime.Now);
-            foreach (var item in temp)
-            {
-                Console.WriteLine(item);
-            }
             AddOverlay(temp);
         }
     }
