@@ -52,7 +52,7 @@ namespace JetBanjo.Utils
             {
                 2, new List<CImage>()
                 {
-                    new CImage("overlay-cold.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire),
                     new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
@@ -417,49 +417,49 @@ namespace JetBanjo.Utils
             {
                 4, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 4 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             }
         };

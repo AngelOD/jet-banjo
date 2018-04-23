@@ -231,8 +231,7 @@ namespace JetBanjo.UnitTest
             {
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
-                new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-lesser-greenfog.png",ImageType.VOC)
+                new CImage("child-arms-down.png",ImageType.Arms)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
