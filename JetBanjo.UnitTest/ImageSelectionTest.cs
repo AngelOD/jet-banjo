@@ -613,7 +613,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-watervapour", ImageType.Humidity)
+                new CImage("overlay-watervapour.png", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
@@ -633,7 +633,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-watervapour", ImageType.Humidity)
+                new CImage("overlay-watervapour.png", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
@@ -672,7 +672,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-watervapour", ImageType.Humidity)
+                new CImage("overlay-watervapour.png", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
@@ -686,13 +686,13 @@ namespace JetBanjo.UnitTest
         public async Task HQ9()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 45.1, CO2 = 900, UV = 2, Lux = 500, dB = 50, VOC = 0 };
-            DateTime inputTime = new DateTime(2018, 5, 16);
+            DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-watervapour", ImageType.Humidity)
+                new CImage("overlay-watervapour.png", ImageType.Humidity)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
@@ -917,7 +917,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sunglasses", ImageType.Sunglasses)
+                new CImage("overlay-sunglasses.png", ImageType.Sunglasses)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
@@ -937,7 +937,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sunglasses", ImageType.Sunglasses)
+                new CImage("overlay-sunglasses.png", ImageType.Sunglasses)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
