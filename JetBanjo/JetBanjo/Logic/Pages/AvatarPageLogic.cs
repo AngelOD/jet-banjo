@@ -97,7 +97,7 @@ namespace JetBanjo.Logic.Pages
                         imageList.AddRange(Constants.NOISE_IMAGES[cs]);
                     break;
                 case ("voc"):
-                    if (Constants.NOISE_IMAGES.ContainsKey(cs))
+                    if (Constants.VOC_IMAGES.ContainsKey(cs))
                         imageList.AddRange(Constants.VOC_IMAGES[cs]);
                     break;
                 default:

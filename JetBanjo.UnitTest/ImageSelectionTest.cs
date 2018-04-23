@@ -30,8 +30,10 @@ namespace JetBanjo.UnitTest
 
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            expectedOutput.Sort();
-            actualOutput.Sort();
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -51,7 +53,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -71,7 +73,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -91,7 +93,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -111,7 +113,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 ;
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -130,7 +132,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -149,7 +151,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -170,7 +172,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -190,7 +192,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -210,7 +212,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -230,7 +232,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -250,7 +252,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -270,7 +272,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -292,7 +294,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -313,7 +315,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -334,7 +336,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -355,7 +357,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -374,7 +376,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -393,7 +395,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -412,7 +414,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -432,7 +434,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -452,7 +454,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -472,7 +474,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -493,7 +495,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -514,7 +516,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -538,7 +540,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -557,7 +559,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -576,7 +578,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -595,7 +597,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -615,7 +617,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -635,7 +637,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -654,7 +656,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -674,7 +676,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -694,7 +696,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -715,7 +717,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -736,7 +738,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -757,7 +759,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -778,7 +780,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -799,7 +801,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -820,7 +822,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -842,7 +844,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -861,7 +863,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -880,7 +882,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -899,7 +901,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -919,7 +921,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -939,7 +941,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -961,7 +963,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -980,7 +982,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -999,7 +1001,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1018,7 +1020,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
             
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1038,7 +1040,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1059,7 +1061,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            actualOutput.Sort();
+                        foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
@@ -1089,8 +1091,7 @@ namespace JetBanjo.UnitTest
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
-            expectedOutput.Sort();
-            actualOutput.Sort();
+            foreach (var item in actualOutput) { Console.WriteLine(item);}
 
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
