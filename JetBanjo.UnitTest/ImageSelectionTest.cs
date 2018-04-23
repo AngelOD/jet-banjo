@@ -349,8 +349,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-cold-no-arms.png",ImageType.ColdSweatFire),
-                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -373,8 +373,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-cold-no-arms.png",ImageType.ColdSweatFire),
-                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -397,8 +397,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-cold-no-arms.png",ImageType.ColdSweatFire),
-                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -556,8 +556,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-fire-no-arms.png",ImageType.ColdSweatFire),
-                new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire)
+                new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-fire-no-arms.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -580,8 +580,8 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-fire-no-arms.png",ImageType.ColdSweatFire),
-                new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire)
+                new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-fire-no-arms.png",ImageType.ColdSweatFire)
             };
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
 
@@ -1154,7 +1154,7 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task NQ4 ()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 179.9, VOC = 0 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
@@ -1176,7 +1176,7 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task NQ5 ()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 180, VOC = 0 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
@@ -1200,7 +1200,7 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task NQ6 ()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 180.1, VOC = 0 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
