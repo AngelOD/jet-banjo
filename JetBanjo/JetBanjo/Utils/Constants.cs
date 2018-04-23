@@ -21,11 +21,8 @@ namespace JetBanjo.Utils
         public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 5000);
         public static DataRange NOISE_RANGES = new DataRange("noise", -1, -1, 60, 75);
         public static DataRange VOC_RANGES = new DataRange("voc", -1, -1, 60, 180);
-        //[60, 120, 180, 240]
 
-        //Image constants
-
-        //Done
+        //Image constants. Dictionaries containing combinations of images to be shown given various readings on each sensor.
         public static readonly Dictionary<int, List<CImage>> TEMP_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
@@ -127,8 +124,6 @@ namespace JetBanjo.Utils
                 }
             }
         };
-
-        //Done
         public static readonly Dictionary<int, List<CImage>> HUMID_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
@@ -180,8 +175,6 @@ namespace JetBanjo.Utils
                 }
             }
         };
-
-        //Done
         public static readonly Dictionary<int, List<CImage>> CO2_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
@@ -309,8 +302,6 @@ namespace JetBanjo.Utils
                 }
             }
         };
-
-        //Done
         public static readonly Dictionary<int, List<CImage>> UV_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
@@ -370,8 +361,6 @@ namespace JetBanjo.Utils
                 }
             },
         };
-
-        //Done
         public static readonly Dictionary<int, List<CImage>> LIGHT_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
@@ -423,8 +412,6 @@ namespace JetBanjo.Utils
                 }
             }
         };
-
-        //Done
         public static readonly Dictionary<int, List<CImage>> VOC_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
@@ -476,8 +463,6 @@ namespace JetBanjo.Utils
                 }
             }
         };
-
-        //Done
         public static readonly Dictionary<int, List<CImage>> NOISE_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
@@ -606,7 +591,7 @@ namespace JetBanjo.Utils
             }
         };
 
-        //Season
+        //Season. Used for humidity classification. 
         public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
         {
             10, 11, 12, 1, 2, 3, 4
