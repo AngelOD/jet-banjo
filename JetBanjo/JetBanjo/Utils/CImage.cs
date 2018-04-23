@@ -24,6 +24,9 @@ namespace JetBanjo.Utils
             {
                 ResourcesString = resourceString;
             }
+
+            if (!ResourcesString.EndsWith(".png"))
+                ResourcesString += ".png";
         }
 
 
