@@ -36,11 +36,11 @@ namespace JetBanjo.Logic.Pages
             Console.WriteLine("Type: " + ranges.sensorType + " Var: " + inputVal);
             if (inputVal < ranges.minimum)
                 return 1;
-            else if (inputVal < ranges.lower)
+            else if (inputVal <= ranges.lower)
                 return 2;
-            else if (inputVal < ranges.higher)
+            else if (inputVal <= ranges.higher)
                 return 3;
-            else if (inputVal < ranges.maximum)
+            else if (inputVal <= ranges.maximum)
                 return 4;
             else if (inputVal > ranges.maximum)
                 return 5;
