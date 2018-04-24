@@ -1219,10 +1219,448 @@ namespace JetBanjo.UnitTest
         }
         #endregion
 
-        #region Hybrids for fun and profit
-        //sleeping + X
-        //arms up + X
+        #region SleepingTemperature Hybrid Quality
 
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ1()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 17.9, Humidity = 35.2, CO2 = 2000.1, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-frozen.png",ImageType.Frozen)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ2()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18, Humidity = 35.2, CO2 = 2000.1, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ3()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18.1, Humidity = 35.2, CO2 = 2000.1, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ4()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 17.9, Humidity = 35.2, CO2 = 2000, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-frozen.png",ImageType.Frozen)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ5()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18, Humidity = 35.2, CO2 = 2000, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ6()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18.1, Humidity = 35.2, CO2 = 2000, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ7()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 17.9, Humidity = 35.2, CO2 = 1999.9, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-dizzy.png", ImageType.CO2),
+                new CImage("overlay-frozen.png",ImageType.Frozen)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ8()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18, Humidity = 35.2, CO2 = 1999.9, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-dizzy.png", ImageType.CO2),
+                new CImage("overlay-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-frozen"
+        [TestMethod]
+        public async Task SleepTQ9()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18.1, Humidity = 35.2, CO2 = 1999.9, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-dizzy.png", ImageType.CO2),
+                new CImage("overlay-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ10()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.4, Humidity = 35.2, CO2 = 2000.1, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ11()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.5, Humidity = 35.2, CO2 = 2000.1, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ12()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.6, Humidity = 35.2, CO2 = 2000.1, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ13()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.4, Humidity = 35.2, CO2 = 2000, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
+                new CImage("overlay-sleeping-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ14()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.5, Humidity = 35.2, CO2 = 2000, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ15()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.6, Humidity = 35.2, CO2 = 2000, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-sleeping-no-arms.png", ImageType.Character),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ16()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.4, Humidity = 35.2, CO2 = 1999.9, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-dizzy.png", ImageType.CO2),
+                new CImage("overlay-cold-arms-down.png",ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ17()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.5, Humidity = 35.2, CO2 = 1999.9, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-dizzy.png", ImageType.CO2)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests CO2 lower bound for "child-sleeping-..." and upper bound of Temperature for "overlay-cold..."
+        [TestMethod]
+        public async Task SleepTQ18()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.6, Humidity = 35.2, CO2 = 1999.9, UV = 2, Lux = 500, dB = 50, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-dizzy.png", ImageType.CO2)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
 
         #endregion
 
