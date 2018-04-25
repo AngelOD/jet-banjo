@@ -1915,7 +1915,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-sleeping-no-arms.png", ImageType.Character),
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sleeping-fire-arms-up.png", ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-fire-arms-down.png", ImageType.ColdSweatFire),
                 new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire)
             };
 
@@ -1940,7 +1940,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-sleeping-no-arms.png", ImageType.Character),
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sleeping-fire-arms-up.png", ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-fire-arms-down.png", ImageType.ColdSweatFire),
                 new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire)
             };
 
@@ -1989,7 +1989,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-sleeping-no-arms.png", ImageType.Character),
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sleeping-fire-arms-up.png", ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-fire-arms-down.png", ImageType.ColdSweatFire),
                 new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire)
             };
 
@@ -2014,7 +2014,7 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-sleeping-no-arms.png", ImageType.Character),
                 new CImage("child-sleeping-arms-down.png",ImageType.Arms),
-                new CImage("overlay-sleeping-fire-arms-up.png", ImageType.ColdSweatFire),
+                new CImage("overlay-sleeping-fire-arms-down.png", ImageType.ColdSweatFire),
                 new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire)
             };
 
@@ -2065,7 +2065,7 @@ namespace JetBanjo.UnitTest
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
                 new CImage("overlay-dizzy.png", ImageType.CO2),
-                new CImage("overlay-fire-arms-up.png", ImageType.ColdSweatFire),
+                new CImage("overlay-fire-arms-down.png", ImageType.ColdSweatFire),
                 new CImage("overlay-fire-no-arms.png", ImageType.ColdSweatFire)
             };
 
@@ -2735,7 +2735,7 @@ namespace JetBanjo.UnitTest
             {
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
-                new CImage("child-arms-dowm.png",ImageType.Arms),
+                new CImage("child-arms-down.png",ImageType.Arms),
                 new CImage("overlay-dizzy.png", ImageType.CO2),
                 new CImage("overlay-earmuffs.png", ImageType.Noise)
             };
@@ -2922,13 +2922,13 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task ANQ35()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 1000.1, UV = 2, Lux = 500, dB = 75, VOC = 0 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 2000.1, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-sleeping-no-arms.png", ImageType.Character),
-                new CImage("child-sleeping-arms-up.png",ImageType.Arms),
+                new CImage("child-sleeping-arms-down.png",ImageType.Arms),
                 new CImage("overlay-sleeping-earmuffs.png", ImageType.Noise)
             };
 

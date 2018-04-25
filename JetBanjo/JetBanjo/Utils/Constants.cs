@@ -40,13 +40,13 @@ namespace JetBanjo.Utils
             {
                 1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-frozen.png", ImageType.Frozen)
+                    new CImage("overlay-sleeping-frozen.png", ImageType.Frozen)
                 }
             },
             {
                 1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-frozen.png", ImageType.Frozen)
+                    new CImage("overlay-sleeping-frozen.png", ImageType.Frozen)
                 }
             },
             {
@@ -113,7 +113,7 @@ namespace JetBanjo.Utils
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire),
-                    new CImage("overlay-fire-sleeping-arms-down.png", ImageType.ColdSweatFire)
+                    new CImage("overlay-sleeping-fire-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
             {
@@ -571,21 +571,21 @@ namespace JetBanjo.Utils
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
+                    new CImage("overlay-sleeping-earmuffs.png", ImageType.Noise),
                     new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 5 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
+                    new CImage("overlay-sleeping-earmuffs.png", ImageType.Noise),
                     new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
+                    new CImage("overlay-sleeping-earmuffs.png", ImageType.Noise),
                     new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             }
