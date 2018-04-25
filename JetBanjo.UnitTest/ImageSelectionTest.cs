@@ -2110,7 +2110,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT01()
+        public async Task NTQ01()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 25.1, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2136,7 +2136,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT02()
+        public async Task NTQ02()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 25.1, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2162,7 +2162,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT03()
+        public async Task NTQ03()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 25.1, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2187,7 +2187,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT04()
+        public async Task NTQ04()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 25, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2213,7 +2213,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT05()
+        public async Task NTQ05()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 25, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2239,7 +2239,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT06()
+        public async Task NTQ06()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 25, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2264,7 +2264,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT07()
+        public async Task NTQ07()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 24.9, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2289,7 +2289,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT08()
+        public async Task NTQ08()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 24.9, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2314,7 +2314,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-fire-..." and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT09()
+        public async Task NTQ09()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 24.9, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2338,7 +2338,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT10()
+        public async Task NTQ10()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.6, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2363,7 +2363,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT11()
+        public async Task NTQ11()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.6, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2388,7 +2388,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT12()
+        public async Task NTQ12()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.6, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2412,7 +2412,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT13()
+        public async Task NTQ13()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.5, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2437,7 +2437,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT14()
+        public async Task NTQ14()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.5, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2462,7 +2462,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT15()
+        public async Task NTQ15()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.5, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2486,7 +2486,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT16()
+        public async Task NTQ16()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.4, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2510,7 +2510,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT17()
+        public async Task NTQ17()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.4, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2534,7 +2534,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature lower bound for "overlay-sweat" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT18()
+        public async Task NTQ18()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 23.4, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2557,7 +2557,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT19()
+        public async Task NTQ19()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 19.6, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2581,7 +2581,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT20()
+        public async Task NTQ20()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 19.6, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2590,8 +2590,6 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
-                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire),
                 new CImage("overlay-earmuffs.png", ImageType.Noise)
             };
 
@@ -2607,7 +2605,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT21()
+        public async Task NTQ21()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 19.6, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2615,9 +2613,7 @@ namespace JetBanjo.UnitTest
             {
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
-                new CImage("child-arms-up.png",ImageType.Arms),
-                new CImage("overlay-cold-arms-up.png", ImageType.ColdSweatFire),
-                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+                new CImage("child-arms-up.png",ImageType.Arms)
             };
 
             List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
@@ -2632,7 +2628,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT22()
+        public async Task NTQ22()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 19.5, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2641,8 +2637,6 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
-                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire),
                 new CImage("overlay-earmuffs.png", ImageType.Noise)
             };
 
@@ -2658,7 +2652,7 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT23()
+        public async Task NTQ23()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 19.5, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
@@ -2667,8 +2661,6 @@ namespace JetBanjo.UnitTest
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms),
-                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
-                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire),
                 new CImage("overlay-earmuffs.png", ImageType.Noise)
             };
 
@@ -2684,9 +2676,84 @@ namespace JetBanjo.UnitTest
 
         //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
         [TestMethod]
-        public async Task NT24()
+        public async Task NTQ24()
         {
             SensorData inputSensorData = new SensorData() { Temperature = 19.5, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ25()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.4, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ26()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.4, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-cold" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ27()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 19.4, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
@@ -2707,6 +2774,234 @@ namespace JetBanjo.UnitTest
             Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
         }
 
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ28()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18.1, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ29()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18.1, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ30()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18.1, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms),
+                new CImage("overlay-cold-arms-up.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ31()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ32()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ33()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 18, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms),
+                new CImage("overlay-cold-arms-up.png", ImageType.ColdSweatFire),
+                new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ34()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 17.9, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75.1, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-frozen.png", ImageType.Frozen)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ35()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 17.9, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 75, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms),
+                new CImage("overlay-earmuffs.png", ImageType.Noise),
+                new CImage("overlay-frozen.png", ImageType.Frozen)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
+
+        //Tests temperature upper bound for "overlay-frozen" and lower bound of noise for "overlay-earmuffs"
+        [TestMethod]
+        public async Task NTQ36()
+        {
+            SensorData inputSensorData = new SensorData() { Temperature = 17.9, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 500, dB = 74.9, VOC = 0 };
+            DateTime inputTime = new DateTime(2018, 4, 16);
+            List<CImage> expectedOutput = new List<CImage>
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-up.png",ImageType.Arms),
+                new CImage("overlay-frozen.png", ImageType.Frozen)
+            };
+
+            List<CImage> actualOutput = await logic.GetAvatar(inputSensorData, inputTime);
+
+            foreach (var item in actualOutput)
+            {
+                Console.WriteLine(item);
+            }
+
+            Assert.IsTrue(expectedOutput.SequenceEqual(actualOutput));
+        }
         #endregion
 
         #region CO2Noise Hybrid Quality
