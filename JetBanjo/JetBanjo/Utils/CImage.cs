@@ -59,7 +59,7 @@ namespace JetBanjo.Utils
 
         public override string ToString()
         {
-            return ResourcesString;
+            return ResourcesString + ", Type:" + Type;
         }
 
         public int CompareTo(object obj)
