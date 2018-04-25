@@ -90,6 +90,12 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                4 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-sweat.png", ImageType.ColdSweatFire)
+                }
+            },
+            {
                 4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-sweat.png", ImageType.ColdSweatFire)
