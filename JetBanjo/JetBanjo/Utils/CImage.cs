@@ -9,7 +9,8 @@ namespace JetBanjo.Utils
     public class CImage : IComparable
     {
         private string ResourcesString { get; set; }
-        private ImageType Type { get; set; }
+
+        public ImageType Type { get; private set; }
 
         private CachedImage image;
 

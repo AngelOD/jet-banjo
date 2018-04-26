@@ -27,6 +27,8 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
 
+            UpdateRoomName();
+
             Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
 
             tapGestureRecognizer = new TapGestureRecognizer();
@@ -47,6 +49,7 @@ namespace JetBanjo.Pages
                 CachedImage i = images[0].GetImage();
                 i.GestureRecognizers.Add(tapGestureRecognizer);
                 i.HorizontalOptions = LayoutOptions.FillAndExpand;
+                i.VerticalOptions = LayoutOptions.FillAndExpand;
                 i.Aspect = Aspect.Fill;
 
                 layout.Children.Add(i, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
@@ -56,8 +59,28 @@ namespace JetBanjo.Pages
                 {
                     CachedImage ci = image.GetImage();
                     ci.InputTransparent = true;
+                    ci.VerticalOptions = LayoutOptions.FillAndExpand;
                     ci.HorizontalOptions = LayoutOptions.FillAndExpand;
-                    ci.Aspect = Aspect.AspectFill;
+
+                    ImageType t = image.Type;
+
+                    switch (t)
+                    {
+                        case ImageType.Character:
+                        case ImageType.Arms:
+                        case ImageType.CO2:
+                        case ImageType.UV:
+                        case ImageType.Noise:
+                        case ImageType.ColdSweatFire:
+                        case ImageType.Sunglasses:
+                        case ImageType.Frozen:
+                            ci.Aspect = Aspect.AspectFit;
+                            break;
+                        default:
+                            ci.Aspect = Aspect.Fill;
+                            break;
+                    }
+
                     layout.Children.Add(ci, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
                 }
             });
@@ -73,6 +96,13 @@ namespace JetBanjo.Pages
         {
             List<CImage> temp = await logic.GetAvatar(await SensorData.Get(), DateTime.Now);
             AddOverlay(temp);
+        }
+
+        private async Task UpdateRoomName()
+        {
+            Room temp = await Room.Get();
+
+            Title = temp.RoomNumber;
         }
     }
 }
