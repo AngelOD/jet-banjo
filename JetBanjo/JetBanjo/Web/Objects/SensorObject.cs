@@ -8,6 +8,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using JetBanjo.Utils.Data;
+using static JetBanjo.Utils.Data.DataStoreKeys;
 
 namespace JetBanjo.Web.Objects
 {
@@ -28,8 +30,8 @@ namespace JetBanjo.Web.Objects
         protected static async Task<T> Get<T>(string roomId, string type) where T : SensorObject
         {
             T temp = default(T);
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
-            WebHandler.WebResult<T> result = await WebHandler.ReadData<T>(ip + Constants.API_ROOMS_URL + "/" + roomId + "/" + type);
+            string ip = DataStore.GetValue(Keys.Ip);
+            WebResult<T> result = await WebHandler.ReadData<T>(ip + Constants.API_ROOMS_URL + "/" + roomId + "/" + type);
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
 

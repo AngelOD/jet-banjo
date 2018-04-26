@@ -10,9 +10,10 @@ using JetBanjo.Utils.DependencyService;
 using JetBanjo.Web;
 using JetBanjo.Web.Objects;
 using JetBanjo.Utils;
-using static JetBanjo.Utils.DataStore;
 using JetBanjo.Resx;
 using System.Threading;
+using JetBanjo.Utils.Data;
+using static JetBanjo.Utils.Data.DataStoreKeys;
 
 namespace JetBanjo.Pages
 {
@@ -67,7 +68,7 @@ namespace JetBanjo.Pages
                 displayService.DismissActivityIndicator();
                 if (!string.IsNullOrWhiteSpace(ip))
                 {
-                    DataStore.SaveValue(Keys.Ip, ip);
+                    DataStore.SaveValue(DataStoreKeys.Keys.Ip, ip);
                     ContinueStartup();
                 }
                 else

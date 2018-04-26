@@ -1,4 +1,5 @@
 ﻿using JetBanjo.Utils;
+using JetBanjo.Utils.Data;
 using JetBanjo.Utils.DependencyService;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static JetBanjo.Utils.DataStore;
+using static JetBanjo.Utils.Data.DataStoreKeys;
 
 namespace JetBanjo.Pages
 {

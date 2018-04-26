@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using static JetBanjo.Utils.Data.DataStoreKeys;
 
-namespace JetBanjo.Utils
+namespace JetBanjo.Utils.Data
 {
     public class DataStore
     {
-
-        public enum Keys 
-        {
-            Room,
-            Ip
-            
-        }
 
         /// <summary>
         /// Saves a value into the data store
