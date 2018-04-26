@@ -27,6 +27,8 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
 
+            UpdateRoomName();
+
             Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
 
             tapGestureRecognizer = new TapGestureRecognizer();
@@ -73,6 +75,13 @@ namespace JetBanjo.Pages
         {
             List<CImage> temp = await logic.GetAvatar(await SensorData.Get(), DateTime.Now);
             AddOverlay(temp);
+        }
+
+        private async Task UpdateRoomName()
+        {
+            Room temp = await Room.Get();
+
+            Title = temp.RoomNumber;
         }
     }
 }
