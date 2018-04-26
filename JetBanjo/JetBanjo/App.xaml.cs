@@ -64,6 +64,7 @@ namespace JetBanjo
         {
             MasterPage.Register(typeof(AvatarPage), AppResources.avatar);
             MasterPage.Register(new Settings(), AppResources.settings);
+            MasterPage.Register(typeof(ScoringPage), AppResources.scoring_page);
         }
 
 		protected override void OnStart ()

@@ -165,6 +165,9 @@
   <data name="room_selector" xml:space="preserve">
     <value>Rum Vælger</value>
   </data>
+  <data name="scoring_page" xml:space="preserve">
+    <value>Rum Score</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Indstilling</value>
   </data>
