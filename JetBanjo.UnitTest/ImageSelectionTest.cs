@@ -8,6 +8,7 @@ using JetBanjo.Web.Objects;
 using JetBanjo.Logic.Pages;
 using JetBanjo.Interfaces.Logic;
 using System.Threading.Tasks;
+using FFImageLoading;
 
 namespace JetBanjo.UnitTest
 {
@@ -20,6 +21,7 @@ namespace JetBanjo.UnitTest
         {
             App.IsTesting = true;
         }
+
 
         [TestMethod]
         public async Task BaseTest ()

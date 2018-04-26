@@ -27,8 +27,16 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
 
-            UpdateRoomName();
+            Task.Run(async ()=> await UpdateRoomName());
 
+            List<CImage> startUpImages = new List<CImage>()
+            {
+                new CImage("basic-classroom.png", ImageType.Background),
+                new CImage("child-no-arms.png", ImageType.Character),
+                new CImage("child-arms-down.png",ImageType.Arms)
+            };
+            AddOverlay(startUpImages);
+            OnTimer();
             Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
 
             tapGestureRecognizer = new TapGestureRecognizer();
