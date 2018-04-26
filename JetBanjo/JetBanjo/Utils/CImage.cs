@@ -27,15 +27,15 @@ namespace JetBanjo.Utils
 
             if (!ResourcesString.EndsWith(".png"))
                 ResourcesString += ".png";
+
+            if (!App.IsTesting)
+                image = new CachedImage() { Source = ImageSource.FromResource(ResourcesString)};
         }
 
 
         public CachedImage GetImage()
         {
-            if (image == null)
-            {
-                image = new CachedImage() { Source = ImageSource.FromResource(ResourcesString) };
-            }
+
             return image;
         }
 

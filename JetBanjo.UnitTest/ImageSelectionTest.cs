@@ -16,6 +16,11 @@ namespace JetBanjo.UnitTest
     {
         private static IAvatarLogic logic = new AvatarPageLogic();
 
+        public ImageSelectionTest()
+        {
+            App.IsTesting = true;
+        }
+
         [TestMethod]
         public async Task BaseTest ()
         {
