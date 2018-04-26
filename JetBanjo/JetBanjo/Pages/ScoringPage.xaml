@@ -6,6 +6,7 @@
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
              x:Class="JetBanjo.Pages.ScoringPage"
              Title="{i18n:Translate scoring_page}">
+    
     <StackLayout>
         <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
