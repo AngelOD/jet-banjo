@@ -27,16 +27,16 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
 
-            Timer timer = new Timer(5000)
-            {
-                AutoReset = true
-            };
+            Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
 
             tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += OnTouch;
+        }
 
-            timer.Start();
-            timer.Elapsed += async (s,e) => { await RequestImages(s, e); };
+        private bool OnTimer ()
+        {
+            Task.Run(async ()=> await RequestImages());
+            return true;
         }
 
         private void AddOverlay(List<CImage> images)
@@ -69,7 +69,7 @@ namespace JetBanjo.Pages
             DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
         }
 
-        private async Task RequestImages(object s, EventArgs a)
+        private async Task RequestImages()
         {
             List<CImage> temp = await logic.GetAvatar(await SensorData.Get(), DateTime.Now);
             AddOverlay(temp);

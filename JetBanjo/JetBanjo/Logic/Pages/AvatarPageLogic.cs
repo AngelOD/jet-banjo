@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using JetBanjo.Utils;
+using JetBanjo.Utils.Data;
 using Xamarin.Forms;
 using JetBanjo.Web.Objects;
 using System.Threading.Tasks;

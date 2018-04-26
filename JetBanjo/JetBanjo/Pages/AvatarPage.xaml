@@ -10,4 +10,9 @@
         <AbsoluteLayout x:Name="layout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         </AbsoluteLayout>
     </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+
+    </ContentPage.ToolbarItems>
+
 </c:CContentPage>

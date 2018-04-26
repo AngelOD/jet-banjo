@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using static JetBanjo.Web.WebHandler;
+using JetBanjo.Utils.Data;
+using static JetBanjo.Utils.Data.DataStoreKeys;
 
 namespace JetBanjo.Web.Objects
 {
@@ -41,7 +43,7 @@ namespace JetBanjo.Web.Objects
         /// <returns>Room data object</returns>
         public static async Task<Room> Get()
         {
-            string room = DataStore.GetValue(DataStore.Keys.Room);
+            string room = DataStore.GetValue(Keys.Room);
             return await Get(room);
         }
 
@@ -53,7 +55,7 @@ namespace JetBanjo.Web.Objects
         public static async Task<Room> Get(string roomId)
         {
             Room temp = new Room();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
+            string ip = DataStore.GetValue(Keys.Ip);
             WebResult<Room> result = await WebHandler.ReadData<Room>(ip + Constants.API_ROOMS_URL + "/" + roomId);
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
@@ -68,7 +70,7 @@ namespace JetBanjo.Web.Objects
         public static async Task<List<Room>> GetList()
         {
             List<Room> roomList = new  List<Room>();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
+            string ip = DataStore.GetValue(Keys.Ip);
             WebResult<List<Room>> result = await WebHandler.ReadData<List<Room>>(ip + Constants.API_ROOMS_URL);
             if (HttpStatusCode.OK == result.ResponseCode)
                 roomList = result.Result;
