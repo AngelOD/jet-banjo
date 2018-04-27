@@ -61,9 +61,7 @@ namespace JetBanjo.Web.Objects
             WebResult<SensorData> result = await WebHandler.ReadData<SensorData>(ip + Constants.API_ROOMS_URL + "/" + roomId + "/all");
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
-
+            
             return temp;
         }
 
