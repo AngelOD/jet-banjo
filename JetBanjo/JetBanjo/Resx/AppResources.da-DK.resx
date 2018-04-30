@@ -129,6 +129,9 @@
   <data name="cannot_detect_backend" xml:space="preserve">
     <value>Kan ikke finde serveren på det lokale netværk, du skal manualt indtaste serverens IP</value>
   </data>
+  <data name="choose_room" xml:space="preserve">
+    <value>Vælg Rum</value>
+  </data>
   <data name="download_err" xml:space="preserve">
     <value>Download fejlede, tjek internet forbindelsen</value>
   </data>

@@ -129,6 +129,9 @@
   <data name="cannot_detect_backend" xml:space="preserve">
     <value>Cannot detect the server on the local network, you need to manually input it</value>
   </data>
+  <data name="choose_room" xml:space="preserve">
+    <value>Choose Room</value>
+  </data>
   <data name="download_err" xml:space="preserve">
     <value>Failed to download, check internet connection</value>
   </data>

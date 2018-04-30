@@ -12,6 +12,8 @@ using System.Timers;
 using JetBanjo.Web.Objects;
 using JetBanjo.Utils;
 using FFImageLoading.Forms;
+using JetBanjo.Resx;
+using JetBanjo.Utils.Data;
 
 namespace JetBanjo.Pages
 {
@@ -19,7 +21,7 @@ namespace JetBanjo.Pages
 	public partial class AvatarPage : CContentPage
 	{
         private IAvatarLogic logic;
-
+        private string currentRoomId;
         private TapGestureRecognizer tapGestureRecognizer;
 
         public AvatarPage()
@@ -27,8 +29,9 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
 
-            Task.Run(async ()=> await UpdateRoomName());
-
+            currentRoomId = DataStore.GetValue(DataStoreKeys.Keys.Room);
+            Task t = Task.Run(async ()=> await UpdateRoomName());
+            t.Wait();
             List<CImage> startUpImages = new List<CImage>()
             {
                 new CImage("basic-classroom.png", ImageType.Background),
@@ -102,15 +105,31 @@ namespace JetBanjo.Pages
 
         private async Task RequestImages()
         {
-            List<CImage> temp = await logic.GetAvatar(await SensorData.Get(), DateTime.Now);
+            List<CImage> temp = await logic.GetAvatar(await SensorData.Get(currentRoomId), DateTime.Now);
             AddOverlay(temp);
         }
 
         private async Task UpdateRoomName()
         {
-            Room temp = await Room.Get();
+            Room temp = await Room.Get(currentRoomId);
 
             Title = temp.RoomNumber;
+        }
+
+        private async void PickerIconPress(object sender, EventArgs args)
+        {
+            List<Room> rooms = await Room.GetList();
+
+            string result = await DisplayActionSheet(AppResources.choose_room, AppResources.cancel, null, rooms.Select(r => r.RoomNumber).ToArray());
+            if(result != null && rooms != null && !result.Equals(AppResources.cancel))
+            {
+                Room temp = rooms.Find(r => r.RoomNumber.Equals(result));
+                Console.WriteLine(temp.Id);
+                Title = temp.RoomNumber;
+                currentRoomId = temp.Id;
+                OnTimer();
+            }
+                
         }
     }
 }

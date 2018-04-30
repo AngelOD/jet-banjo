@@ -97,6 +97,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose Room.
+        /// </summary>
+        internal static string choose_room {
+            get {
+                return ResourceManager.GetString("choose_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to download, check internet connection.
         /// </summary>
         internal static string download_err {
