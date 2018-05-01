@@ -9,12 +9,13 @@
              Title="{i18n:Translate scoring_page}">
 
     <StackLayout>
-        <gauge:SfCircularGauge  x:Name="scoreGauge">
-            <gauge:SfCircularGauge.Headers>
-                <gauge:Header Text="Speedometer" />
-            </gauge:SfCircularGauge.Headers>
-
+        <gauge:SfCircularGauge  x:Name="scoreGauge" Scale="0.8">
         </gauge:SfCircularGauge>
+
+        <ListView x:Name="scoreListView" HorizontalOptions="Center" ItemSelected="OnItemSelected">
+            
+        </ListView> 
+        
     </StackLayout>
     
 </c:CContentPage>
