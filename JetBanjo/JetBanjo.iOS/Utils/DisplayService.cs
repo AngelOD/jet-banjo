@@ -59,11 +59,14 @@ namespace JetBanjo.iOS.Utils
 
         public void DismissActivityIndicator()
         {
+            
             throw new NotImplementedException();
         }
 
         public void DismissDialog()
         {
+            DisplayService.Dismiss();
+            alert
             throw new NotImplementedException();
         }
 
