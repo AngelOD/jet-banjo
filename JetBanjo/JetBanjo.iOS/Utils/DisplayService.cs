@@ -22,14 +22,14 @@ namespace JetBanjo.iOS.Utils
         public void ShowDialog(string title, string text, ImageSource source, Action callback)
         {
             dialog = UIAlertController.Create(title, text, UIAlertControllerStyle.Alert); //Creates a AlertController from the title and text
+            if (source != null) //If the image source is not null, load the image and adds it to the controller
+                dialog.View.AddSubview(new UIImageView(GetImageFromImageSourceAsync(source)));
+                UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController(dialog, true, () => { }); //Show the dialog
             if (callback != null)   
             { //If the callback is not null, we create an ok button, when pressed execute the callback
                 var action = UIAlertAction.Create(Translator.Translate("ok"), UIAlertActionStyle.Default, ((a) => { callback(); }));
                 dialog.AddAction(action); //Add it to the controller
             }
-            if (source != null) //If the image source is not null, load the image and adds it to the controller
-                dialog.View.AddSubview(new UIImageView(GetImageFromImageSourceAsync(source)));
-            UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController(dialog, true, () => { }); //Show the dialog
         }
         private UIImage GetImageFromImageSourceAsync(ImageSource imageSource)
         {
