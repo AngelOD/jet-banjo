@@ -76,15 +76,6 @@ namespace JetBanjo.iOS.Utils
         {
             throw new NotImplementedException();
         }
-        public void ShowDialog(string title, string text, ImageSource source, Action callback)
-        {
-            UIAlertController alert = new UIAlertController()
-            {
-                title = "ale",
-                text = "test",
-            } 
-        }
-
         public void ShowDialog(string title, string text, ImageSource source)
         {
             UIAlertView alert = new UIAlertView()
