@@ -60,19 +60,16 @@ namespace JetBanjo.iOS.Utils
         public void DismissActivityIndicator()
         {
             
-            throw new NotImplementedException();
         }
 
         public void DismissDialog()
         {
-            DisplayService.Dismiss();
-            alert
-            throw new NotImplementedException();
+            
         }
 
         public void DismissInputDialog()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void ShowActivityIndicator()
@@ -81,55 +78,42 @@ namespace JetBanjo.iOS.Utils
         }
         public void ShowDialog(string title, string text, ImageSource source)
         {
-            UIAlertView alert = new UIAlertView()
-            {
-                Title = "alert title",
-                Message = "this is a simple alert"
-            };
-            alert.AddButton("Ok");
-            alert.Show();
-            throw new NotImplementedException();
+            ShowDialog(title, text, source, null);
         }
         public void ShowDialog(string title, string text, Action callback)
         {
-            throw new NotImplementedException();
+            ShowDialog(title, text, null, callback);
         }
 
         public void ShowDialog(string title, string text)
         {
-            UIAlertView alert = new UIAlertView()
-            {
-                Title = "alert title",
-                Message = "this is a simple alert"
-            };
-            alert.AddButton("Ok");
-            alert.Show();
+            ShowDialog(title, text, null, null);
         }
 
 
         public void ShowInputDialog(string title, string text, string ok, string hint, Action<string> callback)
         {
-            throw new NotImplementedException();
+          
         }
 
         public void ShowInputDialog(string title, string text, string ok, string hint, string placeholder, Action<string> callback)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void ShowInputDialog(string title, string text, string ok, string cancel, string hint, Action<bool, string> callback)
         {
-            throw new NotImplementedException();
+        
         }
 
         public void ShowInputDialog(string title, string text, string ok, string cancel, string hint, string placeholder, Action<bool, string> callback)
         {
-            throw new NotImplementedException();
+           
         }
 
         public void ShowToast(string text, bool isLong)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
