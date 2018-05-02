@@ -18,8 +18,9 @@ namespace JetBanjo.Pages
 	public partial class ScoringPage : CContentPage
 	{
         private IScorePageLogic logic;
+        public ListView ScoreList { get; private set; }
 
-		public ScoringPage ()
+		public ScoringPage()
 		{
 			InitializeComponent();
             InitializeGauge();
@@ -34,6 +35,7 @@ namespace JetBanjo.Pages
             };
 
             UpdateScoreList(objects);
+            ScoreList = scoreListView;
         }
         public void UpdateScoreList(List<ScoreViewObj> updatedScoreList)
         {
@@ -56,7 +58,7 @@ namespace JetBanjo.Pages
             DependencyService.Get<IDisplayService>().ShowDialog("Causation", causationString);
         }
 
-        private void InitializeGauge()
+        private void InitializeGauge() 
         {
             //Initializing circular gauge 
             scoreGauge.Margin = 0;
