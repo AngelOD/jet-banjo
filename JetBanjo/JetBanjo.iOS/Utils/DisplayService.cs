@@ -56,7 +56,19 @@ namespace JetBanjo.iOS.Utils
 
             return image;
         }
+        public void ShowDialog(string title, string text, ImageSource source)
+        {
+            ShowDialog(title, text, source, null);
+        }
+        public void ShowDialog(string title, string text, Action callback)
+        {
+            ShowDialog(title, text, null, callback);
+        }
 
+        public void ShowDialog(string title, string text)
+        {
+            ShowDialog(title, text, null, null);
+        }
         public void DismissActivityIndicator()
         {
             
@@ -74,23 +86,8 @@ namespace JetBanjo.iOS.Utils
 
         public void ShowActivityIndicator()
         {
-            throw new NotImplementedException();
-        }
-        public void ShowDialog(string title, string text, ImageSource source)
-        {
-            ShowDialog(title, text, source, null);
-        }
-        public void ShowDialog(string title, string text, Action callback)
-        {
-            ShowDialog(title, text, null, callback);
-        }
 
-        public void ShowDialog(string title, string text)
-        {
-            ShowDialog(title, text, null, null);
         }
-
-
         public void ShowInputDialog(string title, string text, string ok, string hint, Action<string> callback)
         {
           
