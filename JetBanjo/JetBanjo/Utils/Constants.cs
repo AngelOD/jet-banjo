@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using JetBanjo.Utils;
+using JetBanjo.Utils.Data;
 
 namespace JetBanjo.Utils
 {
@@ -40,19 +41,19 @@ namespace JetBanjo.Utils
             {
                 1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-frozen.png", ImageType.Frozen)
+                    new CImage("overlay-sleeping-frozen.png", ImageType.Frozen)
                 }
             },
             {
                 1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-frozen.png", ImageType.Frozen)
+                    new CImage("overlay-sleeping-frozen.png", ImageType.Frozen)
                 }
             },
             {
                 2, new List<CImage>()
                 {
-                    new CImage("overlay-cold.png", ImageType.ColdSweatFire),
+                    new CImage("overlay-cold-no-arms.png", ImageType.ColdSweatFire),
                     new CImage("overlay-cold-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
@@ -90,6 +91,12 @@ namespace JetBanjo.Utils
                 }
             },
             {
+                4 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-sweat.png", ImageType.ColdSweatFire)
+                }
+            },
+            {
                 4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-sweat.png", ImageType.ColdSweatFire)
@@ -113,7 +120,7 @@ namespace JetBanjo.Utils
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-fire-no-arms.png", ImageType.ColdSweatFire),
-                    new CImage("overlay-fire-sleeping-arms-down.png", ImageType.ColdSweatFire)
+                    new CImage("overlay-sleeping-fire-arms-down.png", ImageType.ColdSweatFire)
                 }
             },
             {
@@ -417,49 +424,49 @@ namespace JetBanjo.Utils
             {
                 4, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 4 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-lesser-green-fog.png", ImageType.VOC)
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-sleeping-sunglasses.png", ImageType.VOC)
+                    new CImage("overlay-greater-greenfog.png", ImageType.VOC)
                 }
             }
         };
@@ -480,7 +487,7 @@ namespace JetBanjo.Utils
             {
                 1 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Character)
+                    new CImage("child-arms-down.png", ImageType.Character)
                 }
             },
             {
@@ -504,7 +511,7 @@ namespace JetBanjo.Utils
             {
                 2 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
@@ -528,7 +535,7 @@ namespace JetBanjo.Utils
             {
                 3 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
@@ -552,7 +559,7 @@ namespace JetBanjo.Utils
             {
                 4 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
+                    new CImage("child-arms-up.png", ImageType.Arms)
                 }
             },
             {
@@ -565,27 +572,27 @@ namespace JetBanjo.Utils
                 5, new List<CImage>()
                 {
                     new CImage("overlay-earmuffs.png", ImageType.Noise),
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
+                    new CImage("overlay-sleeping-earmuffs.png", ImageType.Noise),
                     new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 5 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("overlay-sleeping-earmuffs.png", ImageType.Noise),
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 5 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("overlay-earmuffs-sleeping.png", ImageType.Noise),
+                    new CImage("overlay-sleeping-earmuffs.png", ImageType.Noise),
                     new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             }

@@ -8,7 +8,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using static JetBanjo.Web.WebHandler;
+using JetBanjo.Utils.Data;
+using static JetBanjo.Utils.Data.DataStoreKeys;
 
 namespace JetBanjo.Web.Objects
 {
@@ -44,7 +45,7 @@ namespace JetBanjo.Web.Objects
         /// <returns>Sensor data object</returns>
         public static async Task<SensorData> Get()
         {
-            string room = DataStore.GetValue(DataStore.Keys.Room);
+            string room = DataStore.GetValue(Keys.Room);
             return await Get(room);
         }
 
@@ -56,13 +57,11 @@ namespace JetBanjo.Web.Objects
         public static async Task<SensorData> Get(string roomId)
         {
             SensorData temp = new SensorData();
-            string ip = DataStore.GetValue(DataStore.Keys.Ip);
+            string ip = DataStore.GetValue(Keys.Ip);
             WebResult<SensorData> result = await WebHandler.ReadData<SensorData>(ip + Constants.API_ROOMS_URL + "/" + roomId + "/all");
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
-            else
-                DependencyService.Get<IDisplayService>(DependencyFetchTarget.GlobalInstance).ShowToast(AppResources.download_err, false);
-
+            
             return temp;
         }
 

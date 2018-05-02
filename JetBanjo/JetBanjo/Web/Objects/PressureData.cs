@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using static JetBanjo.Web.WebHandler;
+using JetBanjo.Utils.Data;
+using static JetBanjo.Utils.Data.DataStoreKeys;
 
 namespace JetBanjo.Web.Objects
 {
@@ -20,7 +22,7 @@ namespace JetBanjo.Web.Objects
         /// <returns>Pressure data object</returns>
         public static async Task<PressureData> Get()
         {
-            string room = DataStore.GetValue(DataStore.Keys.Room);
+            string room = DataStore.GetValue(Keys.Room);
             return await Get<PressureData>(room, SensorType.Pressure);
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace JetBanjo.Utils
+namespace JetBanjo.Utils.Data
 {
     public class DataRange
     {
