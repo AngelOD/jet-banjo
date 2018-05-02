@@ -129,6 +129,9 @@
   <data name="cannot_detect_backend" xml:space="preserve">
     <value>Kan ikke finde serveren på det lokale netværk, du skal manualt indtaste serverens IP</value>
   </data>
+  <data name="change_room" xml:space="preserve">
+    <value>Ændre rum</value>
+  </data>
   <data name="choose_room" xml:space="preserve">
     <value>Vælg Rum</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="ip_null_or_empty_err_msg" xml:space="preserve">
     <value>IP feltet skal udfyldes for at denne app virker </value>
   </data>
+  <data name="ip_settings" xml:space="preserve">
+    <value>IP indstilling</value>
+  </data>
   <data name="ip_text" xml:space="preserve">
     <value>Indtast IP adressen til serverne</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="room_selector" xml:space="preserve">
     <value>Rum Vælger</value>
+  </data>
+  <data name="room_settings" xml:space="preserve">
+    <value>Rum indstilling</value>
   </data>
   <data name="settings" xml:space="preserve">
     <value>Indstilling</value>

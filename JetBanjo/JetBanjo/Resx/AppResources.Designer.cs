@@ -97,6 +97,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change room.
+        /// </summary>
+        internal static string change_room {
+            get {
+                return ResourceManager.GetString("change_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose Room.
         /// </summary>
         internal static string choose_room {
@@ -160,6 +169,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IP settings.
+        /// </summary>
+        internal static string ip_settings {
+            get {
+                return ResourceManager.GetString("ip_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input the IP address of the server.
         /// </summary>
         internal static string ip_text {
@@ -210,6 +228,15 @@ namespace JetBanjo.Resx {
         internal static string room_selector {
             get {
                 return ResourceManager.GetString("room_selector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room settings.
+        /// </summary>
+        internal static string room_settings {
+            get {
+                return ResourceManager.GetString("room_settings", resourceCulture);
             }
         }
         
