@@ -22,6 +22,8 @@ namespace JetBanjo.Pages
 
         private TapGestureRecognizer tapGestureRecognizer;
 
+        private IEQIssuesPage ieqPage;
+
         public AvatarPage()
         {
             InitializeComponent();
@@ -66,7 +68,13 @@ namespace JetBanjo.Pages
         private void OnTouch(object sender, EventArgs args)
         {
             //WIP should show small popup with the current issues
-            DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
+            //DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
+
+            if(ieqPage == null)
+            {
+                ieqPage = new IEQIssuesPage();
+            }
+            Navigation.PushModalAsync(ieqPage);
         }
 
         private async Task RequestImages()

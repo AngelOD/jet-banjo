@@ -150,6 +150,9 @@
   <data name="ip_text" xml:space="preserve">
     <value>Input the IP address of the server</value>
   </data>
+  <data name="issue_page" xml:space="preserve">
+    <value>Issues</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
   </data>
@@ -163,7 +166,7 @@
     <value>Room</value>
   </data>
   <data name="room_selector" xml:space="preserve">
-    <value>Room Selector</value>
+    <value>Select Room</value>
   </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>

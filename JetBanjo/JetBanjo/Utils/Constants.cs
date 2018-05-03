@@ -19,7 +19,7 @@ namespace JetBanjo.Utils
         public static DataRange HUMID_WINTER_RANGES = new DataRange("humid", 25, 35, 40, 45);
         public static DataRange CO2_RANGES = new DataRange("co2", -1, -1, 1000, 2000);
         public static DataRange UV_RANGES = new DataRange("uv", -1, -1, 3, 5);
-        public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 5000);
+        public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 2000);
         public static DataRange NOISE_RANGES = new DataRange("noise", -1, -1, 60, 75);
         public static DataRange VOC_RANGES = new DataRange("voc", -1, -1, 60, 180);
 

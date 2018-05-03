@@ -160,6 +160,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issues.
+        /// </summary>
+        internal static string issue_page {
+            get {
+                return ResourceManager.GetString("issue_page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string ok {
@@ -196,7 +205,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Room Selector.
+        ///   Looks up a localized string similar to Select Room.
         /// </summary>
         internal static string room_selector {
             get {
