@@ -7,10 +7,10 @@ namespace JetBanjo.Utils.Data
     public class ScoreCausation
     {
         public string sensorName { get; set; }
-        public int score { get; set; }
+        public double score { get; set; }
         public string message { get; set; }
 
-        public ScoreCausation(string sensor, int scoreChange, string scoreMessage)
+        public ScoreCausation(string sensor, double scoreChange, string scoreMessage)
         {
             message = scoreMessage;
             sensorName = sensor;

@@ -11,6 +11,7 @@ using Syncfusion.SfGauge.XForms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
+using JetBanjo.Web.Objects;
 
 namespace JetBanjo.Pages
 {
@@ -19,11 +20,13 @@ namespace JetBanjo.Pages
 	{
         private IScorePageLogic logic;
         public ListView ScoreList { get; private set; }
+        ObservableCollection<Scale> scales = new ObservableCollection<Scale>();
 
-		public ScoringPage()
+        public ScoringPage()
 		{
 			InitializeComponent();
-            InitializeGauge();
+
+            Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
 
             List<ScoreViewObj> objects = new List<ScoreViewObj>
             {
@@ -37,9 +40,59 @@ namespace JetBanjo.Pages
             UpdateScoreList(objects);
             ScoreList = scoreListView;
         }
-        public void UpdateScoreList(List<ScoreViewObj> updatedScoreList)
+
+        private bool OnTimer()
+        {
+            Task.Run(async () => await RequestScore());
+            return true;
+        }
+
+        private async Task RequestScore()
+        {
+            int newScore = 0;
+
+            List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get());
+
+            foreach (ScoreViewObj obj in temp)
+            {
+                if (obj.scoreChange > newScore)
+                    newScore = obj.scoreChange;
+            }
+            UpdateScoreList(temp);
+            UpdateGauge(newScore);
+            
+        }
+
+        private void UpdateScoreList(List<ScoreViewObj> updatedScoreList)
         {
             scoreListView.ItemsSource = updatedScoreList;
+        }
+
+        private void UpdateGauge(int score)
+        {
+            //Clear Gauge
+            scales.Clear();
+
+            //New Scale
+            Scale scale = new Scale();
+            scale.Interval = 100;
+            scale.StartValue = 0;
+            scale.EndValue = 1000;
+
+            //New header (score)
+            Header header = new Header();
+            header.Text = score.ToString();
+            scoreGauge.Headers.Clear();
+            scoreGauge.Headers.Add(header);
+
+            //New needle pointer
+            NeedlePointer needlePointer = new NeedlePointer();
+            needlePointer.Value = score;
+            scale.Pointers.Add(needlePointer);
+
+            //Update with new values
+            scales.Add(scale);
+            scoreGauge.Scales = scales;
         }
 
         public void OnItemSelected(object sender, EventArgs args)
@@ -56,57 +109,6 @@ namespace JetBanjo.Pages
             }
 
             DependencyService.Get<IDisplayService>().ShowDialog("Causation", causationString);
-        }
-
-        private void InitializeGauge() 
-        {
-            //Initializing circular gauge 
-            scoreGauge.Margin = 0;
-
-            //Adding header 
-            Header header = new Header();
-            header.Text = "Score";
-            scoreGauge.Headers.Add(header);
-
-            //Initializing scales for circular gauge
-            ObservableCollection<Scale> scales = new ObservableCollection<Scale>();
-            Scale scale = new Scale();
-            scale.Interval = 100;
-            scale.StartValue = 0;
-            scale.EndValue = 2000;
-            scales.Add(scale);
-
-            //Adding range
-            Range range = new Range();
-            range.StartValue = 0;
-            range.EndValue = 1000;
-            range.Color = Color.Red;
-            scale.Ranges.Add(range);
-
-            Range range2 = new Range();
-            range.StartValue = 1001;
-            range.EndValue = 2000;
-            range.Color = Color.Green;
-            scale.Ranges.Add(range2);
-
-            //Adding needle pointer
-            NeedlePointer needlePointer = new NeedlePointer();
-            needlePointer.Value = 1000;
-            scale.Pointers.Add(needlePointer);
-
-            //Adding range pointer
-            RangePointer rangePointer = new RangePointer();
-            rangePointer.Value = 60;
-            scale.Pointers.Add(rangePointer);
-
-            //Adding marker pointer
-            MarkerPointer markerPointer = new MarkerPointer();
-            markerPointer.Value = 70;
-            scale.Pointers.Add(markerPointer);
-
-
-            scales.Add(scale);
-            scoreGauge.Scales = scales;
         }
     }
 }

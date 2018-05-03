@@ -8,6 +8,9 @@ namespace JetBanjo.Utils
 {
     public static class Constants
     {
+        //Score Thresholds
+        public static DataRange SCORE_RANGES = new DataRange("score", 25, 50, 75, 100);
+
         //Image list offset
         public static int IMAGE_OFFSET_SLEEPING = 100; //Offset used if child is sleeping
         public static int IMAGE_OFFSET_NOISE = 200; //Offset used if child is holding hands over ears
