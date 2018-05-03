@@ -21,6 +21,7 @@ namespace JetBanjo.iOS.Utils
         private static UIAlertController activitydialog;
         private static UIActivityIndicatorView activityIndicator;
         private static UIAlertController inputDialog;
+        private static UIAlertController toast;
 
         public void ShowDialog(string title, string text, ImageSource source, Action callback)
         {
@@ -146,7 +147,15 @@ namespace JetBanjo.iOS.Utils
 
         public void ShowToast(string text, bool isLong)
         {
-            
+            double seconds = 2.0;
+            if (isLong)
+                seconds = 3.5;
+
+                var alertDelay = NSTimer.CreateScheduledTimer(seconds, (obj) => {
+                    toast.DismissViewController(true,()=> { });
+                    });
+                toast = UIAlertController.Create(null, text, UIAlertControllerStyle.Alert);
+                UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(toast, true, null);
         }
     }
 }
