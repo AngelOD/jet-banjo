@@ -20,6 +20,7 @@ namespace JetBanjo.iOS.Utils
         private static UIAlertController dialog;
         private static UIAlertController activitydialog;
         private static UIActivityIndicatorView activityIndicator;
+        private static UIAlertController inputDialog;
 
         public void ShowDialog(string title, string text, ImageSource source, Action callback)
         {
@@ -83,7 +84,7 @@ namespace JetBanjo.iOS.Utils
 
         public void DismissInputDialog()
         {
-            
+            inputDialog?.DismissViewController(true, () => { });
         }
 
         public void ShowActivityIndicator()
@@ -100,22 +101,47 @@ namespace JetBanjo.iOS.Utils
         }
         public void ShowInputDialog(string title, string text, string ok, string hint, Action<string> callback)
         {
-          
+            ShowInputDialog(title, text, ok, null, hint, null, (b,s) => { callback(s); });
         }
 
         public void ShowInputDialog(string title, string text, string ok, string hint, string placeholder, Action<string> callback)
         {
-            
+            ShowInputDialog(title, text, ok, null, hint, placeholder, (b, s) => { callback(s); });
+
         }
 
         public void ShowInputDialog(string title, string text, string ok, string cancel, string hint, Action<bool, string> callback)
         {
-        
+            ShowInputDialog(title, text, ok, cancel, hint, null, callback);
         }
 
         public void ShowInputDialog(string title, string text, string ok, string cancel, string hint, string placeholder, Action<bool, string> callback)
         {
-           
+            inputDialog = UIAlertController.Create(title, text, UIAlertControllerStyle.Alert);
+            UITextField input = null;
+
+            inputDialog.AddTextField((textField) =>
+            {
+                input = textField;
+
+                input.Placeholder = hint;
+                if (placeholder != null)
+                    input.Text = placeholder;
+                input.AutocorrectionType = UITextAutocorrectionType.No;
+                input.KeyboardType = UIKeyboardType.Default;
+                input.ReturnKeyType = UIReturnKeyType.Done;
+                input.ClearButtonMode = UITextFieldViewMode.WhileEditing;
+            });
+            inputDialog.AddAction(UIAlertAction.Create(ok, UIAlertActionStyle.Default, (x) =>
+            {
+                callback(true,input.Text);
+            }));
+            if(cancel != null)
+                inputDialog.AddAction(UIAlertAction.Create(cancel, UIAlertActionStyle.Cancel, (x) =>
+                {
+                    callback(false, input.Text);
+                }));
+            UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController(inputDialog, true, () => { });
         }
 
         public void ShowToast(string text, bool isLong)
