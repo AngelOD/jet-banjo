@@ -18,6 +18,8 @@ namespace JetBanjo.iOS.Utils
     {
 
         private static UIAlertController dialog;
+        private static UIAlertController activitydialog;
+        private static UIActivityIndicatorView activityIndicator;
 
         public void ShowDialog(string title, string text, ImageSource source, Action callback)
         {
@@ -71,12 +73,12 @@ namespace JetBanjo.iOS.Utils
         }
         public void DismissActivityIndicator()
         {
-            
+            activitydialog?.DismissViewController(true, () => { });
         }
 
         public void DismissDialog()
         {
-            
+            dialog?.DismissViewController(true, () => { });
         }
 
         public void DismissInputDialog()
@@ -86,7 +88,12 @@ namespace JetBanjo.iOS.Utils
 
         public void ShowActivityIndicator()
         {
-
+            activitydialog = UIAlertController.Create("", "", UIAlertControllerStyle.Alert);
+            activityIndicator = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.Gray);
+            activityIndicator.AutoresizingMask = UIViewAutoresizing.All;
+            activityIndicator.StartAnimating();
+            activitydialog.View.AddSubview(activityIndicator);
+            UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController(activitydialog, true, () => { });
         }
         public void ShowInputDialog(string title, string text, string ok, string hint, Action<string> callback)
         {
