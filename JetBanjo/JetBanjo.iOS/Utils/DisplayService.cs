@@ -89,8 +89,11 @@ namespace JetBanjo.iOS.Utils
         public void ShowActivityIndicator()
         {
             activitydialog = UIAlertController.Create("", "", UIAlertControllerStyle.Alert);
-            activityIndicator = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.Gray);
+            activitydialog.View.Opaque = false;
+            activitydialog.View.Alpha = 0;
+            activityIndicator = new UIActivityIndicatorView(activitydialog.View.Bounds);
             activityIndicator.AutoresizingMask = UIViewAutoresizing.All;
+            activityIndicator.ActivityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
             activityIndicator.StartAnimating();
             activitydialog.View.AddSubview(activityIndicator);
             UIApplication.SharedApplication.Windows[0].RootViewController.PresentViewController(activitydialog, true, () => { });
