@@ -25,6 +25,7 @@ namespace JetBanjo.iOS.Utils
 
         public void ShowDialog(string title, string text, ImageSource source, Action callback)
         {
+            Console.WriteLine("Test 1");
             dialog = UIAlertController.Create(title, text, UIAlertControllerStyle.Alert); //Creates a AlertController from the title and text
             if (source != null) //If the image source is not null, load the image and adds it to the controller
                 dialog.View.AddSubview(new UIImageView(GetImageFromImageSourceAsync(source)));
@@ -37,6 +38,7 @@ namespace JetBanjo.iOS.Utils
         }
         private UIImage GetImageFromImageSourceAsync(ImageSource imageSource)
         {
+            Console.WriteLine("Test 2");
             IImageSourceHandler handler = null;
 
             if (imageSource is FileImageSource)
@@ -62,34 +64,41 @@ namespace JetBanjo.iOS.Utils
         }
         public void ShowDialog(string title, string text, ImageSource source)
         {
+            Console.WriteLine("Test 3");
             ShowDialog(title, text, source, null);
         }
         public void ShowDialog(string title, string text, Action callback)
         {
+            Console.WriteLine("Test 4");
             ShowDialog(title, text, null, callback);
         }
 
         public void ShowDialog(string title, string text)
         {
+            Console.WriteLine("Test 5");
             ShowDialog(title, text, null, null);
         }
         public void DismissActivityIndicator()
         {
+            Console.WriteLine("Test 6");
             activitydialog?.DismissViewController(true, () => { });
         }
 
         public void DismissDialog()
         {
+            Console.WriteLine("Test 7");
             dialog?.DismissViewController(true, () => { });
         }
 
         public void DismissInputDialog()
         {
+            Console.WriteLine("Test 8");
             inputDialog?.DismissViewController(true, () => { });
         }
 
         public void ShowActivityIndicator()
         {
+            Console.WriteLine("Test 9");
             activitydialog = UIAlertController.Create("", "", UIAlertControllerStyle.Alert);
             activitydialog.View.Opaque = false;
             activitydialog.View.Alpha = 0;
@@ -102,22 +111,26 @@ namespace JetBanjo.iOS.Utils
         }
         public void ShowInputDialog(string title, string text, string ok, string hint, Action<string> callback)
         {
+            Console.WriteLine("Test 10");
             ShowInputDialog(title, text, ok, null, hint, null, (b,s) => { callback(s); });
         }
 
         public void ShowInputDialog(string title, string text, string ok, string hint, string placeholder, Action<string> callback)
         {
+            Console.WriteLine("Test 11");
             ShowInputDialog(title, text, ok, null, hint, placeholder, (b, s) => { callback(s); });
 
         }
 
         public void ShowInputDialog(string title, string text, string ok, string cancel, string hint, Action<bool, string> callback)
         {
+            Console.WriteLine("Test 12");
             ShowInputDialog(title, text, ok, cancel, hint, null, callback);
         }
 
         public void ShowInputDialog(string title, string text, string ok, string cancel, string hint, string placeholder, Action<bool, string> callback)
         {
+            Console.WriteLine("Test 13");
             inputDialog = UIAlertController.Create(title, text, UIAlertControllerStyle.Alert);
             UITextField input = null;
 
@@ -147,6 +160,7 @@ namespace JetBanjo.iOS.Utils
 
         public void ShowToast(string text, bool isLong)
         {
+            Console.WriteLine("Test 14");
             double seconds = 2.0;
             if (isLong)
                 seconds = 3.5;
