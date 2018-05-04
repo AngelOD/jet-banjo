@@ -23,6 +23,8 @@ namespace JetBanjo.Pages
         private IAvatarLogic logic;
         private string currentRoomId;
         private TapGestureRecognizer tapGestureRecognizer;
+        private bool timerShouldContinue = true;
+        private List<CImage> startUpImages;
 
         public AvatarPage()
         {
@@ -30,69 +32,94 @@ namespace JetBanjo.Pages
             logic = new AvatarPageLogic();
 
             currentRoomId = DataStore.GetValue(DataStoreKeys.Keys.Room);
-            Task t = Task.Run(async ()=> await UpdateRoomName());
-            t.Wait();
-            List<CImage> startUpImages = new List<CImage>()
+            Task t = Task.Run(async ()=> await UpdateRoomName()); //Updates the rooms name
+            t.Wait(); //Makes sure the name have been retrived before continuing
+            startUpImages = new List<CImage>()
             {
                 new CImage("basic-classroom.png", ImageType.Background),
                 new CImage("child-no-arms.png", ImageType.Character),
                 new CImage("child-arms-down.png",ImageType.Arms)
             };
-            AddOverlay(startUpImages);
-            OnTimer();
-            Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
-
             tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += OnTouch;
         }
 
+        /// <summary>
+        /// When the page is appearing on the screen
+        /// </summary>
+        protected override void OnAppearing()
+        {
+            //Such that when we open the pages, the starup images is added to the screen and the timer begins
+            AddOverlay(startUpImages); 
+            OnTimer();
+
+            timerShouldContinue = true;
+            Device.StartTimer(Constants.avatarUpdateTime, () => OnTimer());
+        }   
+
+        /// <summary>
+        /// When the page is disappearing from the screen, we should stop rendering
+        /// </summary>
+        protected override void OnDisappearing()
+        {
+            timerShouldContinue = false;
+        }
+
         private bool OnTimer ()
         {
-            Task.Run(async ()=> await RequestImages());
-            return true;
+            if (timerShouldContinue && DependencyService.Get<IDeviceService>().GetScreenState())
+            {
+                Task.Run(async () => await RequestImages());
+            }
+            return timerShouldContinue;
         }
 
         private void AddOverlay(List<CImage> images)
         {
+            CachedImage i = images[0].GetImage();
+            i.GestureRecognizers.Add(tapGestureRecognizer);
+            i.HorizontalOptions = LayoutOptions.FillAndExpand;
+            i.VerticalOptions = LayoutOptions.FillAndExpand;
+            i.Aspect = Aspect.Fill;
+            List<CachedImage> tempList = new List<CachedImage>();
+            List<CImage> temp = images.Skip(1).ToList();
+            foreach (var image in temp)
+            {
+                CachedImage ci = image.GetImage();
+                ci.InputTransparent = true;
+                ci.VerticalOptions = LayoutOptions.FillAndExpand;
+                ci.HorizontalOptions = LayoutOptions.FillAndExpand;
+
+                ImageType t = image.Type;
+
+                switch (t)
+                {
+                    case ImageType.Character:
+                    case ImageType.Arms:
+                    case ImageType.CO2:
+                    case ImageType.UV:
+                    case ImageType.Noise:
+                    case ImageType.ColdSweatFire:
+                    case ImageType.Sunglasses:
+                    case ImageType.Frozen:
+                        ci.Aspect = Aspect.AspectFit;
+                        break;
+                    default:
+                        ci.Aspect = Aspect.Fill;
+                        break;
+                }
+
+                tempList.Add(ci);
+            }
+
             Device.BeginInvokeOnMainThread(() =>
             {
                 layout.Children.Clear();
-                CachedImage i = images[0].GetImage();
-                i.GestureRecognizers.Add(tapGestureRecognizer);
-                i.HorizontalOptions = LayoutOptions.FillAndExpand;
-                i.VerticalOptions = LayoutOptions.FillAndExpand;
-                i.Aspect = Aspect.Fill;
-
                 layout.Children.Add(i, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
 
-                List<CImage> temp = images.Skip(1).ToList();
-                foreach (var image in temp)
+                foreach (var image in tempList)
                 {
-                    CachedImage ci = image.GetImage();
-                    ci.InputTransparent = true;
-                    ci.VerticalOptions = LayoutOptions.FillAndExpand;
-                    ci.HorizontalOptions = LayoutOptions.FillAndExpand;
-
-                    ImageType t = image.Type;
-
-                    switch (t)
-                    {
-                        case ImageType.Character:
-                        case ImageType.Arms:
-                        case ImageType.CO2:
-                        case ImageType.UV:
-                        case ImageType.Noise:
-                        case ImageType.ColdSweatFire:
-                        case ImageType.Sunglasses:
-                        case ImageType.Frozen:
-                            ci.Aspect = Aspect.AspectFit;
-                            break;
-                        default:
-                            ci.Aspect = Aspect.Fill;
-                            break;
-                    }
-
-                    layout.Children.Add(ci, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+                    layout.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
                 }
             });
         }
@@ -105,6 +132,7 @@ namespace JetBanjo.Pages
 
         private async Task RequestImages()
         {
+            Console.WriteLine("Render");
             List<CImage> temp = await logic.GetAvatar(await SensorData.Get(currentRoomId), DateTime.Now);
             AddOverlay(temp);
         }
@@ -120,16 +148,20 @@ namespace JetBanjo.Pages
         {
             List<Room> rooms = await Room.GetList();
 
-            string result = await DisplayActionSheet(AppResources.choose_room, AppResources.cancel, null, rooms.Select(r => r.RoomNumber).ToArray());
-            if(result != null && rooms != null && !result.Equals(AppResources.cancel))
+            //Used for the callback when an item has been chosen or not
+            void OnSearchListItemPicked(bool b, Room r)
             {
-                Room temp = rooms.Find(r => r.RoomNumber.Equals(result));
-                Console.WriteLine(temp.Id);
-                Title = temp.RoomNumber;
-                currentRoomId = temp.Id;
-                OnTimer();
+
+                if (b)
+                {
+                    Title = r.RoomNumber;
+                    currentRoomId = r.Id;
+                    OnTimer();
+                }
             }
-                
+
+            //Displays the room selector dialog 
+            DependencyService.Get<IDisplayService>().ShowSearchListDialog(rooms, AppResources.choose_room, AppResources.cancel, AppResources.example_room, OnSearchListItemPicked);
         }
     }
 }

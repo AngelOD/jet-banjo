@@ -18,11 +18,10 @@ namespace JetBanjo.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Settings : CContentPage
 	{
-		public Settings ()
+		public Settings()
 		{
-			InitializeComponent ();
-            RoomBox.WidthRequest = App.ScreenSize.Width * 0.8;
-            IpBox.WidthRequest = App.ScreenSize.Width * 0.8;
+			InitializeComponent();
+            IpBox.WidthRequest = (App.ScreenSize.Width * 0.8);
             CurrentIp.Text = DataStore.GetValue(Keys.Ip);
             Task.Run(async () => { await UpdateCurrentRoom(); }).Wait();
         }
@@ -38,13 +37,17 @@ namespace JetBanjo.Pages
         {
             List<Room> rooms = await Room.GetList();
 
-            string result = await DisplayActionSheet(AppResources.choose_room, AppResources.cancel, null, rooms.Select(r => r.RoomNumber).ToArray());
-            if (result != null && rooms != null && !result.Equals(AppResources.cancel))
+            void OnSearchListItemPicked(bool b, Room r)
             {
-                Room temp = rooms.Find(r => r.RoomNumber.Equals(result));
-                DataStore.SaveValue(Keys.Room, temp.Id);
-                await UpdateCurrentRoom();
+
+                if (b)
+                {
+                    DataStore.SaveValue(Keys.Room, r.Id);
+                    Task.Run(async () => { await UpdateCurrentRoom(); }).Wait();
+                }
             }
+
+            DependencyService.Get<IDisplayService>().ShowSearchListDialog(rooms, AppResources.choose_room, AppResources.cancel, AppResources.example_room, OnSearchListItemPicked);
         }
         public async Task OnRemoveRoomClick(object sender, EventArgs args)
         {
@@ -60,6 +63,7 @@ namespace JetBanjo.Pages
         public void OnRemoveIpClick(object sender, EventArgs args)
         {
             DataStore.RemoveValue(Keys.Ip);
+            CurrentIp.Text = DataStore.GetValue(Keys.Ip);
         }
 
     }

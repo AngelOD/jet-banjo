@@ -144,6 +144,9 @@
   <data name="example_ip" xml:space="preserve">
     <value>127.0.0.1</value>
   </data>
+  <data name="example_room" xml:space="preserve">
+    <value>Room 0.1.2</value>
+  </data>
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>

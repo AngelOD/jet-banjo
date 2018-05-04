@@ -142,6 +142,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Room 0.1.2.
+        /// </summary>
+        internal static string example_room {
+            get {
+                return ResourceManager.GetString("example_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         internal static string home {

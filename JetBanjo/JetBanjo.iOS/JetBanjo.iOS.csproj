@@ -90,7 +90,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Utils\DeviceOrientationService.cs" />
+    <Compile Include="Utils\DeviceService.cs" />
     <Compile Include="Utils\Localize.cs" />
     <Compile Include="Utils\NetworkDiscovery.cs" />
     <None Include="Entitlements.plist" />

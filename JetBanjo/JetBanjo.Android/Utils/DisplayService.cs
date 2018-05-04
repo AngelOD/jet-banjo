@@ -30,6 +30,7 @@ namespace JetBanjo.Droid.Utils
         private static AlertDialog iconDialog;
         private static AlertDialog inputDialog;
         private static Dialog indicator;
+        private static AlertDialog searchList;
 
 
         /// <summary>
@@ -100,11 +101,8 @@ namespace JetBanjo.Droid.Utils
         /// </summary>
         public void DismissDialog()
         {
-            if (iconDialog != null)
-            {
-                iconDialog.Dismiss();
-                iconDialog = null;
-            }
+            iconDialog?.Dismiss();
+            iconDialog = null;
         }
 
 
@@ -132,11 +130,8 @@ namespace JetBanjo.Droid.Utils
         /// </summary>
         public void DismissActivityIndicator()
         {
-            if (indicator != null)
-            {
-                indicator.Dismiss();
-                indicator = null;
-            }
+            indicator?.Dismiss();
+            indicator = null;
         }
 
 
@@ -235,11 +230,8 @@ namespace JetBanjo.Droid.Utils
         /// </summary>
         public void DismissInputDialog()
         {
-            if (inputDialog != null)
-            {
-                inputDialog.Dismiss();
-                inputDialog = null;
-            }
+            inputDialog?.Dismiss();
+            inputDialog = null;
         }
 
         /// <summary>
@@ -253,6 +245,62 @@ namespace JetBanjo.Droid.Utils
                 Toast.MakeText(MainActivity.Context, text, ToastLength.Long).Show();
             else
                 Toast.MakeText(MainActivity.Context, text, ToastLength.Short).Show();
+        }
+
+        /// <summary>
+        /// Displays a searchable list dialog.
+        /// </summary>
+        /// <typeparam name="T">The type of the list and object in the callback</typeparam>
+        /// <param name="input">The list of objects to choose from</param>
+        /// <param name="title">The title of the dialog</param>
+        /// <param name="cancel">The text for the cancel button, can be null</param>
+        /// <param name="hint">The text for the hint, can be null</param>
+        /// <param name="callback">The method to be called when an item from the list is chosen or cancel have been pressed. 
+        /// The first parameter is true if an item have been selected or false if cancel has been pressed
+        /// The second parameter is the item if selected or null if cancel have been pressed </param>
+        public void ShowSearchListDialog<T>(List<T> input, string title, string cancel, string hint, Action<bool, T> callback) where T : class 
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.Context);
+            LinearLayout layout = new LinearLayout(MainActivity.Context); //Creates a linearlayout to hold the edittext and listview
+            layout.Focusable = true; //Sets such that this layout can be focused
+            layout.FocusableInTouchMode = true; //Needed for the layout to get focus before edittext
+            layout.DescendantFocusability = DescendantFocusability.BeforeDescendants; //Needed for the layout to get focus before edittext
+            layout.SetGravity(GravityFlags.Center); //Sets such that the edittext and listview should be centered in the layout
+            layout.Orientation = Orientation.Vertical; //Such that the edittext and listview is stacked vertical.
+            layout.SetPadding(64, 0, 64, 32); //Sets the padding for the content
+            EditText userInput = new EditText(MainActivity.Context);
+            userInput.SetMinimumWidth(500); //Sets the minimum width of the edittext field
+            userInput.Gravity = GravityFlags.CenterHorizontal; //Sets such that the text is centered horizontal
+
+            Android.Widget.ListView listView = new Android.Widget.ListView(MainActivity.Context);
+            ArrayAdapter<T> adapter = new ArrayAdapter<T>(MainActivity.Context, Android.Resource.Layout.SimpleListItem1, input);
+            listView.Adapter = adapter;
+            listView.ItemClick += (sender, args) => { DismissSearchListDialog(); HideKeyboard(userInput); callback(true, adapter.GetItem(args.Position)); }; //When an item is clicked return it to the caller
+            userInput.TextChanged += (sender, args) => { adapter.Filter.InvokeFilter(userInput.Text); }; //When the edittext text changes filter the listview
+            listView.SetPadding(0, 16, 0, 0); //Adds some padding between the edittext and listview
+
+            if (!string.IsNullOrWhiteSpace(hint))
+                userInput.Hint = hint;
+            userInput.InputType = Android.Text.InputTypes.ClassText;
+            layout.AddView(userInput); //Adds the edittext to the layout
+            layout.AddView(listView);
+            if (!string.IsNullOrWhiteSpace(title))
+                builder.SetTitle(title);
+            builder.SetView(layout); //Sets the layout to be the view of the dialog
+            layout.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent); //Sets the hight and width of the layout
+            if (!string.IsNullOrWhiteSpace(cancel))
+                builder.SetNegativeButton(cancel, ((sender, args) => { DismissSearchListDialog(); HideKeyboard(userInput); callback(false, null); }));
+            searchList = builder.Create();
+            searchList.Show();
+        }
+
+        /// <summary>
+        /// Dismisses the searchable list dialog
+        /// </summary>
+        public void DismissSearchListDialog()
+        {
+            searchList?.Dismiss();
+            searchList = null;
         }
 
         /// <summary>

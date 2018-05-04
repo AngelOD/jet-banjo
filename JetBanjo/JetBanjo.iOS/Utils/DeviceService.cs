@@ -8,22 +8,23 @@ using JetBanjo.iOS.Utils;
 using JetBanjo.Utils.DependencyService;
 using UIKit;
 
-/// <summary>
-/// Taken from https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/dependency-service/device-orientation
-/// Used for determining th device orientation
-/// </summary>
-[assembly: Xamarin.Forms.Dependency(typeof(DeviceOrientationService))]
+[assembly: Xamarin.Forms.Dependency(typeof(DeviceService))]
 namespace JetBanjo.iOS.Utils
 {
-    public class DeviceOrientationService : IDeviceOrientationService
+    public class DeviceService : IDeviceService
     {
-        public DeviceOrientation GetOrientation()
+        public DeviceOrientation GetScreenOrientation()
         {
             var currentOrientation = UIApplication.SharedApplication.StatusBarOrientation;
             bool isPortrait = currentOrientation == UIInterfaceOrientation.Portrait
                 || currentOrientation == UIInterfaceOrientation.PortraitUpsideDown;
 
-            return isPortrait ? DeviceOrientation.Portrait : DeviceOrientation.Landscape;
+            return isPortrait ? DeviceOrientation.PortraitMode : DeviceOrientation.LandscapeMode;
+        }
+
+        public bool GetScreenState()
+        {
+            return AppDelegate.isScreenOn;
         }
     }
 }
