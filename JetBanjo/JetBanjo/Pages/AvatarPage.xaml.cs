@@ -65,7 +65,7 @@ namespace JetBanjo.Pages
             });
         }
 
-        private void OnTouch(object sender, EventArgs args)
+        private async void OnTouch(object sender, EventArgs args)
         {
             //WIP should show small popup with the current issues
             //DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
@@ -74,7 +74,7 @@ namespace JetBanjo.Pages
             {
                 ieqPage = new IEQIssuesPage();
             }
-            Navigation.PushModalAsync(ieqPage);
+            await Navigation.PushModalAsync(ieqPage);
         }
 
         private async Task RequestImages()

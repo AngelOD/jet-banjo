@@ -150,8 +150,20 @@
   <data name="ip_text" xml:space="preserve">
     <value>Indtast IP adressen til serverne</value>
   </data>
+  <data name="issue_cold" xml:space="preserve">
+    <value>Du er kold!</value>
+  </data>
+  <data name="issue_fire" xml:space="preserve">
+    <value>Din verden er af ild!</value>
+  </data>
+  <data name="issue_ice" xml:space="preserve">
+    <value>Din verden er af is!</value>
+  </data>
   <data name="issue_page" xml:space="preserve">
     <value>Problemer</value>
+  </data>
+  <data name="issue_sweat" xml:space="preserve">
+    <value>Du sveder!</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>

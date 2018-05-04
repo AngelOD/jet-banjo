@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using JetBanjo.Utils;
 using JetBanjo.Utils.Data;
+using FFImageLoading.Forms;
+using Xamarin.Forms;
 
 namespace JetBanjo.Utils
 {
@@ -602,6 +604,35 @@ namespace JetBanjo.Utils
         public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
         {
             10, 11, 12, 1, 2, 3, 4
+        };
+
+        //Icon constants
+        public static readonly Dictionary<int, CachedImage> TEMP_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                1, new CachedImage() 
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.ice-icon-48.png")
+                }
+            },
+            {
+                2, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.ice-icon-48.png")
+                }
+            },
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.fire-icon-48.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.fire-icon-48.png")
+                }
+            }
         };
 
         public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";

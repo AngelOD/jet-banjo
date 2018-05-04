@@ -1,4 +1,6 @@
-﻿using JetBanjo.Utils;
+﻿using FFImageLoading.Forms;
+using JetBanjo.Resx;
+using JetBanjo.Utils;
 using JetBanjo.Utils.Data;
 using JetBanjo.Web.Objects;
 using System;
@@ -12,11 +14,14 @@ namespace JetBanjo.Logic.Pages
 {
 	public class IEQIssuesPageLogic
 	{
-        public List<Tuple<string,CImage>> getIssues(SensorData sensorData, DateTime dateTime)
+        public List<Tuple<string,CachedImage>> GetIssues(SensorData sensorData, DateTime dateTime)
         {
-            List<Tuple<string, CImage>> list = new List<Tuple<string, CImage>>();
+            Console.WriteLine("GI-0");
+            List<Tuple<string, CachedImage>> list = new List<Tuple<string, CachedImage>>();
 
             int humidClass;
+
+            Console.WriteLine("GI-1");
 
             //Call the classify method once for each sensor values.
             if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
@@ -30,27 +35,96 @@ namespace JetBanjo.Logic.Pages
             int lightClass = Classifier.Classify(sensorData.Lux, Constants.LIGHT_RANGES);
             int vocClass = Classifier.Classify(sensorData.VOC, Constants.VOC_RANGES);
 
+            Console.WriteLine("GI-2");
 
-            test(humidClass, Constants.HUMID_SUMMER_RANGES);
+            list.Add(Test(humidClass, Constants.HUMID_SUMMER_RANGES));
+            list.Add(Test(co2Class, Constants.HUMID_SUMMER_RANGES));
+            list.Add(Test(noiseClass, Constants.HUMID_SUMMER_RANGES));
+            list.Add(Test(tempClass, Constants.HUMID_SUMMER_RANGES));
+            list.Add(Test(uvClass, Constants.HUMID_SUMMER_RANGES));
+            list.Add(Test(lightClass, Constants.HUMID_SUMMER_RANGES));
+            list.Add(Test(vocClass, Constants.HUMID_SUMMER_RANGES));
 
-
+            Console.WriteLine("GI-3");
 
             return list;
         }
 
-        private void test(int classification, DataRange range)
+        private Tuple<string, CachedImage> Test(int classification, DataRange range)
         {
+            CachedImage image = new CachedImage();
+            string text = "";
             //Pick a list of images based on the current sensor parameter and classification
             switch (range.sensorType)
             {
                 case ("temp"):
-                    
+                    if (Constants.TEMP_ICONS.ContainsKey(classification))
+                    {
+                        image = Constants.TEMP_ICONS[classification];
+                        switch (classification)
+                        {
+                            case 1:
+                                text = AppResources.issue_ice;
+                                break;
+                            case 2:
+                                text = AppResources.issue_cold;
+                                break;
+                            case 4:
+                                text = AppResources.issue_sweat;
+                                break;
+                            case 5:
+                                text = AppResources.issue_fire;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 case ("humid"):
-
+                    if (Constants.TEMP_ICONS.ContainsKey(classification))
+                    {
+                        image = Constants.TEMP_ICONS[classification];
+                        switch (classification)
+                        {
+                            case 1:
+                                text = AppResources.issue_ice;
+                                break;
+                            case 2:
+                                text = AppResources.issue_cold;
+                                break;
+                            case 4:
+                                text = AppResources.issue_sweat;
+                                break;
+                            case 5:
+                                text = AppResources.issue_fire;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 case ("co2"):
-
+                    if (Constants.TEMP_ICONS.ContainsKey(classification))
+                    {
+                        image = Constants.TEMP_ICONS[classification];
+                        switch (classification)
+                        {
+                            case 1:
+                                text = AppResources.issue_ice;
+                                break;
+                            case 2:
+                                text = AppResources.issue_cold;
+                                break;
+                            case 4:
+                                text = AppResources.issue_sweat;
+                                break;
+                            case 5:
+                                text = AppResources.issue_fire;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 case ("uv"):
 
@@ -67,6 +141,8 @@ namespace JetBanjo.Logic.Pages
                 default:
                     break;
             }
+            Tuple<string, CachedImage> pair = new Tuple<string, CachedImage>(text, image);
+            return pair;
         }
 	}
 }

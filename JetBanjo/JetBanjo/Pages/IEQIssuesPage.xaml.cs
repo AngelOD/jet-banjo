@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FFImageLoading.Forms;
 using JetBanjo.Logic.Pages;
 using JetBanjo.Utils;
 using JetBanjo.Web.Objects;
@@ -16,30 +17,55 @@ namespace JetBanjo.Pages
 	{
         private IEQIssuesPageLogic logic;
 
-        private List<Tuple<string, CImage>> list;
+        private List<Tuple<string, CachedImage>> list;
 
 		public IEQIssuesPage ()
 		{
-            logic = new IEQIssuesPageLogic();
 			InitializeComponent ();
-		}
+            logic = new IEQIssuesPageLogic();
+            //Console.WriteLine("Why u no work?! Be my snitch!");
+
+            ShowIssues();
+        }
 
         private async Task RequestIssues()
         {
-            list = logic.getIssues(await SensorData.Get(), DateTime.Now);
+            Console.WriteLine("RI-1");
+            list = logic.GetIssues(await SensorData.Get(), DateTime.Now);
+            //Console.WriteLine(list[0].Item1);
+            Console.WriteLine("RI-2");
         }
 
         public void ShowIssues()
         {
+            Console.WriteLine("SI-1");
             Task.Run(async () => await RequestIssues());
 
-            //todo add rest of func to show image and text
-            foreach (Tuple<string, CImage> item in list)
+            foreach (Tuple<string, CachedImage> item in list)
             {
-                AbsoluteLayout abLayout = new AbsoluteLayout();
+                if (!String.IsNullOrEmpty(item.Item1))
+                {
+                    AbsoluteLayout abLayout = new AbsoluteLayout();
+                    abLayout.Children.Add(item.Item2);
 
-                //abLayout.Children.Add()
+                    Label issue = new Label()
+                    {
+                        Text = item.Item1
+                    };
+                    abLayout.Children.Add(issue);
+                    layout.Children.Add(abLayout);
+                }
             }
+
+            Console.WriteLine("SI-2");
+            //test
+            AbsoluteLayout testlayout = new AbsoluteLayout();
+            Label testlabel = new Label()
+            {
+                Text = "Hey there! Do you know if this is working as intended?"
+            };
+            testlayout.Children.Add(testlabel);
+            layout.Children.Add(testlayout);
         }
 	}
 }

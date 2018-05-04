@@ -150,8 +150,20 @@
   <data name="ip_text" xml:space="preserve">
     <value>Input the IP address of the server</value>
   </data>
+  <data name="issue_cold" xml:space="preserve">
+    <value>You are cold!</value>
+  </data>
+  <data name="issue_fire" xml:space="preserve">
+    <value>Your world is on fire!</value>
+  </data>
+  <data name="issue_ice" xml:space="preserve">
+    <value>Your world is frozen!</value>
+  </data>
   <data name="issue_page" xml:space="preserve">
     <value>Issues</value>
+  </data>
+  <data name="issue_sweat" xml:space="preserve">
+    <value>You are sweating!</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>

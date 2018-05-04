@@ -160,11 +160,47 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are cold!.
+        /// </summary>
+        internal static string issue_cold {
+            get {
+                return ResourceManager.GetString("issue_cold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your world is on fire!.
+        /// </summary>
+        internal static string issue_fire {
+            get {
+                return ResourceManager.GetString("issue_fire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your world is frozen!.
+        /// </summary>
+        internal static string issue_ice {
+            get {
+                return ResourceManager.GetString("issue_ice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Issues.
         /// </summary>
         internal static string issue_page {
             get {
                 return ResourceManager.GetString("issue_page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are sweating!.
+        /// </summary>
+        internal static string issue_sweat {
+            get {
+                return ResourceManager.GetString("issue_sweat", resourceCulture);
             }
         }
         
