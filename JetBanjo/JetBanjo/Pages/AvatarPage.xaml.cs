@@ -74,11 +74,9 @@ namespace JetBanjo.Pages
 
         private async void Push()
         {
-            if (ieqPage == null)
-            {
-                ieqPage = new IEQIssuesPage();
-            }
-            await Navigation.PushModalAsync(ieqPage);
+            var navPage = new NavigationPage(new IEQIssuesPage());
+            Navigation.PushModalAsync(navPage);
+            //await Navigation.PushModalAsync(new IEQIssuesPage());
         }
 
         private async Task RequestImages()
