@@ -43,6 +43,7 @@ namespace JetBanjo.Pages
                     StackLayout hStackLayout = new StackLayout()
                     {
                         Orientation = StackOrientation.Horizontal,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
                         Padding = 10,
                         Spacing = 20
                     };

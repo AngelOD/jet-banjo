@@ -39,17 +39,29 @@ namespace JetBanjo.Logic.Pages
                 int lightClass = Classifier.Classify(sensorData.Lux, Constants.LIGHT_RANGES);
                 int vocClass = Classifier.Classify(sensorData.VOC, Constants.VOC_RANGES);
 
-                Console.WriteLine("GI-2");
-
                 list.Add(Test(humidClass, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(co2Class, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(noiseClass, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(tempClass, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(uvClass, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(lightClass, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(vocClass, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(co2Class, Constants.CO2_RANGES));
+                list.Add(Test(noiseClass, Constants.NOISE_RANGES));
+                list.Add(Test(tempClass, Constants.TEMP_RANGES));
+                list.Add(Test(uvClass, Constants.UV_RANGES));
+                list.Add(Test(lightClass, Constants.LIGHT_RANGES));
+                list.Add(Test(vocClass, Constants.VOC_RANGES));
 
-                Console.WriteLine("GI-3");
+                
+                list.Add(Test(1, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(5, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(5, Constants.CO2_RANGES));
+                list.Add(Test(5, Constants.NOISE_RANGES));
+                list.Add(Test(1, Constants.TEMP_RANGES));
+                list.Add(Test(2, Constants.TEMP_RANGES));
+                list.Add(Test(4, Constants.TEMP_RANGES));
+                list.Add(Test(5, Constants.TEMP_RANGES));
+                list.Add(Test(5, Constants.HUMID_SUMMER_RANGES));
+                /*list.Add(Test(5, Constants.UV_RANGES));
+                list.Add(Test(1, Constants.LIGHT_RANGES));
+                list.Add(Test(5, Constants.LIGHT_RANGES));
+                list.Add(Test(4, Constants.VOC_RANGES));*/
+                
 
                 return list;
             });
@@ -60,6 +72,7 @@ namespace JetBanjo.Logic.Pages
         {
             CachedImage image = new CachedImage();
             string text = "";
+            
             //Pick a list of images based on the current sensor parameter and classification
             switch (range.sensorType)
             {
@@ -70,16 +83,16 @@ namespace JetBanjo.Logic.Pages
                         switch (classification)
                         {
                             case 1:
-                                text = AppResources.issue_ice;
+                                text = AppResources.issue_temp_ice;
                                 break;
                             case 2:
-                                text = AppResources.issue_cold;
+                                text = AppResources.issue_temp_cold;
                                 break;
                             case 4:
-                                text = AppResources.issue_sweat;
+                                text = AppResources.issue_temp_sweat;
                                 break;
                             case 5:
-                                text = AppResources.issue_fire;
+                                text = AppResources.issue_temp_fire;
                                 break;
                             default:
                                 break;
@@ -87,22 +100,16 @@ namespace JetBanjo.Logic.Pages
                     }
                     break;
                 case ("humid"):
-                    if (Constants.TEMP_ICONS.ContainsKey(classification))
+                    if (Constants.HUM_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.TEMP_ICONS[classification];
+                        image = Constants.HUM_ICONS[classification];
                         switch (classification)
                         {
                             case 1:
-                                text = AppResources.issue_ice;
-                                break;
-                            case 2:
-                                text = AppResources.issue_cold;
-                                break;
-                            case 4:
-                                text = AppResources.issue_sweat;
+                                text = AppResources.issue_hum_dry;
                                 break;
                             case 5:
-                                text = AppResources.issue_fire;
+                                text = AppResources.issue_hum_wet;
                                 break;
                             default:
                                 break;
@@ -110,22 +117,16 @@ namespace JetBanjo.Logic.Pages
                     }
                     break;
                 case ("co2"):
-                    if (Constants.TEMP_ICONS.ContainsKey(classification))
+                    if (Constants.CO2_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.TEMP_ICONS[classification];
+                        image = Constants.CO2_ICONS[classification];
                         switch (classification)
                         {
-                            case 1:
-                                text = AppResources.issue_ice;
-                                break;
-                            case 2:
-                                text = AppResources.issue_cold;
-                                break;
                             case 4:
-                                text = AppResources.issue_sweat;
+                                text = AppResources.issue_co2;
                                 break;
                             case 5:
-                                text = AppResources.issue_fire;
+                                text = AppResources.issue_co2;
                                 break;
                             default:
                                 break;
@@ -133,16 +134,72 @@ namespace JetBanjo.Logic.Pages
                     }
                     break;
                 case ("uv"):
-
+                    if (Constants.UV_ICONS.ContainsKey(classification))
+                    {
+                        image = Constants.UV_ICONS[classification];
+                        switch (classification)
+                        {
+                            case 4:
+                                text = AppResources.issue_uv;
+                                break;
+                            case 5:
+                                text = AppResources.issue_uv;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 case ("light"):
-
+                    if (Constants.LIGHT_ICONS.ContainsKey(classification))
+                    {
+                        image = Constants.LIGHT_ICONS[classification];
+                        switch (classification)
+                        {
+                            case 1:
+                                text = AppResources.issue_light_dark;
+                                break;
+                            case 5:
+                                text = AppResources.issue_light_bright;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 case ("noise"):
-
+                    if (Constants.NOISE_ICONS.ContainsKey(classification))
+                    {
+                        image = Constants.NOISE_ICONS[classification];
+                        switch (classification)
+                        {
+                            case 4:
+                                text = AppResources.issue_noise;
+                                break;
+                            case 5:
+                                text = AppResources.issue_noise;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 case ("voc"):
-
+                    if (Constants.VOC_ICONS.ContainsKey(classification))
+                    {
+                        image = Constants.VOC_ICONS[classification];
+                        switch (classification)
+                        {
+                            case 4:
+                                text = AppResources.issue_voc;
+                                break;
+                            case 5:
+                                text = AppResources.issue_voc;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 default:
                     break;

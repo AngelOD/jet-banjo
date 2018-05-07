@@ -612,25 +612,115 @@ namespace JetBanjo.Utils
             {
                 1, new CachedImage() 
                 {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.ice-icon-48.png")
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempCold.png")
                 }
             },
             {
                 2, new CachedImage()
                 {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.ice-icon-48.png")
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempCold.png")
                 }
             },
             {
                 4, new CachedImage()
                 {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.fire-icon-48.png")
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempHot.png")
                 }
             },
             {
                 5, new CachedImage()
                 {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.fire-icon-48.png")
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempHot.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> HUM_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                1, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-HumDry.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-HumWet.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> CO2_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Co2.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Co2.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> VOC_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-VOC.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-VOC.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> LIGHT_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                1, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-LightDark.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-LightBright.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> UV_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-UV.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-UV.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> NOISE_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Noise.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Noise.png")
                 }
             }
         };

@@ -22,8 +22,6 @@ namespace JetBanjo.Pages
 
         private TapGestureRecognizer tapGestureRecognizer;
 
-        private IEQIssuesPage ieqPage;
-
         public AvatarPage()
         {
             InitializeComponent();
@@ -74,9 +72,7 @@ namespace JetBanjo.Pages
 
         private async void Push()
         {
-            var navPage = new NavigationPage(new IEQIssuesPage());
-            Navigation.PushModalAsync(navPage);
-            //await Navigation.PushModalAsync(new IEQIssuesPage());
+            await Navigation.PushModalAsync(new IEQIssuesPage());
         }
 
         private async Task RequestImages()
