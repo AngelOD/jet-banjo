@@ -160,7 +160,25 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are cold!.
+        ///   Looks up a localized string similar to Close courtains or turn down the light.
+        /// </summary>
+        internal static string issue_bright {
+            get {
+                return ResourceManager.GetString("issue_bright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open the window.
+        /// </summary>
+        internal static string issue_Co2 {
+            get {
+                return ResourceManager.GetString("issue_Co2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows.
         /// </summary>
         internal static string issue_cold {
             get {
@@ -169,7 +187,16 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your world is on fire!.
+        ///   Looks up a localized string similar to Watching movie? Else remove courtains or turn on the light.
+        /// </summary>
+        internal static string issue_dark {
+            get {
+                return ResourceManager.GetString("issue_dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open windows and a door.
         /// </summary>
         internal static string issue_fire {
             get {
@@ -178,11 +205,38 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your world is frozen!.
+        ///   Looks up a localized string similar to It is dry drink water.
+        /// </summary>
+        internal static string issue_humid_dry {
+            get {
+                return ResourceManager.GetString("issue_humid_dry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If its raining close the window.
+        /// </summary>
+        internal static string issue_humid_wet {
+            get {
+                return ResourceManager.GetString("issue_humid_wet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows and turn up the heat.
         /// </summary>
         internal static string issue_ice {
             get {
                 return ResourceManager.GetString("issue_ice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is too much noise in the room.
+        /// </summary>
+        internal static string issue_noise {
+            get {
+                return ResourceManager.GetString("issue_noise", resourceCulture);
             }
         }
         
@@ -196,11 +250,29 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are sweating!.
+        ///   Looks up a localized string similar to Open windows.
         /// </summary>
         internal static string issue_sweat {
             get {
                 return ResourceManager.GetString("issue_sweat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close courtains or apply sunscreen .
+        /// </summary>
+        internal static string issue_UV {
+            get {
+                return ResourceManager.GetString("issue_UV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is the bad air comming from the outside? Then close the windows, else open windows and doors.
+        /// </summary>
+        internal static string issue_VUC {
+            get {
+                return ResourceManager.GetString("issue_VUC", resourceCulture);
             }
         }
         
