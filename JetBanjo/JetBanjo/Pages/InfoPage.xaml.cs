@@ -15,38 +15,21 @@ namespace JetBanjo.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class InfoPage : CContentPage
 	{
-        private ObservableCollection<QuestionItem> collection = new ObservableCollection<QuestionItem>();
+        private ObservableCollection<TextInfoPage> collection = new ObservableCollection<TextInfoPage>();
+
 
 		public InfoPage ()
 		{
 			InitializeComponent();
             infoListView.ItemsSource = collection;
-            infoListView.ItemTemplate = new DataTemplate(() =>
-            {
-                Label questionLabel = new Label();
-                questionLabel.FontSize = 20;
-                questionLabel.HorizontalTextAlignment = TextAlignment.Center;
-                questionLabel.SetBinding(Label.TextProperty, "Question");
-
-                return new ViewCell
-                {
-                    View = new StackLayout
-                    {
-                        Orientation = StackOrientation.Horizontal,
-                        Children = {
-                            questionLabel
-                        }
-                    }
-                };
-            });
+           
 
             infoListView.ItemSelected += (sender, e) =>
             {
                 if (infoListView.SelectedItem == null)
                     return;
 
-                Page page = ((QuestionItem)(infoListView.SelectedItem)).Page;
-                Navigation.PushAsync(page);
+                Navigation.PushAsync((TextInfoPage)infoListView.SelectedItem);
                 infoListView.SelectedItem = null;
             };
 
@@ -64,15 +47,7 @@ namespace JetBanjo.Pages
         private void AddMenuItem(string str)
         {
             string[] q = str.Split(':');
-
-            collection.Add(new QuestionItem()
-            {
-                Question = q[0],
-                Text = q[1],
-                Page = new TextInfoPage(q[0], q[1])
-            });
-
-
+            collection.Add(new TextInfoPage(q[0], q[1]));
         }
 	}
 }
