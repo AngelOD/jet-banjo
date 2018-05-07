@@ -122,9 +122,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>11.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
       <Version>2.3.6</Version>
     </PackageReference>
@@ -137,12 +134,17 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
       <Version>2.3.6</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>2.5.1.527436</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\JetBanjo\JetBanjo.csproj">
-      <Project>{872D09C4-B0D9-4EF6-B642-4347FB8B1142}</Project>
+      <Project>{54E076E0-111C-454B-A8D0-85B31204FEE9}</Project>
       <Name>JetBanjo</Name>
     </ProjectReference>
   </ItemGroup>
