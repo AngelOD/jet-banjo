@@ -47,22 +47,6 @@ namespace JetBanjo.Logic.Pages
                 list.Add(Test(lightClass, Constants.LIGHT_RANGES));
                 list.Add(Test(vocClass, Constants.VOC_RANGES));
 
-                
-                list.Add(Test(1, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(5, Constants.HUMID_SUMMER_RANGES));
-                list.Add(Test(5, Constants.CO2_RANGES));
-                list.Add(Test(5, Constants.NOISE_RANGES));
-                list.Add(Test(1, Constants.TEMP_RANGES));
-                list.Add(Test(2, Constants.TEMP_RANGES));
-                list.Add(Test(4, Constants.TEMP_RANGES));
-                list.Add(Test(5, Constants.TEMP_RANGES));
-                list.Add(Test(5, Constants.HUMID_SUMMER_RANGES));
-                /*list.Add(Test(5, Constants.UV_RANGES));
-                list.Add(Test(1, Constants.LIGHT_RANGES));
-                list.Add(Test(5, Constants.LIGHT_RANGES));
-                list.Add(Test(4, Constants.VOC_RANGES));*/
-                
-
                 return list;
             });
             return await t;

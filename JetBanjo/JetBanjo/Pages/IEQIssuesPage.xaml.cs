@@ -52,6 +52,7 @@ namespace JetBanjo.Pages
 
                     Label issue = new Label()
                     {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
                         Text = item.Item1
                     };
                     hStackLayout.Children.Add(issue);
