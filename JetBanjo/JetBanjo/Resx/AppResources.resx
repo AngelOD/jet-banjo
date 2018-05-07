@@ -141,6 +141,9 @@
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="infopage" xml:space="preserve">
+    <value>Information</value>
+  </data>
   <data name="ip" xml:space="preserve">
     <value>IP address</value>
   </data>
@@ -152,6 +155,33 @@
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
+  </data>
+  <data name="q_climate_causes" xml:space="preserve">
+    <value>What factors into indoor climate? : Something</value>
+  </data>
+  <data name="q_climate_effects" xml:space="preserve">
+    <value>What effects does bad indoor climate have : very bad!</value>
+  </data>
+  <data name="q_co2" xml:space="preserve">
+    <value>What about CO2? : Do we know?</value>
+  </data>
+  <data name="q_humidity" xml:space="preserve">
+    <value>What about Humidity? : Do we know?</value>
+  </data>
+  <data name="q_indoor_climate" xml:space="preserve">
+    <value>What is Indoor Climate? : We just don't know</value>
+  </data>
+  <data name="q_light" xml:space="preserve">
+    <value>What about Light? : Do we know?</value>
+  </data>
+  <data name="q_sound" xml:space="preserve">
+    <value>What about Sound? : Do we know?</value>
+  </data>
+  <data name="q_temperature" xml:space="preserve">
+    <value>What about Temperature? : Do we know?</value>
+  </data>
+  <data name="q_voc" xml:space="preserve">
+    <value>What about VOC? : Do we know?</value>
   </data>
   <data name="remove_ip" xml:space="preserve">
     <value>Remove IP</value>

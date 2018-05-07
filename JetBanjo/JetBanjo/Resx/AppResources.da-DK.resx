@@ -141,6 +141,9 @@
   <data name="home" xml:space="preserve">
     <value>Hjem</value>
   </data>
+  <data name="infopage" xml:space="preserve">
+    <value>Information</value>
+  </data>
   <data name="ip" xml:space="preserve">
     <value>IP adresse</value>
   </data>
@@ -152,6 +155,33 @@
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
+  </data>
+  <data name="q_climate_causes" xml:space="preserve">
+    <value>Hvad forårsager dårligt indeklima? : Ting</value>
+  </data>
+  <data name="q_climate_effects" xml:space="preserve">
+    <value>Hvad er effekterne af dårligt indeklima? : Andre ting</value>
+  </data>
+  <data name="q_co2" xml:space="preserve">
+    <value>Hvad med CO2? : idk</value>
+  </data>
+  <data name="q_humidity" xml:space="preserve">
+    <value>Hvad med Luftfugtighed? : idk</value>
+  </data>
+  <data name="q_indoor_climate" xml:space="preserve">
+    <value>Hvad er Indeklima? : Det ved vi ikke!</value>
+  </data>
+  <data name="q_light" xml:space="preserve">
+    <value>Hvad med Lys? : idk</value>
+  </data>
+  <data name="q_sound" xml:space="preserve">
+    <value>Hvad med Lyd? : ikd</value>
+  </data>
+  <data name="q_temperature" xml:space="preserve">
+    <value>Hvad med Temperatur? : idk</value>
+  </data>
+  <data name="q_voc" xml:space="preserve">
+    <value>Hvad med VOC? : idk</value>
   </data>
   <data name="remove_ip" xml:space="preserve">
     <value>Fjern IP</value>
