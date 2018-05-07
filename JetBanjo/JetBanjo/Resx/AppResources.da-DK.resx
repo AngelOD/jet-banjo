@@ -150,20 +150,44 @@
   <data name="ip_text" xml:space="preserve">
     <value>Indtast IP adressen til serverne</value>
   </data>
+  <data name="issue_bright" xml:space="preserve">
+    <value>Rul gardinerne for</value>
+  </data>
+  <data name="issue_Co2" xml:space="preserve">
+    <value>Åben vinduerne</value>
+  </data>
   <data name="issue_cold" xml:space="preserve">
-    <value>Du er kold!</value>
+    <value>Luk vinduerne</value>
+  </data>
+  <data name="issue_dark" xml:space="preserve">
+    <value>Ser i film? Ellers rul gardinerne fra eller tænd lyset</value>
   </data>
   <data name="issue_fire" xml:space="preserve">
-    <value>Din verden er af ild!</value>
+    <value>Åben vinduerne og døre</value>
+  </data>
+  <data name="issue_humid_dry" xml:space="preserve">
+    <value>Det er tørt drink noget vand</value>
+  </data>
+  <data name="issue_humid_wet" xml:space="preserve">
+    <value>Hvis det regner luk vinduerne</value>
   </data>
   <data name="issue_ice" xml:space="preserve">
-    <value>Din verden er af is!</value>
+    <value>Luk vinduerne og skru op for varmen</value>
+  </data>
+  <data name="issue_noise" xml:space="preserve">
+    <value>Der er for meget larm i rummet</value>
   </data>
   <data name="issue_page" xml:space="preserve">
     <value>Problemer</value>
   </data>
   <data name="issue_sweat" xml:space="preserve">
-    <value>Du sveder!</value>
+    <value>Åben vinduerne</value>
+  </data>
+  <data name="issue_UV" xml:space="preserve">
+    <value>Rul gardinerne for eller tag solcream på</value>
+  </data>
+  <data name="issue_VUC" xml:space="preserve">
+    <value>Kommer den dårlige luft udefra? Så luk vinduerne ellers åben dem</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
