@@ -34,10 +34,10 @@ namespace JetBanjo.Utils.Data
         }
 
         /// <summary>
-        /// Returns either the value or null depending on if the value exist identified by the key
+        /// Returns either the value or empty string depending on if the value exist identified by the key
         /// </summary>
         /// <param name="key">The key to the value</param>
-        /// <returns>The value or null if the value does not exist</returns>
+        /// <returns>The value or empty string if the value does not exist</returns>
         public static string GetValue(Keys key)
         {
             if (Application.Current.Properties.ContainsKey(key.ToString()))
@@ -45,11 +45,11 @@ namespace JetBanjo.Utils.Data
                 if (Application.Current.Properties[key.ToString()] != null)
                     return Application.Current.Properties[key.ToString()].ToString();
                 else
-                    return null;
+                    return "";
             }
             else
             {
-                return null;
+                return "";
             }
         }
     }
