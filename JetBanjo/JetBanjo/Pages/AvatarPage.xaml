@@ -4,15 +4,14 @@
              xmlns:local="clr-namespace:JetBanjo;assembly=JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
              xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
-             x:Class="JetBanjo.Pages.AvatarPage"
-             Title="{Binding RoomName}">
+             x:Class="JetBanjo.Pages.AvatarPage">
     <ContentPage.Content>
         <AbsoluteLayout x:Name="layout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         </AbsoluteLayout>
     </ContentPage.Content>
 
     <ContentPage.ToolbarItems>
-
+        <ToolbarItem Text="{i18n:Translate choose_room}" Order="Primary" Activated="PickerIconPress"/>
     </ContentPage.ToolbarItems>
 
 </c:CContentPage>

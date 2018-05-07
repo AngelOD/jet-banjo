@@ -129,6 +129,12 @@
   <data name="cannot_detect_backend" xml:space="preserve">
     <value>Cannot detect the server on the local network, you need to manually input it</value>
   </data>
+  <data name="change_room" xml:space="preserve">
+    <value>Change room</value>
+  </data>
+  <data name="choose_room" xml:space="preserve">
+    <value>Choose Room</value>
+  </data>
   <data name="download_err" xml:space="preserve">
     <value>Failed to download, check internet connection</value>
   </data>
@@ -138,6 +144,9 @@
   <data name="example_ip" xml:space="preserve">
     <value>127.0.0.1</value>
   </data>
+  <data name="example_room" xml:space="preserve">
+    <value>Room 0.1.2</value>
+  </data>
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -146,6 +155,9 @@
   </data>
   <data name="ip_null_or_empty_err_msg" xml:space="preserve">
     <value>The ip field must be specified for this app to work</value>
+  </data>
+  <data name="ip_settings" xml:space="preserve">
+    <value>IP settings</value>
   </data>
   <data name="ip_text" xml:space="preserve">
     <value>Input the IP address of the server</value>
@@ -164,6 +176,9 @@
   </data>
   <data name="room_selector" xml:space="preserve">
     <value>Room Selector</value>
+  </data>
+  <data name="room_settings" xml:space="preserve">
+    <value>Room settings</value>
   </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>

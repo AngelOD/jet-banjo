@@ -20,6 +20,8 @@ namespace JetBanjo
         /// </summary>
         public Master MasterPage { get; private set; }
 
+        public static bool IsTesting { get; set; }
+
         public static Size ScreenSize { get; set; }
 
 		public App ()

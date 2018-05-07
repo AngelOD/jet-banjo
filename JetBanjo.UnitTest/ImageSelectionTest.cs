@@ -8,6 +8,7 @@ using JetBanjo.Web.Objects;
 using JetBanjo.Logic.Pages;
 using JetBanjo.Interfaces.Logic;
 using System.Threading.Tasks;
+using FFImageLoading;
 
 namespace JetBanjo.UnitTest
 {
@@ -15,6 +16,12 @@ namespace JetBanjo.UnitTest
     public class ImageSelectionTest
     {
         private static IAvatarLogic logic = new AvatarPageLogic();
+
+        public ImageSelectionTest()
+        {
+            App.IsTesting = true;
+        }
+
 
         [TestMethod]
         public async Task BaseTest ()

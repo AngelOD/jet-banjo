@@ -30,7 +30,7 @@ namespace JetBanjo.Droid.Utils
         {
             Timer t = new Timer(10000) { AutoReset=false};
             t.Elapsed += (s,a) => { elapsed = true; };
-            return await Task.Run(() => { t.Start(); while (result != null) { if (elapsed) break; }; return CreateIp(); });
+            return await Task.Run(() => { t.Start(); while (result != null) { if (elapsed) { break; } } return CreateIp(); });
         }
 
         private string CreateIp()
@@ -56,7 +56,14 @@ namespace JetBanjo.Droid.Utils
 
         public void OnAppStop()
         {
-            nsdManager?.StopServiceDiscovery(listener);
+            try
+            {
+                nsdManager?.StopServiceDiscovery(listener);
+            }
+            catch (Exception)
+            {
+            }
+            
         }
 
         internal class NsdManagerDiscoveryListener : Java.Lang.Object, NsdManager.IDiscoveryListener
@@ -82,14 +89,20 @@ namespace JetBanjo.Droid.Utils
 
             public void OnServiceFound(NsdServiceInfo serviceInfo)
             {
-                networkDiscovery.result = serviceInfo;
-                Console.WriteLine("Found service " + serviceInfo.ServiceName);
+                if (serviceInfo.ServiceName.ToLower().Equals("_lora_server"))
+                {
+                    networkDiscovery.result = serviceInfo;
+                    Console.WriteLine("Found service " + serviceInfo.ServiceName);
+                }
             }
 
             public void OnServiceLost(NsdServiceInfo serviceInfo)
             {
-                networkDiscovery.result = null;
-                Console.WriteLine("Lost service " + serviceInfo.ServiceName);
+                //if (serviceInfo.ServiceName.ToLower().Equals("_lora_server"))
+                //{
+                    networkDiscovery.result = null;
+                    Console.WriteLine("Lost service " + serviceInfo.ServiceName);
+                //}
             }
 
             public void OnStartDiscoveryFailed(string serviceType, [GeneratedEnum] NsdFailure errorCode)

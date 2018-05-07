@@ -15,6 +15,9 @@ namespace JetBanjo.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
+
+
+        public static bool isScreenOn = false;
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -30,6 +33,18 @@ namespace JetBanjo.iOS
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void OnActivated(UIApplication uiApplication)
+        {
+            base.OnActivated(uiApplication);
+            isScreenOn = true;
+        }
+
+        public override void OnResignActivation(UIApplication uiApplication)
+        {
+            base.OnResignActivation(uiApplication);
+            isScreenOn = false;
         }
     }
 }
