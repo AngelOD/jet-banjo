@@ -23,6 +23,7 @@ namespace JetBanjo.iOS.Utils
         private static UIActivityIndicatorView activityIndicator;
         private static UIAlertController activityDialog;
         private static UIAlertController toast;
+        private static UIAlertController searchListDialog;
 
         public void ShowDialog(string title, string text)
         {
@@ -172,6 +173,15 @@ namespace JetBanjo.iOS.Utils
                 vc = vc.PresentedViewController;
             return vc;
         }
-            
+
+        public void ShowSearchListDialog<T>(List<T> input, string title, string cancel, string hint, Action<bool, T> callback) where T : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DismissSearchListDialog()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

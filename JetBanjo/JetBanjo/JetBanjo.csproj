@@ -10,6 +10,7 @@
     <Compile Remove="Objects\**" />
     <EmbeddedResource Remove="Objects\**" />
     <None Remove="Objects\**" />
+    <Compile Remove="Resx\AppResources.da-DK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -152,6 +153,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resx\AppResources.da-DK.Designer.cs">
+      <DependentUpon>AppResources.da-DK.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -160,6 +164,7 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.da-DK.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.da-DK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

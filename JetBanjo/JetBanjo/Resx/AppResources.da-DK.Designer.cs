@@ -71,6 +71,7 @@ namespace JetBanjo.Resx {
             }
         }
         
+<<<<<<< Updated upstream
         public static string change_room {
             get {
                 return ResourceManager.GetString("change_room", resourceCulture);
@@ -83,6 +84,8 @@ namespace JetBanjo.Resx {
             }
         }
         
+=======
+>>>>>>> Stashed changes
         public static string download_err {
             get {
                 return ResourceManager.GetString("download_err", resourceCulture);
@@ -101,12 +104,15 @@ namespace JetBanjo.Resx {
             }
         }
         
+<<<<<<< Updated upstream
         public static string example_room {
             get {
                 return ResourceManager.GetString("example_room", resourceCulture);
             }
         }
         
+=======
+>>>>>>> Stashed changes
         public static string home {
             get {
                 return ResourceManager.GetString("home", resourceCulture);
@@ -125,12 +131,15 @@ namespace JetBanjo.Resx {
             }
         }
         
+<<<<<<< Updated upstream
         public static string ip_settings {
             get {
                 return ResourceManager.GetString("ip_settings", resourceCulture);
             }
         }
         
+=======
+>>>>>>> Stashed changes
         public static string ip_text {
             get {
                 return ResourceManager.GetString("ip_text", resourceCulture);
@@ -167,12 +176,15 @@ namespace JetBanjo.Resx {
             }
         }
         
+<<<<<<< Updated upstream
         public static string room_settings {
             get {
                 return ResourceManager.GetString("room_settings", resourceCulture);
             }
         }
         
+=======
+>>>>>>> Stashed changes
         public static string settings {
             get {
                 return ResourceManager.GetString("settings", resourceCulture);
