@@ -7,47 +7,53 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace JetBanjo.Logic.Pages
 {
 	public class IEQIssuesPageLogic
 	{
-        public List<Tuple<string,CachedImage>> GetIssues(SensorData sensorData, DateTime dateTime)
+        public async Task<List<Tuple<string,CachedImage>>> GetIssues(SensorData sensorData, DateTime dateTime)
         {
-            Console.WriteLine("GI-0");
-            List<Tuple<string, CachedImage>> list = new List<Tuple<string, CachedImage>>();
+            //Start the following as a task such that it can execute asynchronously
+            Task <List<Tuple<string, CachedImage>>> t = Task.Run<List<Tuple<string, CachedImage>>>(() =>
+            {
+                Console.WriteLine("GI-0");
 
-            int humidClass;
+                List<Tuple<string, CachedImage>> list = new List<Tuple<string, CachedImage>>();
 
-            Console.WriteLine("GI-1");
+                int humidClass;
 
-            //Call the classify method once for each sensor values.
-            if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
-                humidClass = Classifier.Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
-            else
-                humidClass = Classifier.Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
-            int co2Class = Classifier.Classify(sensorData.CO2, Constants.CO2_RANGES);
-            int noiseClass = Classifier.Classify(sensorData.dB, Constants.NOISE_RANGES);
-            int tempClass = Classifier.Classify(sensorData.Temperature, Constants.TEMP_RANGES);
-            int uvClass = Classifier.Classify(sensorData.UV, Constants.UV_RANGES);
-            int lightClass = Classifier.Classify(sensorData.Lux, Constants.LIGHT_RANGES);
-            int vocClass = Classifier.Classify(sensorData.VOC, Constants.VOC_RANGES);
+                Console.WriteLine("GI-1");
 
-            Console.WriteLine("GI-2");
+                //Call the classify method once for each sensor values.
+                if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
+                    humidClass = Classifier.Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
+                else
+                    humidClass = Classifier.Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
+                int co2Class = Classifier.Classify(sensorData.CO2, Constants.CO2_RANGES);
+                int noiseClass = Classifier.Classify(sensorData.dB, Constants.NOISE_RANGES);
+                int tempClass = Classifier.Classify(sensorData.Temperature, Constants.TEMP_RANGES);
+                int uvClass = Classifier.Classify(sensorData.UV, Constants.UV_RANGES);
+                int lightClass = Classifier.Classify(sensorData.Lux, Constants.LIGHT_RANGES);
+                int vocClass = Classifier.Classify(sensorData.VOC, Constants.VOC_RANGES);
 
-            list.Add(Test(humidClass, Constants.HUMID_SUMMER_RANGES));
-            list.Add(Test(co2Class, Constants.HUMID_SUMMER_RANGES));
-            list.Add(Test(noiseClass, Constants.HUMID_SUMMER_RANGES));
-            list.Add(Test(tempClass, Constants.HUMID_SUMMER_RANGES));
-            list.Add(Test(uvClass, Constants.HUMID_SUMMER_RANGES));
-            list.Add(Test(lightClass, Constants.HUMID_SUMMER_RANGES));
-            list.Add(Test(vocClass, Constants.HUMID_SUMMER_RANGES));
+                Console.WriteLine("GI-2");
 
-            Console.WriteLine("GI-3");
+                list.Add(Test(humidClass, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(co2Class, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(noiseClass, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(tempClass, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(uvClass, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(lightClass, Constants.HUMID_SUMMER_RANGES));
+                list.Add(Test(vocClass, Constants.HUMID_SUMMER_RANGES));
 
-            return list;
+                Console.WriteLine("GI-3");
+
+                return list;
+            });
+            return await t;
         }
 
         private Tuple<string, CachedImage> Test(int classification, DataRange range)

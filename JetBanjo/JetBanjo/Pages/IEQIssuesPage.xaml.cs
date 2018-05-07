@@ -31,15 +31,19 @@ namespace JetBanjo.Pages
         private async Task RequestIssues()
         {
             Console.WriteLine("RI-1");
-            list = logic.GetIssues(await SensorData.Get(), DateTime.Now);
+            list = await logic.GetIssues(await SensorData.Get(), DateTime.Now);
             //Console.WriteLine(list[0].Item1);
             Console.WriteLine("RI-2");
         }
 
+
         public void ShowIssues()
         {
             Console.WriteLine("SI-1");
-            Task.Run(async () => await RequestIssues());
+
+            Task.Run(async () => await RequestIssues()).Wait();
+
+            Console.WriteLine("SI-2");
 
             foreach (Tuple<string, CachedImage> item in list)
             {
@@ -57,7 +61,7 @@ namespace JetBanjo.Pages
                 }
             }
 
-            Console.WriteLine("SI-2");
+            Console.WriteLine("SI-3");
             //test
             AbsoluteLayout testlayout = new AbsoluteLayout();
             Label testlabel = new Label()
