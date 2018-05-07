@@ -97,6 +97,24 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change room.
+        /// </summary>
+        internal static string change_room {
+            get {
+                return ResourceManager.GetString("change_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose Room.
+        /// </summary>
+        internal static string choose_room {
+            get {
+                return ResourceManager.GetString("choose_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to download, check internet connection.
         /// </summary>
         internal static string download_err {
@@ -124,6 +142,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Room 0.1.2.
+        /// </summary>
+        internal static string example_room {
+            get {
+                return ResourceManager.GetString("example_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         internal static string home {
@@ -147,6 +174,15 @@ namespace JetBanjo.Resx {
         internal static string ip_null_or_empty_err_msg {
             get {
                 return ResourceManager.GetString("ip_null_or_empty_err_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP settings.
+        /// </summary>
+        internal static string ip_settings {
+            get {
+                return ResourceManager.GetString("ip_settings", resourceCulture);
             }
         }
         
@@ -318,6 +354,15 @@ namespace JetBanjo.Resx {
         internal static string room_selector {
             get {
                 return ResourceManager.GetString("room_selector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room settings.
+        /// </summary>
+        internal static string room_settings {
+            get {
+                return ResourceManager.GetString("room_settings", resourceCulture);
             }
         }
         

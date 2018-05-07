@@ -110,5 +110,23 @@ namespace JetBanjo.Utils.DependencyService
         /// <param name="text">The text</param>
         /// <param name="isLong">If the toast should be long</param>
         void ShowToast(string text, bool isLong);
+
+        /// <summary>
+        /// Displays a searchable list dialog.
+        /// </summary>
+        /// <typeparam name="T">The type of the list and object in the callback</typeparam>
+        /// <param name="input">The list of objects to choose from</param>
+        /// <param name="title">The title of the dialog</param>
+        /// <param name="cancel">The text for the cancel button, can be null</param>
+        /// <param name="hint">The text for the hint, can be null</param>
+        /// <param name="callback">The method to be called when an item from the list is chosen or cancel have been pressed. 
+        /// The first parameter is true if an item have been selected or false if cancel has been pressed
+        /// The second parameter is the item if selected or null if cancel have been pressed </param>
+        void ShowSearchListDialog<T>(List<T> input, string title, string cancel, string hint, Action<bool, T> callback) where T : class;
+
+        /// <summary>
+        /// Dismisses the searchable list dialog
+        /// </summary>
+        void DismissSearchListDialog();
     }
 }

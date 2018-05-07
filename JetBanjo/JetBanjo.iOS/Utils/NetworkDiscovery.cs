@@ -24,7 +24,7 @@ namespace JetBanjo.iOS.Utils
         {
             Timer t = new Timer(10000) { AutoReset = false };
             t.Elapsed += (s, a) => { elapsed = true; };
-            return await Task.Run(() => { t.Start(); while (result != null) { if (elapsed) break; }; return CreateIp(); });
+            return await Task.Run(() => { t.Start(); while (result != null) { if (elapsed) break; } return CreateIp(); });
         }
 
         private string CreateIp()
@@ -60,14 +60,20 @@ namespace JetBanjo.iOS.Utils
 
         private void OnServiceFound(object sender, NSNetServiceEventArgs e)
         {
-            result = e.Service;
-            Console.WriteLine("Found service " + e.Service.Name);
+            if (e.Service.Name.ToLower().Equals("_lora_server"))
+            {
+                result = e.Service;
+                Console.WriteLine("Found service " + e.Service.Name);
+            }
         }
 
         private void OnServiceLost(object sender, NSNetServiceEventArgs e)
         {
-            result = null;
-            Console.WriteLine("Lost service " + e.Service.Name);
+            if (e.Service.Name.ToLower().Equals("_lora_server"))
+            {
+                result = null;
+                Console.WriteLine("Lost service " + e.Service.Name);
+            }
         }
 
 

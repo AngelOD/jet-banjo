@@ -7,7 +7,13 @@
              x:Class="JetBanjo.Pages.Settings">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="{i18n:Translate room_settings}" FontSize="Medium"/>
+            <Entry x:Name="CurrentRoom" IsEnabled="False"/>
+            <Button x:Name="ChangeRoom" Text="{i18n:Translate change_room}" Clicked="OnChangeRoomClick" />
             <Button x:Name="RemoveRoom" Text="{i18n:Translate remove_room}" Clicked="OnRemoveRoomClick" />
+            <BoxView x:Name="IpBox" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="3" Color="{StaticResource PrimaryBG}"/>
+            <Label Text="{i18n:Translate ip_settings}" FontSize="Medium"/>
+            <Entry x:Name="CurrentIp" TextChanged="OnIpChanged"/>
             <Button x:Name="RemoveIp" Text="{i18n:Translate remove_ip}" Clicked="OnRemoveIpClick" />
         </StackLayout>
     </ContentPage.Content>

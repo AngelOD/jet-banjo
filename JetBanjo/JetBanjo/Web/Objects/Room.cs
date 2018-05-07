@@ -16,7 +16,6 @@ namespace JetBanjo.Web.Objects
 {
     public class Room
     {
-        private string roomNumber;
 
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -25,17 +24,7 @@ namespace JetBanjo.Web.Objects
         public int Score { get; set; }
 
         [JsonProperty(PropertyName = "name")]
-        public string RoomNumber
-        {
-            get
-            {
-                if (roomNumber.StartsWith(AppResources.room))
-                    return roomNumber;
-                else
-                    return AppResources.room + " " + roomNumber;
-            }
-            set { roomNumber = value; }
-        }
+        public string RoomNumber { get; set; }
 
         /// <summary>
         /// Returns the latest room data for the subscribed room

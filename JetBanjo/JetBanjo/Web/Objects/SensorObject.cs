@@ -21,6 +21,8 @@ namespace JetBanjo.Web.Objects
         [JsonProperty(PropertyName = "id")]
         public string RoomID { get; set; }
 
+        public bool IsValid { get; private set; }
+
         /// <summary>
         /// Returns the latest sensor data for a given room for a given type.
         /// </summary>
@@ -33,7 +35,14 @@ namespace JetBanjo.Web.Objects
             string ip = DataStore.GetValue(Keys.Ip);
             WebResult<T> result = await WebHandler.ReadData<T>(ip + Constants.API_ROOMS_URL + "/" + roomId + "/" + type);
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
+            {
                 temp = result.Result;
+                temp.IsValid = true;
+            }
+            else
+            {
+                temp.IsValid = false;
+            }
 
             return temp;
         }
