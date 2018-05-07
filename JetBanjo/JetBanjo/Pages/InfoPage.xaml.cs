@@ -34,15 +34,7 @@ namespace JetBanjo.Pages
                     {
                         Orientation = StackOrientation.Horizontal,
                         Children = {
-
-                           new StackLayout {
-                                VerticalOptions = LayoutOptions.Center,
-                                Orientation=StackOrientation.Horizontal,
-                                Spacing = 5,
-                                Children = {
-                                    questionLabel
-                                }
-                            }
+                            questionLabel
                         }
                     }
                 };
