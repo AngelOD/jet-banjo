@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Content;
 using Xamarin.Forms;
 using FFImageLoading.Forms.Droid;
+using Rg.Plugins.Popup.Droid;
 
 namespace JetBanjo.Droid
 {

@@ -20,32 +20,10 @@ namespace JetBanjo.Logic.Pages
         bool highCO2 = false;   
         bool highNoise = false;
 
-        private void resetChild()
+        private void ResetChild()
         {
             highCO2 = false;
             highNoise = false;
-        }
-
-        /// <summary>
-        /// Classification. Reads a value and a range, and determine where the values lies within the range.
-        /// </summary>
-        /// <param name="inputVal"></param>
-        /// <param name="ranges"></param>
-        /// <returns></returns>
-        private int Classify(double inputVal, DataRange ranges)
-        {
-            if (inputVal < ranges.minimum)
-                return 1;
-            else if (inputVal < ranges.lower)
-                return 2;
-            else if (inputVal < ranges.higher)
-                return 3;
-            else if (inputVal < ranges.maximum)
-                return 4;
-            else if (inputVal >= ranges.maximum)
-                return 5;
-            else
-                return -1;
         }
 
         /// <summary>
@@ -123,15 +101,15 @@ namespace JetBanjo.Logic.Pages
 
                 //Call the classify method once for each sensor value.
                 if (Constants.WINTER_MONTHS.Contains(dateTime.Month))
-                    humidClass = Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
+                    humidClass = Classifier.Classify(sensorData.Humidity, Constants.HUMID_WINTER_RANGES);
                 else
-                    humidClass = Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
-                int co2Class = Classify(sensorData.CO2, Constants.CO2_RANGES);
-                int noiseClass = Classify(sensorData.dB, Constants.NOISE_RANGES);
-                int tempClass = Classify(sensorData.Temperature, Constants.TEMP_RANGES);
-                int uvClass = Classify(sensorData.UV, Constants.UV_RANGES);
-                int lightClass = Classify(sensorData.Lux, Constants.LIGHT_RANGES);
-                int vocClass = Classify(sensorData.VOC, Constants.VOC_RANGES);
+                    humidClass = Classifier.Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
+                int co2Class = Classifier.Classify(sensorData.CO2, Constants.CO2_RANGES);
+                int noiseClass = Classifier.Classify(sensorData.dB, Constants.NOISE_RANGES);
+                int tempClass = Classifier.Classify(sensorData.Temperature, Constants.TEMP_RANGES);
+                int uvClass = Classifier.Classify(sensorData.UV, Constants.UV_RANGES);
+                int lightClass = Classifier.Classify(sensorData.Lux, Constants.LIGHT_RANGES);
+                int vocClass = Classifier.Classify(sensorData.VOC, Constants.VOC_RANGES);
 
                 //Determine if the classifications indicate that the child should be sleeping or holding up hands.
                 if (noiseClass == 4)
@@ -147,7 +125,7 @@ namespace JetBanjo.Logic.Pages
                 images.AddRange(RetrieveImages(lightClass, Constants.LIGHT_RANGES));
                 images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
                 images.AddRange(RetrieveImages(vocClass, Constants.VOC_RANGES));
-                resetChild();
+                ResetChild();
 
                 //Add background to avatar
                 images.Add(new CImage("basic-classroom.png", ImageType.Background));

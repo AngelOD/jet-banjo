@@ -1023,7 +1023,7 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task LQ04 ()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 4999.9, dB = 50, VOC = 0 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 1999.9, dB = 50, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
@@ -1045,7 +1045,7 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task LQ05 ()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 5000, dB = 50, VOC = 0 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 2000, dB = 50, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {
@@ -1068,7 +1068,7 @@ namespace JetBanjo.UnitTest
         [TestMethod]
         public async Task LQ06 ()
         {
-            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 5000.1, dB = 50, VOC = 0 };
+            SensorData inputSensorData = new SensorData() { Temperature = 20, Humidity = 35.2, CO2 = 900, UV = 2, Lux = 2000.1, dB = 50, VOC = 0 };
             DateTime inputTime = new DateTime(2018, 4, 16);
             List<CImage> expectedOutput = new List<CImage>
             {

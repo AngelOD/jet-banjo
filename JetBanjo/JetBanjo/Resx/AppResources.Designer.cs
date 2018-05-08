@@ -160,6 +160,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string infopage {
+            get {
+                return ResourceManager.GetString("infopage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IP address.
         /// </summary>
         internal static string ip {
@@ -196,11 +205,209 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open the window.
+        /// </summary>
+        internal static string issue_co2 {
+            get {
+                return ResourceManager.GetString("issue_co2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is dry drink water.
+        /// </summary>
+        internal static string issue_hum_dry {
+            get {
+                return ResourceManager.GetString("issue_hum_dry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If its raining close the window.
+        /// </summary>
+        internal static string issue_hum_wet {
+            get {
+                return ResourceManager.GetString("issue_hum_wet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close courtains or turn down the light.
+        /// </summary>
+        internal static string issue_light_bright {
+            get {
+                return ResourceManager.GetString("issue_light_bright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Watching movie? Else remove courtains or turn on the light.
+        /// </summary>
+        internal static string issue_light_dark {
+            get {
+                return ResourceManager.GetString("issue_light_dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is too much noise in the room.
+        /// </summary>
+        internal static string issue_noise {
+            get {
+                return ResourceManager.GetString("issue_noise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issues.
+        /// </summary>
+        internal static string issue_page {
+            get {
+                return ResourceManager.GetString("issue_page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows.
+        /// </summary>
+        internal static string issue_temp_cold {
+            get {
+                return ResourceManager.GetString("issue_temp_cold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open windows and a door.
+        /// </summary>
+        internal static string issue_temp_fire {
+            get {
+                return ResourceManager.GetString("issue_temp_fire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows and turn up the heat.
+        /// </summary>
+        internal static string issue_temp_ice {
+            get {
+                return ResourceManager.GetString("issue_temp_ice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open windows.
+        /// </summary>
+        internal static string issue_temp_sweat {
+            get {
+                return ResourceManager.GetString("issue_temp_sweat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close courtains or apply sunscreen .
+        /// </summary>
+        internal static string issue_uv {
+            get {
+                return ResourceManager.GetString("issue_uv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is the bad air comming from the outside? Then close the windows, else open windows and doors.
+        /// </summary>
+        internal static string issue_voc {
+            get {
+                return ResourceManager.GetString("issue_voc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string ok {
             get {
                 return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What factors into indoor climate? : Something.
+        /// </summary>
+        internal static string q_climate_causes {
+            get {
+                return ResourceManager.GetString("q_climate_causes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What effects does bad indoor climate have : very bad!.
+        /// </summary>
+        internal static string q_climate_effects {
+            get {
+                return ResourceManager.GetString("q_climate_effects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about CO2? : Do we know?.
+        /// </summary>
+        internal static string q_co2 {
+            get {
+                return ResourceManager.GetString("q_co2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Humidity? : Do we know?.
+        /// </summary>
+        internal static string q_humidity {
+            get {
+                return ResourceManager.GetString("q_humidity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is Indoor Climate? : We just don&apos;t know.
+        /// </summary>
+        internal static string q_indoor_climate {
+            get {
+                return ResourceManager.GetString("q_indoor_climate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Light? : Do we know?.
+        /// </summary>
+        internal static string q_light {
+            get {
+                return ResourceManager.GetString("q_light", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Sound? : Do we know?.
+        /// </summary>
+        internal static string q_sound {
+            get {
+                return ResourceManager.GetString("q_sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Temperature? : Do we know?.
+        /// </summary>
+        internal static string q_temperature {
+            get {
+                return ResourceManager.GetString("q_temperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about VOC? : Do we know?.
+        /// </summary>
+        internal static string q_voc {
+            get {
+                return ResourceManager.GetString("q_voc", resourceCulture);
             }
         }
         
@@ -232,7 +439,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Room Selector.
+        ///   Looks up a localized string similar to Select Room.
         /// </summary>
         internal static string room_selector {
             get {

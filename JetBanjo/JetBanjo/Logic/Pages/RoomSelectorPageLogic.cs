@@ -18,6 +18,11 @@ namespace JetBanjo.Logic.Pages
             roomList = await Room.GetList();
         }
 
+        /// <summary>
+        /// Returns a filtered list of rooms based on the input
+        /// </summary>
+        /// <param name="filterKey"></param>
+        /// <returns>A list of filtered rooms</returns>
         public List<Room> FilterList(string filterKey)
         {
             if (string.IsNullOrWhiteSpace(filterKey))
@@ -30,6 +35,10 @@ namespace JetBanjo.Logic.Pages
             }
         }
 
+        /// <summary>
+        /// Returns a list of rooms
+        /// </summary>
+        /// <returns>A list of rooms</returns>
         public async Task<List<Room>> GetList()
         {
             if(roomList == null)

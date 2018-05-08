@@ -65,6 +65,7 @@ namespace JetBanjo
         private void RegisterMenuItems()
         {
             MasterPage.Register(typeof(AvatarPage), AppResources.avatar);
+            MasterPage.Register(typeof(InfoPage), AppResources.infopage);
             MasterPage.Register(new Settings(), AppResources.settings);
         }
 
