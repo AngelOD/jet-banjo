@@ -33,6 +33,18 @@
     <None Remove="Resources\error.png" />
     <None Remove="Resources\fire-overlay-pixilart.png" />
     <None Remove="Resources\good.png" />
+    <None Remove="Resources\Icons\fire-icon-48.png" />
+    <None Remove="Resources\Icons\ice-icon-48.png" />
+    <None Remove="Resources\Icons\Icon-Co2.png" />
+    <None Remove="Resources\Icons\Icon-HumDry.png" />
+    <None Remove="Resources\Icons\Icon-HumWet.png" />
+    <None Remove="Resources\Icons\Icon-LightBright.png" />
+    <None Remove="Resources\Icons\Icon-LightDark.png" />
+    <None Remove="Resources\Icons\Icon-Noise.png" />
+    <None Remove="Resources\Icons\Icon-TempCold.png" />
+    <None Remove="Resources\Icons\Icon-TempHot.png" />
+    <None Remove="Resources\Icons\Icon-UV.png" />
+    <None Remove="Resources\Icons\Icon-VOC.png" />
     <None Remove="Resources\overlay-arms-down-sunburn.png" />
     <None Remove="Resources\overlay-arms-down-tan.png" />
     <None Remove="Resources\overlay-arms-up-sunburn.png" />
@@ -78,6 +90,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\Icon-Co2.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-HumDry.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-HumWet.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-LightBright.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-LightDark.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-Noise.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-TempCold.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-TempHot.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-UV.png" />
+    <EmbeddedResource Include="Resources\Icons\Icon-VOC.png" />
     <EmbeddedResource Include="Resources\overlay-arms-down-sunburn.png" />
   </ItemGroup>
 
@@ -158,6 +180,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Pages\IEQIssuesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\Settings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

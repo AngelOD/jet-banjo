@@ -127,7 +127,13 @@ namespace JetBanjo.Pages
         private void OnTouch(object sender, EventArgs args)
         {
             //WIP should show small popup with the current issues
-            DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
+            //DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
+            Push();
+        }
+
+        private async void Push()
+        {
+            await Navigation.PushModalAsync(new IEQIssuesPage());
         }
 
         private async Task RequestImages()
