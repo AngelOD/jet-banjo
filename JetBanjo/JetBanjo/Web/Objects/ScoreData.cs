@@ -12,19 +12,31 @@ namespace JetBanjo.Web.Objects
 {
     public class ScoreData
     {
-        [JsonProperty(PropertyName = "OverallScore")]
-        public double OverallScore { get; set; }
+        [JsonProperty(PropertyName = "room_id")]
+        public double RoomID { get; set; }
 
-        [JsonProperty(PropertyName = "IAQScore")]
+        [JsonProperty(PropertyName = "id")]
+        public double ID { get; set; }
+
+        [JsonProperty(PropertyName = "end_time")]
+        public double EndTime { get; set; }
+
+        [JsonProperty(PropertyName = "interval")]
+        public double Timespan { get; set; }
+
+        [JsonProperty(PropertyName = "total_score")]
+        public double TotalScore { get; set; }
+
+        [JsonProperty(PropertyName = "IAQ_score")]
         public double IAQScore { get; set; }
 
-        [JsonProperty(PropertyName = "TempHumScore")]
-        public double TempHumScore { get; set; }
-
-        [JsonProperty(PropertyName = "SoundScore")]
+        [JsonProperty(PropertyName = "sound_score")]
         public double SoundScore { get; set; }
 
-        [JsonProperty(PropertyName = "VisualScore")]
+        [JsonProperty(PropertyName = "temp_hum_score")]
+        public double TempHumScore { get; set; }
+
+        [JsonProperty(PropertyName = "visual_score")]
         public double VisualScore { get; set; }
 
         public static async Task<List<ScoreData>> Get() 
