@@ -160,6 +160,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string infopage {
+            get {
+                return ResourceManager.GetString("infopage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IP address.
         /// </summary>
         internal static string ip {
@@ -318,6 +327,87 @@ namespace JetBanjo.Resx {
         internal static string ok {
             get {
                 return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What factors into indoor climate? : Something.
+        /// </summary>
+        internal static string q_climate_causes {
+            get {
+                return ResourceManager.GetString("q_climate_causes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What effects does bad indoor climate have : very bad!.
+        /// </summary>
+        internal static string q_climate_effects {
+            get {
+                return ResourceManager.GetString("q_climate_effects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about CO2? : Do we know?.
+        /// </summary>
+        internal static string q_co2 {
+            get {
+                return ResourceManager.GetString("q_co2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Humidity? : Do we know?.
+        /// </summary>
+        internal static string q_humidity {
+            get {
+                return ResourceManager.GetString("q_humidity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is Indoor Climate? : We just don&apos;t know.
+        /// </summary>
+        internal static string q_indoor_climate {
+            get {
+                return ResourceManager.GetString("q_indoor_climate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Light? : Do we know?.
+        /// </summary>
+        internal static string q_light {
+            get {
+                return ResourceManager.GetString("q_light", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Sound? : Do we know?.
+        /// </summary>
+        internal static string q_sound {
+            get {
+                return ResourceManager.GetString("q_sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about Temperature? : Do we know?.
+        /// </summary>
+        internal static string q_temperature {
+            get {
+                return ResourceManager.GetString("q_temperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about VOC? : Do we know?.
+        /// </summary>
+        internal static string q_voc {
+            get {
+                return ResourceManager.GetString("q_voc", resourceCulture);
             }
         }
         
