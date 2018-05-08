@@ -14,6 +14,7 @@ using JetBanjo.Utils;
 using FFImageLoading.Forms;
 using JetBanjo.Resx;
 using JetBanjo.Utils.Data;
+using Rg.Plugins.Popup.Extensions;
 
 namespace JetBanjo.Pages
 {
@@ -31,9 +32,6 @@ namespace JetBanjo.Pages
             InitializeComponent();
             logic = new AvatarPageLogic();
 
-            currentRoomId = DataStore.GetValue(DataStoreKeys.Keys.Room);
-            Task t = Task.Run(async ()=> await UpdateRoomName()); //Updates the rooms name
-            t.Wait(); //Makes sure the name have been retrived before continuing
             startUpImages = new List<CImage>()
             {
                 new CImage("basic-classroom.png", ImageType.Background),
@@ -49,9 +47,12 @@ namespace JetBanjo.Pages
         /// </summary>
         protected override void OnAppearing()
         {
+            currentRoomId = DataStore.GetValue(DataStoreKeys.Keys.Room);
+            Task t = Task.Run(async () => await UpdateRoomName()); //Updates the rooms name
+            t.Wait(); //Makes sure the name have been retrived before continuing
             //Such that when we open the pages, the starup images is added to the screen and the timer begins
-            AddOverlay(startUpImages); 
-            OnTimer();
+            AddOverlay(startUpImages);
+            Task.Run(async ()=> await RequestImages());
 
             timerShouldContinue = true;
             Device.StartTimer(Constants.avatarUpdateTime, () => OnTimer());
@@ -124,21 +125,15 @@ namespace JetBanjo.Pages
             });
         }
 
-        private void OnTouch(object sender, EventArgs args)
+        private async void OnTouch(object sender, EventArgs args)
         {
             //WIP should show small popup with the current issues
             //DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
-            Push();
-        }
-
-        private async void Push()
-        {
-            await Navigation.PushModalAsync(new IEQIssuesPage());
+            await Navigation.PushPopupAsync(new IEQIssuesPage());
         }
 
         private async Task RequestImages()
         {
-            Console.WriteLine("Render");
             List<CImage> temp = await logic.GetAvatar(await SensorData.Get(currentRoomId), DateTime.Now);
             AddOverlay(temp);
         }
