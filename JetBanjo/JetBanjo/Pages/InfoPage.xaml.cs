@@ -12,17 +12,17 @@ using JetBanjo.Utils;
 
 namespace JetBanjo.Pages
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class InfoPage : CContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class InfoPage : CContentPage
+    {
         private ObservableCollection<TextInfoPage> collection = new ObservableCollection<TextInfoPage>();
 
 
-		public InfoPage ()
-		{
-			InitializeComponent();
+        public InfoPage()
+        {
+            InitializeComponent();
             infoListView.ItemsSource = collection;
-           
+
 
             infoListView.ItemSelected += (sender, e) =>
             {
@@ -49,5 +49,5 @@ namespace JetBanjo.Pages
             string[] q = str.Split(':');
             collection.Add(new TextInfoPage(q[0], q[1]));
         }
-	}
+    }
 }
