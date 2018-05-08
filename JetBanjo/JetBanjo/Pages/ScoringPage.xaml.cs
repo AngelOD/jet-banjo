@@ -27,10 +27,7 @@ namespace JetBanjo.Pages
         public ScoringPage()
 		{
 			InitializeComponent();
-
             Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
-
-            
             ScoreList = scoreListView;
             scorePageLogic = new ScorePageLogic(this);
         }
@@ -44,16 +41,7 @@ namespace JetBanjo.Pages
         private async Task RequestScore()
         {
             int newScore = 0;
-
-            //List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get());
-            List<ScoreViewObj> temp = new List<ScoreViewObj>
-            {
-                new ScoreViewObj(new List<ScoreCausation> { new ScoreCausation("Air", 100, "Too Hot!"), new ScoreCausation("Air", 100, "Too Not Hot!") }, 100),
-                new ScoreViewObj(new List<ScoreCausation> { new ScoreCausation("Air", 100, "Too Hot!"), new ScoreCausation("Air", 100, "What!") }, 100),
-                new ScoreViewObj(new List<ScoreCausation> { new ScoreCausation("Air", 100, "Too Hot!"), new ScoreCausation("Air", 100, "asgas") }, 100),
-                new ScoreViewObj(new List<ScoreCausation> { new ScoreCausation("Air", 100, "Too Hot!"), new ScoreCausation("Air", 100, "What can i do!") }, 100),
-                new ScoreViewObj(new List<ScoreCausation> { new ScoreCausation("Air", 100, "Too Hot!"), new ScoreCausation("Air", 100, "IDK!") }, 100)
-            };
+            List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get());
 
             foreach (ScoreViewObj obj in temp)
             {

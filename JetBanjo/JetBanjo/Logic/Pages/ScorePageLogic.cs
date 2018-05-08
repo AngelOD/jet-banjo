@@ -14,8 +14,6 @@ namespace JetBanjo.Logic.Pages
     {
         private ScoringPage scoringPage;
 
-
-
         public ScorePageLogic(ScoringPage page)
         {
             scoringPage = page;
