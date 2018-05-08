@@ -21,7 +21,7 @@ namespace JetBanjo.Web.Objects
         public string Id { get; set; }
 
         [JsonProperty(PropertyName = "score")]
-        public int Score { get; set; }
+        public double Score { get; set; }
 
         [JsonProperty(PropertyName = "name")]
         public string RoomNumber { get; set; }
