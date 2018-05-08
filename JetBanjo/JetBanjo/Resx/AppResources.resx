@@ -150,6 +150,9 @@
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="infopage" xml:space="preserve">
+    <value>Information</value>
+  </data>
   <data name="ip" xml:space="preserve">
     <value>IP address</value>
   </data>
@@ -162,8 +165,74 @@
   <data name="ip_text" xml:space="preserve">
     <value>Input the IP address of the server</value>
   </data>
+  <data name="issue_light_bright" xml:space="preserve">
+    <value>Close courtains or turn down the light</value>
+  </data>
+  <data name="issue_co2" xml:space="preserve">
+    <value>Open the window</value>
+  </data>
+  <data name="issue_temp_cold" xml:space="preserve">
+    <value>Close windows</value>
+  </data>
+  <data name="issue_light_dark" xml:space="preserve">
+    <value>Watching movie? Else remove courtains or turn on the light</value>
+  </data>
+  <data name="issue_temp_fire" xml:space="preserve">
+    <value>Open windows and a door</value>
+  </data>
+  <data name="issue_hum_dry" xml:space="preserve">
+    <value>It is dry drink water</value>
+  </data>
+  <data name="issue_hum_wet" xml:space="preserve">
+    <value>If its raining close the window</value>
+  </data>
+  <data name="issue_temp_ice" xml:space="preserve">
+    <value>Close windows and turn up the heat</value>
+  </data>
+  <data name="issue_noise" xml:space="preserve">
+    <value>There is too much noise in the room</value>
+  </data>
+  <data name="issue_page" xml:space="preserve">
+    <value>Issues</value>
+  </data>
+  <data name="issue_temp_sweat" xml:space="preserve">
+    <value>Open windows</value>
+  </data>
+  <data name="issue_uv" xml:space="preserve">
+    <value>Close courtains or apply sunscreen </value>
+  </data>
+  <data name="issue_voc" xml:space="preserve">
+    <value>Is the bad air comming from the outside? Then close the windows, else open windows and doors</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
+  </data>
+  <data name="q_climate_causes" xml:space="preserve">
+    <value>What factors into indoor climate? : Something</value>
+  </data>
+  <data name="q_climate_effects" xml:space="preserve">
+    <value>What effects does bad indoor climate have : very bad!</value>
+  </data>
+  <data name="q_co2" xml:space="preserve">
+    <value>What about CO2? : Do we know?</value>
+  </data>
+  <data name="q_humidity" xml:space="preserve">
+    <value>What about Humidity? : Do we know?</value>
+  </data>
+  <data name="q_indoor_climate" xml:space="preserve">
+    <value>What is Indoor Climate? : We just don't know</value>
+  </data>
+  <data name="q_light" xml:space="preserve">
+    <value>What about Light? : Do we know?</value>
+  </data>
+  <data name="q_sound" xml:space="preserve">
+    <value>What about Sound? : Do we know?</value>
+  </data>
+  <data name="q_temperature" xml:space="preserve">
+    <value>What about Temperature? : Do we know?</value>
+  </data>
+  <data name="q_voc" xml:space="preserve">
+    <value>What about VOC? : Do we know?</value>
   </data>
   <data name="remove_ip" xml:space="preserve">
     <value>Remove IP</value>
@@ -175,7 +244,7 @@
     <value>Room</value>
   </data>
   <data name="room_selector" xml:space="preserve">
-    <value>Room Selector</value>
+    <value>Select Room</value>
   </data>
   <data name="room_settings" xml:space="preserve">
     <value>Room settings</value>
