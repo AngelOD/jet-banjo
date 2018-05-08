@@ -14,10 +14,12 @@ namespace JetBanjo.Pages
 	{
         public string Question { get; set; }
         public string Text { get; set; }
+	
         public TextInfoPage ()
-		{
-			InitializeComponent();
-		}
+	{
+	    InitializeComponent();
+	}
+	
         public TextInfoPage(string header, string text)
         {
             InitializeComponent();
