@@ -3,11 +3,27 @@ using System.Collections.Generic;
 using System.Text;
 using JetBanjo.Utils;
 using JetBanjo.Utils.Data;
+using FFImageLoading.Forms;
+using Xamarin.Forms;
 
 namespace JetBanjo.Utils
 {
     public static class Constants
     {
+
+        public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";
+        public const double BUTTON_SCALE = 0.5;
+        public const double ENTRY_SCALE = 0.5;
+        public const double LABEL_SCALE = 0.5;
+        public const double LIST_SCALE = 0.7;
+
+        public static TimeSpan cacheMaxAge = new TimeSpan(0, 2, 0); //0 hours, 2 minutes, 0 seconds
+        public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds
+        public static TimeSpan avatarUpdateTime = new TimeSpan(0, 0, 2); //0 hours, 5 minutes, 0 seconds
+
+        public const string NETWORK_SEARCH = "_services._dns-sd._udp"; //"_lora_server._tcp";
+        public const string API_ROOMS_URL = "/api/rooms";
+
         //Score Thresholds
         public static DataRange SCORE_RANGES = new DataRange("score", 25, 50, 75, 100);
 
@@ -22,7 +38,7 @@ namespace JetBanjo.Utils
         public static DataRange HUMID_WINTER_RANGES = new DataRange("humid", 25, 35, 40, 45);
         public static DataRange CO2_RANGES = new DataRange("co2", -1, -1, 1000, 2000);
         public static DataRange UV_RANGES = new DataRange("uv", -1, -1, 3, 5);
-        public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 5000);
+        public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 2000);
         public static DataRange NOISE_RANGES = new DataRange("noise", -1, -1, 60, 75);
         public static DataRange VOC_RANGES = new DataRange("voc", -1, -1, 60, 180);
 
@@ -605,6 +621,125 @@ namespace JetBanjo.Utils
         public static readonly List<int> WINTER_MONTHS = new List<int>() //We assume that all other months are SUMMER.
         {
             10, 11, 12, 1, 2, 3, 4
+        };
+
+        //Icon constants
+        public static readonly Dictionary<int, CachedImage> TEMP_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                1, new CachedImage() 
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempCold.png")
+                }
+            },
+            {
+                2, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempCold.png")
+                }
+            },
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempHot.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempHot.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> HUM_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                1, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-HumDry.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-HumWet.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> CO2_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Co2.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Co2.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> VOC_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-VOC.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-VOC.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> LIGHT_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                1, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-LightDark.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-LightBright.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> UV_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-UV.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-UV.png")
+                }
+            }
+        };
+        public static readonly Dictionary<int, CachedImage> NOISE_ICONS = new Dictionary<int, CachedImage>()
+        {
+            {
+                4, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Noise.png")
+                }
+            },
+            {
+                5, new CachedImage()
+                {
+                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Noise.png")
+                }
+            }
         };
 
         public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";

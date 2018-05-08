@@ -97,6 +97,24 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change room.
+        /// </summary>
+        internal static string change_room {
+            get {
+                return ResourceManager.GetString("change_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose Room.
+        /// </summary>
+        internal static string choose_room {
+            get {
+                return ResourceManager.GetString("choose_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to download, check internet connection.
         /// </summary>
         internal static string download_err {
@@ -120,6 +138,15 @@ namespace JetBanjo.Resx {
         internal static string example_ip {
             get {
                 return ResourceManager.GetString("example_ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room 0.1.2.
+        /// </summary>
+        internal static string example_room {
+            get {
+                return ResourceManager.GetString("example_room", resourceCulture);
             }
         }
         
@@ -151,11 +178,137 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IP settings.
+        /// </summary>
+        internal static string ip_settings {
+            get {
+                return ResourceManager.GetString("ip_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input the IP address of the server.
         /// </summary>
         internal static string ip_text {
             get {
                 return ResourceManager.GetString("ip_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open the window.
+        /// </summary>
+        internal static string issue_co2 {
+            get {
+                return ResourceManager.GetString("issue_co2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is dry drink water.
+        /// </summary>
+        internal static string issue_hum_dry {
+            get {
+                return ResourceManager.GetString("issue_hum_dry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If its raining close the window.
+        /// </summary>
+        internal static string issue_hum_wet {
+            get {
+                return ResourceManager.GetString("issue_hum_wet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close courtains or turn down the light.
+        /// </summary>
+        internal static string issue_light_bright {
+            get {
+                return ResourceManager.GetString("issue_light_bright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Watching movie? Else remove courtains or turn on the light.
+        /// </summary>
+        internal static string issue_light_dark {
+            get {
+                return ResourceManager.GetString("issue_light_dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is too much noise in the room.
+        /// </summary>
+        internal static string issue_noise {
+            get {
+                return ResourceManager.GetString("issue_noise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issues.
+        /// </summary>
+        internal static string issue_page {
+            get {
+                return ResourceManager.GetString("issue_page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows.
+        /// </summary>
+        internal static string issue_temp_cold {
+            get {
+                return ResourceManager.GetString("issue_temp_cold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open windows and a door.
+        /// </summary>
+        internal static string issue_temp_fire {
+            get {
+                return ResourceManager.GetString("issue_temp_fire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows and turn up the heat.
+        /// </summary>
+        internal static string issue_temp_ice {
+            get {
+                return ResourceManager.GetString("issue_temp_ice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open windows.
+        /// </summary>
+        internal static string issue_temp_sweat {
+            get {
+                return ResourceManager.GetString("issue_temp_sweat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close courtains or apply sunscreen .
+        /// </summary>
+        internal static string issue_uv {
+            get {
+                return ResourceManager.GetString("issue_uv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is the bad air comming from the outside? Then close the windows, else open windows and doors.
+        /// </summary>
+        internal static string issue_voc {
+            get {
+                return ResourceManager.GetString("issue_voc", resourceCulture);
             }
         }
         
@@ -196,11 +349,20 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Room Selector.
+        ///   Looks up a localized string similar to Select Room.
         /// </summary>
         internal static string room_selector {
             get {
                 return ResourceManager.GetString("room_selector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room settings.
+        /// </summary>
+        internal static string room_settings {
+            get {
+                return ResourceManager.GetString("room_settings", resourceCulture);
             }
         }
         

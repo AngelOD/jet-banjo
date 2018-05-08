@@ -129,6 +129,12 @@
   <data name="cannot_detect_backend" xml:space="preserve">
     <value>Kan ikke finde serveren på det lokale netværk, du skal manualt indtaste serverens IP</value>
   </data>
+  <data name="change_room" xml:space="preserve">
+    <value>Ændre rum</value>
+  </data>
+  <data name="choose_room" xml:space="preserve">
+    <value>Vælg Rum</value>
+  </data>
   <data name="download_err" xml:space="preserve">
     <value>Download fejlede, tjek internet forbindelsen</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="example_ip" xml:space="preserve">
     <value>127.0.0.1</value>
+  </data>
+  <data name="example_room" xml:space="preserve">
+    <value>Rum 0.1.2</value>
   </data>
   <data name="home" xml:space="preserve">
     <value>Hjem</value>
@@ -147,8 +156,50 @@
   <data name="ip_null_or_empty_err_msg" xml:space="preserve">
     <value>IP feltet skal udfyldes for at denne app virker </value>
   </data>
+  <data name="ip_settings" xml:space="preserve">
+    <value>IP indstilling</value>
+  </data>
   <data name="ip_text" xml:space="preserve">
     <value>Indtast IP adressen til serverne</value>
+  </data>
+  <data name="issue_light_bright" xml:space="preserve">
+    <value>Rul gardinerne for</value>
+  </data>
+  <data name="issue_co2" xml:space="preserve">
+    <value>Åben vinduerne</value>
+  </data>
+  <data name="issue_temp_cold" xml:space="preserve">
+    <value>Luk vinduerne</value>
+  </data>
+  <data name="issue_light_dark" xml:space="preserve">
+    <value>Ser i film? Ellers rul gardinerne fra eller tænd lyset</value>
+  </data>
+  <data name="issue_temp_fire" xml:space="preserve">
+    <value>Åben vinduerne og døre</value>
+  </data>
+  <data name="issue_hum_dry" xml:space="preserve">
+    <value>Det er tørt drink noget vand</value>
+  </data>
+  <data name="issue_hum_wet" xml:space="preserve">
+    <value>Hvis det regner luk vinduerne</value>
+  </data>
+  <data name="issue_temp_ice" xml:space="preserve">
+    <value>Luk vinduerne og skru op for varmen</value>
+  </data>
+  <data name="issue_noise" xml:space="preserve">
+    <value>Der er for meget larm i rummet</value>
+  </data>
+  <data name="issue_page" xml:space="preserve">
+    <value>Problemer</value>
+  </data>
+  <data name="issue_temp_sweat" xml:space="preserve">
+    <value>Åben vinduerne</value>
+  </data>
+  <data name="issue_uv" xml:space="preserve">
+    <value>Rul gardinerne for eller tag solcream på</value>
+  </data>
+  <data name="issue_voc" xml:space="preserve">
+    <value>Kommer den dårlige luft udefra? Så luk vinduerne ellers åben dem</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
@@ -163,12 +214,15 @@
     <value>Rum</value>
   </data>
   <data name="room_selector" xml:space="preserve">
-    <value>Rum Vælger</value>
+    <value>Vælg Rum</value>
+  </data>
+  <data name="room_settings" xml:space="preserve">
+    <value>Rum indstilling</value>
   </data>
   <data name="scoring_page" xml:space="preserve">
     <value>Rum Score</value>
   </data>
   <data name="settings" xml:space="preserve">
-    <value>Indstilling</value>
+    <value>Indstillinger</value>
   </data>
 </root>
