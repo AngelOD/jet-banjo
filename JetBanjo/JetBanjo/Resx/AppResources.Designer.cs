@@ -205,16 +205,25 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open the window.
+        ///   Looks up a localized string similar to Open windows and doors to ensure drafts.
         /// </summary>
-        internal static string issue_co2 {
+        internal static string issue_co2_severe {
             get {
-                return ResourceManager.GetString("issue_co2", resourceCulture);
+                return ResourceManager.GetString("issue_co2_severe", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It is dry drink water.
+        ///   Looks up a localized string similar to Open the window.
+        /// </summary>
+        internal static string issue_co2_soft {
+            get {
+                return ResourceManager.GetString("issue_co2_soft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows and doors to prevent drafts.
         /// </summary>
         internal static string issue_hum_dry {
             get {
@@ -223,7 +232,25 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If its raining close the window.
+        ///   Looks up a localized string similar to Try to place a glass of water in the sun so it can evaporate, it helps to close the curtains, doors and windows..
+        /// </summary>
+        internal static string issue_hum_dry_temp_high {
+            get {
+                return ResourceManager.GetString("issue_hum_dry_temp_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows and doors to prevent drafts.
+        /// </summary>
+        internal static string issue_hum_dry_temp_low {
+            get {
+                return ResourceManager.GetString("issue_hum_dry_temp_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open windows and doors to ensure drafts.
         /// </summary>
         internal static string issue_hum_wet {
             get {
@@ -232,7 +259,25 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close courtains or turn down the light.
+        ///   Looks up a localized string similar to Open windows and doors to ensure drafts or use an air conditioner.
+        /// </summary>
+        internal static string issue_hum_wet_temp_high {
+            get {
+                return ResourceManager.GetString("issue_hum_wet_temp_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase the temperature by turning on a radiator or something similar..
+        /// </summary>
+        internal static string issue_hum_wet_temp_low {
+            get {
+                return ResourceManager.GetString("issue_hum_wet_temp_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close the curtains.
         /// </summary>
         internal static string issue_light_bright {
             get {
@@ -241,7 +286,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watching movie? Else remove courtains or turn on the light.
+        ///   Looks up a localized string similar to Are you watching a movie? Otherwise remove curtains or turn on the light.
         /// </summary>
         internal static string issue_light_dark {
             get {
@@ -250,7 +295,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is too much noise in the room.
+        ///   Looks up a localized string similar to There is too much noise in the room, stop trying to compete in volume, if the noise comes from the outside try to close doors and windows.
         /// </summary>
         internal static string issue_noise {
             get {
@@ -268,7 +313,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close windows.
+        ///   Looks up a localized string similar to Ensure that the windows are closed.
         /// </summary>
         internal static string issue_temp_cold {
             get {
@@ -277,7 +322,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open windows and a door.
+        ///   Looks up a localized string similar to Open the windows.
         /// </summary>
         internal static string issue_temp_fire {
             get {
@@ -286,7 +331,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close windows and turn up the heat.
+        ///   Looks up a localized string similar to Ensure that the windows are closed and turn up the heat.
         /// </summary>
         internal static string issue_temp_ice {
             get {
@@ -304,7 +349,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close courtains or apply sunscreen .
+        ///   Looks up a localized string similar to Close the curtains or apply sunscreen if you are sitting in the sun light.
         /// </summary>
         internal static string issue_uv {
             get {
@@ -313,7 +358,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is the bad air comming from the outside? Then close the windows, else open windows and doors.
+        ///   Looks up a localized string similar to Open the windows and doors to ensure drafts, you can also try to remove the source of the smell such as food or garbage.
         /// </summary>
         internal static string issue_voc {
             get {

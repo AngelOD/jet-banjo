@@ -19,7 +19,9 @@
             EasingOut="SinIn"
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
-    <StackLayout x:Name="layout" Spacing="20" Padding="20" VerticalOptions="Center" HorizontalOptions="Center">
-
-    </StackLayout>
+    <ScrollView x:Name="sView">
+        <StackLayout x:Name="layout" Spacing="20" Padding="20" VerticalOptions="Center" HorizontalOptions="Center">
+        </StackLayout>
+    </ScrollView>
+   
 </pages:PopupPage>
