@@ -20,7 +20,7 @@ namespace JetBanjo.Logic.Pages
         bool highCO2 = false;   
         bool highNoise = false;
 
-        private void resetChild()
+        private void ResetChild()
         {
             highCO2 = false;
             highNoise = false;
@@ -125,7 +125,7 @@ namespace JetBanjo.Logic.Pages
                 images.AddRange(RetrieveImages(lightClass, Constants.LIGHT_RANGES));
                 images.AddRange(RetrieveImages(humidClass, Constants.HUMID_SUMMER_RANGES));
                 images.AddRange(RetrieveImages(vocClass, Constants.VOC_RANGES));
-                resetChild();
+                ResetChild();
 
                 //Add background to avatar
                 images.Add(new CImage("basic-classroom.png", ImageType.Background));
