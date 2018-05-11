@@ -31,12 +31,12 @@ namespace JetBanjo.iOS.Utils
 
         }
 
-		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
-		{
+	public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
             callback(true, items[indexPath.Row]);
-		}
+	}
 
-		public override nint RowsInSection(UITableView tableview, nint section)
+	public override nint RowsInSection(UITableView tableview, nint section)
         {
             return items.Count;
         }
