@@ -20,16 +20,15 @@ namespace JetBanjo.Pages
 	public partial class ScoringPage : CContentPage
 	{
         private IScorePageLogic logic;
-        private ScorePageLogic scorePageLogic;
-        public ListView ScoreList { get; private set; }
         ObservableCollection<Scale> scales = new ObservableCollection<Scale>();
+        List<ScoreViewObj> source = new List<ScoreViewObj>();
 
         public ScoringPage()
 		{
 			InitializeComponent();
+            scoreListView.ItemsSource = source;
+            logic = new ScorePageLogic(this);
             Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
-            ScoreList = scoreListView;
-            scorePageLogic = new ScorePageLogic(this);
         }
 
         private bool OnTimer()
@@ -45,9 +44,11 @@ namespace JetBanjo.Pages
 
             foreach (ScoreViewObj obj in temp)
             {
-                if (obj.scoreChange > newScore)
-                    newScore = obj.scoreChange;
+                newScore += obj.scoreChange;
             }
+
+            Console.WriteLine("Current score: " + newScore);
+
             UpdateScoreList(temp);
             UpdateGauge(newScore);
             
@@ -55,7 +56,9 @@ namespace JetBanjo.Pages
 
         private void UpdateScoreList(List<ScoreViewObj> updatedScoreList)
         {
-            scoreListView.ItemsSource = updatedScoreList;
+
+            source = updatedScoreList;
+            Console.WriteLine("Listview Updated? " + updatedScoreList?[0].ToString());
         }
 
         private void UpdateGauge(int score)
@@ -72,8 +75,8 @@ namespace JetBanjo.Pages
             //New header (score)
             Header header = new Header();
             header.Text = score.ToString();
-            scoreGauge.Headers.Clear();
-            scoreGauge.Headers.Add(header);
+            //scoreGauge.Headers.Clear();
+            //scoreGauge.Headers.Add(header);
 
             //New needle pointer
             NeedlePointer needlePointer = new NeedlePointer();
@@ -82,7 +85,7 @@ namespace JetBanjo.Pages
 
             //Update with new values
             scales.Add(scale);
-            scoreGauge.Scales = scales;
+            //scoreGauge.Scales = scales;
         }
 
         public void OnItemSelected(object sender, EventArgs args)

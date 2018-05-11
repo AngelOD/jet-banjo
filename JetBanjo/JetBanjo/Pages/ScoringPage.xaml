@@ -8,14 +8,13 @@
              x:Class="JetBanjo.Pages.ScoringPage"
              Title="{i18n:Translate scoring_page}">
 
-    <StackLayout>
-        <gauge:SfCircularGauge  x:Name="scoreGauge" Scale="0.8">
-        </gauge:SfCircularGauge>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<gauge:SfCircularGauge  x:Name="scoreGauge" Scale="0.8">
+        </gauge:SfCircularGauge> -->
 
-        <ListView x:Name="scoreListView" HorizontalOptions="Center" ItemSelected="OnItemSelected">
-            
-        </ListView> 
-        
-    </StackLayout>
-    
+            <ListView x:Name="scoreListView"></ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
 </c:CContentPage>

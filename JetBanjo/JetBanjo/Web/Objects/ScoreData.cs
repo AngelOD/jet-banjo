@@ -27,7 +27,7 @@ namespace JetBanjo.Web.Objects
         [JsonProperty(PropertyName = "total_score")]
         public double TotalScore { get; set; }
 
-        [JsonProperty(PropertyName = "IAQ_score")]
+        [JsonProperty(PropertyName = "iaq_score")]
         public double IAQScore { get; set; }
 
         [JsonProperty(PropertyName = "sound_score")]
@@ -44,7 +44,7 @@ namespace JetBanjo.Web.Objects
             string roomId = DataStore.GetValue(Keys.Room);
             List<ScoreData> temp = new List<ScoreData>();
             string ip = DataStore.GetValue(Keys.Ip);
-            WebResult<List<ScoreData>> result = await WebHandler.ReadData<List<ScoreData>>(ip + Constants.API_ROOMS_URL + "/" + roomId + "/score");
+            WebResult<List<ScoreData>> result = await WebHandler.ReadData<List<ScoreData>>(ip + Constants.API_SCORE_URL + "/" + roomId);
             if (HttpStatusCode.OK.Equals(result.ResponseCode))
                 temp = result.Result;
 

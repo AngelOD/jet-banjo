@@ -23,6 +23,7 @@ namespace JetBanjo.Utils
 
         public const string NETWORK_SEARCH = "_services._dns-sd._udp"; //"_lora_server._tcp";
         public const string API_ROOMS_URL = "/api/rooms";
+        public const string API_SCORE_URL = "/api/scores";
 
         //Score Thresholds
         public static DataRange SCORE_RANGES = new DataRange("score", 25, 50, 75, 100);
