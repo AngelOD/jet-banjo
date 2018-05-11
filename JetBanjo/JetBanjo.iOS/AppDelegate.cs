@@ -28,7 +28,6 @@ namespace JetBanjo.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             CachedImageRenderer.Init();
             App.ScreenSize = new Size(UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height);
