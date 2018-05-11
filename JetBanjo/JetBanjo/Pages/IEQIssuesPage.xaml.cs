@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FFImageLoading.Forms;
+using JetBanjo.Interfaces.Logic;
 using JetBanjo.Logic.Pages;
 using JetBanjo.Utils;
 using JetBanjo.Web.Objects;
@@ -17,7 +18,7 @@ namespace JetBanjo.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class IEQIssuesPage : PopupPage
 	{
-        private IEQIssuesPageLogic logic;
+        private IIEQIssuesPageLogic logic;
 
 		public IEQIssuesPage ()
 		{

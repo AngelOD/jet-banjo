@@ -11,42 +11,32 @@ namespace JetBanjo.Logic.Pages
 {
     public class RoomSelectorPageLogic : IRoomSelectorPageLogic
     {
-        private List<Room> roomList;
-
-        private async Task DownloadRoomList()
-        {
-            roomList = await Room.GetList();
-        }
 
         /// <summary>
         /// Returns a filtered list of rooms based on the input
         /// </summary>
         /// <param name="filterKey"></param>
         /// <returns>A list of filtered rooms</returns>
-        public List<Room> FilterList(string filterKey)
+        public async Task<List<Room>> FilterList(string filterKey)
         {
             if (string.IsNullOrWhiteSpace(filterKey))
             {
-                return roomList;
+                return await Room.GetList(); //Returns the current available rooms from the back-end
             }
             else
             {
-                return roomList.Where(r => r.RoomNumber.ToLower().Contains(filterKey.ToLower())).ToList();
+                List<Room> roomList = await Room.GetList(); //Fetches he current available rooms
+                return roomList.Where(r => r.RoomNumber.ToLower().Contains(filterKey.ToLower())).ToList(); //Filters them based on the room number and returns it
             }
         }
 
         /// <summary>
-        /// Returns a list of rooms
+        /// //Returns the current available rooms from the back-end
         /// </summary>
         /// <returns>A list of rooms</returns>
         public async Task<List<Room>> GetList()
         {
-            if(roomList == null)
-            {
-                await DownloadRoomList();
-            }
-
-            return roomList;
+            return await Room.GetList(); //Returns the current available rooms from the back-end
         }
     }
 }

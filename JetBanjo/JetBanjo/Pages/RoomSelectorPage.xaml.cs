@@ -35,9 +35,9 @@ namespace JetBanjo.Pages
         /// </summary>
         /// <param name="sender">The sender</param>
         /// <param name="args">The event arguments</param>
-        public void OnTextChanged(object sender, EventArgs args)
+        public async void OnTextChanged(object sender, EventArgs args)
         {
-            UpdateRoomList(logic.FilterList(searchBox.Text));
+            UpdateRoomList(await logic.FilterList(searchBox.Text));
         }
 
         /// <summary>
