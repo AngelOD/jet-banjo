@@ -30,7 +30,8 @@ namespace JetBanjo.Pages
 
         private async Task UpdateCurrentRoom()
         {
-            CurrentRoom.Text = (await Room.Get()).RoomNumber;
+            Room temp = await Room.Get();
+            Device.BeginInvokeOnMainThread(() => CurrentRoom.Text = temp.RoomNumber);
         }
 
         public async Task OnChangeRoomClick(object sender, EventArgs args)
