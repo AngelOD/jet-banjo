@@ -102,7 +102,7 @@ namespace JetBanjo.Logic.Pages
                 cs += Constants.IMAGE_OFFSET_NOISE;
 
             //Pick a list of images based on the current sensor parameter and classification
-            switch (range.sensorType)
+            switch (range.SensorType)
             {
                 case ("temp"):
                     if (Constants.TEMP_IMAGES.ContainsKey(cs))

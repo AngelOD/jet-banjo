@@ -20,8 +20,14 @@ namespace JetBanjo
         /// </summary>
         public Master MasterPage { get; private set; }
 
+        /// <summary>
+        /// If the app is in testing mode (Unit test)
+        /// </summary>
         public static bool IsTesting { get; set; }
 
+        /// <summary>
+        /// The size of the screen that the app is running on
+        /// </summary>
         public static Size ScreenSize { get; set; }
 
 		public App ()
@@ -40,6 +46,9 @@ namespace JetBanjo
             MainPage = new NavigationPage(new RoomSelectorPage());
         }
 
+        /// <summary>
+        /// Sets the dynamic width of the different UI elements based on the screen size
+        /// </summary>
         private void SetWidthRequestBasedOnScreenSize()
         {
             buttonStyle.Setters.Add(new Setter() { Property = VisualElement.WidthRequestProperty, Value = ScreenSize.Width * Constants.BUTTON_SCALE });

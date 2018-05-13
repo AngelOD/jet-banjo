@@ -10,6 +10,9 @@ namespace JetBanjo.Utils
     {
         private string ResourcesString { get; set; }
 
+        /// <summary>
+        /// The type of the image
+        /// </summary>
         public ImageType Type { get; private set; }
 
         private CachedImage image;
@@ -29,17 +32,26 @@ namespace JetBanjo.Utils
             if (!ResourcesString.EndsWith(".png"))
                 ResourcesString += ".png";
 
-            if (!App.IsTesting)
+            //Such that it is posssible to unit test, because the FFImageLoading does not want to be used outside of Shared or platform specific projects
+            if (!App.IsTesting) 
                 image = new CachedImage() { Source = ImageSource.FromResource(ResourcesString)};
         }
 
-
+        /// <summary>
+        /// Returns the Cached image
+        /// </summary>
+        /// <returns></returns>
         public CachedImage GetImage()
         {
 
             return image;
         }
 
+        /// <summary>
+        /// Method to compare two CImage object to check if the are "the same"
+        /// </summary>
+        /// <param name="obj">Other object</param>
+        /// <returns>True if the objects can be considered "the same"</returns>
         public override bool Equals(object obj)
         {
             if (obj is CImage)
@@ -58,11 +70,20 @@ namespace JetBanjo.Utils
             return ResourcesString.GetHashCode();
         }
 
+        /// <summary>
+        /// Overriden for logging 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return ResourcesString + ", Type:" + Type;
         }
 
+        /// <summary>
+        /// Used for sorting and follows the image specification
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public int CompareTo(object obj)
         {
             if(obj is CImage)

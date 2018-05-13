@@ -28,11 +28,12 @@ namespace JetBanjo.Pages
             ShowIssues();
         }
 
-        private async Task<List<Tuple<string, CachedImage>>> RequestIssues()
-        {
-            return logic.GetIssues(await SensorData.Get(), DateTime.Now);
-        }
-
+        /// <summary>
+        /// Returns a list of tupples that contain the information string and icon
+        /// </summary>
+        /// <param name="sensorData">The retrived sensor data for a room</param>
+        /// <param name="dateTime">The current date</param>
+        /// <returns>A list of tuples</returns>
         public void ShowIssues()
         {
             List<Tuple<string, CachedImage>> list = Task.Run(async () => await RequestIssues()).Result;
@@ -68,6 +69,10 @@ namespace JetBanjo.Pages
         }
 
 
+        /// <summary>
+        /// Dismisses the dialog
+        /// </summary>
+        /// <returns></returns>
         protected override bool OnBackButtonPressed()
         {
             //Pops the popup from the view
@@ -75,10 +80,26 @@ namespace JetBanjo.Pages
             return true;
         }
 
-        async void OnDismissButtonClicked(object sender, EventArgs args)
+        #region Private methods
+        /// <summary>
+        /// Dismisses the dialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private async void OnDismissButtonClicked(object sender, EventArgs args)
         {
             //Pops the popup from the view
             await Navigation.PopPopupAsync();
         }
+
+        /// <summary>
+        /// Gets the issuses from the sensor data.
+        /// </summary>
+        /// <returns>A list of icons and information</returns>
+        private async Task<List<Tuple<string, CachedImage>>> RequestIssues()
+        {
+            return logic.GetIssues(await SensorData.Get(), DateTime.Now);
+        }
+        #endregion
     }
 }

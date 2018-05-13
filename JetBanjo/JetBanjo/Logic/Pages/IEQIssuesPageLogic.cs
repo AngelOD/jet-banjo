@@ -63,7 +63,7 @@ namespace JetBanjo.Logic.Pages
             string text = "";
             
             //Pick a list of images based on the current sensor parameter and classification
-            switch (range.sensorType)
+            switch (range.SensorType)
             {
                 case ("temp"):
                     if (Constants.TEMP_ICONS.ContainsKey(classification))

@@ -88,7 +88,7 @@ namespace JetBanjo.Pages
 
         }
 
-
+        #region Private methods
         private void OnFailToFindNetworkDevice()
         {
 #if DEBUG
@@ -149,5 +149,6 @@ namespace JetBanjo.Pages
         {
             roomList.ItemsSource = updatedRoomList;
         }
+        #endregion
     }
 }

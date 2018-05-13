@@ -88,7 +88,7 @@ namespace JetBanjo.Pages
         {
             //Processes the images before the UI thread is used
             CachedImage i = images[0].GetImage();
-            i.GestureRecognizers.Add(tapGestureRecognizer);
+            i.GestureRecognizers.Add(tapGestureRecognizer); //Such that when the image (background) is tapped the dialog is presented
             i.HorizontalOptions = LayoutOptions.FillAndExpand;
             i.VerticalOptions = LayoutOptions.FillAndExpand;
             i.Aspect = Aspect.Fill;
