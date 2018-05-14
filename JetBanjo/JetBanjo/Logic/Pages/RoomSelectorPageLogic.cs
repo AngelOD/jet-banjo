@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JetBanjo.Logic.Pages
 {
-    public class RoomSelectorPageLogic : IRoomSelectorPageLogic
+    public class RoomSelectorPageLogic : ILeaderBoardPageLogic
     {
         private List<Room> roomList;
 

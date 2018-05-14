@@ -19,7 +19,7 @@ namespace JetBanjo.Pages
 {
 	public partial class RoomSelectorPage : CContentPage
     {
-        private IRoomSelectorPageLogic logic;
+        private ILeaderBoardPageLogic logic;
         private IDisplayService displayService;
 
         public RoomSelectorPage()
