@@ -10,6 +10,7 @@
     <Compile Remove="Objects\**" />
     <EmbeddedResource Remove="Objects\**" />
     <None Remove="Objects\**" />
+    <Compile Remove="Resx\AppResources.da-DK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -155,13 +156,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
     <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" />
     <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="16.1.0.37" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
   </ItemGroup>
 
   <ItemGroup>
@@ -176,8 +177,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\RoomSelectorPage.xaml.cs">
-      <DependentUpon>RoomSelectorPage.xaml</DependentUpon>
+    <Compile Update="Resx\AppResources.da-DK.Designer.cs">
+      <DependentUpon>AppResources.da-DK.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -196,6 +197,7 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.da-DK.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.da-DK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
