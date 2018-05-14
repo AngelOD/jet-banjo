@@ -67,6 +67,11 @@ namespace JetBanjo.Web.Objects
             return roomList;
         }
 
+        public string LeaderboardString
+        {
+            get { return RoomNumber + " " + Score; }
+        }
+
         /// <summary>
         /// Updates the current object with the latest data
         /// </summary>

@@ -4,10 +4,18 @@
              xmlns:local="clr-namespace:JetBanjo;assembly=JetBanjo"
              xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
              xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
-             x:Class="JetBanjo.Pages.LeaderboardPage">
+             x:Class="JetBanjo.Pages.LeaderboardPage"
+             Title="{i18n:Translate leaderboard}">
+    
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="leaderboardListView"></ListView>
+            <ListView x:Name="leaderboardListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding LeaderboardString}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 
