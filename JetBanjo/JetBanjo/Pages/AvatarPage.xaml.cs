@@ -142,7 +142,7 @@ namespace JetBanjo.Pages
         {
             Room temp = await Room.Get(currentRoomId);
 
-            Title = temp.RoomNumber;
+            Device.BeginInvokeOnMainThread(() => Title = temp.RoomNumber);
         }
 
         private async void PickerIconPress(object sender, EventArgs args)
