@@ -13,7 +13,7 @@ using System.Linq;
 namespace JetBanjo.Logic.Pages
 {
     /// <summary>
-    /// Logic used to pick images to show on the avatar page.
+    /// Logic used for the LeaderboardPage.
     /// </summary>
     public class LeaderboardPageLogic : ILeaderBoardPageLogic
     {
