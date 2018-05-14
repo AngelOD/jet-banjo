@@ -31,6 +31,13 @@ namespace JetBanjo.Pages
             Device.StartTimer(new TimeSpan(0, 10, 0), () => OnTimer());
         }
 
+        private void OnClickListView(object sender, EventArgs args)
+        {
+            if (leaderboardListView.SelectedItem == null)
+                return;
+            leaderboardListView.SelectedItem = null;
+        }
+
         protected override void OnAppearing()
         {
             Device.BeginInvokeOnMainThread(async () => await RequestLeaderboard());
