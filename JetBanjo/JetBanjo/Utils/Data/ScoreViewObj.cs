@@ -5,6 +5,9 @@ using System.Text;
 
 namespace JetBanjo.Utils.Data
 {
+    /// <summary>
+    /// Object used to present in score page listView.
+    /// </summary>
     public class ScoreViewObj
     {
         public int scoreChange { get; set; }

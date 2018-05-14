@@ -13,19 +13,25 @@ namespace JetBanjo.Logic.Pages
 {
     public class ScorePageLogic : IScorePageLogic
     {
-        private ScoringPage scoringPage;
-
-        public ScorePageLogic(ScoringPage page)
+        public ScorePageLogic()
         {
-            scoringPage = page;
+            
         }
 
+        /// <summary>
+        /// Returns a customized string explaining the state of a single IEQ parameter.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         private string GetMessage(double data, string type)
         {
-            string returnString = "";
+            string returnString = ""; //String returned
 
+            //Use the classifier to determine the state of the given IEQ factor
             int classification = Classifier.Classify(data, Constants.SCORE_RANGES);
 
+            //Constructs the returnString based on the classification
             switch (classification)
             {
                 case 1:
@@ -50,6 +56,11 @@ namespace JetBanjo.Logic.Pages
             return returnString;
         }
 
+        /// <summary>
+        /// Convert database time (Unix in nanoseconds) to DateTime
+        /// </summary>
+        /// <param name="unixTime"></param>
+        /// <returns></returns>
         private DateTime FromUnixTime(long unixTime)
         {
             //note: input is in nanoseconds
@@ -57,6 +68,11 @@ namespace JetBanjo.Logic.Pages
             return epoch.AddSeconds(unixTime/1000000000);
         }
 
+        /// <summary>
+        /// Asynchronously returns a list of ScoreViewObjs to display in the ListView
+        /// </summary>
+        /// <param name="scoreData"></param>
+        /// <returns></returns>
         public async Task<List<ScoreViewObj>> GetScore(List<ScoreData> scoreData)
         {
             //Start the following as a task such that it can execute asynchronously
@@ -64,10 +80,12 @@ namespace JetBanjo.Logic.Pages
             {
                 List<ScoreViewObj> listViewSource = new List<ScoreViewObj>();
                 
+                //For each data obj we determine the time, causes for the score, and the total score.
                 foreach(ScoreData data in scoreData)
                 {
-                    DateTime time = FromUnixTime(data.EndTime);
+                    DateTime time = FromUnixTime(data.EndTime); //converts input unix time to datetime.
 
+                    //Creates a list of causations. Each elements corresponds to one IEQ factor.
                     List<ScoreCausation> causes = new List<ScoreCausation>
                     {
                         new ScoreCausation(AppResources.air_qual, data.IAQScore , GetMessage(data.IAQScore, AppResources.air_qual)),
@@ -77,7 +95,7 @@ namespace JetBanjo.Logic.Pages
                     };
 
                     double overallScore = data.TotalScore;
-                    listViewSource.Add(new ScoreViewObj(causes, (int)overallScore, time));
+                    listViewSource.Add(new ScoreViewObj(causes, (int)overallScore, time)); //add element to return list
 
                 }
 

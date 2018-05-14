@@ -48,7 +48,7 @@ namespace JetBanjo.Pages
             scoreListView.ItemSelected += OnClickListView;
 
 
-            logic = new ScorePageLogic(this);
+            logic = new ScorePageLogic();
             Device.StartTimer(new TimeSpan(0, 10, 0), () => OnTimer());
         }
 

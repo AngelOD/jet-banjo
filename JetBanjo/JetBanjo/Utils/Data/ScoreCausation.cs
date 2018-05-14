@@ -4,6 +4,9 @@ using System.Text;
 
 namespace JetBanjo.Utils.Data
 {
+    /// <summary>
+    /// Object used in ScoreViewObj to represent the effect of a single IEQ factor.
+    /// </summary>
     public class ScoreCausation
     {
         public string sensorName { get; set; }

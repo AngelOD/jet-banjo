@@ -17,7 +17,7 @@ namespace JetBanjo.Utils
         public const double LABEL_SCALE = 0.5;
         public const double LIST_SCALE = 0.7;
 
-        public const double MAX_SCORE_PER_HOUR = 12.5;
+        public const double MAX_SCORE_PER_HOUR = 12.5; //The maximum score a room can get per hour (100 / 8 hours)
 
         public static TimeSpan cacheMaxAge = new TimeSpan(0, 2, 0); //0 hours, 2 minutes, 0 seconds
         public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds

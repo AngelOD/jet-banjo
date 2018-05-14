@@ -39,6 +39,10 @@ namespace JetBanjo.Web.Objects
         [JsonProperty(PropertyName = "visual_score")]
         public double VisualScore { get; set; }
 
+        /// <summary>
+        /// Asynchronously returns a list of scoreData objects for the current room.
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<ScoreData>> Get() 
         {
             string roomId = DataStore.GetValue(Keys.Room);
