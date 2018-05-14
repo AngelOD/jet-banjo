@@ -23,7 +23,7 @@ namespace JetBanjo.Utils.Data
 
         public override string ToString()
         {
-            return AppResources.time + " " + timeStamp.Hour + "            " + AppResources.Score+": " + ScoreChange;
+            return AppResources.time + " " + timeStamp.Hour + "            " + AppResources.score+": " + ScoreChange;
         }
     }
 }
