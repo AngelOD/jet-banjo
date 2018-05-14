@@ -16,18 +16,6 @@ namespace JetBanjo.Logic.Pages
     /// </summary>
     public class LeaderboardPageLogic : ILeaderBoardPageLogic
     {
-        public async Task<List<Room>> GetLeaderboard()
-        {
-            //Start the following as a task such that it can execute asynchronously
-            Task<List<Room>> t = Task.Run<List<Room>>(() =>
-            {
-                List<Room> rooms = new List<Room>();
-                
-
-                return rooms;
-            });
-            return await t; //Asynchronously return the result of t, namely the list of images.
-        }
 
     }
 }

@@ -252,4 +252,7 @@
   <data name="settings" xml:space="preserve">
     <value>Indstillinger</value>
   </data>
+  <data name="leaderboard" xml:space="preserve">
+    <value>Leaderboard</value>
+  </data>
 </root>
