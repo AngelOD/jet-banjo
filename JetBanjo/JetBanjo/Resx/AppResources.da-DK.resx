@@ -249,7 +249,13 @@
   <data name="room_settings" xml:space="preserve">
     <value>Rum indstilling</value>
   </data>
+    <data name="score" xml:space="preserve">
+    <value>Score</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Indstillinger</value>
+  </data>
+  <data name="leaderboard" xml:space="preserve">
+    <value>Rangliste</value>
   </data>
 </root>
