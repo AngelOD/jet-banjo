@@ -54,7 +54,7 @@ namespace JetBanjo.Logic.Pages
         /// <summary>
         /// Convert database time (Unix in nanoseconds) to DateTime
         /// </summary>
-        /// <param name="unixTime"></param>
+        /// <param name="unixTime">Time in unixTime (but nanoseconds)</param>
         /// <returns>DateTime obj for time</returns>
         private DateTime FromUnixTime(long unixTime)
         {
@@ -66,7 +66,7 @@ namespace JetBanjo.Logic.Pages
         /// <summary>
         /// Asynchronously returns a list of ScoreViewObjs to display in the ListView
         /// </summary>
-        /// <param name="scoreData"></param>
+        /// <param name="scoreData">List of ScoreData from databse</param>
         /// <returns>ScoreViewObjs to show in listview</returns>
         public List<ScoreViewObj> GetScore(List<ScoreData> scoreData)
         {
