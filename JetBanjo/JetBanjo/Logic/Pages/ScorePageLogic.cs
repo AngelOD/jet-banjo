@@ -18,7 +18,7 @@ namespace JetBanjo.Logic.Pages
         /// </summary>
         /// <param name="data">Value (1-100) for given IEQ factor</param>
         /// <param name="type">The type of IEQ factor</param>
-        /// <returns></returns>
+        /// <returns>Customized string explaining state of IEQ paramter</returns>
         private string GetMessage(double data, string type)
         {
             string returnString = ""; //String returned
@@ -55,7 +55,7 @@ namespace JetBanjo.Logic.Pages
         /// Convert database time (Unix in nanoseconds) to DateTime
         /// </summary>
         /// <param name="unixTime"></param>
-        /// <returns></returns>
+        /// <returns>DateTime obj for time</returns>
         private DateTime FromUnixTime(long unixTime)
         {
             //note: input is in nanoseconds
@@ -67,7 +67,7 @@ namespace JetBanjo.Logic.Pages
         /// Asynchronously returns a list of ScoreViewObjs to display in the ListView
         /// </summary>
         /// <param name="scoreData"></param>
-        /// <returns></returns>
+        /// <returns>ScoreViewObjs to show in listview</returns>
         public List<ScoreViewObj> GetScore(List<ScoreData> scoreData)
         {
             List<ScoreViewObj> listViewSource = new List<ScoreViewObj>();
