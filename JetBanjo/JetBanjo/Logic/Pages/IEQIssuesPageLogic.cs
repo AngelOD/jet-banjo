@@ -136,10 +136,10 @@ namespace JetBanjo.Logic.Pages
                         switch (classification)
                         {
                             case 4:
-                                text = AppResources.issue_uv;
+                                text = AppResources.issue_uv_what;
                                 break;
                             case 5:
-                                text = AppResources.issue_uv;
+                                text = AppResources.issue_uv_what;
                                 break;
                             default:
                                 break;

@@ -35,12 +35,12 @@ namespace JetBanjo.Pages
 
             AddMenuItem(AppResources.q_indoor_climate);
             AddMenuItem(AppResources.q_climate_causes);
-            AddMenuItem(AppResources.q_climate_effects);
-            AddMenuItem(AppResources.q_co2);
-            AddMenuItem(AppResources.q_humidity);
             AddMenuItem(AppResources.q_temperature);
+            AddMenuItem(AppResources.q_humidity);
+            AddMenuItem(AppResources.q_co2);
             AddMenuItem(AppResources.q_voc);
             AddMenuItem(AppResources.q_light);
+            AddMenuItem(AppResources.q_uv);
             AddMenuItem(AppResources.q_sound);
         }
 

@@ -351,9 +351,9 @@ namespace JetBanjo.Resx {
         /// <summary>
         ///   Looks up a localized string similar to Close the curtains or apply sunscreen if you are sitting in the sun light.
         /// </summary>
-        internal static string issue_uv {
+        internal static string issue_uv_what {
             get {
-                return ResourceManager.GetString("issue_uv", resourceCulture);
+                return ResourceManager.GetString("issue_uv_what", resourceCulture);
             }
         }
         
@@ -376,7 +376,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What factors into indoor climate? : Something.
+        ///   Looks up a localized string similar to What are the causes of bad indoor climate? : The room itself is an influence on how well the indoor climate is. The most important factors are whether there is poor ventilation and if there are too many people in a room. In addition, there are also some minor factors such as the rubbish bin is full and there is wet clothes in the room..
         /// </summary>
         internal static string q_climate_causes {
             get {
@@ -385,16 +385,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What effects does bad indoor climate have : very bad!.
-        /// </summary>
-        internal static string q_climate_effects {
-            get {
-                return ResourceManager.GetString("q_climate_effects", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to What about CO2? : Do we know?.
+        ///   Looks up a localized string similar to How does CO2 affect you? : Carbon dioxide is a gas produced by the combustion of organic materials and fossil fuels. CO2 results from animals and humans exhaling. CO2 is found naturally in the atmosphere. Carbon dioxide in a high concentration reduces the amount of oxygen in a room, thus causing fatigue..
         /// </summary>
         internal static string q_co2 {
             get {
@@ -403,7 +394,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Humidity? : Do we know?.
+        ///   Looks up a localized string similar to How does humidity affect you? : Humidity, also known as relative humidity, is a term for how much moisture is in the air. The amount of moisture depends on the temperature and is stated in %. Therefore, the air during a hot summer day can contain much more water than on a cold winter day, even if they have the same relative humidity. Humidity begins to affect you when it gets too high. The amount varies with over 60% during summer and 45% during winter. When it gets too high, there is too much water in the  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string q_humidity {
             get {
@@ -412,7 +403,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What is Indoor Climate? : We just don&apos;t know.
+        ///   Looks up a localized string similar to What is Indoor climate? : Indoor climate is a term for the environment in a room or building. The environment may be too cold, have poor acoustics or poor ventilation, all of which lead to a poor indoor climate..
         /// </summary>
         internal static string q_indoor_climate {
             get {
@@ -421,7 +412,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Light? : Do we know?.
+        ///   Looks up a localized string similar to How does light affect you? : Too little light can affect you when you are reading, as it can make it difficult to focus. However, too much light can make it difficult to read and give you a headache..
         /// </summary>
         internal static string q_light {
             get {
@@ -430,7 +421,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Sound? : Do we know?.
+        ///   Looks up a localized string similar to How does sound affect you? : A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing, cause irritation and irritation..
         /// </summary>
         internal static string q_sound {
             get {
@@ -439,7 +430,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Temperature? : Do we know?.
+        ///   Looks up a localized string similar to How does temperature affect you? : At high temperatures, it becomes difficult to get rid of the body heat. This causes you to sweat more and causes discomfort. If it gets too hot you can faint and get heat strokes, this is especially a problem with high humidity. At low temperatures, you start to get tired, feel discomfort and lack of coordination..
         /// </summary>
         internal static string q_temperature {
             get {
@@ -448,7 +439,16 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about VOC? : Do we know?.
+        ///   Looks up a localized string similar to What is UV? : ?????.
+        /// </summary>
+        internal static string q_uv {
+            get {
+                return ResourceManager.GetString("q_uv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How does VOCs affect you? : VOC, also called volatile organic compounds, is a collective term for the various organic chemicals. They have a low boiling point and are therefore a gas at room temperature. For this reason, there are higher measurements of VOCs in the summer. Most VOCs can be smelled and are released by paint, glue, cooking, leftover food, etc. An excessive amount of VOC in the air of the room can cause irritation and discomfort..
         /// </summary>
         internal static string q_voc {
             get {

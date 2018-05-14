@@ -208,31 +208,28 @@
     <value>Ok</value>
   </data>
   <data name="q_climate_causes" xml:space="preserve">
-    <value>Hvad forårsager dårligt indeklima? : Ting</value>
-  </data>
-  <data name="q_climate_effects" xml:space="preserve">
-    <value>Hvad er effekterne af dårligt indeklima? : Andre ting</value>
+    <value>Hvad forårsager dårligt indeklima? : Selve lokalet har en påvirkning på hvor godt indeklimaet er som grundlag. De væsentligste faktorer er om der er dårlig udluftning og ventilation og om der er for mange personer i et lokale. Derudover er der også nogle mindre faktorer så som at skraldespanden er fyldt og at der er vådt tøj i lokalet.</value>
   </data>
   <data name="q_co2" xml:space="preserve">
-    <value>Hvad med CO2? : goejgoe eog e gskgn p smngosik so nsk bnos ns bnsib nsbn sbnsk bnsk bnsibknsdbk sd nsl bns ljbns lsdbnlsn bjlsbn ljbsn ljsdbn jslbn sbjnjs</value>
+    <value>Hvordan påvirker CO2 dig? : Carbon dioxide også nogle gange kaldet kuldioxide, er en gas der fremkommer ved forbrændning af organisk materialer og fossile brændstoffer. CO2 fremkommer også ved at dyr og mennesker udånder. CO2 findes naturligt i atmosfæren. Carbon dioxide i en høj koncentration mindsker mængden af ilt i et lokale og derved begynder du at føle dig mere træt og sløv.</value>
   </data>
   <data name="q_humidity" xml:space="preserve">
-    <value>Hvad med Luftfugtighed? : Forøg luftfugtighed ved at: have hus planter, gøre det koldere så der kan være mindre vand i luften, lade vand fordampe. Du kan formindske luftfugtigheden ved at øge temperaturen, skabe ventilation og bruge en air conditioner. </value>
+    <value>Hvordan påvirker Luftfugtighed dig? : Luftfugtighed, også kaldet relativ luftfugtighed, er en betegnelse for hvor meget fugt der er i luften. Mængden er fugt afhænger af temperaturen og angives i %. Der kan derfor være langt mere vand i luften en varm sommerdag end på en kold vinterdag, selv om de har samme relative luftfugtighed. Luftfugtigheden begynder at påvirke dig når den bliver for høj, over 60% om sommeren og 45% om vinteren. Når den bliver for høj begynder der at være for meget vand i luften til at svede normalt. Dette resulterer i at det kan være svært at komme af med varmen. Når der er for lidt fugt i luften, under 25%, begynder man at få det tørt. Dette kommer især til udtryk omkring mund og øjne.</value>
   </data>
   <data name="q_indoor_climate" xml:space="preserve">
-    <value>Hvad er Indeklima? : Det ved vi ikke!</value>
+    <value>Hvad er Indeklima? : Indeklima er en betegnelse for miljøet i det lokale eller i den bygning man befinder sig i. Miljøet kan f.x være for koldt, have dårlig akustik og dårlig udluftning, alt sammen noget der fører til et dårligt indeklima.</value>
   </data>
   <data name="q_light" xml:space="preserve">
-    <value>Hvad med Lys? : idk</value>
+    <value>Hvordan påvirker lys dig? :  For lidt lys kan påvirker dig når du læser med at du bliver træt i øjnene af at fokuserer på at læse. Derimod kan for meget lys gøre det svært at læse og give dig hovedpine.</value>
   </data>
   <data name="q_sound" xml:space="preserve">
-    <value>Hvad med Lyd? : ikd</value>
+    <value>Hvordan påvirker lyd dig? : En moderat baggrundslyd kan øge kreativiteten hvis det man laver ikke kræver meget fokus. Det er dog et problem med høj lyd i lang tid, da det kan gøre skade på hørelsen. Det leder også til at man føler sig forstyrret og irriteret.</value>
   </data>
   <data name="q_temperature" xml:space="preserve">
-    <value>Hvad med Temperatur? : idk</value>
+    <value>Hvordan påvirker temperaturen dig? : Ved for høj temperatur bliver det svært at komme af med kropsvarmen. Dette fører til at man sveder mere og kan får det ubehageligt. Hvis det bliver for varmt kan man besvime og få hedeslag, dette er især et problem ved høj luftfugtighed. Ved for lav temperatur begynder man at blive træt, få ubehag og mangle koordination.</value>
   </data>
   <data name="q_voc" xml:space="preserve">
-    <value>Hvad med VOC? : idk</value>
+    <value>Hvordan påvirker VOC'er dig? : VOC også kaldet flygtige organiske forbindelser, er en samlet betegnelse for de forskellige organiske kemikalier. De har et lavt kogepunkt og er derfor en gas ved stuetemperatur. Af denne grund er der højere målinger af VOC om sommeren. De fleste VOC’er kan lugtes og bliver frigivet af maling, lim, madlavning, madrester osv. En for høj mængde af VOC i lokalets luft kan føre irritation og ubehag.</value>
   </data>
   <data name="remove_ip" xml:space="preserve">
     <value>Fjern IP</value>
@@ -266,5 +263,8 @@
   </data>
   <data name="issue_hum_wet_temp_low" xml:space="preserve">
     <value>Sørg for at øge temperaturen ved at tænde for radiatoren eller lignende.</value>
+  </data>
+  <data name="q_uv" xml:space="preserve">
+    <value>Hvad med UV? : ????</value>
   </data>
 </root>
