@@ -25,24 +25,11 @@ namespace JetBanjo.Pages
         ObservableCollection<Scale> scales = new ObservableCollection<Scale>();
         List<ScoreViewObj> source = new List<ScoreViewObj>();
 
-        //Mock data
-        List<ScoreViewObj> alternative = new List<ScoreViewObj>()
-        {
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now)
-        };
-
         public ScoringPage()
 		{
 			InitializeComponent();
             scoreLabel.WidthRequest = App.ScreenSize.Width;
             eventLabel.Text = AppResources.measurements + ":";
-
-            scoreListView.ItemsSource = alternative;
 
             //Event on clicking item in listview
             scoreListView.ItemSelected += OnClickListView;
@@ -90,8 +77,7 @@ namespace JetBanjo.Pages
         private async Task RequestScore()
         {
             int newScore = 0;
-            List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get()); //Actual data
-            //List<ScoreViewObj> temp = alternative; //Mock data
+            List<ScoreViewObj> temp = logic.GetScore(await ScoreData.Get()); //Actual data
 
             foreach (ScoreViewObj obj in temp)
             {

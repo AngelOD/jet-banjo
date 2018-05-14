@@ -9,6 +9,6 @@ namespace JetBanjo.Interfaces.Logic
 {
     public interface IScorePageLogic
     {
-        Task<List<ScoreViewObj>> GetScore(List<ScoreData> scoreData);
+        List<ScoreViewObj> GetScore(List<ScoreData> scoreData);
     }
 }

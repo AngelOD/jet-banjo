@@ -60,7 +60,7 @@ namespace JetBanjo.Logic.Pages
         {
             //note: input is in nanoseconds
             var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            return epoch.AddSeconds(unixTime/Constants.NANOSECONDS_PER_SECOND);
+            return epoch.AddSeconds(unixTime / Constants.NANOSECONDS_PER_SECOND);
         }
 
         /// <summary>
@@ -68,20 +68,17 @@ namespace JetBanjo.Logic.Pages
         /// </summary>
         /// <param name="scoreData"></param>
         /// <returns></returns>
-        public async Task<List<ScoreViewObj>> GetScore(List<ScoreData> scoreData)
+        public List<ScoreViewObj> GetScore(List<ScoreData> scoreData)
         {
-            //Start the following as a task such that it can execute asynchronously
-            Task<List<ScoreViewObj>> t = Task.Run<List<ScoreViewObj>>(() =>
-            {
-                List<ScoreViewObj> listViewSource = new List<ScoreViewObj>();
-                
-                //For each data obj we determine the time, causes for the score, and the total score.
-                foreach(ScoreData data in scoreData)
-                {
-                    DateTime time = FromUnixTime(data.EndTime); //converts input unix time to datetime.
+            List<ScoreViewObj> listViewSource = new List<ScoreViewObj>();
 
-                    //Creates a list of causations. Each elements corresponds to one IEQ factor.
-                    List<ScoreCausation> causes = new List<ScoreCausation>
+            //For each data obj we determine the time, causes for the score, and the total score.
+            foreach (ScoreData data in scoreData)
+            {
+                DateTime time = FromUnixTime(data.EndTime); //converts input unix time to datetime.
+
+                //Creates a list of causations. Each elements corresponds to one IEQ factor.
+                List<ScoreCausation> causes = new List<ScoreCausation>
                     {
                         new ScoreCausation(AppResources.air_qual, data.IAQScore , GetMessage(data.IAQScore, AppResources.air_qual)),
                         new ScoreCausation(AppResources.temp_hum, data.TempHumScore, GetMessage(data.TempHumScore, AppResources.temp_hum)),
@@ -89,14 +86,12 @@ namespace JetBanjo.Logic.Pages
                         new ScoreCausation(AppResources.visual, data.VisualScore, GetMessage(data.VisualScore, AppResources.visual))
                     };
 
-                    double overallScore = data.TotalScore;
-                    listViewSource.Add(new ScoreViewObj(causes, (int)overallScore, time)); //add element to return list
+                double overallScore = data.TotalScore;
+                listViewSource.Add(new ScoreViewObj(causes, (int)overallScore, time)); //add element to return list
 
-                }
+            }
 
-                return listViewSource;
-            });
-            return await t; //Asynchronously return the result of t, namely the list of score events.
+            return listViewSource;
         }
     }
 }
