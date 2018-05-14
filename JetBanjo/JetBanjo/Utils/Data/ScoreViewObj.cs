@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBanjo.Resx;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,16 +11,16 @@ namespace JetBanjo.Utils.Data
         public List<ScoreCausation> causations;
         public DateTime timeStamp;
 
-        public ScoreViewObj(List<ScoreCausation> scoreCausations, int score)
+        public ScoreViewObj(List<ScoreCausation> scoreCausations, int score, DateTime time)
         {
-            timeStamp = DateTime.Now;
+            timeStamp = time;
             causations = scoreCausations;
             scoreChange = score;
         }
 
         public override string ToString()
         {
-            return timeStamp.Hour + ":" + timeStamp.Minute + " " + scoreChange;
+            return AppResources.time + " " + timeStamp.Hour + "            Score: " + scoreChange;
         }
     }
 }

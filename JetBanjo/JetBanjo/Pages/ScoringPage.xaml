@@ -10,33 +10,9 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <gauge:SfCircularGauge VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
-
-                <gauge:SfCircularGauge.Headers>
-                    <gauge:Header x:Name="gaugeHeader" Text="Score" ForegroundColor="Black"></gauge:Header>
-                </gauge:SfCircularGauge.Headers>
-
-                <gauge:SfCircularGauge.Scales>
-
-                    <gauge:Scale>
-
-                        <gauge:Scale.Ranges>
-                            <gauge:Range StartValue="0" EndValue="1000"/>
-                        </gauge:Scale.Ranges>
-
-                        <gauge:Scale.Pointers>
-                            <gauge:NeedlePointer x:Name="gaugePointer" Value="0" />
-                        </gauge:Scale.Pointers>
-
-                    </gauge:Scale>
-
-                </gauge:SfCircularGauge.Scales>
-
-            </gauge:SfCircularGauge>
-
-
-
-
+            <Label Text="Score:" HorizontalOptions="Center" XAlign="Center"></Label>
+            <Label x:Name="scoreLabel" Text="..." HorizontalOptions="CenterAndExpand" XAlign="Center" FontSize="60"></Label>
+            <Label x:Name="eventLabel" Text="..." XAlign="Center"></Label>
             <ListView x:Name="scoreListView"></ListView>
         </StackLayout>
     </ContentPage.Content>

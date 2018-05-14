@@ -255,4 +255,40 @@
   <data name="settings" xml:space="preserve">
     <value>Indstillinger</value>
   </data>
+  <data name="acceptable" xml:space="preserve">
+    <value>Acceptabel</value>
+  </data>
+  <data name="air_qual" xml:space="preserve">
+    <value>Luftkvalitet</value>
+  </data>
+  <data name="bad" xml:space="preserve">
+    <value>Dårlig</value>
+  </data>
+  <data name="causation" xml:space="preserve">
+    <value>Årsager</value>
+  </data>
+  <data name="good" xml:space="preserve">
+    <value>God</value>
+  </data>
+  <data name="perfect" xml:space="preserve">
+    <value>Perfekt</value>
+  </data>
+  <data name="sound" xml:space="preserve">
+    <value>Lyd</value>
+  </data>
+  <data name="temp_hum" xml:space="preserve">
+    <value>Temperatur</value>
+  </data>
+  <data name="terrible" xml:space="preserve">
+    <value>Forfærdelig</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>kl.</value>
+  </data>
+  <data name="visual" xml:space="preserve">
+    <value>Visuel</value>
+  </data>
+  <data name="measurements" xml:space="preserve">
+    <value>Målinger</value>
+  </data>
 </root>

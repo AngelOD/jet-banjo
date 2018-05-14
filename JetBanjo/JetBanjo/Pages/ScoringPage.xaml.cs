@@ -13,6 +13,8 @@ using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 using JetBanjo.Web.Objects;
 using JetBanjo.Logic.Pages;
+using JetBanjo.Resx;
+using JetBanjo.Utils;
 
 namespace JetBanjo.Pages
 {
@@ -26,46 +28,34 @@ namespace JetBanjo.Pages
         //Mock data
         List<ScoreViewObj> alternative = new List<ScoreViewObj>()
         {
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
-            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100, DateTime.Now)
         };
 
         public ScoringPage()
 		{
 			InitializeComponent();
+            scoreLabel.WidthRequest = App.ScreenSize.Width;
+            eventLabel.Text = AppResources.measurements + ":";
+
             scoreListView.ItemsSource = alternative;
 
             //Event on clicking item in listview
-            scoreListView.ItemSelected += (sender, e) =>
-            {
-                if (scoreListView.SelectedItem == null)
-                    return;
-
-
-                var list = sender as ListView;
-                var selectedItem = list?.SelectedItem;
-                ScoreViewObj viewObj = selectedItem as ScoreViewObj;
-
-                string causationString = "";
-
-                foreach (ScoreCausation cause in viewObj.causations)
-                {
-                    causationString += cause.ToString() + "\n";
-                }
-
-                DependencyService.Get<IDisplayService>().ShowDialog("Causation", causationString);
-
-
-                scoreListView.SelectedItem = null;
-            };
+            scoreListView.ItemSelected += OnClickListView;
 
 
             logic = new ScorePageLogic(this);
-            Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
+            Device.StartTimer(new TimeSpan(0, 10, 0), () => OnTimer());
+        }
+
+        protected override void OnAppearing()
+        {
+            Device.BeginInvokeOnMainThread(async () => await RequestScore());
+            base.OnAppearing();
         }
 
         private bool OnTimer()
@@ -74,52 +64,42 @@ namespace JetBanjo.Pages
             return true;
         }
 
+        private void OnClickListView(object sender, EventArgs args)
+        {
+            if (scoreListView.SelectedItem == null)
+                return;
+
+
+            var list = sender as ListView;
+            var selectedItem = list?.SelectedItem;
+            ScoreViewObj viewObj = selectedItem as ScoreViewObj;
+
+            string causationString = "";
+
+            foreach (ScoreCausation cause in viewObj.causations)
+            {
+                causationString += cause.ToString() + "\n";
+            }
+
+            DependencyService.Get<IDisplayService>().ShowDialog(AppResources.causation + ":", causationString);
+
+
+            scoreListView.SelectedItem = null;
+        }
+
         private async Task RequestScore()
         {
             int newScore = 0;
-            //List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get());
-            List<ScoreViewObj> temp = alternative;
+            List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get()); //Actual data
+            //List<ScoreViewObj> temp = alternative; //Mock data
 
             foreach (ScoreViewObj obj in temp)
             {
                 newScore += obj.scoreChange;
             }
 
+            scoreLabel.Text = newScore.ToString() + " / " + temp.Count * Constants.MAX_SCORE_PER_HOUR;
             scoreListView.ItemsSource = temp;
-            gaugePointer.Value = newScore;
-            gaugeHeader.Text = newScore.ToString();
-            Console.WriteLine("Current score: " + newScore);
-
-            
-            UpdateGauge(newScore);
-            
-        }
-
-        private void UpdateGauge(int score)
-        {
-            //Clear Gauge
-            scales.Clear();
-
-            //New Scale
-            Scale scale = new Scale();
-            scale.Interval = 100;
-            scale.StartValue = 0;
-            scale.EndValue = 1000;
-
-            //New header (score)
-            Header header = new Header();
-            header.Text = score.ToString();
-            //scoreGauge.Headers.Clear();
-            //scoreGauge.Headers.Add(header);
-
-            //New needle pointer
-            NeedlePointer needlePointer = new NeedlePointer();
-            needlePointer.Value = score;
-            scale.Pointers.Add(needlePointer);
-
-            //Update with new values
-            scales.Add(scale);
-            //scoreGauge.Scales = scales;
         }
     }
 }

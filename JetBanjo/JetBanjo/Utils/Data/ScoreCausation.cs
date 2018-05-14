@@ -8,7 +8,7 @@ namespace JetBanjo.Utils.Data
     {
         public string sensorName { get; set; }
         public double score { get; set; }
-        public string message { get; set; }
+        public string message { get; set; } = "No Data";
 
         public ScoreCausation(string sensor, double scoreChange, string scoreMessage)
         {
@@ -19,7 +19,7 @@ namespace JetBanjo.Utils.Data
 
         public override string ToString()
         {
-            return sensorName + " " + message + " " + score;
+            return message;
         }
     }
 }

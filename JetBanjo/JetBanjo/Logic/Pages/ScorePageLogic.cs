@@ -1,5 +1,6 @@
 ﻿using JetBanjo.Interfaces.Logic;
 using JetBanjo.Pages;
+using JetBanjo.Resx;
 using JetBanjo.Utils;
 using JetBanjo.Utils.Data;
 using JetBanjo.Web.Objects;
@@ -23,26 +24,38 @@ namespace JetBanjo.Logic.Pages
         {
             string returnString = "";
 
-            if(data >= Constants.SCORE_RANGES.maximum)
+            int classification = Classifier.Classify(data, Constants.SCORE_RANGES);
+
+            switch (classification)
             {
-                returnString = "Perfect " + type + "!";
-            }
-            else if (data >= Constants.SCORE_RANGES.higher)
-            {
-                returnString = "Acceptable " + type + "!";
-            }
-            else if (data >= Constants.SCORE_RANGES.lower)
-            {
-                returnString = "Bad " + type + "!";
-            }
-            else if (data >= Constants.SCORE_RANGES.minimum)
-            {
-                returnString = "Terrible " + type + "!";
+                case 1:
+                    returnString = AppResources.terrible + " " + type + "!";
+                    break;
+                case 2:
+                    returnString = AppResources.bad + " " + type + "!";
+                    break;
+                case 3:
+                    returnString = AppResources.acceptable + " " + type + "!";
+                    break;
+                case 4:
+                    returnString = AppResources.good + " " + type + "!";
+                    break;
+                case 5:
+                    returnString = AppResources.perfect + " " + type + "!";
+                    break;
+                default:
+                    break;
             }
 
             return returnString;
         }
 
+        private DateTime FromUnixTime(long unixTime)
+        {
+            //note: input is in nanoseconds
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return epoch.AddSeconds(unixTime/1000000000);
+        }
 
         public async Task<List<ScoreViewObj>> GetScore(List<ScoreData> scoreData)
         {
@@ -53,16 +66,18 @@ namespace JetBanjo.Logic.Pages
                 
                 foreach(ScoreData data in scoreData)
                 {
+                    DateTime time = FromUnixTime(data.EndTime);
+
                     List<ScoreCausation> causes = new List<ScoreCausation>
                     {
-                        new ScoreCausation("Air Quality", data.IAQScore , GetMessage(data.IAQScore, "Air Quality")),
-                        new ScoreCausation("Temperature", data.TempHumScore, GetMessage(data.IAQScore, "Temperature")),
-                        new ScoreCausation("Sound", data.SoundScore, GetMessage(data.IAQScore, "Sound")),
-                        new ScoreCausation("Light", data.VisualScore, GetMessage(data.IAQScore, "Light"))
+                        new ScoreCausation(AppResources.air_qual, data.IAQScore , GetMessage(data.IAQScore, AppResources.air_qual)),
+                        new ScoreCausation(AppResources.temp_hum, data.TempHumScore, GetMessage(data.TempHumScore, AppResources.temp_hum)),
+                        new ScoreCausation(AppResources.sound, data.SoundScore, GetMessage(data.SoundScore, AppResources.sound)),
+                        new ScoreCausation(AppResources.visual, data.VisualScore, GetMessage(data.VisualScore, AppResources.visual))
                     };
 
-                    double overallScore = data.IAQScore + data.TempHumScore + data.SoundScore + data.VisualScore;
-                    listViewSource.Add(new ScoreViewObj(causes, (int)overallScore));
+                    double overallScore = data.TotalScore;
+                    listViewSource.Add(new ScoreViewObj(causes, (int)overallScore, time));
 
                 }
 

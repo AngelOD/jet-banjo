@@ -19,7 +19,7 @@ namespace JetBanjo.Web.Objects
         public double ID { get; set; }
 
         [JsonProperty(PropertyName = "end_time")]
-        public double EndTime { get; set; }
+        public Int64 EndTime { get; set; }
 
         [JsonProperty(PropertyName = "interval")]
         public double Timespan { get; set; }
