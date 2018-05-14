@@ -13,16 +13,11 @@ namespace JetBanjo.Logic.Pages
 {
     public class ScorePageLogic : IScorePageLogic
     {
-        public ScorePageLogic()
-        {
-            
-        }
-
         /// <summary>
         /// Returns a customized string explaining the state of a single IEQ parameter.
         /// </summary>
-        /// <param name="data"></param>
-        /// <param name="type"></param>
+        /// <param name="data">Value (1-100) for given IEQ factor</param>
+        /// <param name="type">The type of IEQ factor</param>
         /// <returns></returns>
         private string GetMessage(double data, string type)
         {
@@ -65,7 +60,7 @@ namespace JetBanjo.Logic.Pages
         {
             //note: input is in nanoseconds
             var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            return epoch.AddSeconds(unixTime/1000000000);
+            return epoch.AddSeconds(unixTime/Constants.NANOSECONDS_PER_SECOND);
         }
 
         /// <summary>
