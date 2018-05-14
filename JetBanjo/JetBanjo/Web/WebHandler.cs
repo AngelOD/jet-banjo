@@ -29,6 +29,7 @@ namespace JetBanjo.Web
             object ResponseMessage = null;
             try
             {
+                //Try to make it a correct url
                 if (!url.ToLower().StartsWith("http://") || !url.ToLower().StartsWith("https://"))
                 {
                     url = "https://" + url;
@@ -38,8 +39,9 @@ namespace JetBanjo.Web
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url); //URL
                 request.CachePolicy = new HttpRequestCachePolicy(HttpCacheAgeControl.MaxAge, Constants.cacheMaxAge);
                 request.Timeout = (int) Constants.timeoutTime.TotalMilliseconds; //Timeout defined in constants
-
                 request.Method = "GET";
+
+                //Get and use the response
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
                 {
                     ResponseCode = response.StatusCode;

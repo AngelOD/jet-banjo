@@ -249,6 +249,9 @@
   <data name="room_settings" xml:space="preserve">
     <value>Room settings</value>
   </data>
+    <data name="score" xml:space="preserve">
+    <value>Score</value>
+  </data>
   <data name="scoring_page" xml:space="preserve">
     <value>Room Score</value>
   </data>
@@ -290,5 +293,9 @@
   </data>
   <data name="measurements" xml:space="preserve">
     <value>Measurements</value>
+  </data>
+</root>
+  <data name="leaderboard" xml:space="preserve">
+    <value>Leaderboard</value>
   </data>
 </root>

@@ -1,4 +1,5 @@
 ﻿using FFImageLoading.Forms;
+using JetBanjo.Interfaces.Logic;
 using JetBanjo.Resx;
 using JetBanjo.Utils;
 using JetBanjo.Utils.Data;
@@ -12,8 +13,14 @@ using Xamarin.Forms;
 
 namespace JetBanjo.Logic.Pages
 {
-	public class IEQIssuesPageLogic
+	public class IEQIssuesPageLogic : IIEQIssuesPageLogic
 	{
+        /// <summary>
+        /// Returns a list of tupples that contain the information string and icon
+        /// </summary>
+        /// <param name="sensorData">The retrived sensor data for a room</param>
+        /// <param name="dateTime">The current date</param>
+        /// <returns>A list of tuples</returns>
         public List<Tuple<string,CachedImage>> GetIssues(SensorData sensorData, DateTime dateTime)
         {
             List<Tuple<string, CachedImage>> list = new List<Tuple<string, CachedImage>>();
@@ -43,13 +50,20 @@ namespace JetBanjo.Logic.Pages
             return list;
         }
 
+        #region Private methods
+        /// <summary>
+        /// Merger that based on the classification and the range sets the icon and text
+        /// </summary>
+        /// <param name="classification">The classification int</param>
+        /// <param name="range">The data range for which the images are selected</param>
+        /// <returns>A Tuple of a information string and a icon</returns>
         private Tuple<string, CachedImage> Merger(int classification, DataRange range)
         {
             CachedImage image = new CachedImage();
             string text = "";
             
             //Pick a list of images based on the current sensor parameter and classification
-            switch (range.sensorType)
+            switch (range.SensorType)
             {
                 case ("temp"):
                     if (Constants.TEMP_ICONS.ContainsKey(classification))
@@ -182,5 +196,6 @@ namespace JetBanjo.Logic.Pages
             Tuple<string, CachedImage> pair = new Tuple<string, CachedImage>(text, image);
             return pair;
         }
-	}
+        #endregion
+    }
 }

@@ -18,6 +18,7 @@
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,7 +28,6 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidSupportedAbis />
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
@@ -69,12 +69,24 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
       <Version>2.3.6</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2" />
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.0.0.446417</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Design">
+      <Version>27.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
+      <Version>27.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v4">
+      <Version>27.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView">
+      <Version>27.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter">
+      <Version>27.0.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -103,6 +115,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JetBanjo\JetBanjo.csproj">
+      <Project>{54E076E0-111C-454B-A8D0-85B31204FEE9}</Project>
+      <Name>JetBanjo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -115,12 +133,6 @@
     <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\JetBanjo\JetBanjo.csproj">
-      <Project>{54e076e0-111c-454b-a8d0-85b31204fee9}</Project>
-      <Name>JetBanjo</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

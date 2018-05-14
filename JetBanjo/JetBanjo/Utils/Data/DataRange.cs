@@ -8,17 +8,18 @@ namespace JetBanjo.Utils.Data
     {
         public DataRange(string type, double min, double low, double high, double max)
         {
-            sensorType = type;
-            minimum = min;
-            lower = low;
-            higher = high;
-            maximum = max;
+            SensorType = type;
+            Minimum = min;
+            Lower = low;
+            Higher = high;
+            Maximum = max;
         }
 
-        public string sensorType { get; set; }
-        public double minimum { get; set; }
-        public double lower { get; set; }
-        public double higher { get; set; }
-        public double maximum { get; set; }
+        //Properties for a sensor of a given type
+        public string SensorType { get; private set; }
+        public double Minimum { get; private set; }
+        public double Lower { get; private set; }
+        public double Higher { get; private set; }
+        public double Maximum { get; private set; }
     }
 }

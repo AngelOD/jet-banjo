@@ -11,9 +11,8 @@ namespace JetBanjo.Pages.MasterDetail
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Master : MasterDetailPage
     {
-        //counter used for id for the pages that get registered
-        private static int pageCounter = 0;
-        private Stack<Page> history = new Stack<Page>();
+        private static int pageCounter = 0; //Counter used for id for the pages that get registered
+        private Stack<Page> history = new Stack<Page>(); //History stack used for the back button on Android
 
         public Master()
         {
@@ -26,10 +25,13 @@ namespace JetBanjo.Pages.MasterDetail
         {
             Page page = null;
             var item = e.SelectedItem as MasterMenuItem;
+            //If the item does not exist, which is a mistake
             if (item == null)
                 return;
+            //If the PageType exist we can create a new instance of the class
             if(item.PageType != null)
                 page = (Page)Activator.CreateInstance(item.PageType);
+            //If the Page is not null then we already have a page to push
             if (item.Page != null)
                 page = item.Page;
 
@@ -37,10 +39,9 @@ namespace JetBanjo.Pages.MasterDetail
             if (page != null && !((NavigationPage) Detail).RootPage.Equals(page))
                 Push(page);
                 
+            IsPresented = false; //Hides the master menu
 
-            IsPresented = false;
-
-            MasterPage.ListView.SelectedItem = null;
+            MasterPage.ListView.SelectedItem = null; //Reset the selected item back to null
         }
 
         /// <summary>

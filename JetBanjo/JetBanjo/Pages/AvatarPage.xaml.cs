@@ -66,8 +66,13 @@ namespace JetBanjo.Pages
             timerShouldContinue = false;
         }
 
+        /// <summary>
+        /// This method is executed when the timer ticks
+        /// </summary>
+        /// <returns>A bool that detemins if the timer should continue running</returns>
         private bool OnTimer ()
         {
+            //If the timer should be active and the screen is on
             if (timerShouldContinue && DependencyService.Get<IDeviceService>().GetScreenState())
             {
                 Task.Run(async () => await RequestImages());
@@ -75,10 +80,15 @@ namespace JetBanjo.Pages
             return timerShouldContinue;
         }
 
+        /// <summary>
+        /// Adds the overlay images to the page
+        /// </summary>
+        /// <param name="images">The list of CImages</param>
         private void AddOverlay(List<CImage> images)
         {
+            //Processes the images before the UI thread is used
             CachedImage i = images[0].GetImage();
-            i.GestureRecognizers.Add(tapGestureRecognizer);
+            i.GestureRecognizers.Add(tapGestureRecognizer); //Such that when the image (background) is tapped the dialog is presented
             i.HorizontalOptions = LayoutOptions.FillAndExpand;
             i.VerticalOptions = LayoutOptions.FillAndExpand;
             i.Aspect = Aspect.Fill;
@@ -113,6 +123,7 @@ namespace JetBanjo.Pages
                 tempList.Add(ci);
             }
 
+            //Adds the images to the layout on the device main thread (UI thread)
             Device.BeginInvokeOnMainThread(() =>
             {
                 layout.Children.Clear();
@@ -125,26 +136,43 @@ namespace JetBanjo.Pages
             });
         }
 
+        /// <summary>
+        /// When the background image is tapped a issue dialog popups
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private async void OnTouch(object sender, EventArgs args)
         {
-            //WIP should show small popup with the current issues
-            //DependencyService.Get<IDisplayService>().ShowDialog("'Ola", "This is WIP");
             await Navigation.PushPopupAsync(new IEQIssuesPage());
         }
 
+        /// <summary>
+        /// Method that request the images from the logic class and then adds it to the overlay
+        /// </summary>
+        /// <returns></returns>
         private async Task RequestImages()
         {
             List<CImage> temp = await logic.GetAvatar(await SensorData.Get(currentRoomId), DateTime.Now);
             AddOverlay(temp);
         }
 
+        /// <summary>
+        /// Updates the title on the page with the room number in a task such that it can be awaited
+        /// </summary>
+        /// <returns></returns>
         private async Task UpdateRoomName()
         {
             Room temp = await Room.Get(currentRoomId);
 
-            Title = temp.RoomNumber;
+            Device.BeginInvokeOnMainThread(() => Title = temp.RoomNumber);
         }
 
+        /// <summary>
+        /// When the toolbar room chooser item is tapped.
+        /// Displays a dialog popup.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private async void PickerIconPress(object sender, EventArgs args)
         {
             List<Room> rooms = await Room.GetList();

@@ -6,6 +6,9 @@ namespace JetBanjo.Utils.Data
 {
     public class DataStoreKeys
     {
+        /// <summary>
+        /// The keys used to store an retrive settings
+        /// </summary>
         public enum Keys
         {
             Room,

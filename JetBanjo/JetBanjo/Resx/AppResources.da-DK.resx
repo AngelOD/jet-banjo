@@ -252,6 +252,9 @@
   <data name="scoring_page" xml:space="preserve">
     <value>Rum Score</value>
   </data>
+    <data name="score" xml:space="preserve">
+    <value>Score</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Indstillinger</value>
   </data>
@@ -290,5 +293,9 @@
   </data>
   <data name="measurements" xml:space="preserve">
     <value>Målinger</value>
+  </data>
+</root>
+  <data name="leaderboard" xml:space="preserve">
+    <value>Rangliste</value>
   </data>
 </root>

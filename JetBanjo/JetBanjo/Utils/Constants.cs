@@ -11,7 +11,7 @@ namespace JetBanjo.Utils
     public static class Constants
     {
 
-        public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";
+        //GUI constants
         public const double BUTTON_SCALE = 0.5;
         public const double ENTRY_SCALE = 0.5;
         public const double LABEL_SCALE = 0.5;
@@ -19,10 +19,13 @@ namespace JetBanjo.Utils
 
         public const double MAX_SCORE_PER_HOUR = 12.5; //The maximum score a room can get per hour (100 / 8 hours)
 
+        //Timed constants
         public static TimeSpan cacheMaxAge = new TimeSpan(0, 2, 0); //0 hours, 2 minutes, 0 seconds
         public static TimeSpan timeoutTime = new TimeSpan(0, 0, 30); //0 hours, 0 minutes, 30 seconds
         public static TimeSpan avatarUpdateTime = new TimeSpan(0, 5, 0); //0 hours, 5 minutes, 0 seconds
 
+        //Network constants
+        public const string DEBUG_IP_ADDRESS = "sw802f18.blazingskies.dk";
         public const string NETWORK_SEARCH = "_services._dns-sd._udp"; //"_lora_server._tcp";
         public const string API_ROOMS_URL = "/api/rooms";
         public const string API_SCORE_URL = "/api/scores";
