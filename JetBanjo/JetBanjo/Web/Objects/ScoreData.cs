@@ -43,7 +43,7 @@ namespace JetBanjo.Web.Objects
         /// Asynchronously returns a list of scoreData objects for the current room.
         /// </summary>
         /// <returns></returns>
-        public static async Task<List<ScoreData>> Get() 
+        public static async Task<List<ScoreData>> GetList() 
         {
             string roomId = DataStore.GetValue(Keys.Room);
             List<ScoreData> temp = new List<ScoreData>();

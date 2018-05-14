@@ -77,7 +77,7 @@ namespace JetBanjo.Pages
         private async Task RequestScore()
         {
             int newScore = 0;
-            List<ScoreViewObj> temp = logic.GetScore(await ScoreData.Get()); //Actual data
+            List<ScoreViewObj> temp = logic.GetScore(await ScoreData.GetList()); //Actual data
 
             foreach (ScoreViewObj obj in temp)
             {

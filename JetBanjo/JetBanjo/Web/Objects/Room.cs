@@ -72,7 +72,7 @@ namespace JetBanjo.Web.Objects
         /// </summary>
         public string LeaderboardString
         {
-            get { return AppResources.room + ": " + RoomNumber + "              " + AppResources.Score + ": " + Math.Floor(Score); }
+            get { return AppResources.room + ": " + RoomNumber + "              " + AppResources.score + ": " + Math.Floor(Score); }
         }
 
         /// <summary>

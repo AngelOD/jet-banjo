@@ -529,6 +529,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Score.
+        /// </summary>
+        internal static string score {
+            get {
+                return ResourceManager.GetString("score", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Room Score.
         /// </summary>
         internal static string scoring_page {
