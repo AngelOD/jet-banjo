@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:CContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JetBanjo;assembly=JetBanjo"
+             xmlns:i18n="clr-namespace:JetBanjo;assembly=JetBanjo"
+             xmlns:c="clr-namespace:JetBanjo.Pages;assembly=JetBanjo"
+             xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             x:Class="JetBanjo.Pages.ScoringPage"
+             Title="{i18n:Translate scoring_page}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Score:" HorizontalOptions="Center" XAlign="Center"></Label>
+            <Label x:Name="scoreLabel" Text="..." HorizontalOptions="CenterAndExpand" XAlign="Center" FontSize="60"></Label>
+            <Label x:Name="eventLabel" Text="..." XAlign="Center"></Label>
+            <ListView x:Name="scoreListView"></ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</c:CContentPage> 
