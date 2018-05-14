@@ -21,6 +21,11 @@ namespace JetBanjo.Pages
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initializes a page with title and text
+        /// </summary>
+        /// <param name="header">Title</param>
+        /// <param name="text">Bread text</param>
         public TextInfoPage(string header, string text)
         {
             InitializeComponent();
@@ -28,7 +33,6 @@ namespace JetBanjo.Pages
             Text = text;
             Title = header;
             pageText.HorizontalOptions = LayoutOptions.FillAndExpand;
-            pageText.VerticalOptions = LayoutOptions.FillAndExpand;
             pageText.HorizontalTextAlignment = TextAlignment.Start;
             pageText.Text = text;
         }
