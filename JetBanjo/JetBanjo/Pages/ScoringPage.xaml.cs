@@ -23,10 +23,47 @@ namespace JetBanjo.Pages
         ObservableCollection<Scale> scales = new ObservableCollection<Scale>();
         List<ScoreViewObj> source = new List<ScoreViewObj>();
 
+        //Mock data
+        List<ScoreViewObj> alternative = new List<ScoreViewObj>()
+        {
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
+            new ScoreViewObj(new List<ScoreCausation>(){new ScoreCausation("temphum", 100, "TooHot")}, 100),
+        };
+
         public ScoringPage()
 		{
 			InitializeComponent();
-            scoreListView.ItemsSource = source;
+            scoreListView.ItemsSource = alternative;
+
+            //Event on clicking item in listview
+            scoreListView.ItemSelected += (sender, e) =>
+            {
+                if (scoreListView.SelectedItem == null)
+                    return;
+
+
+                var list = sender as ListView;
+                var selectedItem = list?.SelectedItem;
+                ScoreViewObj viewObj = selectedItem as ScoreViewObj;
+
+                string causationString = "";
+
+                foreach (ScoreCausation cause in viewObj.causations)
+                {
+                    causationString += cause.ToString() + "\n";
+                }
+
+                DependencyService.Get<IDisplayService>().ShowDialog("Causation", causationString);
+
+
+                scoreListView.SelectedItem = null;
+            };
+
+
             logic = new ScorePageLogic(this);
             Device.StartTimer(new TimeSpan(0, 0, 5), () => OnTimer());
         }
@@ -40,25 +77,22 @@ namespace JetBanjo.Pages
         private async Task RequestScore()
         {
             int newScore = 0;
-            List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get());
+            //List<ScoreViewObj> temp = await logic.GetScore(await ScoreData.Get());
+            List<ScoreViewObj> temp = alternative;
 
             foreach (ScoreViewObj obj in temp)
             {
                 newScore += obj.scoreChange;
             }
 
+            scoreListView.ItemsSource = temp;
+            gaugePointer.Value = newScore;
+            gaugeHeader.Text = newScore.ToString();
             Console.WriteLine("Current score: " + newScore);
 
-            UpdateScoreList(temp);
+            
             UpdateGauge(newScore);
             
-        }
-
-        private void UpdateScoreList(List<ScoreViewObj> updatedScoreList)
-        {
-
-            source = updatedScoreList;
-            Console.WriteLine("Listview Updated? " + updatedScoreList?[0].ToString());
         }
 
         private void UpdateGauge(int score)
@@ -86,22 +120,6 @@ namespace JetBanjo.Pages
             //Update with new values
             scales.Add(scale);
             //scoreGauge.Scales = scales;
-        }
-
-        public void OnItemSelected(object sender, EventArgs args)
-        {
-            var list = sender as ListView;
-            var selectedItem = list?.SelectedItem;
-            ScoreViewObj viewObj = selectedItem as ScoreViewObj;
-
-            string causationString = "";
-
-            foreach (ScoreCausation cause in viewObj.causations)
-            {
-                causationString += cause.ToString() + "\n";
-            }
-
-            DependencyService.Get<IDisplayService>().ShowDialog("Causation", causationString);
         }
     }
 }
