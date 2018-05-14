@@ -8,6 +8,6 @@ namespace JetBanjo.Interfaces.Logic
 {
     public interface ILeaderBoardPageLogic
     {
-
+        Task<List<Room>> GetLeaderboard();
     }
 }

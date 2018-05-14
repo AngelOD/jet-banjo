@@ -67,6 +67,9 @@ namespace JetBanjo.Web.Objects
             return roomList;
         }
 
+        /// <summary>
+        /// String with room name and score presented in the leaderboard
+        /// </summary>
         public string LeaderboardString
         {
             get { return AppResources.room + ": " + RoomNumber + "              Score: " + Math.Floor(Score); }

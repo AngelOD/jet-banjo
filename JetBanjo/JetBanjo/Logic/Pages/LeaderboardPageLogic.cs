@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using JetBanjo.Web.Objects;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Linq;
 
 namespace JetBanjo.Logic.Pages
 {
@@ -16,6 +17,15 @@ namespace JetBanjo.Logic.Pages
     /// </summary>
     public class LeaderboardPageLogic : ILeaderBoardPageLogic
     {
-
+        /// <summary>
+        /// Retrieves rooms and their scores, and returns them in a sorted list.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<Room>> GetLeaderboard()
+        {
+            List<Room> rooms = await Room.GetList();
+            List<Room> sortedList = rooms.OrderByDescending(o => o.Score).ToList();
+            return sortedList;
+        }
     }
 }
