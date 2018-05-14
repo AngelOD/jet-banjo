@@ -81,7 +81,7 @@ namespace JetBanjo.Pages
 
             foreach (ScoreViewObj obj in temp)
             {
-                newScore += obj.scoreChange;
+                newScore += obj.ScoreChange;
             }
 
             scoreLabel.Text = newScore.ToString() + " / " + temp.Count * Constants.MAX_SCORE_PER_HOUR;

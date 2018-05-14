@@ -10,7 +10,7 @@ namespace JetBanjo.Utils.Data
     /// </summary>
     public class ScoreViewObj
     {
-        public int scoreChange { get; set; }
+        public int ScoreChange { get; set; }
         public List<ScoreCausation> causations;
         public DateTime timeStamp;
 
@@ -18,12 +18,12 @@ namespace JetBanjo.Utils.Data
         {
             timeStamp = time;
             causations = scoreCausations;
-            scoreChange = score;
+            ScoreChange = score;
         }
 
         public override string ToString()
         {
-            return AppResources.time + " " + timeStamp.Hour + "            Score: " + scoreChange;
+            return AppResources.time + " " + timeStamp.Hour + "            Score: " + ScoreChange;
         }
     }
 }
