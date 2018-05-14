@@ -12,15 +12,15 @@ namespace JetBanjo.Utils
         /// <returns></returns>
         public static int Classify(double inputVal, DataRange ranges)
         {
-            if (inputVal < ranges.minimum)
+            if (inputVal < ranges.Minimum)
                 return 1;
-            else if (inputVal < ranges.lower)
+            else if (inputVal < ranges.Lower)
                 return 2;
-            else if (inputVal < ranges.higher)
+            else if (inputVal < ranges.Higher)
                 return 3;
-            else if (inputVal < ranges.maximum)
+            else if (inputVal < ranges.Maximum)
                 return 4;
-            else if (inputVal >= ranges.maximum)
+            else if (inputVal >= ranges.Maximum)
                 return 5;
             else
                 return -1;

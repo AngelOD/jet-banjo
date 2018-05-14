@@ -10,12 +10,14 @@ namespace JetBanjo.Pages.MasterDetail
 
     public class MasterMenuItem
     {
+        //The constructor that takes the type of a page
         public MasterMenuItem(Type page)
         {
             PageType = page;
             TargetType = typeof(MasterDetail);
         }
 
+        //The constructor that takes a page as the item
         public MasterMenuItem(Page page)
         {
             Page = page;

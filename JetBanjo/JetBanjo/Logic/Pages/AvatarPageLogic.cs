@@ -20,77 +20,12 @@ namespace JetBanjo.Logic.Pages
         bool highCO2 = false;   
         bool highNoise = false;
 
-        private void ResetChild()
-        {
-            highCO2 = false;
-            highNoise = false;
-        }
-
-        /// <summary>
-        /// Uses the classification of a single sensor parameter to pick a set of images to show.
-        /// Is called once for each parameter.
-        /// </summary>
-        /// <param name="classification"></param>
-        /// <param name="range"></param>
-        /// <returns></returns>
-        private List<CImage> RetrieveImages(int classification, DataRange range)
-        {
-            List<CImage> imageList = new List<CImage>();
-
-            int cs = classification;
-
-            //Determine if the avatar should be laying down, holding hands over ears, or both
-            if (highCO2 && highNoise)
-                cs += Constants.IMAGE_OFFSET_SLEEPING_NOISE;
-            else if (highCO2)
-                cs += Constants.IMAGE_OFFSET_SLEEPING;
-            else if (highNoise)
-                cs += Constants.IMAGE_OFFSET_NOISE;
-
-            //Pick a list of images based on the current sensor parameter and classification
-            switch (range.sensorType)
-            {
-                case ("temp"):
-                    if (Constants.TEMP_IMAGES.ContainsKey(cs))
-                        imageList.AddRange(Constants.TEMP_IMAGES[cs]);
-                    break;
-                case ("humid"):
-                    if (Constants.HUMID_IMAGES.ContainsKey(cs))
-                        imageList.AddRange(Constants.HUMID_IMAGES[cs]);
-                    break;
-                case ("co2"):
-                    if (Constants.CO2_IMAGES.ContainsKey(cs))
-                        imageList.AddRange(Constants.CO2_IMAGES[cs]);
-                    break;
-                case ("uv"):
-                    if (Constants.UV_IMAGES.ContainsKey(cs))
-                        imageList.AddRange(Constants.UV_IMAGES[cs]);
-                    break;
-                case ("light"):
-                    if (Constants.LIGHT_IMAGES.ContainsKey(cs))
-                        imageList.AddRange(Constants.LIGHT_IMAGES[cs]);
-                    break;
-                case ("noise"):
-                    if (Constants.NOISE_IMAGES.ContainsKey(cs))
-                        imageList.AddRange(Constants.NOISE_IMAGES[cs]);
-                    break;
-                case ("voc"):
-                    if (Constants.VOC_IMAGES.ContainsKey(cs))
-                        imageList.AddRange(Constants.VOC_IMAGES[cs]);
-                    break;
-                default:
-                    break;
-            }
-
-            return imageList;
-        }
-
         /// <summary>
         /// Based on the sensor data, asynchronously returns a list of CImages to be displayed on the avatar page.
         /// </summary>
-        /// <param name="sensorData"></param>
-        /// <param name="dateTime"></param>
-        /// <returns></returns>
+        /// <param name="sensorData">The retrived sensor data for a room</param>
+        /// <param name="dateTime">The current date</param>
+        /// <returns>A list of CImages that contains the avatar images</returns>
         public async Task<List<CImage>> GetAvatar(SensorData sensorData, DateTime dateTime)
         {
             //Start the following as a task such that it can execute asynchronously
@@ -136,6 +71,74 @@ namespace JetBanjo.Logic.Pages
             });
             return await t; //Asynchronously return the result of t, namely the list of images.
         }
+
+
+        #region Private methods
+        private void ResetChild()
+        {
+            highCO2 = false;
+            highNoise = false;
+        }
+
+        /// <summary>
+        /// Uses the classification of a single sensor parameter to pick a set of images to show.
+        /// Is called once for each parameter.
+        /// </summary>
+        /// <param name="classification">The classification int</param>
+        /// <param name="range">The data range for which the images are selected</param>
+        /// <returns>A list of CImages</returns>
+        private List<CImage> RetrieveImages(int classification, DataRange range)
+        {
+            List<CImage> imageList = new List<CImage>();
+
+            int cs = classification;
+
+            //Determine if the avatar should be laying down, holding hands over ears, or both
+            if (highCO2 && highNoise)
+                cs += Constants.IMAGE_OFFSET_SLEEPING_NOISE;
+            else if (highCO2)
+                cs += Constants.IMAGE_OFFSET_SLEEPING;
+            else if (highNoise)
+                cs += Constants.IMAGE_OFFSET_NOISE;
+
+            //Pick a list of images based on the current sensor parameter and classification
+            switch (range.SensorType)
+            {
+                case ("temp"):
+                    if (Constants.TEMP_IMAGES.ContainsKey(cs))
+                        imageList.AddRange(Constants.TEMP_IMAGES[cs]);
+                    break;
+                case ("humid"):
+                    if (Constants.HUMID_IMAGES.ContainsKey(cs))
+                        imageList.AddRange(Constants.HUMID_IMAGES[cs]);
+                    break;
+                case ("co2"):
+                    if (Constants.CO2_IMAGES.ContainsKey(cs))
+                        imageList.AddRange(Constants.CO2_IMAGES[cs]);
+                    break;
+                case ("uv"):
+                    if (Constants.UV_IMAGES.ContainsKey(cs))
+                        imageList.AddRange(Constants.UV_IMAGES[cs]);
+                    break;
+                case ("light"):
+                    if (Constants.LIGHT_IMAGES.ContainsKey(cs))
+                        imageList.AddRange(Constants.LIGHT_IMAGES[cs]);
+                    break;
+                case ("noise"):
+                    if (Constants.NOISE_IMAGES.ContainsKey(cs))
+                        imageList.AddRange(Constants.NOISE_IMAGES[cs]);
+                    break;
+                case ("voc"):
+                    if (Constants.VOC_IMAGES.ContainsKey(cs))
+                        imageList.AddRange(Constants.VOC_IMAGES[cs]);
+                    break;
+                default:
+                    break;
+            }
+
+            return imageList;
+        }
+        #endregion
 
     }
 }
