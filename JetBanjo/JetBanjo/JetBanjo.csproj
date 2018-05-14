@@ -10,6 +10,7 @@
     <Compile Remove="Objects\**" />
     <EmbeddedResource Remove="Objects\**" />
     <None Remove="Objects\**" />
+    <Compile Remove="Resx\AppResources.da-DK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -176,16 +177,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\RoomSelectorPage.xaml.cs">
-      <DependentUpon>RoomSelectorPage.xaml</DependentUpon>
+    <Compile Update="Resx\AppResources.da-DK.Designer.cs">
+      <DependentUpon>AppResources.da-DK.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Pages\ScoringPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\IEQIssuesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\InfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\LeaderboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Settings.xaml">
@@ -196,6 +203,7 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.da-DK.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.da-DK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

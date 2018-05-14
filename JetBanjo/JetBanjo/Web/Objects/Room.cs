@@ -68,6 +68,14 @@ namespace JetBanjo.Web.Objects
         }
 
         /// <summary>
+        /// String with room name and score presented in the leaderboard
+        /// </summary>
+        public string LeaderboardString
+        {
+            get { return AppResources.room + ": " + RoomNumber + "              " + AppResources.score + ": " + Math.Floor(Score); }
+        }
+
+        /// <summary>
         /// Updates the current object with the latest data
         /// </summary>
         public async void Update()

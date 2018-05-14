@@ -164,7 +164,7 @@ namespace JetBanjo.Pages
         {
             Room temp = await Room.Get(currentRoomId);
 
-            Title = temp.RoomNumber;
+            Device.BeginInvokeOnMainThread(() => Title = temp.RoomNumber);
         }
 
         /// <summary>

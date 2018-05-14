@@ -61,6 +61,24 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acceptable.
+        /// </summary>
+        internal static string acceptable {
+            get {
+                return ResourceManager.GetString("acceptable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Air Quality.
+        /// </summary>
+        internal static string air_qual {
+            get {
+                return ResourceManager.GetString("air_qual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Room Battle.
         /// </summary>
         internal static string app_name {
@@ -79,6 +97,15 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bad.
+        /// </summary>
+        internal static string bad {
+            get {
+                return ResourceManager.GetString("bad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string cancel {
@@ -93,6 +120,15 @@ namespace JetBanjo.Resx {
         internal static string cannot_detect_backend {
             get {
                 return ResourceManager.GetString("cannot_detect_backend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Causations.
+        /// </summary>
+        internal static string causation {
+            get {
+                return ResourceManager.GetString("causation", resourceCulture);
             }
         }
         
@@ -147,6 +183,15 @@ namespace JetBanjo.Resx {
         internal static string example_room {
             get {
                 return ResourceManager.GetString("example_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Good.
+        /// </summary>
+        internal static string good {
+            get {
+                return ResourceManager.GetString("good", resourceCulture);
             }
         }
         
@@ -322,11 +367,38 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Leaderboard.
+        /// </summary>
+        internal static string leaderboard {
+            get {
+                return ResourceManager.GetString("leaderboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Measurements.
+        /// </summary>
+        internal static string measurements {
+            get {
+                return ResourceManager.GetString("measurements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string ok {
             get {
                 return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Perfect.
+        /// </summary>
+        internal static string perfect {
+            get {
+                return ResourceManager.GetString("perfect", resourceCulture);
             }
         }
         
@@ -457,11 +529,74 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Score.
+        /// </summary>
+        internal static string score {
+            get {
+                return ResourceManager.GetString("score", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room Score.
+        /// </summary>
+        internal static string scoring_page {
+            get {
+                return ResourceManager.GetString("scoring_page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string settings {
             get {
                 return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sound.
+        /// </summary>
+        internal static string sound {
+            get {
+                return ResourceManager.GetString("sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temperature.
+        /// </summary>
+        internal static string temp_hum {
+            get {
+                return ResourceManager.GetString("temp_hum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terrible.
+        /// </summary>
+        internal static string terrible {
+            get {
+                return ResourceManager.GetString("terrible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        internal static string time {
+            get {
+                return ResourceManager.GetString("time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visuals.
+        /// </summary>
+        internal static string visual {
+            get {
+                return ResourceManager.GetString("visual", resourceCulture);
             }
         }
     }
