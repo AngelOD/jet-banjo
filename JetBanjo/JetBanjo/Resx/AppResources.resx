@@ -246,8 +246,53 @@
   <data name="room_settings" xml:space="preserve">
     <value>Room settings</value>
   </data>
+  <data name="score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="scoring_page" xml:space="preserve">
+    <value>Room Score</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="acceptable" xml:space="preserve">
+    <value>Acceptable</value>
+  </data>
+  <data name="air_qual" xml:space="preserve">
+    <value>Air Quality</value>
+  </data>
+  <data name="bad" xml:space="preserve">
+    <value>Bad</value>
+  </data>
+  <data name="causation" xml:space="preserve">
+    <value>Causations</value>
+  </data>
+  <data name="good" xml:space="preserve">
+    <value>Good</value>
+  </data>
+  <data name="perfect" xml:space="preserve">
+    <value>Perfect</value>
+  </data>
+  <data name="sound" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="temp_hum" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="terrible" xml:space="preserve">
+    <value>Terrible</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="visual" xml:space="preserve">
+    <value>Visuals</value>
+  </data>
+  <data name="measurements" xml:space="preserve">
+    <value>Measurements</value>
+  </data>
+  <data name="leaderboard" xml:space="preserve">
+    <value>Leaderboard</value>
   </data>
   <data name="issue_co2_severe" xml:space="preserve">
     <value>Open windows and doors to ensure drafts</value>
@@ -265,6 +310,6 @@
     <value>Increase the temperature by turning on a radiator or something similar.</value>
   </data>
   <data name="q_uv" xml:space="preserve">
-    <value>What is UV? : ?????</value>
+    <value>How does UV affect you? : Ultraviolet light, also sometimes called ultraviolet radiation, is a form of non visible light emitted primarily from the sun, but it can also be emitted from special lamps. Ultraviolet radiation is absorbed by the skin and eyes. It is when the skin absorbs too much UV radiation that it begins to turn brownish and then turn into a sunburn. Prolonged exposure to UV radiation can promote the risk of skin cancer. You can protect yourself from UV radiation by using sunscreen and sunglasses.</value>
   </data>
 </root>

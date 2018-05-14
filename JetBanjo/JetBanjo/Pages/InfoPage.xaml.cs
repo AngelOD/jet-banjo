@@ -46,7 +46,7 @@ namespace JetBanjo.Pages
 
         private void AddMenuItem(string str)
         {
-            string[] q = str.Split(':');
+            string[] q = str.Split(': ');
             collection.Add(new TextInfoPage(q[0], q[1]));
         }
     }
