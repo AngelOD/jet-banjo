@@ -46,7 +46,8 @@ namespace JetBanjo.Pages
         private async Task RequestLeaderboard()
         {
             List<Room> temp = await Room.GetList(); //Actual data
-            leaderboardListView.ItemsSource = temp;
+            List<Room> sortedList = temp.OrderByDescending(o => o.Score).ToList();
+            leaderboardListView.ItemsSource = sortedList;
         }
     }
 }
