@@ -634,121 +634,73 @@ namespace JetBanjo.Utils
         };
 
         //Icon constants
-        public static readonly Dictionary<int, CachedImage> TEMP_ICONS = new Dictionary<int, CachedImage>()
+        public static readonly Dictionary<int, CImage> TEMP_ICONS = new Dictionary<int, CImage>()
         {
             {
-                1, new CachedImage() 
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempCold.png")
-                }
+                1, new CImage("JetBanjo.Resources.Icons.Icon-TempCold.png", ImageType.Other)
             },
             {
-                2, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempCold.png")
-                }
+                2, new CImage("JetBanjo.Resources.Icons.Icon-TempCold.png", ImageType.Other)
             },
             {
-                4, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempHot.png")
-                }
+                4, new CImage("JetBanjo.Resources.Icons.Icon-TempHot.png", ImageType.Other)
             },
             {
-                5, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-TempHot.png")
-                }
+                5, new CImage("JetBanjo.Resources.Icons.Icon-TempHot.png", ImageType.Other)
             }
         };
-        public static readonly Dictionary<int, CachedImage> HUM_ICONS = new Dictionary<int, CachedImage>()
+        public static readonly Dictionary<int, CImage> HUM_ICONS = new Dictionary<int, CImage>()
         {
             {
-                1, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-HumDry.png")
-                }
+                1, new CImage("JetBanjo.Resources.Icons.Icon-HumDry.png", ImageType.Other)
             },
             {
-                5, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-HumWet.png")
-                }
+                5, new CImage("JetBanjo.Resources.Icons.Icon-HumWet.png", ImageType.Other)
             }
         };
-        public static readonly Dictionary<int, CachedImage> CO2_ICONS = new Dictionary<int, CachedImage>()
+        public static readonly Dictionary<int, CImage> CO2_ICONS = new Dictionary<int, CImage>()
         {
             {
-                4, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Co2.png")
-                }
+                4, new CImage("JetBanjo.Resources.Icons.Icon-Co2.png", ImageType.Other)
             },
             {
-                5, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Co2.png")
-                }
+                5, new CImage("JetBanjo.Resources.Icons.Icon-Co2.png", ImageType.Other)
             }
         };
-        public static readonly Dictionary<int, CachedImage> VOC_ICONS = new Dictionary<int, CachedImage>()
+        public static readonly Dictionary<int, CImage> VOC_ICONS = new Dictionary<int, CImage>()
         {
             {
-                4, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-VOC.png")
-                }
+                4, new CImage("JetBanjo.Resources.Icons.Icon-VOC.png", ImageType.Other)
             },
             {
-                5, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-VOC.png")
-                }
+                5, new CImage("JetBanjo.Resources.Icons.Icon-VOC.png", ImageType.Other)
             }
         };
-        public static readonly Dictionary<int, CachedImage> LIGHT_ICONS = new Dictionary<int, CachedImage>()
+        public static readonly Dictionary<int, CImage> LIGHT_ICONS = new Dictionary<int, CImage>()
         {
             {
-                1, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-LightDark.png")
-                }
+                1, new CImage("JetBanjo.Resources.Icons.Icon-LightDark.png", ImageType.Other)
             },
             {
-                5, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-LightBright.png")
-                }
+                5, new CImage("JetBanjo.Resources.Icons.Icon-LightBright.png", ImageType.Other)
             }
         };
-        public static readonly Dictionary<int, CachedImage> UV_ICONS = new Dictionary<int, CachedImage>()
+        public static readonly Dictionary<int, CImage> UV_ICONS = new Dictionary<int, CImage>()
         {
             {
-                4, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-UV.png")
-                }
+                4, new CImage("JetBanjo.Resources.Icons.Icon-UV.png", ImageType.Other)
             },
             {
-                5, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-UV.png")
-                }
+                5, new CImage("JetBanjo.Resources.Icons.Icon-UV.png", ImageType.Other)
             }
         };
-        public static readonly Dictionary<int, CachedImage> NOISE_ICONS = new Dictionary<int, CachedImage>()
+        public static readonly Dictionary<int, CImage> NOISE_ICONS = new Dictionary<int, CImage>()
         {
             {
-                4, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Noise.png")
-                }
+                4, new CImage("JetBanjo.Resources.Icons.Icon-Noise.png", ImageType.Other)
             },
             {
-                5, new CachedImage()
-                {
-                    Source = ImageSource.FromResource("JetBanjo.Resources.Icons.Icon-Noise.png")
-                }
+                5, new CImage("JetBanjo.Resources.Icons.Icon-Noise.png", ImageType.Other)
             }
         };
     }

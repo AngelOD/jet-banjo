@@ -10,6 +10,6 @@ namespace JetBanjo.Utils
     /// </summary>
     public enum ImageType
     {
-        Background, BackgroundOverlay, WindowOverlay, Character, Arms, CO2, Humidity, UV, Noise, ColdSweatFire, Sunglasses, VOC, Frozen, Dark
+        Background, BackgroundOverlay, WindowOverlay, Character, Arms, CO2, Humidity, UV, Noise, ColdSweatFire, Sunglasses, VOC, Frozen, Dark, Other
     }
 }
