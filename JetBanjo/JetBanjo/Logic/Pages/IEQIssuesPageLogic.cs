@@ -73,7 +73,7 @@ namespace JetBanjo.Logic.Pages
                 case ("temp"):
                     if (Constants.TEMP_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.TEMP_ICONS[classification];
+                        image = Constants.TEMP_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
                             case 1:
@@ -96,7 +96,7 @@ namespace JetBanjo.Logic.Pages
                 case ("humid"):
                     if (Constants.HUM_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.HUM_ICONS[classification];
+                        image = Constants.HUM_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
                             case 1:
@@ -129,7 +129,7 @@ namespace JetBanjo.Logic.Pages
                 case ("co2"):
                     if (Constants.CO2_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.CO2_ICONS[classification];
+                        image = Constants.CO2_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
                             case 4:
@@ -146,7 +146,7 @@ namespace JetBanjo.Logic.Pages
                 case ("uv"):
                     if (Constants.UV_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.UV_ICONS[classification];
+                        image = Constants.UV_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
                             case 4:
@@ -163,7 +163,7 @@ namespace JetBanjo.Logic.Pages
                 case ("light"):
                     if (Constants.LIGHT_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.LIGHT_ICONS[classification];
+                        image = Constants.LIGHT_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
                             case 1:
@@ -180,7 +180,7 @@ namespace JetBanjo.Logic.Pages
                 case ("noise"):
                     if (Constants.NOISE_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.NOISE_ICONS[classification];
+                        image = Constants.NOISE_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
                             case 4:
@@ -197,7 +197,7 @@ namespace JetBanjo.Logic.Pages
                 case ("voc"):
                     if (Constants.VOC_ICONS.ContainsKey(classification))
                     {
-                        image = Constants.VOC_ICONS[classification];
+                        image = Constants.VOC_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
                             case 4:
