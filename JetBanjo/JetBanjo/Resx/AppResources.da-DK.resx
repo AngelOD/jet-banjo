@@ -202,7 +202,7 @@
     <value>Rul gardinerne for eller tag solcream på hvis du sidder i solen</value>
   </data>
   <data name="issue_voc" xml:space="preserve">
-    <value>Åben vinduerne og døre så der kommer gennemtræk, du kan også prøve at fjerne lygten ved at fjerne kilden, dette kan være mad eller skrald.</value>
+    <value>Åben vinduerne og døre så der kommer gennemtræk, du kan også prøve at fjerne lugten ved at fjerne kilden, dette kan være mad eller skrald.</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>Ok</value>
@@ -217,7 +217,7 @@
     <value>Hvordan påvirker Luftfugtighed dig? : Luftfugtighed, også kaldet relativ luftfugtighed, er en betegnelse for hvor meget fugt der er i luften. Mængden er fugt afhænger af temperaturen og angives i %. Der kan derfor være langt mere vand i luften en varm sommerdag end på en kold vinterdag, selv om de har samme relative luftfugtighed. Luftfugtigheden begynder at påvirke dig når den bliver for høj, over 60% om sommeren og 45% om vinteren. Når den bliver for høj begynder der at være for meget vand i luften til at svede normalt. Dette resulterer i at det kan være svært at komme af med varmen. Når der er for lidt fugt i luften, under 25%, begynder man at få det tørt. Dette kommer især til udtryk omkring mund og øjne.</value>
   </data>
   <data name="q_indoor_climate" xml:space="preserve">
-    <value>Hvad er Indeklima? : Indeklima er en betegnelse for miljøet i det lokale eller i den bygning man befinder sig i. Miljøet kan f.x være for koldt, have dårlig akustik og dårlig udluftning, alt sammen noget der fører til et dårligt indeklima.</value>
+    <value>Hvad er Indeklima? : Indeklima er en betegnelse for miljøet i det lokale eller i den bygning man befinder sig i. Miljøet kan f.eks. være for koldt, have dårlig akustik og dårlig udluftning, alt sammen noget der fører til et dårligt indeklima.</value>
   </data>
   <data name="q_light" xml:space="preserve">
     <value>Hvordan påvirker lys dig? :  For lidt lys kan påvirker dig når du læser med at du bliver træt i øjnene af at fokuserer på at læse. Derimod kan for meget lys gøre det svært at læse og give dig hovedpine.</value>
@@ -271,7 +271,7 @@
     <value>Sørg for at øge temperaturen ved at tænde for radiatoren eller lignende.</value>
   </data>
   <data name="q_uv" xml:space="preserve">
-    <value>Hvordan påvirker UV dig? : Ultraviolet lys også nogle gange kaldet ultraviolet stråling, er en form for ikke synlig lys der primært udsendes fra solen, men kan også blive udsendt fra specielle lamper. Ultraviolet stråling optages af huden og øjnene. Det er når huden optager for meget UV stråling at den begynder at blive brunlig og derefter solskoldet. Ved langvarig udsættelse for UV stråling kan fremme risikoen for hudkræft. Du kan beskytte dig mod UV stråling ved at bruge solcreme og solbriller.  </value>
+    <value>Hvordan påvirker UV dig? : Ultraviolet lys også nogle gange kaldet ultraviolet stråling, er en form for ikke synlig lys der primært udsendes fra solen, men kan også blive udsendt fra specielle lamper. Ultraviolet stråling optages af huden og øjnene. Det er når huden optager for meget UV stråling at den begynder at blive brunlig og derefter solskoldet. Ved langvarig udsættelse for UV stråling hvilket kan fremme risikoen for hudkræft. Du kan beskytte dig mod UV stråling ved at bruge solcreme og solbriller.  </value>
   </data>
   <data name="acceptable" xml:space="preserve">
     <value>Acceptabel</value>

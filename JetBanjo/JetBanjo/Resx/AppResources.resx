@@ -157,7 +157,7 @@
     <value>IP address</value>
   </data>
   <data name="ip_null_or_empty_err_msg" xml:space="preserve">
-    <value>The ip field must be specified for this app to work</value>
+    <value>The IP field must be specified for this app to work</value>
   </data>
   <data name="ip_settings" xml:space="preserve">
     <value>IP settings</value>
@@ -199,7 +199,7 @@
     <value>Open windows</value>
   </data>
   <data name="issue_uv_what" xml:space="preserve">
-    <value>Close the curtains or apply sunscreen if you are sitting in the sun light</value>
+    <value>Close the curtains or apply sunscreen if you are sitting in the sunlight</value>
   </data>
   <data name="issue_voc" xml:space="preserve">
     <value>Open the windows and doors to ensure drafts, you can also try to remove the source of the smell such as food or garbage</value>
@@ -223,7 +223,7 @@
     <value>How does light affect you? : Too little light can affect you when you are reading, as it can make it difficult to focus. However, too much light can make it difficult to read and give you a headache.</value>
   </data>
   <data name="q_sound" xml:space="preserve">
-    <value>How does sound affect you? : A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing, cause irritation and irritation.</value>
+    <value>How does sound affect you? : A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing and cause irritation.</value>
   </data>
   <data name="q_temperature" xml:space="preserve">
     <value>How does temperature affect you? : At high temperatures, it becomes difficult to get rid of the body heat. This causes you to sweat more and causes discomfort. If it gets too hot you can faint and get heat strokes, this is especially a problem with high humidity. At low temperatures, you start to get tired, feel discomfort and lack of coordination.</value>

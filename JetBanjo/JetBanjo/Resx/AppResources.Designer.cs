@@ -223,7 +223,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The ip field must be specified for this app to work.
+        ///   Looks up a localized string similar to The IP field must be specified for this app to work.
         /// </summary>
         internal static string ip_null_or_empty_err_msg {
             get {
@@ -394,7 +394,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close the curtains or apply sunscreen if you are sitting in the sun light.
+        ///   Looks up a localized string similar to Close the curtains or apply sunscreen if you are sitting in the sunlight.
         /// </summary>
         internal static string issue_uv_what {
             get {
@@ -493,7 +493,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to How does sound affect you? : A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing, cause irritation and irritation..
+        ///   Looks up a localized string similar to How does sound affect you? : A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing and cause irritation..
         /// </summary>
         internal static string q_sound {
             get {
