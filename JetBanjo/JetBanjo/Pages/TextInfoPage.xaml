@@ -7,10 +7,8 @@
              x:Class="JetBanjo.Pages.TextInfoPage">
     
     <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="pageHeader"
-                VerticalOptions="Start" HorizontalOptions="Start" FontSize="Large"/>
-            <Label x:Name="pageText" LineBreakMode="WordWrap" FontSize="Medium"></Label>
+        <StackLayout Padding="20,20,20,20">
+            <Label x:Name="pageText" LineBreakMode="WordWrap" FontSize="Medium"/>
         </StackLayout>
     </ContentPage.Content>
 </c:CContentPage>

@@ -143,7 +143,9 @@ namespace JetBanjo.Pages
         /// <param name="args"></param>
         private async void OnTouch(object sender, EventArgs args)
         {
+            tapGestureRecognizer.Tapped -= OnTouch;
             await Navigation.PushPopupAsync(new IEQIssuesPage());
+            tapGestureRecognizer.Tapped += OnTouch;
         }
 
         /// <summary>
