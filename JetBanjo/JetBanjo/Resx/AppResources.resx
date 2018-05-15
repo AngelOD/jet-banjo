@@ -208,7 +208,7 @@
     <value>Ok</value>
   </data>
   <data name="q_climate_causes" xml:space="preserve">
-    <value>What are the causes of bad indoor climate? :The room itself is an influence on how well the indoor climate is. The most important factors are whether there is poor ventilation and if there are too many people in a room. In addition, there are also some minor factors such as the rubbish bin is full and there is wet clothes in the room.</value>
+    <value>What are the causes of bad indoor climate? :The room itself is an influence on how well the indoor climate is. The most important factors are whether there is poor ventilation and if there are too many people in a room. In addition, there are also some minor factors such as the rubbish bin is full and there are wet clothes in the room.</value>
   </data>
   <data name="q_co2" xml:space="preserve">
     <value>How does CO2 affect you? :Carbon dioxide is a gas produced by the combustion of organic materials and fossil fuels. CO2 results from animals and humans exhaling. CO2 is found naturally in the atmosphere. Carbon dioxide in a high concentration reduces the amount of oxygen in a room, thus causing fatigue.</value>
@@ -310,6 +310,6 @@
     <value>Increase the temperature by turning on a radiator or something similar.</value>
   </data>
   <data name="q_uv" xml:space="preserve">
-    <value>How does UV affect you? :Ultraviolet light, also sometimes called ultraviolet radiation, is a form of non visible light emitted primarily from the sun, but it can also be emitted from special lamps. Ultraviolet radiation is absorbed by the skin and eyes. It is when the skin absorbs too much UV radiation that it begins to turn brownish and then turn into a sunburn. Prolonged exposure to UV radiation can promote the risk of skin cancer. You can protect yourself from UV radiation by using sunscreen and sunglasses.</value>
+    <value>How does UV affect you? :Ultraviolet light, also sometimes called ultraviolet radiation, is a form of invisible light emitted primarily from the sun, but it can also be emitted from special lamps. Ultraviolet radiation is absorbed by the skin and eyes. It is when the skin absorbs too much UV radiation that it begins to turn brownish and then turn into a sunburn. Prolonged exposure to UV radiation can promote the risk of skin cancer. You can protect yourself from UV radiation by using sunscreen and sunglasses.</value>
   </data>
 </root>
