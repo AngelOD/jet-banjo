@@ -208,28 +208,28 @@
     <value>Ok</value>
   </data>
   <data name="q_climate_causes" xml:space="preserve">
-    <value>What are the causes of bad indoor climate? : The room itself is an influence on how well the indoor climate is. The most important factors are whether there is poor ventilation and if there are too many people in a room. In addition, there are also some minor factors such as the rubbish bin is full and there is wet clothes in the room.</value>
+    <value>What are the causes of bad indoor climate? :The room itself is an influence on how well the indoor climate is. The most important factors are whether there is poor ventilation and if there are too many people in a room. In addition, there are also some minor factors such as the rubbish bin is full and there are wet clothes in the room.</value>
   </data>
   <data name="q_co2" xml:space="preserve">
-    <value>How does CO2 affect you? : Carbon dioxide is a gas produced by the combustion of organic materials and fossil fuels. CO2 results from animals and humans exhaling. CO2 is found naturally in the atmosphere. Carbon dioxide in a high concentration reduces the amount of oxygen in a room, thus causing fatigue.</value>
+    <value>How does CO2 affect you? :Carbon dioxide is a gas produced by the combustion of organic materials and fossil fuels. CO2 results from animals and humans exhaling. CO2 is found naturally in the atmosphere. Carbon dioxide in a high concentration reduces the amount of oxygen in a room, thus causing fatigue.</value>
   </data>
   <data name="q_humidity" xml:space="preserve">
-    <value>How does humidity affect you? : Humidity, also known as relative humidity, is a term for how much moisture is in the air. The amount of moisture depends on the temperature and is stated in %. Therefore, the air during a hot summer day can contain much more water than on a cold winter day, even if they have the same relative humidity. Humidity begins to affect you when it gets too high. The amount varies with over 60% during summer and 45% during winter. When it gets too high, there is too much water in the air to sweat normally. This means that it can be difficult to get rid of the heat. When there is too little moisture in the air, under 25%, it becomes dry. This is felt especially by the mouth and eyes.</value>
+    <value>How does humidity affect you? :Humidity, also known as relative humidity, is a term for how much moisture is in the air. The amount of moisture depends on the temperature and is stated in %. Therefore, the air during a hot summer day can contain much more water than on a cold winter day, even if they have the same relative humidity. Humidity begins to affect you when it gets too high. The amount varies with over 60% during summer and 45% during winter. When it gets too high, there is too much water in the air to sweat normally. This means that it can be difficult to get rid of the heat. When there is too little moisture in the air, under 25%, it becomes dry. This is felt especially by the mouth and eyes.</value>
   </data>
   <data name="q_indoor_climate" xml:space="preserve">
-    <value>What is Indoor climate? : Indoor climate is a term for the environment in a room or building. The environment may be too cold, have poor acoustics or poor ventilation, all of which lead to a poor indoor climate.</value>
+    <value>What is Indoor climate? :Indoor climate is a term for the environment in a room or building. The environment may be too cold, have poor acoustics or poor ventilation, all of which lead to a poor indoor climate.</value>
   </data>
   <data name="q_light" xml:space="preserve">
-    <value>How does light affect you? : Too little light can affect you when you are reading, as it can make it difficult to focus. However, too much light can make it difficult to read and give you a headache.</value>
+    <value>How does light affect you? :Too little light can affect you when you are reading, as it can make it difficult to focus. However, too much light can make it difficult to read and give you a headache.</value>
   </data>
   <data name="q_sound" xml:space="preserve">
-    <value>How does sound affect you? : A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing and cause irritation.</value>
+    <value>How does sound affect you? :A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing and cause irritation.</value>
   </data>
   <data name="q_temperature" xml:space="preserve">
-    <value>How does temperature affect you? : At high temperatures, it becomes difficult to get rid of the body heat. This causes you to sweat more and causes discomfort. If it gets too hot you can faint and get heat strokes, this is especially a problem with high humidity. At low temperatures, you start to get tired, feel discomfort and lack of coordination.</value>
+    <value>How does temperature affect you? :At high temperatures, it becomes difficult to get rid of the body heat. This causes you to sweat more and causes discomfort. If it gets too hot you can faint and get heat strokes, this is especially a problem with high humidity. At low temperatures, you start to get tired, feel discomfort and lack of coordination.</value>
   </data>
   <data name="q_voc" xml:space="preserve">
-    <value>How does VOCs affect you? : VOC, also called volatile organic compounds, is a collective term for the various organic chemicals. They have a low boiling point and are therefore a gas at room temperature. For this reason, there are higher measurements of VOCs in the summer. Most VOCs can be smelled and are released by paint, glue, cooking, leftover food, etc. An excessive amount of VOC in the air of the room can cause irritation and discomfort.</value>
+    <value>How does VOCs affect you? :VOC, also called volatile organic compounds, is a collective term for the various organic chemicals. They have a low boiling point and are therefore a gas at room temperature. For this reason, there are higher measurements of VOCs in the summer. Most VOCs can be smelled and are released by paint, glue, cooking, leftover food, etc. An excessive amount of VOC in the air of the room can cause irritation and discomfort.</value>
   </data>
   <data name="remove_ip" xml:space="preserve">
     <value>Remove IP</value>
@@ -310,6 +310,6 @@
     <value>Increase the temperature by turning on a radiator or something similar.</value>
   </data>
   <data name="q_uv" xml:space="preserve">
-    <value>How does UV affect you? : Ultraviolet light, also sometimes called ultraviolet radiation, is a form of non visible light emitted primarily from the sun, but it can also be emitted from special lamps. Ultraviolet radiation is absorbed by the skin and eyes. It is when the skin absorbs too much UV radiation that it begins to turn brownish and then turn into a sunburn. Prolonged exposure to UV radiation can promote the risk of skin cancer. You can protect yourself from UV radiation by using sunscreen and sunglasses.</value>
+    <value>How does UV affect you? :Ultraviolet light, also sometimes called ultraviolet radiation, is a form of invisible light emitted primarily from the sun, but it can also be emitted from special lamps. Ultraviolet radiation is absorbed by the skin and eyes. It is when the skin absorbs too much UV radiation that it begins to turn brownish and then turn into a sunburn. Prolonged exposure to UV radiation can promote the risk of skin cancer. You can protect yourself from UV radiation by using sunscreen and sunglasses.</value>
   </data>
 </root>
