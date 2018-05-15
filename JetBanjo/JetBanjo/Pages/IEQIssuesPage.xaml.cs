@@ -47,8 +47,7 @@ namespace JetBanjo.Pages
                     {
                         Orientation = StackOrientation.Horizontal,
                         HorizontalOptions = LayoutOptions.FillAndExpand,
-                        Padding = 10,
-                        Spacing = 20
+                        Spacing = 10
                     };
 
                     hStackLayout.Children.Add(item.Item2);  //Adds the image to the stacklayout

@@ -250,16 +250,25 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open the window.
+        ///   Looks up a localized string similar to Open windows and doors to ensure drafts.
         /// </summary>
-        internal static string issue_co2 {
+        internal static string issue_co2_severe {
             get {
-                return ResourceManager.GetString("issue_co2", resourceCulture);
+                return ResourceManager.GetString("issue_co2_severe", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It is dry drink water.
+        ///   Looks up a localized string similar to Open the window.
+        /// </summary>
+        internal static string issue_co2_soft {
+            get {
+                return ResourceManager.GetString("issue_co2_soft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows and doors to prevent drafts.
         /// </summary>
         internal static string issue_hum_dry {
             get {
@@ -268,7 +277,25 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If its raining close the window.
+        ///   Looks up a localized string similar to Try to place a glass of water in the sun so it can evaporate, it helps to close the curtains, doors and windows..
+        /// </summary>
+        internal static string issue_hum_dry_temp_high {
+            get {
+                return ResourceManager.GetString("issue_hum_dry_temp_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close windows and doors to prevent drafts.
+        /// </summary>
+        internal static string issue_hum_dry_temp_low {
+            get {
+                return ResourceManager.GetString("issue_hum_dry_temp_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open windows and doors to ensure drafts.
         /// </summary>
         internal static string issue_hum_wet {
             get {
@@ -277,7 +304,25 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close courtains or turn down the light.
+        ///   Looks up a localized string similar to Open windows and doors to ensure drafts or use an air conditioner.
+        /// </summary>
+        internal static string issue_hum_wet_temp_high {
+            get {
+                return ResourceManager.GetString("issue_hum_wet_temp_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase the temperature by turning on a radiator or something similar..
+        /// </summary>
+        internal static string issue_hum_wet_temp_low {
+            get {
+                return ResourceManager.GetString("issue_hum_wet_temp_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close the curtains.
         /// </summary>
         internal static string issue_light_bright {
             get {
@@ -286,7 +331,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watching movie? Else remove courtains or turn on the light.
+        ///   Looks up a localized string similar to Are you watching a movie? Otherwise remove curtains or turn on the light.
         /// </summary>
         internal static string issue_light_dark {
             get {
@@ -295,7 +340,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is too much noise in the room.
+        ///   Looks up a localized string similar to There is too much noise in the room, stop trying to compete in volume, if the noise comes from the outside try to close doors and windows.
         /// </summary>
         internal static string issue_noise {
             get {
@@ -313,7 +358,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close windows.
+        ///   Looks up a localized string similar to Ensure that the windows are closed.
         /// </summary>
         internal static string issue_temp_cold {
             get {
@@ -322,7 +367,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open windows and a door.
+        ///   Looks up a localized string similar to Open the windows.
         /// </summary>
         internal static string issue_temp_fire {
             get {
@@ -331,7 +376,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close windows and turn up the heat.
+        ///   Looks up a localized string similar to Ensure that the windows are closed and turn up the heat.
         /// </summary>
         internal static string issue_temp_ice {
             get {
@@ -349,16 +394,16 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close courtains or apply sunscreen .
+        ///   Looks up a localized string similar to Close the curtains or apply sunscreen if you are sitting in the sun light.
         /// </summary>
-        internal static string issue_uv {
+        internal static string issue_uv_what {
             get {
-                return ResourceManager.GetString("issue_uv", resourceCulture);
+                return ResourceManager.GetString("issue_uv_what", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is the bad air comming from the outside? Then close the windows, else open windows and doors.
+        ///   Looks up a localized string similar to Open the windows and doors to ensure drafts, you can also try to remove the source of the smell such as food or garbage.
         /// </summary>
         internal static string issue_voc {
             get {
@@ -403,7 +448,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What factors into indoor climate? : Something.
+        ///   Looks up a localized string similar to What are the causes of bad indoor climate? : The room itself is an influence on how well the indoor climate is. The most important factors are whether there is poor ventilation and if there are too many people in a room. In addition, there are also some minor factors such as the rubbish bin is full and there is wet clothes in the room..
         /// </summary>
         internal static string q_climate_causes {
             get {
@@ -412,16 +457,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What effects does bad indoor climate have : very bad!.
-        /// </summary>
-        internal static string q_climate_effects {
-            get {
-                return ResourceManager.GetString("q_climate_effects", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to What about CO2? : Do we know?.
+        ///   Looks up a localized string similar to How does CO2 affect you? : Carbon dioxide is a gas produced by the combustion of organic materials and fossil fuels. CO2 results from animals and humans exhaling. CO2 is found naturally in the atmosphere. Carbon dioxide in a high concentration reduces the amount of oxygen in a room, thus causing fatigue..
         /// </summary>
         internal static string q_co2 {
             get {
@@ -430,7 +466,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Humidity? : Do we know?.
+        ///   Looks up a localized string similar to How does humidity affect you? : Humidity, also known as relative humidity, is a term for how much moisture is in the air. The amount of moisture depends on the temperature and is stated in %. Therefore, the air during a hot summer day can contain much more water than on a cold winter day, even if they have the same relative humidity. Humidity begins to affect you when it gets too high. The amount varies with over 60% during summer and 45% during winter. When it gets too high, there is too much water in the  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string q_humidity {
             get {
@@ -439,7 +475,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What is Indoor Climate? : We just don&apos;t know.
+        ///   Looks up a localized string similar to What is Indoor climate? : Indoor climate is a term for the environment in a room or building. The environment may be too cold, have poor acoustics or poor ventilation, all of which lead to a poor indoor climate..
         /// </summary>
         internal static string q_indoor_climate {
             get {
@@ -448,7 +484,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Light? : Do we know?.
+        ///   Looks up a localized string similar to How does light affect you? : Too little light can affect you when you are reading, as it can make it difficult to focus. However, too much light can make it difficult to read and give you a headache..
         /// </summary>
         internal static string q_light {
             get {
@@ -457,7 +493,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Sound? : Do we know?.
+        ///   Looks up a localized string similar to How does sound affect you? : A moderate background sound can increase creativity, if what you are working with does not require much focus. However, there are problems with high sound levels if they continue for a long time, as it may damage the hearing, cause irritation and irritation..
         /// </summary>
         internal static string q_sound {
             get {
@@ -466,7 +502,7 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about Temperature? : Do we know?.
+        ///   Looks up a localized string similar to How does temperature affect you? : At high temperatures, it becomes difficult to get rid of the body heat. This causes you to sweat more and causes discomfort. If it gets too hot you can faint and get heat strokes, this is especially a problem with high humidity. At low temperatures, you start to get tired, feel discomfort and lack of coordination..
         /// </summary>
         internal static string q_temperature {
             get {
@@ -475,7 +511,16 @@ namespace JetBanjo.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What about VOC? : Do we know?.
+        ///   Looks up a localized string similar to How does UV affect you? : Ultraviolet light, also sometimes called ultraviolet radiation, is a form of non visible light emitted primarily from the sun, but it can also be emitted from special lamps. Ultraviolet radiation is absorbed by the skin and eyes. It is when the skin absorbs too much UV radiation that it begins to turn brownish and then turn into a sunburn. Prolonged exposure to UV radiation can promote the risk of skin cancer. You can protect yourself from UV radiation by using sunscreen and sungla [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string q_uv {
+            get {
+                return ResourceManager.GetString("q_uv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How does VOCs affect you? : VOC, also called volatile organic compounds, is a collective term for the various organic chemicals. They have a low boiling point and are therefore a gas at room temperature. For this reason, there are higher measurements of VOCs in the summer. Most VOCs can be smelled and are released by paint, glue, cooking, leftover food, etc. An excessive amount of VOC in the air of the room can cause irritation and discomfort..
         /// </summary>
         internal static string q_voc {
             get {

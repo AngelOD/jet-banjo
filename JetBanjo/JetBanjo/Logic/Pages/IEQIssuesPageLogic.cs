@@ -21,6 +21,11 @@ namespace JetBanjo.Logic.Pages
         /// <param name="sensorData">The retrived sensor data for a room</param>
         /// <param name="dateTime">The current date</param>
         /// <returns>A list of tuples</returns>
+
+        int tempClass;
+
+
+
         public List<Tuple<string,CachedImage>> GetIssues(SensorData sensorData, DateTime dateTime)
         {
             List<Tuple<string, CachedImage>> list = new List<Tuple<string, CachedImage>>();
@@ -34,7 +39,7 @@ namespace JetBanjo.Logic.Pages
                 humidClass = Classifier.Classify(sensorData.Humidity, Constants.HUMID_SUMMER_RANGES);
             int co2Class = Classifier.Classify(sensorData.CO2, Constants.CO2_RANGES);
             int noiseClass = Classifier.Classify(sensorData.dB, Constants.NOISE_RANGES);
-            int tempClass = Classifier.Classify(sensorData.Temperature, Constants.TEMP_RANGES);
+                tempClass = Classifier.Classify(sensorData.Temperature, Constants.TEMP_RANGES);
             int uvClass = Classifier.Classify(sensorData.UV, Constants.UV_RANGES);
             int lightClass = Classifier.Classify(sensorData.Lux, Constants.LIGHT_RANGES);
             int vocClass = Classifier.Classify(sensorData.VOC, Constants.VOC_RANGES);
@@ -95,10 +100,26 @@ namespace JetBanjo.Logic.Pages
                         switch (classification)
                         {
                             case 1:
-                                text = AppResources.issue_hum_dry;
+                                if(tempClass == 5)
+                                {
+                                    text = AppResources.issue_hum_dry_temp_high;
+                                }
+                                else if(tempClass == 1)
+                                {
+                                    text = AppResources.issue_hum_dry_temp_low;
+                                }
+                                else text = AppResources.issue_hum_dry;
                                 break;
                             case 5:
-                                text = AppResources.issue_hum_wet;
+                                if (tempClass == 5)
+                                {
+                                    text = AppResources.issue_hum_wet_temp_high;
+                                }
+                                else if (tempClass == 1)
+                                {
+                                    text = AppResources.issue_hum_wet_temp_low;
+                                }
+                                else text = AppResources.issue_hum_wet;
                                 break;
                             default:
                                 break;
@@ -112,10 +133,10 @@ namespace JetBanjo.Logic.Pages
                         switch (classification)
                         {
                             case 4:
-                                text = AppResources.issue_co2;
+                                text = AppResources.issue_co2_soft;
                                 break;
                             case 5:
-                                text = AppResources.issue_co2;
+                                text = AppResources.issue_co2_severe;
                                 break;
                             default:
                                 break;
@@ -129,10 +150,10 @@ namespace JetBanjo.Logic.Pages
                         switch (classification)
                         {
                             case 4:
-                                text = AppResources.issue_uv;
+                                text = AppResources.issue_uv_what;
                                 break;
                             case 5:
-                                text = AppResources.issue_uv;
+                                text = AppResources.issue_uv_what;
                                 break;
                             default:
                                 break;
