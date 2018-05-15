@@ -23,7 +23,7 @@ namespace JetBanjo.Pages
             InitializeComponent();
             infoListView.ItemsSource = collection;
 
-
+            //Pushes a TextInfoPage to the front
             infoListView.ItemSelected += (sender, e) =>
             {
                 if (infoListView.SelectedItem == null)
@@ -33,17 +33,23 @@ namespace JetBanjo.Pages
                 infoListView.SelectedItem = null;
             };
 
+
+            //Adds each menu item
             AddMenuItem(AppResources.q_indoor_climate);
             AddMenuItem(AppResources.q_climate_causes);
-            AddMenuItem(AppResources.q_climate_effects);
-            AddMenuItem(AppResources.q_co2);
-            AddMenuItem(AppResources.q_humidity);
             AddMenuItem(AppResources.q_temperature);
+            AddMenuItem(AppResources.q_humidity);
+            AddMenuItem(AppResources.q_co2);
             AddMenuItem(AppResources.q_voc);
             AddMenuItem(AppResources.q_light);
+            AddMenuItem(AppResources.q_uv);
             AddMenuItem(AppResources.q_sound);
         }
 
+        /// <summary>
+        /// Splits a string and uses the first part as the title and second parts as bread text
+        /// </summary>
+        /// <param name="str">input string</param>
         private void AddMenuItem(string str)
         {
             string[] q = str.Split(':');
