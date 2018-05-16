@@ -19,11 +19,13 @@ namespace JetBanjo.Pages
 	public partial class IEQIssuesPage : PopupPage
 	{
         private IIEQIssuesPageLogic logic;
+        private string currentRoomId;
 
-		public IEQIssuesPage ()
+		public IEQIssuesPage (string roomId)
 		{
 			InitializeComponent ();
             logic = new IEQIssuesPageLogic();
+            currentRoomId = roomId;
 
             ShowIssues();
         }
@@ -97,7 +99,7 @@ namespace JetBanjo.Pages
         /// <returns>A list of icons and information</returns>
         private async Task<List<Tuple<string, CachedImage>>> RequestIssues()
         {
-            return logic.GetIssues(await SensorData.Get(), DateTime.Now);
+            return logic.GetIssues(await SensorData.Get(currentRoomId), DateTime.Now);
         }
         #endregion
     }
