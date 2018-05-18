@@ -177,6 +177,7 @@ namespace JetBanjo.Pages
         /// <param name="args"></param>
         private async void PickerIconPress(object sender, EventArgs args)
         {
+            toolbarRoom.Clicked -= PickerIconPress;
             List<Room> rooms = await Room.GetList();
 
             //Used for the callback when an item has been chosen or not
@@ -189,6 +190,7 @@ namespace JetBanjo.Pages
                     currentRoomId = r.Id;
                     OnTimer();
                 }
+                toolbarRoom.Clicked += PickerIconPress;
             }
 
             //Displays the room selector dialog 

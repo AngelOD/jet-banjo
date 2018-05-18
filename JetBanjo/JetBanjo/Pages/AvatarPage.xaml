@@ -11,7 +11,7 @@
     </ContentPage.Content>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{i18n:Translate choose_room}" Order="Primary" Activated="PickerIconPress"/>
+        <ToolbarItem x:Name="toolbarRoom" Text="{i18n:Translate choose_room}" Order="Primary" Clicked="PickerIconPress"/>
     </ContentPage.ToolbarItems>
 
 </c:CContentPage>
