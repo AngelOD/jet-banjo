@@ -43,8 +43,9 @@ namespace JetBanjo.Pages
         /// <param name="sender"></param>
         /// <param name="args"></param>
         /// <returns>Void</returns>
-        public async Task OnChangeRoomClick(object sender, EventArgs args)
+        public async void OnChangeRoomClick(object sender, EventArgs args)
         {
+            ChangeRoom.Clicked -= OnChangeRoomClick;
             List<Room> rooms = await Room.GetList();
 
             //Local method that is used then a room is selected in the dialog
@@ -56,6 +57,7 @@ namespace JetBanjo.Pages
                     DataStore.SaveValue(Keys.Room, r.Id);
                     Task.Run(async () => { await UpdateCurrentRoom(); }).Wait();
                 }
+                ChangeRoom.Clicked += OnChangeRoomClick;
             }
 
             //Displays the dialog

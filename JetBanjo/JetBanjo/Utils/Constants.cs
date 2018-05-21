@@ -43,14 +43,14 @@ namespace JetBanjo.Utils
         public static int IMAGE_OFFSET_SLEEPING_NOISE = 300; //Offset used if both
 
         //Ranges for classifying data (-1 indicates that no value is present)
-        public static DataRange TEMP_RANGES = new DataRange("temp", 18, 19.5, 23.5, 25);
+        public static DataRange TEMP_RANGES = new DataRange("temp", 18, 19.5, 23.5, 25); 
         public static DataRange HUMID_SUMMER_RANGES = new DataRange("humid", 25, 35, 50, 60);
         public static DataRange HUMID_WINTER_RANGES = new DataRange("humid", 25, 35, 40, 45);
-        public static DataRange CO2_RANGES = new DataRange("co2", -1, -1, 1000, 2000);
-        public static DataRange UV_RANGES = new DataRange("uv", -1, -1, 3, 5);
-        public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 2000);
-        public static DataRange NOISE_RANGES = new DataRange("noise", -1, -1, 60, 75);
-        public static DataRange VOC_RANGES = new DataRange("voc", -1, -1, 60, 180);
+        public static DataRange CO2_RANGES = new DataRange("co2", 1000, 1200, 1400, 2000); 
+        public static DataRange UV_RANGES = new DataRange("uv", 3, 4, 5, 6); 
+        public static DataRange LIGHT_RANGES = new DataRange("light", 200, 400, 1000, 2000); 
+        public static DataRange NOISE_RANGES = new DataRange("noise", 60, 65, 60, 75); 
+        public static DataRange VOC_RANGES = new DataRange("voc", 60, 90, 120, 180); 
 
         //Image constants. Dictionaries containing combinations of images to be shown given various readings on each sensor.
         public static readonly Dictionary<int, List<CImage>> TEMP_IMAGES = new Dictionary<int, List<CImage>>()
@@ -240,49 +240,57 @@ namespace JetBanjo.Utils
             {
                 2, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
                 2 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
                 3, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
                 3 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
                 3 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
                 3 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("child-no-arms.png", ImageType.Character)
+                    new CImage("child-no-arms.png", ImageType.Character),
+                    new CImage("overlay-dizzy.png", ImageType.CO2)
                 }
             },
             {
@@ -339,33 +347,88 @@ namespace JetBanjo.Utils
             }
         };
         public static readonly Dictionary<int, List<CImage>> UV_IMAGES = new Dictionary<int, List<CImage>>()
-        {
-            {
-                4, new List<CImage>()
+        {{
+                2, new List<CImage>()
                 {
                     new CImage("overlay-tan-no-arms.png", ImageType.UV),
                     new CImage("overlay-tan-arms-down.png", ImageType.UV)
                 }
             },
             {
-                4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-tan-no-arms.png", ImageType.UV),
                     new CImage("overlay-sleeping-tan-arms-down.png", ImageType.UV)
                 }
             },
             {
-                4 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                2 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-tan-no-arms.png", ImageType.UV),
                     new CImage("overlay-tan-arms-up.png", ImageType.UV)
                 }
             },
             {
-                4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                2 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
                     new CImage("overlay-sleeping-tan-no-arms.png", ImageType.UV),
                     new CImage("overlay-sleeping-tan-arms-up.png", ImageType.UV)
+                }
+            },
+            {
+                3, new List<CImage>()
+                {
+                    new CImage("overlay-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-tan-arms-down.png", ImageType.UV)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-tan-arms-down.png", ImageType.UV)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-tan-arms-up.png", ImageType.UV)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-tan-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-tan-arms-up.png", ImageType.UV)
+                }
+            },
+            {
+                4, new List<CImage>()
+                {
+                    new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sunburn-arms-down.png", ImageType.UV)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-sunburn-arms-down.png", ImageType.UV)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sunburn-arms-up.png", ImageType.UV)
+                }
+            },
+            {
+                4 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-sleeping-sunburn-no-arms.png", ImageType.UV),
+                    new CImage("overlay-sleeping-sunburn-arms-up.png", ImageType.UV)
                 }
             },
             {
@@ -395,7 +458,7 @@ namespace JetBanjo.Utils
                     new CImage("overlay-sleeping-sunburn-no-arms.png", ImageType.UV),
                     new CImage("overlay-sleeping-sunburn-arms-up.png", ImageType.UV)
                 }
-            },
+            }
         };
         public static readonly Dictionary<int, List<CImage>> LIGHT_IMAGES = new Dictionary<int, List<CImage>>()
         {
@@ -451,6 +514,54 @@ namespace JetBanjo.Utils
         public static readonly Dictionary<int, List<CImage>> VOC_IMAGES = new Dictionary<int, List<CImage>>()
         {
             {
+                2, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+            {
+                2 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+            {
+                2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+            {
+                2 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+            {
+                3, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+            {
+                3 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
+                {
+                    new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
+                }
+            },
+                        {
                 4, new List<CImage>()
                 {
                     new CImage("overlay-lesser-greenfog.png", ImageType.VOC)
@@ -510,73 +621,73 @@ namespace JetBanjo.Utils
             {
                 1 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Character)
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 1 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Character)
+                    new CImage("child-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 1 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Character)
+                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
                 }
             },
             {
                 2, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 2 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 2 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 3, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 3 + IMAGE_OFFSET_SLEEPING, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 3 + IMAGE_OFFSET_NOISE, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 3 + IMAGE_OFFSET_SLEEPING_NOISE, new List<CImage>()
                 {
-                    new CImage("child-sleeping-arms-down.png", ImageType.Arms)
+                    new CImage("child-sleeping-arms-up.png", ImageType.Arms)
                 }
             },
             {
                 4, new List<CImage>()
                 {
-                    new CImage("child-arms-down.png", ImageType.Arms)
+                    new CImage("child-arms-up.png", ImageType.Arms)
                 }
             },
             {
@@ -661,6 +772,12 @@ namespace JetBanjo.Utils
         public static readonly Dictionary<int, CImage> CO2_ICONS = new Dictionary<int, CImage>()
         {
             {
+                2, new CImage("JetBanjo.Resources.Icons.Icon-Co2.png", ImageType.Other)
+            },
+            { 
+                3, new CImage("JetBanjo.Resources.Icons.Icon-Co2.png", ImageType.Other)
+            },
+            {
                 4, new CImage("JetBanjo.Resources.Icons.Icon-Co2.png", ImageType.Other)
             },
             {
@@ -669,6 +786,12 @@ namespace JetBanjo.Utils
         };
         public static readonly Dictionary<int, CImage> VOC_ICONS = new Dictionary<int, CImage>()
         {
+            {
+                2, new CImage("JetBanjo.Resources.Icons.Icon-VOC.png", ImageType.Other)
+            },
+            {
+                3, new CImage("JetBanjo.Resources.Icons.Icon-VOC.png", ImageType.Other)
+            },
             {
                 4, new CImage("JetBanjo.Resources.Icons.Icon-VOC.png", ImageType.Other)
             },
@@ -688,6 +811,12 @@ namespace JetBanjo.Utils
         public static readonly Dictionary<int, CImage> UV_ICONS = new Dictionary<int, CImage>()
         {
             {
+                2, new CImage("JetBanjo.Resources.Icons.Icon-UV.png", ImageType.Other)
+            },
+            {
+                3, new CImage("JetBanjo.Resources.Icons.Icon-UV.png", ImageType.Other)
+            },
+            {
                 4, new CImage("JetBanjo.Resources.Icons.Icon-UV.png", ImageType.Other)
             },
             {
@@ -696,6 +825,12 @@ namespace JetBanjo.Utils
         };
         public static readonly Dictionary<int, CImage> NOISE_ICONS = new Dictionary<int, CImage>()
         {
+            {
+                2, new CImage("JetBanjo.Resources.Icons.Icon-Noise.png", ImageType.Other)
+            },
+            {
+                3, new CImage("JetBanjo.Resources.Icons.Icon-Noise.png", ImageType.Other)
+            },
             {
                 4, new CImage("JetBanjo.Resources.Icons.Icon-Noise.png", ImageType.Other)
             },

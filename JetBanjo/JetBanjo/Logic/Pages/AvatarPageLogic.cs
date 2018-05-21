@@ -47,7 +47,7 @@ namespace JetBanjo.Logic.Pages
                 int vocClass = Classifier.Classify(sensorData.VOC, Constants.VOC_RANGES);
 
                 //Determine if the classifications indicate that the child should be sleeping or holding up hands.
-                if (noiseClass == 4)
+                if (noiseClass == 2 || noiseClass == 3 || noiseClass == 4)
                     highNoise = true;
                 if (co2Class == 5)
                     highCO2 = true;

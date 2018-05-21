@@ -132,6 +132,8 @@ namespace JetBanjo.Logic.Pages
                         image = Constants.CO2_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
+                            case 2:
+                            case 3:
                             case 4:
                                 text = AppResources.issue_co2_soft;
                                 break;
@@ -149,9 +151,11 @@ namespace JetBanjo.Logic.Pages
                         image = Constants.UV_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
-                            case 4:
+                            case 2:
+                            case 3:
                                 text = AppResources.issue_uv_what;
                                 break;
+                            case 4:
                             case 5:
                                 text = AppResources.issue_uv_what;
                                 break;
@@ -183,6 +187,8 @@ namespace JetBanjo.Logic.Pages
                         image = Constants.NOISE_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
+                            case 2:
+                            case 3:
                             case 4:
                                 text = AppResources.issue_noise;
                                 break;
@@ -200,9 +206,11 @@ namespace JetBanjo.Logic.Pages
                         image = Constants.VOC_ICONS[classification]?.GetImage();
                         switch (classification)
                         {
-                            case 4:
+                            case 2:
+                            case 3:
                                 text = AppResources.issue_voc;
                                 break;
+                            case 4:
                             case 5:
                                 text = AppResources.issue_voc;
                                 break;
